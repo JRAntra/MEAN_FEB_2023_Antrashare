@@ -1,14 +1,18 @@
-.example-button-row {
+$theme-color: rgb(135, 8, 161);
+
+%flex-property {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
+.example-button-row {
+  @extend %flex-property;
+}
 .example-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @extend %flex-property;
+
   min-width: 15%;
   max-width: 90%;
   margin: 5%;
@@ -18,17 +22,20 @@
 .example-full-width {
   width: 100%;
 }
+.main-container {
+  @extend %flex-property;
+display: none;
 
+  height: 100%;
+}
 .register-btn {
   width: 90%;
-  background-color: rgb(135, 8, 161);
+  background-color: $theme-color;
   color: white;
   margin: 5%;
 }
 .root-register {
-  display: none;
-  margin: 0 auto;
-  border: 1px solid purple;
+  border: 1px solid $theme-color;
   width: 40%;
   height: 60%;
 }

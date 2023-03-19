@@ -1,6 +1,16 @@
+$theme-color: rgb(135, 8, 161);
+
+%flex-property {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 a {
-  color: rgb(135, 8, 161);
+  color: $theme-color;
   font-size: small;
+  text-decoration: underline;
 }
 .agreement {
   display: flex;
@@ -10,51 +20,46 @@ a {
 }
 
 .antra-logo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 15%;
+  @extend %flex-property;
+  margin: 5%;
+  height: 40%;
+  text-align: center;
 }
 .example-button-row {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @extend %flex-property;
 }
 .example-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @extend %flex-property;
+
   min-width: 15%;
   max-width: 90%;
   width: 100%;
   padding-left: 5%;
+  .example-full-width {
+    width: 100%;
+  }
 }
 
-.example-full-width {
-  width: 100%;
-}
 .login-btn {
   width: 90%;
-  background-color: rgb(135, 8, 161);
+  background-color: $theme-color;
   color: white;
   margin: 5%;
 }
 
+.main-container {
+  @extend %flex-property;
+  height: 100%;
+}
+
 .register {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @extend %flex-property;
+
   width: 100%;
 }
 
 .root-container {
-  display: block;
-  margin:  auto;
-  border: 1px solid purple;
+  border: 2px solid $theme-color;
   width: 40%;
-  height: 80%;
+  height: 90%;
 }
