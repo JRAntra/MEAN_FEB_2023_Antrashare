@@ -1,0 +1,65 @@
+$theme-color: rgb(135, 8, 161);
+
+%flex-property {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  color: $theme-color;
+  font-size: small;
+  text-decoration: underline;
+}
+.agreement {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 5%;
+}
+
+.antra-logo {
+  @extend %flex-property;
+  margin: 5%;
+  height: 40%;
+  text-align: center;
+}
+.example-button-row {
+  @extend %flex-property;
+}
+.example-form {
+  @extend %flex-property;
+
+  min-width: 15%;
+  max-width: 90%;
+  width: 100%;
+  padding-left: 5%;
+  .example-full-width {
+    width: 100%;
+  }
+}
+
+.login-btn {
+  width: 90%;
+  background-color: $theme-color;
+  color: white;
+  margin: 5%;
+}
+
+.main-container {
+  @extend %flex-property;
+  height: 100%;
+}
+
+.register {
+  @extend %flex-property;
+
+  width: 100%;
+}
+
+.root-container {
+  border: 2px solid $theme-color;
+  width: 40%;
+  height: 90%;
+}
