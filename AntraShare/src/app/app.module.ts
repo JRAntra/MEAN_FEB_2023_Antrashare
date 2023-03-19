@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PageFModule } from './feature/page-f/page-f.module';
 
 import { SettingPageModule } from './feature/setting-page.module';
 
@@ -20,10 +21,13 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    PageFModule
+
     SettingPageModule
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule, MatCheckboxModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],
