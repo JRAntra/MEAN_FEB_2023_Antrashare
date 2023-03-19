@@ -1,0 +1,66 @@
+/* Reset some default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  /* Style the settings panel */
+  .settings-panel {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 200px;
+    padding: 20px;
+    text-align: center;
+  }
+   
+  /* Style the logout button */
+  .logout-button {
+    background-color: #d9534f;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    margin: 20px auto;
+    padding: 10px 20px;
+  }
+  
+  .logout-button:hover {
+    background-color: #c9302c;
+  }
+  
+  /* Style the bottom nav */
+  .bottom-nav {
+    background-color: #eee;
+    bottom: 0;
+    display: flex;
+    position: fixed;
+    width: 100%;
+  }
+  
+  .bottom-nav a, span {
+    color: #555;
+    display: inline-block;
+    flex-grow: 1;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .head-bar {
+    background-color: #555;
+    top: 0;
+    position: fixed;
+    width: 100%;
+  }
+  
