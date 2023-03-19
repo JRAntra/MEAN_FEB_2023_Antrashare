@@ -1,0 +1,60 @@
+a {
+  color: rgb(135, 8, 161);
+  font-size: small;
+}
+.agreement {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 5%;
+}
+
+.antra-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15%;
+}
+.example-button-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.example-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 15%;
+  max-width: 90%;
+  width: 100%;
+  padding-left: 5%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.login-btn {
+  width: 90%;
+  background-color: rgb(135, 8, 161);
+  color: white;
+  margin: 5%;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.root-container {
+  display: block;
+  margin:  auto;
+  border: 1px solid purple;
+  width: 40%;
+  height: 80%;
+}
