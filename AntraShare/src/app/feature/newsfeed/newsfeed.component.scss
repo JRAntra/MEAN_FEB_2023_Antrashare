@@ -1,0 +1,27 @@
+.main{
+    // min-height: 90vh;
+    position: relative;
+    padding: 1rem 35%;
+}
+.post-newfeed-form{
+    display: flex;
+    flex-direction: column;
+    button{
+        background-color: #4CAF50;
+        color: white;
+        height: 15%;
+    }
+}
+.mat-form-field{
+    width:100%;
+}
+.newsfeed{
+    margin-top: 1rem;
+}
+.like-list{
+    padding: 0.5rem 1rem;
+    position: sticky;
+    float: right;
+    margin-right: -90%;
+    top: 5%;
+}

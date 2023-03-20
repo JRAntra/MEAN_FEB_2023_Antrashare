@@ -34,12 +34,13 @@ $AntraShare-theme: mat.define-light-theme((
 @include mat.all-component-themes($AntraShare-theme);
 
 /* You can add global styles to this file, and also import other style files */
-
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
+
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,

@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NewsfeedModule } from './feature/newsfeed/newsfeed.module';
+
 import { PageFModule } from './feature/page-f/page-f.module';
 import { ProfileModule } from './feature/profile/profile.module';
 import { SettingPageModule } from './feature/setting-page.module';
@@ -28,7 +30,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule, 
-    MatCheckboxModule
+    MatCheckboxModule,
+    NewsfeedModule
   ],
   providers: [],
   bootstrap: [AppComponent],
