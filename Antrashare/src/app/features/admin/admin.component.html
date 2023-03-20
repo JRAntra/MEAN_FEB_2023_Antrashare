@@ -1,0 +1,94 @@
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+<p-menubar>
+    <button pButton label="Admin"></button>
+</p-menubar>
+
+<!-- <p-splitter [style]="{'min-height': '700px'}" [panelSizes]="[20,80]" styleClass="mb-5">
+    <ng-template pTemplate>
+        <div class="col flex align-items-center justify-content-center">
+            <p-listbox [options]="cities" optionLabel="name" [style]="{'height': '94%','width':'100%'}" [listStyle]="{'min-width':'max'}">
+                <ng-template let-country pTemplate="item">
+                    <div class="country-item">
+                        <div class="text">{{country.name}}</div>
+                        <p-button  (click)="confirm()" icon="pi pi-trash"></p-button>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="footer">
+                </ng-template>
+            </p-listbox>
+            <button class="add-user_btn" pButton pRipple label="Add User Button" icon="pi pi-plus"></button>
+        </div>
+    </ng-template>
+    <ng-template pTemplate>
+        <div class="col flex align-items-center justify-content-center detail">
+            <h2>User Detailed Information</h2>
+            <div class="text">Username :</div><span>test</span>
+            <p-divider></p-divider>
+            <div class="text">Password :</div><span>test</span>
+            <p-divider></p-divider>
+            <div class="text">UserEmail :</div><span>test</span>
+            <p-divider></p-divider>
+            <div class="text">Gender :</div><span>test</span>
+            <p-divider></p-divider>
+            <div class="text">Age :</div><span>test</span>
+            <p-divider></p-divider>
+        </div>
+    </ng-template>
+</p-splitter> -->
+<div class="grid">
+    <div class="col-5 flex align-items-center justify-content-center">
+        <p-listbox [options]="cities" optionLabel="name" [style]="{'height': '94%','width':'100%'}" [listStyle]="{'min-width':'max'}">
+            <ng-template let-country pTemplate="item">
+                <div class="country-item">
+                    <div class="text">{{country.name}}</div>
+                    <p-button  (click)="confirm()" icon="pi pi-trash"></p-button>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="footer">
+            </ng-template>
+        </p-listbox>
+        <button class="add-user_btn" pButton pRipple label="Add User Button" icon="pi pi-plus"></button>
+    </div>
+    <div class="col-5 flex align-items-center justify-content-center detail">
+        <h2>User Detailed Information</h2>
+        <div class="text">Username :</div><span>test</span>
+        <p-divider></p-divider>
+        <div class="text">Password :</div><span>test</span>
+        <p-divider></p-divider>
+        <div class="text">UserEmail :</div><span>test</span>
+        <p-divider></p-divider>
+        <div class="text">Gender :</div><span>test</span>
+        <p-divider></p-divider>
+        <div class="text">Age :</div><span>test</span>
+        <p-divider></p-divider>
+    </div>
+</div>
+
+
+<!-- <span class="p-buttonset">
+    <button pButton pRipple label="My Profile" icon=""></button>
+    <button pButton pRipple label="News Feed" icon=""></button>
+    <button pButton pRipple label="Settings" icon=""></button>
+</span> -->
+
+
+
+<!-- 
+<p-virtualScroller [itemSize]="150">
+    <ng-template pTemplate="footer">
+        <span class="p-buttonset">
+            <button pButton pRipple label="Save" icon="pi pi-check"></button>
+            <button pButton pRipple label="Delete" icon="pi pi-trash"></button>
+            <button pButton pRipple label="Cancel" icon="pi pi-times"></button>
+        </span>
+    </ng-template>
+</p-virtualScroller> -->
+<!-- <p-tabView styleClass="tabview-custom">
+    <p-tabPanel header="My Profile"></p-tabPanel>
+    <p-tabPanel header="News Feed"></p-tabPanel>
+    <p-tabPanel header="Settings"></p-tabPanel>
+</p-tabView> -->
+
+<p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+
+

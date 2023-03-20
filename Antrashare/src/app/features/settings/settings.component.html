@@ -1,0 +1,70 @@
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+
+<p-menubar>    
+    <p-sidebar [(visible)]="visibleSidebar2" position="right" [baseZIndex]="10000">
+        <h3>Right Sidebar</h3>
+    </p-sidebar>
+    <p-button type="button" class="mr-2" (click)="visibleSidebar2 = true"  label="Liked List"></p-button>
+</p-menubar>
+
+<div class="main">
+    <h2>User Detailed Information</h2>
+    <div class="col-5 flex align-items-center justify-content-center detail">
+        <div class="text">Username :</div>
+        <input pInputText type="text">
+            test
+        <div class=" align-items-center justify-content-center gap-2 actions">
+            <button  pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
+            <button  pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"  class="p-button-rounded p-button-text p-button-success mr-2"></button>
+            <button  pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"  class="p-button-rounded p-button-text p-button-danger"></button>
+        </div>
+        <p-divider></p-divider>
+        <div class="text">Password :</div>
+        <input pInputText type="text">
+        test
+        <div class=" align-items-center justify-content-center gap-2 actions">
+            <button  pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
+            <button  pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"  class="p-button-rounded p-button-text p-button-success mr-2"></button>
+            <button  pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"  class="p-button-rounded p-button-text p-button-danger"></button>
+        </div>
+        <p-divider></p-divider>
+        <div class="text">UserEmail :</div>
+        <input pInputText type="text">
+        test
+        <div class=" align-items-center justify-content-center gap-2 actions">
+            <button  pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
+            <button  pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"  class="p-button-rounded p-button-text p-button-success mr-2"></button>
+            <button  pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"  class="p-button-rounded p-button-text p-button-danger"></button>
+        </div>
+        <p-divider></p-divider>
+        <div class="text">Gender :</div>
+        <input pInputText type="text">
+        test
+        <div class=" align-items-center justify-content-center gap-2 actions">
+            <button  pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
+            <button  pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"  class="p-button-rounded p-button-text p-button-success mr-2"></button>
+            <button  pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"  class="p-button-rounded p-button-text p-button-danger"></button>
+        </div>
+        <p-divider></p-divider>
+        <div class="text">Age :</div>
+        <input pInputText type="text">
+        test
+        <div class=" align-items-center justify-content-center gap-2 actions">
+            <button  pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
+            <button  pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"  class="p-button-rounded p-button-text p-button-success mr-2"></button>
+            <button  pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"  class="p-button-rounded p-button-text p-button-danger"></button>
+        </div>
+        <p-divider></p-divider>
+    </div>
+    <div class="log-out_btn">
+        <p-button (click)="confirm()" label="Log Out" styleClass="mr-2"></p-button>
+    </div>
+</div>
+
+
+<div class="p-buttonset">
+    <button pButton pRipple label="My Profile" icon=""></button>
+    <button pButton pRipple label="News Feed" icon=""></button>
+    <button pButton pRipple label="Settings" icon=""></button>
+</div>
+
