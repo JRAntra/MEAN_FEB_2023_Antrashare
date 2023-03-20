@@ -1,134 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="login-form">
+    <div class="antrashare-logo">
+        <img src="../../../assets/antra_logo.png" id="antrashare-logo" alt="login-image">
+        <h3>AntraShare</h3>
+    </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-    <style>
-        .login-form {
-            position: absolute;
-            top: 25%;
-            left: 25%;
-            border: .1rem solid black;
-            width: 50%;
-            height: 60%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+    <div class="login-credential">
+        <label for="user-email" id="user-email">User Email</label><br>
+        <input type="email" matInput placeholder="Ex. pat@example.com">
+        <input type="password" placeholder="Password">
+        <button mat-flat-button id="login-btn">Login</button>
+    </div>
 
-        /* logo */
-        #antrashare-logo {
-            margin: 1rem auto -3rem auto;
-        }
+    <div class="new-user">
+        <button class="profile" routerLink=".">No Accounts? Register Now!</button>
+    </div>
 
-        h3 {
-            font-family: fantasy;
-            font-size: x-large;
-            color: rgb(35, 56, 143);
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 1rem;
-            position: relative;
-            bottom: 1rem;
-        }
+    <div class="agreement-help">
+        <section class="example-section">
+            <mat-checkbox class="example-margin agreement" formControlName="agreement">Agreement</mat-checkbox>
+        </section>
 
-        /* input */
-        .login-credential {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            top: -1rem;
-        }
-
-        #user-email {
-            font-size: small;
-            margin: 0 3rem -1.7rem -8rem;
-            z-index: 1;
-        }
-
-        input {
-            padding: .3rem;
-            margin: .7rem 3rem;
-            width: 95%;
-            border: .1rem solid gray;
-            border-radius: .3rem;
-        }
-
-        /* login btn */
-        #login-btn {
-            background-color: rgb(84, 45, 155);
-            color: white;
-            font-size: small;
-            padding: .3rem 0;
-            margin: .7rem auto 0 auto;
-            width: 95%;
-            border: none;
-            border-radius: .3rem;
-        }
-
-        /* register */
-        .new-user {
-            margin: -.3rem auto 0.7rem auto;
-        }
-
-        /* agreement */
-        .agreement-help {
-            display: flex;
-            flex-direction: row;
-            margin: -1rem auto auto auto;
-        }
-
-        .agreement {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-
-        .need-help {
-            margin: auto auto auto 6rem;
-        }
-
-        a {
-            display: inline-block;
-            font-size: small;
-            padding: 0;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="login-form">
-        <div class="antrashare-logo">
-            <img src="../../../assets/antra_logo.png" id="antrashare-logo" alt="login-image">
-            <h3>AntraShare</h3>
-        </div>
-
-        <div class="login-credential">
-            <label for="user-email" id="user-email">User Email</label><br>
-            <input type="email" matInput placeholder="Ex. pat@example.com">
-            <input type="password" placeholder="Password">
-            <button mat-flat-button id="login-btn">Login</button>
-        </div>
-
-        <div class="new-user">
-            <a mat-button href="#" target="_blank">No Accounts? Register Now!</a>
-        </div>
-
-        <div class="agreement-help">
-            <section class="agreement">
-                <mat-checkbox class="agreement">Agreement</mat-checkbox>
-            </section>
-
-            <div class="need-help">
-                <a mat-button href="#" target="_blank">Need Help?</a>
-            </div>
+        <div class="need-help">
+            <button class="help" routerLink=".">Need Help?</button>
         </div>
     </div>
-</body>
-
-</html>
+</div>

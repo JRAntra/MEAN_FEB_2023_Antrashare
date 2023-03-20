@@ -1,184 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>My Profile</title>
-    <style>
-        * {
-            font-family: Arial, Helvetica, sans-serif;
-            color: black;
-            margin: 0;
-        }
-
-        /* like list header */
-        .like-list {
-            width: 100%;
-            height: 3rem;
-            background-color: rgb(206, 227, 226);
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .like-list p {
-            font-size: large;
-            padding: 1rem;
-        }
-
-        /* profile */
-        .profile {
-            width: 100%;
-            height: 80%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: auto;
-        }
-
-        /* avatar */
-        .avatar-username-email {
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            width: 70%;
-        }
-
-        .avatar {
-            width: 7rem;
-            height: 7rem;
-            border-radius: 50%;
-            background-color: lightgray;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 2rem;
-        }
-
-        /* info */
-        .short-box {
-            border: none;
-            width: 30%;
-            height: 3rem;
-            background-color: lightgray;
-            border-radius: 0;
-        }
-
-        .long-box {
-            display: block;
-            width: 70%;
-            margin: .7rem auto;
-            padding: .7rem;
-            border: none;
-            background-color: lightgray;
-            border-radius: 0;
-        }
-
-        /* icon and amount */
-        .postAmount {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-        }
-
-        /* icon */
-        .post,
-        .like {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin: .5rem 2rem;
-        }
-
-        /* nav */
-        .nav {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .nav ul {
-            display: flex;
-            justify-content: space-between;
-            list-style: none;
-            padding: 0;
-        }
-
-        .nav li {
-            text-align: center;
-            width: 33.3%;
-        }
-
-        a {
-            text-decoration: none;
-            display: block;
-            padding: 1rem 0;
-            border: .1rem solid black;
-            background-color: lightgray;
-        }
-    </style>
-</head>
-
-<body>
-    <mat-expansion-panel class="like-list">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                Like List
-            </mat-panel-title>
-        </mat-expansion-panel-header>
-        <!-- <p>First Like</p>
+<mat-expansion-panel class="like-list">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Like List
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <!-- <p>First Like</p>
         <p>Second Like</p> -->
-    </mat-expansion-panel>
+</mat-expansion-panel>
 
-    <div class="profile">
-        <div class="avatar-username-email">
-            <div class="avatar">
-                <mat-card class="avatar-image">
-                    <img mat-card-image src="#" alt="Avatar">
-                </mat-card>
-            </div>
-
-            <input type="text" id="username" class="short-box" placeholder="User Name">
-            <mat-card id="email" class="short-box">
-                <mat-card-content>Email</mat-card-content>
+<div class="profile">
+    <div class="avatar-username-email">
+        <div class="avatar">
+            <mat-card class="avatar-image">
+                <img mat-card-image src="#" alt="Avatar">
             </mat-card>
         </div>
 
-        <input type="password" id="password" class="long-box" placeholder="Password" autocomplete="new-password">
-        <select id="gender" class="long-box">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
-        <input type="number" id="age" class="long-box" placeholder="Age">
-        <mat-card id="email" class="long-box">
+        <input type="text" id="username" class="short-box" placeholder="User Name">
+        <mat-card id="email" class="short-box">
             <mat-card-content>Email</mat-card-content>
         </mat-card>
-        <input type="number" id="phone" class="long-box" placeholder="Phone">
+    </div>
 
-        <div class="postAmount">
-            <div class="post">
-                <mat-icon>post_add</mat-icon>
-                <p>Amount of Posts</p>
-            </div>
+    <input type="password" id="password" class="long-box" placeholder="Password" autocomplete="new-password">
+    <select id="gender" class="long-box">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    <input type="number" id="age" class="long-box" placeholder="Age">
+    <mat-card id="email" class="long-box">
+        <mat-card-content>Email</mat-card-content>
+    </mat-card>
+    <input type="number" id="phone" class="long-box" placeholder="Phone">
 
-            <div class="like">
-                <mat-icon>favorite</mat-icon>
-                <p>Amount of Likes</p>
-            </div>
+    <div class="postAmount">
+        <div class="post">
+            <mat-icon>post_add</mat-icon>
+            <p>Amount of Posts</p>
+        </div>
+
+        <div class="like">
+            <mat-icon>favorite</mat-icon>
+            <p>Amount of Likes</p>
         </div>
     </div>
-
-    <div class="nav">
-        <ul>
-            <li><a href="#">My Profile</a></li>
-            <li><a href="#">News Feed</a></li>
-            <li><a href="#">Settings</a></li>
-        </ul>
-    </div>
-</body>
-
-</html>
+</div>
