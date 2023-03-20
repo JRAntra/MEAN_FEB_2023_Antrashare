@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<main class="main">
+    <button class="like-list" mat-raised-button color="accent">Like List</button>
+    <div class="post-newfeed-form">
+        <h1>Post Your Newsfeed Below</h1>
+        <mat-form-field appearance="fill">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="title">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Content</mat-label>
+            <textarea matInput placeholder="content..."></textarea>
+          </mat-form-field>
+          <button mat-button focusable="false" (click)="0">Submit</button>
+    </div>
+    <div class="newsfeed">
+        <mat-card *ngFor="let nf of newsfeed; let i = index" id={{i}}>
+            <mat-card-title>{{nf.title}}</mat-card-title>
+            <mat-card-content>{{nf.content}}</mat-card-content>
+        </mat-card>
+    </div>
+</main>
+<app-content></app-content>
