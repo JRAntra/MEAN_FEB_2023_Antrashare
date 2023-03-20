@@ -16,6 +16,8 @@
 
         /* like list header */
         .like-list {
+            width: 100%;
+            height: 3rem;
             background-color: rgb(206, 227, 226);
             display: flex;
             justify-content: flex-end;
@@ -42,7 +44,7 @@
             width: 100%;
             display: flex;
             flex-direction: row;
-            align-items: baseline;
+            align-items: center;
             width: 70%;
         }
 
@@ -63,6 +65,7 @@
             width: 30%;
             height: 3rem;
             background-color: lightgray;
+            border-radius: 0;
         }
 
         .long-box {
@@ -72,13 +75,13 @@
             padding: .7rem;
             border: none;
             background-color: lightgray;
+            border-radius: 0;
         }
 
         /* icon and amount */
         .postAmount {
             display: flex;
             flex-direction: row;
-            /* width: 100%; */
             justify-content: center;
         }
 
@@ -121,19 +124,28 @@
 </head>
 
 <body>
-    <div class="like-list">
-        <p>Like List</p>
-    </div>
+    <mat-expansion-panel class="like-list">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Like List
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <!-- <p>First Like</p>
+        <p>Second Like</p> -->
+    </mat-expansion-panel>
 
     <div class="profile">
         <div class="avatar-username-email">
             <div class="avatar">
-                <div class="avatar-content">
-                    <p>Avatar</p>
-                </div>
+                <mat-card class="avatar-image">
+                    <img mat-card-image src="#" alt="Avatar">
+                </mat-card>
             </div>
+
             <input type="text" id="username" class="short-box" placeholder="User Name">
-            <input type="email" id="user-email" class="short-box" placeholder="Email" readonly>
+            <mat-card id="email" class="short-box">
+                <mat-card-content>Email</mat-card-content>
+            </mat-card>
         </div>
 
         <input type="password" id="password" class="long-box" placeholder="Password" autocomplete="new-password">
@@ -141,9 +153,10 @@
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select>
-        <input type="text" id="gender" class="long-box" placeholder="Gender">
         <input type="number" id="age" class="long-box" placeholder="Age">
-        <input type="email" id="email" class="long-box" placeholder="Email" readonly>
+        <mat-card id="email" class="long-box">
+            <mat-card-content>Email</mat-card-content>
+        </mat-card>
         <input type="number" id="phone" class="long-box" placeholder="Phone">
 
         <div class="postAmount">
