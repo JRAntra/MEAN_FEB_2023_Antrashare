@@ -1,0 +1,18 @@
+<p-header></p-header>
+<p-tabMenu [model]="items"></p-tabMenu>
+
+<div class="flex_container">
+    <p-avatar label="I" size="xlarge"></p-avatar> 
+    <p-listbox [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-listbox>
+</div>
+
+<div class="flex_container">
+    <p><i class="pi pi-comment" style="font-size: 2rem"></i>Amount of Posts</p>
+    <p><i class="pi pi-heart" style="font-size: 2rem"></i>Amount of Likes</p>
+</div>
+
+<div class="bottom">
+    <p-tabMenu [model]="bottoms"></p-tabMenu>
+</div>
+
+
