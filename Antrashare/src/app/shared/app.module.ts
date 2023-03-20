@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from '../features/login/login.module';
 import { MyProfileModule } from '../features/my-profile/my-profile.module';
-import { NewsfeedComponent } from '../features/newsfeed/newsfeed.component';
-import { RegisterComponent } from '../features/register/register.component';
+import { NewsfeedModule } from '../features/newsfeed/newsfeed.module';
+import { RegisterModule } from '../features/register/register.module';
 
 @NgModule({
   declarations: [
@@ -17,8 +17,8 @@ import { RegisterComponent } from '../features/register/register.component';
     AppRoutingModule,
     LoginModule,
     MyProfileModule,
-    NewsfeedComponent,
-    RegisterComponent
+    NewsfeedModule,
+    RegisterModule
 
   ],
   providers: [],
