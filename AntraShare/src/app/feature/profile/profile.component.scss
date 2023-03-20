@@ -1,0 +1,83 @@
+$header-bg-color: #70B77E;
+
+
+.profile-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    h1{
+        font-size: 2rem;
+    }
+}
+.header{
+    position: absolute;
+    top:calc(0);
+    background-color: $header-bg-color;
+    height: 7vh;
+    width: 100%;
+    .like-list{
+        position: relative;
+        left:80%;
+        top:25%;
+    }
+}
+.profile{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 5vh 0;
+    width: 50%;
+
+}
+.mat-form-field{
+    width: 100%;
+}
+.username-avatar-container{
+    margin-top: 11%;
+    .mat-form-field{
+        width: 80%;
+        margin-left: 20%;
+    }
+}
+.form-control{
+    position: relative;
+    button{
+        position: absolute;
+        right:0;
+        top:10px;
+        width: 3rem;
+        height: 3rem;
+        border: none;
+    }
+}
+.avatar{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-color: grey;
+    border-radius: 50%;
+    top:10%;
+    left:27%;
+}
+.icon-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    gap:1rem;
+    .post,.like{
+        display: flex;
+        align-items: center;
+        gap:1rem;
+
+    }
+}
+.icon{
+    width: 10rem;
+    height: 10rem;
+    background-color: grey;
+}

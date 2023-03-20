@@ -26,12 +26,16 @@
     "@angular/core": "^14.1.0",
     "@angular/forms": "^14.1.0",
 
-    "@angular/material": "^13.3.9", //Louis
+   // "@angular/material": "^7.0.0", Dan
+
+
+    //"@angular/material": "^13.3.9", Louis
 
 
     //"@angular/material": "^7.3.7", Alex version
 
     "@angular/material": "^14.1.3",
+
 
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
