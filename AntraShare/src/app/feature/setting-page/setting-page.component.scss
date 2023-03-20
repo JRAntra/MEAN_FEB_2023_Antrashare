@@ -38,25 +38,6 @@
     background-color: #c9302c;
   }
   
-  /* Style the bottom nav */
-  .bottom-nav {
-    background-color: #eee;
-    bottom: 0;
-    display: flex;
-    position: fixed;
-    width: 100%;
-  }
-  
-  .bottom-nav a, span {
-    color: #555;
-    display: inline-block;
-    flex-grow: 1;
-    font-size: 16px;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-  }
-
   .head-bar {
     background-color: #555;
     top: 0;
