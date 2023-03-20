@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="news-feed.component.sass">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>News Feed</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            float: right;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        nav ul li:first-child {
+            margin-left: 0;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Style the story container */
+        .story-container {
+            display: block;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+            margin: 0 auto;
+
+        }
+
+        .story {
+            background-color: #f2f2f2;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .story-content {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .story-content p {
+            font-size: 24px;
+        }
+
+        .like-icon {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        /* Style the footer nav bar */
+        footer {
+            background-color: #333;
+            color: #fff;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 20px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        footer ul li {
+            margin-left: 20px;
+        }
+
+        footer ul li:first-child {
+            margin-left: 0;
+        }
+
+        footer ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer ul li a:before {
+            content: "|";
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Liked List</a></li>
+        </ul>
+    </nav>
+
+    <div class="story-container">
+        <div class="story">
+            <div class="story-content">
+                <p>Story</p>
+            </div>
+            <div class="like-icon">
+                <button class="fa fa-thumbs-up"><i></i></button>
+            </div>
+        </div>
+
+        <div class="story">
+            <div class="story-content">
+                <p>Story</p>
+            </div>
+            <div class="like-icon">
+                <button class="fa fa-thumbs-up"><i></i></button>
+            </div>
+        </div>
+
+        <div class="story">
+            <div class="story-content">
+                <p>Story</p>
+            </div>
+            <div class="like-icon">
+                <button class="fa fa-thumbs-up"><i></i></button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="#">My Profile</a></li>
+                <li><a href="#">News Feed</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+
+</html>
