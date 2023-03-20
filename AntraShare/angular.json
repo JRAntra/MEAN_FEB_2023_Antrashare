@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -96,6 +97,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -105,6 +107,14 @@
     }
   },
   "cli": {
-    "analytics": false
+
+    //"analytics": false Dan
+
+
+    //"analytics": "2df89d54-9c19-49ce-a846-2eef86a71462" Louis 
+
+    "analytics": "38e6e174-af08-4f6e-9c1f-9616d76c1530"
+    //"analytics": false
+
   }
 }
