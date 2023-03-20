@@ -5,33 +5,31 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewsfeedModule } from './feature/newsfeed/newsfeed.module';
 
-import { PageFModule } from './feature/page-f/page-f.module';
 import { ProfileModule } from './feature/profile/profile.module';
 import { SettingPageModule } from './feature/setting-page.module';
 
-import { LoginComponent } from './feature/login/login/login.component';
-import { RegisterComponent } from './feature/register/register/register.component';
+// import { LoginComponent } from './feature/login/login/login.component';
+// import { RegisterComponent } from './feature/register/register/register.component';
+// import { AngularMaterialModule } from './share/angular-material/angular-material.module';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule, } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-
-
+import { NavbarComponent } from './feature/navbar/navbar.component';
+import { AdminModule } from './feature/admin/admin.module';
+import { LoginModule } from './feature/login/login.module';
+import { RegisterModule } from './feature/register/register.module';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent],
+  declarations: [AppComponent, 
+   NavbarComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PageFModule,
+    AdminModule,
     ProfileModule,
     SettingPageModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatButtonModule, 
-    MatCheckboxModule,
-    NewsfeedModule
+    NewsfeedModule,
+    LoginModule,
+    RegisterModule
   ],
   providers: [],
   bootstrap: [AppComponent],

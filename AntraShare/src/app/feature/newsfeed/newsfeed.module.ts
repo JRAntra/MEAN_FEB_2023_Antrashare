@@ -1,19 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewsfeedComponent } from './newsfeed.component';
-import { NavbarComponent } from '../navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import {
-  MatDatepickerModule,
-  MatInputModule,
-  MatFormFieldModule,
-  MatCardModule,
-} from '@angular/material';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule} from '@angular/material/form-field'
+import {MatCardModule}   from '@angular/material/card';
 import { ContentComponent } from './content/content.component';
 
 @NgModule({
-  declarations: [NewsfeedComponent, NavbarComponent, ContentComponent],
+  declarations: [NewsfeedComponent, ContentComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -23,6 +20,6 @@ import { ContentComponent } from './content/content.component';
     MatFormFieldModule,
     MatCardModule,
   ],
-  exports: [NewsfeedComponent, NavbarComponent],
+  exports: [NewsfeedComponent],
 })
 export class NewsfeedModule {}
