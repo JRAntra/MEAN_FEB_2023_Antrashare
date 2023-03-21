@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,13 +12,13 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  NaviToSetting(){
+  NaviToSetting() {
     this.router.navigateByUrl("/setting")
   }
-  NavitoNewsfeed(){
+  NavitoNewsfeed() {
     this.router.navigateByUrl("/newsfeed")
   }
-  NavitoMyProfile(){
+  NavitoMyProfile() {
     this.router.navigateByUrl("myprofile")
   }
 

@@ -12,4 +12,5 @@ export class MyProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isExpanded: boolean = false; // define isExpanded property as false by default
 }

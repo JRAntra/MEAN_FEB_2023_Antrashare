@@ -12,8 +12,10 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
 import { NavBarModule } from 'src/app/features/nav-bar/nav-bar.module';
-import {MatToolbarModule} from '@angular/material/toolbar'
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar'
 
 
 @NgModule({
@@ -30,8 +32,10 @@ import {MatToolbarModule} from '@angular/material/toolbar'
     MatFormFieldModule,
     MatSelectModule,
     MatIconModule,
+    MatBadgeModule,
     MatButtonModule,
     NavBarModule,
+    MatTabsModule,
     MatToolbarModule,
   ],
   exports: [
@@ -45,6 +49,7 @@ import {MatToolbarModule} from '@angular/material/toolbar'
     MatFormFieldModule,
     MatSelectModule,
     MatIconModule,
+    MatBadgeModule,
     MatButtonModule,
     NavBarModule,
     MatToolbarModule,

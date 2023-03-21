@@ -10,7 +10,7 @@
 }
 
 #antrashare-logo {
-  margin: 1rem auto -3rem auto;
+  margin: 1.5rem auto -3rem auto;
 }
 
 h3 {
@@ -28,62 +28,27 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  top: -1rem;
-}
-
-#user-email {
-  font-size: small;
-  margin: 0 3rem -1.7rem -8rem;
-  z-index: 1;
-}
-
-.login-credential input {
-  padding: 0.3rem;
-  margin: 0.7rem 3rem;
-  width: 95%;
-  border: 0.1rem solid gray;
-  border-radius: 0.3rem;
 }
 
 #login-btn {
-  background-color: rgb(84, 45, 155);
-  color: white;
-  font-size: small;
-  padding: 0.3rem 0;
-  margin: 0.7rem auto 0 auto;
-  width: 95%;
-  border: none;
-  border-radius: 0.3rem;
-  cursor: pointer;
+  padding: 0.1rem 0;
+  margin: 0.5rem auto 0 auto;
+  width: 100%;
 }
 
 .new-user {
-  margin: -0.3rem auto 0.7rem auto;
+  margin: 0.5rem auto 0.5rem auto;
 }
 
 .agreement-help {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: -0.7rem auto 1rem auto;
+  margin-bottom: 1rem;
 }
 
 #agreement {
   display: flex;
   flex-direction: row;
   margin: auto 3rem auto 0.5rem;
-}
-
-.help {
-  margin: auto 0 auto 3rem;
-}
-
-.profile, .help {
-  border: none;
-  background-color: transparent;
-  font-size: small;
-  padding: 0;
-  margin: 0.7rem;
-  cursor: pointer;
 }/*# sourceMappingURL=login.component.css.map */

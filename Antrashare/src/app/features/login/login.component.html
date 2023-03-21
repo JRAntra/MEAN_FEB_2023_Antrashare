@@ -5,23 +5,32 @@
     </div>
 
     <div class="login-credential">
-        <label for="user-email" id="user-email">User Email</label><br>
-        <input type="email" matInput placeholder="Ex. pat@example.com">
-        <input type="password" placeholder="Password">
-        <button id="login-btn" routerLink="/newsfeed">Login</button>
+        <mat-form-field>
+            <mat-label>User email</mat-label>
+            <input matInput value="email">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput value="password">
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" id="login-btn" routerLink="/newsfeed">Login</button>
     </div>
 
     <div class="new-user">
-        <button class="profile" routerLink="/register">No Accounts? Register Now!</button>
+        <button mat-button color="primary" class="profile" routerLink="/register">
+            No Accounts? Register Now!
+        </button>
     </div>
 
     <div class="agreement-help">
-        <mat-checkbox id="agreement" value="agreement" color="none">
+        <mat-checkbox color="primary" id="agreement" class="checkbox">
             Agreement
         </mat-checkbox>
 
-        <div class="need-help">
-            <button class="help" routerLink=".">Need Help?</button>
-        </div>
+        <button mat-button color="primary" class="help" routerLink="/register">
+            Need Help?
+        </button>
     </div>
 </div>
