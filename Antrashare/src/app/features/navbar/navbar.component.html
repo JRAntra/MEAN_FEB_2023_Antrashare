@@ -1,11 +1,5 @@
-<!-- <div class="nav">
-    <button  class="nav-myProfile_btn" pButton (click)="onClick()">My Profile</button>
-    <button class="nav-newsFeeds_btn" pButton routerLink="news-feed">News Feed</button>
-    <button class="nav-settings_btn" pButton routerLink="settings">Settings</button>
-</div> -->
-
 <div class="nav p-fluid">
     <p-selectButton [options]="pageOptions" (onOptionClick)="onClick(selectedPage)" [(ngModel)]="selectedPage" optionLabel="name"  
-    [style]="{'width':'98%','position':'fixed','bottom':'0'}">
+    [style]="{'width':'100%','height':'55px','position':'fixed','bottom':'0'}">
     </p-selectButton>
 </div>
