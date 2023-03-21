@@ -11,23 +11,12 @@ import { SettingPageModule } from './feature/setting-page.module';
 import { LoginModule } from './feature/login/login.module';
 import { NavbarModule } from './feature/navbar/navbar.module';
 import { AngularMaterialModule } from './share/angular-material/angular-material.module';
-import { Routes, RouterModule } from '@angular/router';
-import { RegisterComponent } from './feature/register/register/register.component';
-import { ProfileComponent } from './feature/profile/profile.component';
-import { LoginComponent } from './feature/login/login/login.component';
-import { NewsfeedComponent } from './feature/newsfeed/newsfeed.component';
+import { AdminModule } from './feature/admin/admin.module';
 
-const routes: Routes = [
-  { path: '', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'newsfeed', component: NewsfeedComponent },
-  { path: 'profile', component: ProfileComponent },
-];
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    RouterModule.forRoot(routes),
     BrowserModule,
     AppRoutingModule,
     ProfileModule,
@@ -36,8 +25,9 @@ const routes: Routes = [
     AngularMaterialModule,
     LoginModule,
     NavbarModule,
+    AdminModule,
   ],
-  exports: [RouterModule],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent],
 })
