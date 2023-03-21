@@ -1,15 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './feature/login/login/login.component';
-import { NewsfeedComponent } from './feature/newsfeed/newsfeed.component';
-import { ProfileComponent } from './feature/profile/profile.component';
-import { RegisterComponent } from './feature/register/register/register.component';
-import { SettingPageComponent } from './feature/setting-page/setting-page.component';
+import { BrowserModule } from '@angular/platform-browser';
 
-const routes: Routes = [];
+import { ProfileComponent } from './feature/profile/profile.component';
+import { NewsfeedComponent } from './feature/newsfeed/newsfeed.component';
+import { SettingPageComponent } from './feature/setting-page/setting-page.component';
+import { LoginComponent } from './feature/login/login/login.component';
+
+const routes: Routes = [
+  { path: 'profile', component: ProfileComponent},
+  { path: 'news', component: NewsfeedComponent},
+  { path: 'setting', component: SettingPageComponent},
+  { path: 'logIn', component: LoginComponent}
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot([])],
-  exports: [RouterModule]
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(routes)
+  ],
+  exports: [RouterModule
+  ]
 })
 export class AppRoutingModule { }
