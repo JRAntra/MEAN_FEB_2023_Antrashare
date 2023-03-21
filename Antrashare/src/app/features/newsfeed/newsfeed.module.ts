@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MyProfileComponent } from './my-profile.component';
+import { AppRoutingModule } from 'src/app/shared/app-routing.module';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
+import { NewsfeedComponent } from './newsfeed.component';
+
+
 
 @NgModule({
   declarations: [
-    MyProfileComponent
+    NewsfeedComponent
   ],
   imports: [
     CommonModule,
+    AppRoutingModule,
     AngularMaterialModule
   ],
   exports: [
-    MyProfileComponent
+    NewsfeedComponent
   ]
 })
-export class MyProfileModule { }
+export class NewsfeedModule { }

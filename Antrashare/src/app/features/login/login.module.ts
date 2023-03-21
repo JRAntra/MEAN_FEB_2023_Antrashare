@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AppRoutingModule } from 'src/app/shared/app-routing.module';
 import { LoginComponent } from './login.component';
-import { MatInputModule } from '@angular/material/input'
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
 
 @NgModule({
   declarations: [
@@ -11,9 +10,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   ],
   imports: [
     CommonModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCheckboxModule
+    AppRoutingModule,
+    AngularMaterialModule,
   ],
   exports: [
     LoginComponent
