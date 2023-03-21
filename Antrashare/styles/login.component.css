@@ -55,6 +55,7 @@ h3 {
   width: 95%;
   border: none;
   border-radius: 0.3rem;
+  cursor: pointer;
 }
 
 .new-user {

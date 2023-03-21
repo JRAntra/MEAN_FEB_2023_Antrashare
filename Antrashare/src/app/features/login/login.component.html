@@ -8,15 +8,15 @@
         <label for="user-email" id="user-email">User Email</label><br>
         <input type="email" matInput placeholder="Ex. pat@example.com">
         <input type="password" placeholder="Password">
-        <button id="login-btn">Login</button>
+        <button id="login-btn" routerLink="/newsfeed">Login</button>
     </div>
 
     <div class="new-user">
-        <button class="profile" routerLink=".">No Accounts? Register Now!</button>
+        <button class="profile" routerLink="/register">No Accounts? Register Now!</button>
     </div>
 
     <div class="agreement-help">
-        <mat-checkbox id="agreement" name="vehicle1" value="agreement">
+        <mat-checkbox id="agreement" value="agreement" color="none">
             Agreement
         </mat-checkbox>
 
