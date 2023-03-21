@@ -1,0 +1,91 @@
+<p>register works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="register.component.sass">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&family=Raleway:wght@100;400;700&family=Roboto:wght@100;400;700&family=Source+Sans+Pro:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Roboto;
+        }
+
+        form {
+            border: 2px solid blue;
+            padding: 20px;
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 auto;
+            display: block;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <h2>Register</h2>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password">
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
