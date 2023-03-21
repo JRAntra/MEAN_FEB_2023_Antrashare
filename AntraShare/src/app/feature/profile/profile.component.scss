@@ -7,7 +7,7 @@ $header-bg-color: #70B77E;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
     width: 100vw;
     box-sizing: border-box;
     h1{
@@ -38,10 +38,21 @@ $header-bg-color: #70B77E;
     width: 100%;
 }
 .username-avatar-container{
-    margin-top: 11%;
+    margin-top: 10%;
+    display: flex;
+    padding-left: 4rem;
+    padding-bottom: 1rem;
+    // align-items: center;
+    justify-content: left;
     .mat-form-field{
-        width: 80%;
+        // width: 80%;
         margin-left: 20%;
+    }
+    .avatar{
+        width: 10rem;
+        height: 10rem;
+        background-color: grey;
+        border-radius: 50%;
     }
 }
 .form-control{
@@ -55,15 +66,7 @@ $header-bg-color: #70B77E;
         border: none;
     }
 }
-.avatar{
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    background-color: grey;
-    border-radius: 50%;
-    top:10%;
-    left:27%;
-}
+
 .icon-container{
     display: flex;
     justify-content: space-between;

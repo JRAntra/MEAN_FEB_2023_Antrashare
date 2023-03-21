@@ -13,5 +13,16 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/register']);
   }
 
+
   ngOnInit(): void {}
+
+  user = {
+    isValid: true,
+  };
+
+  loginClickHandler() {
+    if (this.user.isValid) {
+      this.router.navigate(['newsfeed']);
+    }
+  }
 }
