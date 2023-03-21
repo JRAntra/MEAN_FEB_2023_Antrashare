@@ -14,7 +14,7 @@
       </mat-form-field>
     </form>
     <div class="example-button-row">
-      <button mat-button class="login-btn" color="accent">Login</button>
+      <button mat-button class="login-btn" color="accent" (click)="loginClickHandler()">Login</button>
     </div>
 
     <div class="register">
@@ -25,7 +25,7 @@
       <p>
         <mat-checkbox>Agreement</mat-checkbox>
       </p>
-      <a mat-button href="./register.component.html" target="#">Need Help?</a>
+      <a mat-button routerLink="/register">Need Help?</a>
     </div>
   </div>
 </header>
