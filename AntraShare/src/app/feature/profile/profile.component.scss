@@ -42,7 +42,7 @@ $header-bg-color: #70B77E;
     display: flex;
     padding-left: 4rem;
     padding-bottom: 1rem;
-    // align-items: center;
+    align-items: end;
     justify-content: left;
     .mat-form-field{
         // width: 80%;
@@ -51,8 +51,14 @@ $header-bg-color: #70B77E;
     .avatar{
         width: 10rem;
         height: 10rem;
-        background-color: grey;
+        background-image: url("/assets/antra.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
         border-radius: 50%;
+    }
+    .mat-icon-button{
+        top:58%;
     }
 }
 .form-control{
@@ -80,7 +86,34 @@ $header-bg-color: #70B77E;
     }
 }
 .icon{
-    width: 10rem;
-    height: 10rem;
+    width: 5rem;
+    height: 5rem;
     background-color: grey;
+}
+
+@media only screen and (max-width: 666px){
+    .icon-container{
+        flex-direction: column;
+    }
+    .username-avatar-container{
+        width: 100%;
+        flex-direction: column;
+        padding-left: 0;
+        padding-bottom: 0;
+        align-items: center;
+        justify-content: center;
+        gap:1rem;
+        .mat-form-field{
+            flex:1;
+            margin-left: 0;
+        }
+        .avatar{
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+        }
+        .mat-icon-button{
+            top:60%;
+        }
+    }
 }

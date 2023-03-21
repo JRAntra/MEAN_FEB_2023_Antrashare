@@ -18,15 +18,6 @@ export class ProfileComponent implements OnInit {
     { name: 'Phone', editable: false, type: 'text' },
   ];
 
-  // userEditable = false;
-  // pwEditable = false;
-  // emailEditable = false;
-  // genderEditable = false;
-  // ageEditable = false;
-  // phoneEditable = false;
-
-  // editables = [this.userEditable, this.pwEditable];
-
   startEdit(index: number) {
     this.fields[index].editable = true;
   }
