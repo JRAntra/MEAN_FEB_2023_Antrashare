@@ -4,7 +4,7 @@ import { SettingComponent } from './setting.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MyProfileModule} from "../my-profile/my-profile.module";
-
+import {NavBarModule} from "../nav-bar/nav-bar.module";
 
 
 @NgModule({
@@ -12,12 +12,14 @@ import {MyProfileModule} from "../my-profile/my-profile.module";
     SettingComponent
   ],
   imports: [
+
     CommonModule,
     MatCardModule,
     MatCardModule,
     MatCardModule,
     MatButtonModule,
     MyProfileModule,
+    NavBarModule
   ],
 
   exports: [
