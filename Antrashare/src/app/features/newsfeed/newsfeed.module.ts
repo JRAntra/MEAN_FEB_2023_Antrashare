@@ -10,6 +10,9 @@ import { NewsfeedComponent } from './newsfeed.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    NewsfeedComponent
   ]
 })
 export class NewsfeedModule { }
