@@ -1,16 +1,14 @@
-$theme-color: #3F50B5;
+@import "./src/app/share/scss-variables/_config.scss";
 
-%flex-property {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 .antra-logo {
   @extend %flex-property;
   height: 35%;
   margin: 5%;
   text-align: center;
+  background-image: url("/assets/antra.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .example-button-row {
   @extend %flex-property;
@@ -33,11 +31,9 @@ $theme-color: #3F50B5;
   width: 90%;
   background-color: $theme-color;
   color: white;
-  // margin: 5%;
 }
 .root-register {
-  border: 3px solid $theme-color;
-  border-radius: .8rem;
-  width: 35%;
+  @extend %border-property;
+  width: 30%;
   min-height: 90%;
 }
