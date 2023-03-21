@@ -8,12 +8,14 @@ import { LoginComponent } from './features/login/login.component';
 import { RegisterComponent } from './features/register/register.component';
 
 const routes: Routes = [
+  {path: '', component: LoginComponent},
   {path: 'my-profile', component: MyProfileComponent},
   {path: 'news-feed', component: NewsFeedComponent },
   {path: 'admin', component: AdminComponent},
   {path: 'settings', component: SettingsComponent},
   {path: 'login', component:LoginComponent},
   {path: 'register', component:RegisterComponent},
+  {path: '**', component: LoginComponent},
 ];
 
 @NgModule({

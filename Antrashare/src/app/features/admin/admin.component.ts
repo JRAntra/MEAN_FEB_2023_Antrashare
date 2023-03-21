@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ConfirmationService, ConfirmEventType, MenuItem, MessageService} from 'primeng/api';
 
-interface City {
+interface User {
   name: string,
-  code: string
+  id: string
 } 
 
 @Component({
@@ -19,19 +19,17 @@ export class AdminComponent implements OnInit {
   activeItem: MenuItem;
 
 
-  cities: City[];
+  users: User[];
 
-  selectedCity: City;
+  selectedUser: User;
 
   constructor(private confirmationService: ConfirmationService, private messageService: MessageService) {
-      this.cities = [
-          {name: 'New York', code: 'NY'},
-          {name: 'Rome', code: 'RM'},
-          {name: 'London', code: 'LDN'},
-          {name: 'Istanbul', code: 'IST'},
-          {name: 'Paris', code: 'PRS'}
+      this.users = [
+          {name: 'username1', id: '0001'},
+          {name: 'username2', id: '0002'},
+          {name: 'username3', id: '0003'}
       ];
-      this.selectedCity = this.cities[0];
+      this.selectedUser = this.users[0];
 
       this.items = [
         {label: 'My Profile', icon: 'pi pi-fw pi-home'},
