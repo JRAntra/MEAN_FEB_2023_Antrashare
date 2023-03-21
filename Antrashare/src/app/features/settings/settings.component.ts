@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ConfirmationService, ConfirmEventType, MessageService} from 'primeng/api';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class SettingsComponent implements OnInit {
   visibleSidebar2: any;
 
 
-  constructor(private confirmationService: ConfirmationService, private messageService: MessageService) { }
+  constructor(private confirmationService: ConfirmationService, private messageService: MessageService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +25,7 @@ export class SettingsComponent implements OnInit {
         icon: 'pi pi-exclamation-triangle',
         accept: () => {
             this.messageService.add({severity:'info', summary:'Confirmed', detail:'You have accepted'});
+            this.router.navigate([""]);
         },
         reject: (type: any) => {
             switch(type) {
