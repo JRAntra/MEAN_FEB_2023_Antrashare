@@ -8,17 +8,17 @@
         <label for="user-email" id="user-email">User Email</label><br>
         <input type="email" matInput placeholder="Ex. pat@example.com">
         <input type="password" placeholder="Password">
-        <button mat-flat-button id="login-btn">Login</button>
+        <button id="login-btn" routerLink="/newsfeed">Login</button>
     </div>
 
     <div class="new-user">
-        <button class="profile" routerLink=".">No Accounts? Register Now!</button>
+        <button class="profile" routerLink="/register">No Accounts? Register Now!</button>
     </div>
 
     <div class="agreement-help">
-        <section class="example-section">
-            <mat-checkbox class="example-margin agreement" formControlName="agreement">Agreement</mat-checkbox>
-        </section>
+        <mat-checkbox id="agreement" value="agreement" color="none">
+            Agreement
+        </mat-checkbox>
 
         <div class="need-help">
             <button class="help" routerLink=".">Need Help?</button>

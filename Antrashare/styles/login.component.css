@@ -38,7 +38,7 @@ h3 {
   z-index: 1;
 }
 
-input {
+.login-credential input {
   padding: 0.3rem;
   margin: 0.7rem 3rem;
   width: 95%;
@@ -55,6 +55,7 @@ input {
   width: 95%;
   border: none;
   border-radius: 0.3rem;
+  cursor: pointer;
 }
 
 .new-user {
@@ -68,7 +69,7 @@ input {
   margin: -0.7rem auto 1rem auto;
 }
 
-.agreement {
+#agreement {
   display: flex;
   flex-direction: row;
   margin: auto 3rem auto 0.5rem;
