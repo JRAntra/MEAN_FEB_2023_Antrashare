@@ -1,11 +1,4 @@
-$theme-color: rgb(135, 8, 161);
-
-%flex-property {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+@import "./src/app/share/scss-variables/_config.scss";
 
 a {
   color: $theme-color;
@@ -17,13 +10,18 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 5%;
+  color: $theme-color;
 }
 
 .antra-logo {
   @extend %flex-property;
+  height: 35%;
   margin: 5%;
-  height: 40%;
   text-align: center;
+background-image: url('/assets/antra.png');
+background-position: center;
+background-repeat: no-repeat;
+background-size: contain;
 }
 .example-button-row {
   @extend %flex-property;
@@ -49,17 +47,16 @@ a {
 
 .main-container {
   @extend %flex-property;
-  height: 100%;
+  height: 90%;
 }
 
 .register {
   @extend %flex-property;
-
   width: 100%;
 }
 
 .root-container {
-  border: 2px solid $theme-color;
-  width: 40%;
+  @extend %border-property;
+  width: 30%;
   height: 90%;
 }

@@ -1,0 +1,16 @@
+// use this command in your scss file to import the variables in your scss file
+// @import './src/app/share/scss-variables/_config.scss' ;
+
+$theme-color: #3f50b5;
+
+%flex-property {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+%border-property {
+  border: 3px solid $theme-color;
+  border-radius: 0.8rem;
+}

@@ -6,6 +6,7 @@ import { ProfileComponent } from './feature/profile/profile.component';
 import { NewsfeedComponent } from './feature/newsfeed/newsfeed.component';
 import { SettingPageComponent } from './feature/setting-page/setting-page.component';
 import { LoginComponent } from './feature/login/login/login.component';
+
 import { AdminComponent } from './feature/admin/admin/admin.component';
 import { RegisterComponent } from './feature/register/register/register.component';
 
@@ -19,11 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes)
-  ],
-  exports: [RouterModule
-  ]
+  imports: [BrowserModule, RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
