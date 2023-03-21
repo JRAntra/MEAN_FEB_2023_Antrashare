@@ -1,13 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SettingsComponent } from './settings.component';
-
-import { MenubarModule } from 'primeng/menubar';
-import {ButtonModule} from 'primeng/button';
-import {SidebarModule} from 'primeng/sidebar';
-import {DividerModule} from 'primeng/divider';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
-
+import { PrimengModule } from 'src/app/shared/primeng/primeng.module';
 
 
 
@@ -17,11 +11,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
   ],
   imports: [
     CommonModule,
-    MenubarModule,
-    ButtonModule,
-    SidebarModule,
-    DividerModule,
-    ConfirmDialogModule
+    PrimengModule
   ],
   exports:[SettingsComponent
   ]

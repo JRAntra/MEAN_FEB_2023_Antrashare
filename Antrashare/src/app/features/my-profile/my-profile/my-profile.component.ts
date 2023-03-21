@@ -19,10 +19,19 @@ export class MyProfileComponent implements OnInit {
   // constructor() {};
   items: MenuItem[] = [];
   bottoms: MenuItem[] = [];
-
   cities: City[];
-
   selectedCity: City = { name: '', code: '' };
+  likes: string[] = ['like1', 'like2', 'like3'];
+
+  password: string = '*****';
+  email: string = "Bil_email";
+  age: string = '50';
+  phone: string = '888-888-8888';
+  dateOfBirth: string = '08/08/1988' 
+  numPosts: number = 90;
+  numLikes: number = 90;
+
+
 
     constructor() {
         this.cities = [

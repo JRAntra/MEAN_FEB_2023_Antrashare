@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register.component';
-import {ButtonModule} from 'primeng/button';
-import {InputTextModule} from 'primeng/inputtext';
+import { PrimengModule } from 'src/app/shared/primeng/primeng.module';
 
 
 
@@ -12,8 +11,7 @@ import {InputTextModule} from 'primeng/inputtext';
   ],
   imports: [
     CommonModule,
-    ButtonModule,
-    InputTextModule,
+    PrimengModule
   ],
   exports: [
     RegisterComponent
