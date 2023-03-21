@@ -1,13 +1,7 @@
 import { AdminComponent } from './admin/admin.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTabsModule } from '@angular/material/tabs';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+import { AngularMaterialModule } from 'src/app/share/angular-material/angular-material.module';
 
 @NgModule({
   declarations: [
@@ -15,11 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     CommonModule,
-    MatDividerModule,
-    MatListModule,
-    MatIconModule,
-    MatTabsModule,
-    BrowserAnimationsModule
+    AngularMaterialModule
   ],
   exports: [
     AdminComponent
