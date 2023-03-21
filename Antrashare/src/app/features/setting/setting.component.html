@@ -1,15 +1,41 @@
 
-  <div class="like-list">
-    <p class="like-list-p">Like List</p>
-  </div>
+<p>
+  <mat-toolbar color="red">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
   <div class="container">
     <mat-card class="setting-panel">
       <mat-card-title>Setting Panel</mat-card-title>
       <mat-card-content>
-        <!-- Settings options go here -->
+        <p>
+          <mat-toolbar color="primary">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+              <mat-icon>menu</mat-icon>
+            </button>
+            <span>My App</span>
+            <span class="example-spacer"></span>
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+              <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+              <mat-icon>share</mat-icon>
+            </button>
+          </mat-toolbar>
+        </p>
       </mat-card-content>
     </mat-card>
-    <button class="setting-logout" mat-raised-button>Logout</button>
+    <button class="setting-logout" mat-raised-button (click)="Logout()">Logout</button>
   </div>
 <app-nav-bar></app-nav-bar>
 

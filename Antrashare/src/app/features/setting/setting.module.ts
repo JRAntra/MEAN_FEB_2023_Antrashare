@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { SettingComponent } from './setting.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
-import {MyProfileModule} from "../my-profile/my-profile.module";
 import {NavBarModule} from "../nav-bar/nav-bar.module";
+import {AngularMaterialModule} from "../../shared/angular-material/angular-material.module";
 
 
 @NgModule({
@@ -14,12 +14,12 @@ import {NavBarModule} from "../nav-bar/nav-bar.module";
   imports: [
 
     CommonModule,
-    MatCardModule,
-    MatCardModule,
-    MatCardModule,
-    MatButtonModule,
-    MyProfileModule,
-    NavBarModule
+    // MatCardModule,
+    // MatCardModule,
+    // MatCardModule,
+    // MatButtonModule,
+    NavBarModule,
+    AngularMaterialModule
   ],
 
   exports: [

@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { NavBarModule } from 'src/app/features/nav-bar/nav-bar.module';
+import {MatToolbarModule} from '@angular/material/toolbar'
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { NavBarModule } from 'src/app/features/nav-bar/nav-bar.module';
     MatSelectModule,
     MatIconModule,
     MatButtonModule,
-    NavBarModule
+    NavBarModule,
+    MatToolbarModule,
   ],
   exports: [
     MatInputModule,
@@ -44,7 +46,8 @@ import { NavBarModule } from 'src/app/features/nav-bar/nav-bar.module';
     MatSelectModule,
     MatIconModule,
     MatButtonModule,
-    NavBarModule
+    NavBarModule,
+    MatToolbarModule,
   ]
 })
 export class AngularMaterialModule { }
