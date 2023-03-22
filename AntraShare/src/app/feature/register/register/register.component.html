@@ -5,10 +5,14 @@
     </div>
     <form class="example-form">
       <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter Your Email" required />
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
         <input matInput value="" placeholder="user name" required />
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <input type="password" matInput placeholder="password" required />
+        <mat-icon matSuffix>visibility</mat-icon>
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <input
@@ -17,14 +21,20 @@
           placeholder="confirm password"
           required
         />
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Enter Your Email" required />
+        <mat-icon matSuffix>visibility</mat-icon>
       </mat-form-field>
     </form>
 
     <div class="example-button-row">
-      <button (click)="logOut()" mat-button class="register-btn" color="Primary">Register</button>
+      <button
+        mat-button
+        class="register-btn"
+        color="Primary"
+        type="button"
+        (click)="logOut()"
+      >
+        Register
+      </button>
     </div>
   </div>
 </header>

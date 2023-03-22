@@ -1,31 +1,18 @@
-$header-bg-color: #70B77E;
-
+$header-bg-color: #70b77e;
 
 .profile-container{
     margin-top: 1.5rem;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
-    width: 100vw;
-    box-sizing: border-box;
-    h1{
-        font-size: 2rem;
-    }
-}
-.header{
-    position: absolute;
-    top:calc(0);
-    background-color: $header-bg-color;
-    height: 7vh;
-    width: 100%;
-    .like-list{
-        position: relative;
-        left:80%;
-        top:25%;
-    }
+    left: 80%;
+    top: 25%;
+  }
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 5vh 0;
+  width: 50%;
 }
 .profile{
     display: flex;
