@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { ContentComponent } from './content/content.component';
 import { RouterModule } from '@angular/router';
+
 @NgModule({
   declarations: [NewsfeedComponent, ContentComponent],
   imports: [
