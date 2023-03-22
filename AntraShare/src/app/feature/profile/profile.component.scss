@@ -1,24 +1,16 @@
 $header-bg-color: #70b77e;
 
 .profile-container{
-    margin-top: 1.5rem;
-    position: relative;
-    left: 80%;
-    top: 25%;
+    width: 100%;
+    // margin-left: 20%;
   }
 
-.profile {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  margin: 5vh 0;
-  width: 50%;
-}
 .profile{
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    margin: 5vh 0;
+    margin: 5% auto;
+    // width: 80%;
     max-height: 100%;
     width: 40%;
     padding: 1rem;
@@ -53,7 +45,7 @@ $header-bg-color: #70b77e;
         border-radius: 50%;
     }
     .mat-icon-button{
-        top:35%;
+        top:57%;
     }
 }
 .form-control{
@@ -108,7 +100,7 @@ $header-bg-color: #70b77e;
             border-radius: 50%;
         }
         .mat-icon-button{
-            top:30%;
+            top:60%;
         }
     }
 }
