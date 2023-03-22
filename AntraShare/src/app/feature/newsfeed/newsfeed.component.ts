@@ -16,4 +16,13 @@ export class NewsfeedComponent implements OnInit {
     { id: 3, title: 'title3', content: 'content3..............' },
     { id: 4, title: 'title4', content: 'content4..............' },
   ];
+
+  hideForm = true;
+  toggleLikeList() {
+    if (this.hideForm) {
+      this.hideForm = false;
+    } else {
+      this.hideForm = true;
+    }
+  }
 }

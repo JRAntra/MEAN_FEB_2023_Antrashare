@@ -32,10 +32,14 @@ $header-bg-color: #70B77E;
     flex-direction: column;
     flex-grow: 1;
     margin: 5vh 0;
+    max-height: 100%;
     width: 40%;
     padding: 1rem;
     background-color: #f2f2f2;
     border-radius: 3%;
+    >*{
+        max-height: 10%
+    }
 
 }
 .mat-form-field{
@@ -62,7 +66,7 @@ $header-bg-color: #70B77E;
         border-radius: 50%;
     }
     .mat-icon-button{
-        top:58%;
+        top:35%;
     }
 }
 .form-control{
@@ -117,7 +121,7 @@ $header-bg-color: #70B77E;
             border-radius: 50%;
         }
         .mat-icon-button{
-            top:60%;
+            top:30%;
         }
     }
 }

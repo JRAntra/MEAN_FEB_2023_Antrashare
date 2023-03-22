@@ -1,5 +1,22 @@
 <main class="main">
-    <button class="like-list" mat-raised-button color="accent">Like List</button>
+    <div class="like-list-toggled" [ngClass]="{'hidden' : hideForm}">
+        <div class="head">
+            <div class="head-content">
+                <p class="published">PublisherName PublishedTime</p>
+                <p class="content">(custom pipe, limited length)</p>
+            </div>
+            <button mat-icon-button color="warn" class="close-like-list" (click)="toggleLikeList()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+        <div class="main"></div>
+        <div class="foot">
+            <h1>Liked Story List</h1>
+            <p>PublisherName/PublishedTime</p>
+            <p>story content preview (custom pipe length limitation)</p>
+        </div>
+    </div>
+    <button class="like-list" [ngClass]="{'hidden' : !hideForm}" (click)="toggleLikeList()" mat-raised-button color="accent">Like List</button>
     <div class="post-newfeed-form">
         <h1>Post Your Newsfeed Below</h1>
         <mat-form-field appearance="fill">
@@ -12,12 +29,16 @@
           </mat-form-field>
           <button mat-button focusable="false" (click)="0">Submit</button>
     </div>
-    <div>
-        <a *ngFor="let nf of newsfeed; let i = index" [routerLink]="['/newsfeed',nf.id]">
-            <mat-card class="newsfeed" id={{i}}>
+    <div class="newsfeed" *ngFor="let nf of newsfeed; let i = index">
+        <a  [routerLink]="['/newsfeed',nf.id]">
+            <mat-card id={{i}}>
                 <mat-card-title>{{nf.title}}</mat-card-title>
                 <mat-card-content>{{nf.content}}</mat-card-content>
+
             </mat-card>
         </a>
+        <button mat-icon-button color="primary" class="like-btn">
+            <mat-icon>thumb_up_alt</mat-icon>
+        </button>
     </div>
 </main>
