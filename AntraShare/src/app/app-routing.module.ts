@@ -12,7 +12,7 @@ import { RegisterComponent } from './feature/register/register/register.componen
 
 const routes: Routes = [
   { path: 'profile', component: ProfileComponent},
-  { path: 'news', component: NewsfeedComponent},
+  { path: 'newsfeed', component: NewsfeedComponent},
   { path: 'setting', component: SettingPageComponent},
   { path: 'logIn', component: LoginComponent},
   { path: 'admin', component: AdminComponent},

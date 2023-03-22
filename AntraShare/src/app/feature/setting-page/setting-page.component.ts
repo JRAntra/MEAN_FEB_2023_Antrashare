@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class SettingPageComponent implements OnInit {
 
+  Name: string = "Alex";
+  
   constructor(private router: Router) { }
 
   logOut() {
