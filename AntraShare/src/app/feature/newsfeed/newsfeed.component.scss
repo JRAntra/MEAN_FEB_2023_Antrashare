@@ -25,3 +25,11 @@
     margin-right: -90%;
     top: 5%;
 }
+a{
+    text-decoration: none;
+}
+.newsfeed{
+    &:hover{
+        background-color: rgb(185, 177, 177);
+    }
+}

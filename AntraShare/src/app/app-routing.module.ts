@@ -9,14 +9,16 @@ import { LoginComponent } from './feature/login/login/login.component';
 
 import { AdminComponent } from './feature/admin/admin/admin.component';
 import { RegisterComponent } from './feature/register/register/register.component';
+import { ContentComponent } from './feature/newsfeed/content/content.component';
 
 const routes: Routes = [
-  { path: 'profile', component: ProfileComponent},
-  { path: 'newsfeed', component: NewsfeedComponent},
-  { path: 'setting', component: SettingPageComponent},
-  { path: 'logIn', component: LoginComponent},
-  { path: 'admin', component: AdminComponent},
-  { path: 'register', component: RegisterComponent}
+  { path: 'profile', component: ProfileComponent },
+  { path: 'newsfeed/:id', component: ContentComponent },
+  { path: 'newsfeed', component: NewsfeedComponent },
+  { path: 'setting', component: SettingPageComponent },
+  { path: 'logIn', component: LoginComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({
