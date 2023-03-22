@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { NewsfeedModule } from './feature/newsfeed/newsfeed.module';
 
 import { ProfileModule } from './feature/profile/profile.module';
-import { SettingPageModule } from './feature/setting-page.module';
+import { SettingPageModule } from './feature/setting-page/setting-page.module';
 import { RegisterModule } from './feature/register/register.module';
+
 import { LoginModule } from './feature/login/login.module';
 import { NavbarModule } from './feature/navbar/navbar.module';
 import { AngularMaterialModule } from './share/angular-material/angular-material.module';

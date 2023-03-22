@@ -13,6 +13,5 @@ export class RegisterComponent implements OnInit {
   logOut() {
     this.router.navigate(['/logIn']);
   }
-
   ngOnInit(): void {}
 }

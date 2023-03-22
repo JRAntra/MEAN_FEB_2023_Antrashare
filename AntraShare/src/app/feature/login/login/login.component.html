@@ -12,6 +12,7 @@
           type="text"
           (keyup)="OntypeUserName($event)"
           (change)="pushToArray($event)"
+          [(ngModel)] = "userName" name="name"
         />
       </mat-form-field>
 

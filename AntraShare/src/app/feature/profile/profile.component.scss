@@ -1,30 +1,12 @@
 $header-bg-color: #70b77e;
 
-.profile-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 90vh;
-  width: 100vw;
-  box-sizing: border-box;
-  h1 {
-    font-size: 2rem;
-  }
-}
-.header {
-  position: absolute;
-  top: calc(0);
-  background-color: $header-bg-color;
-  height: 7vh;
-  width: 100%;
-  .like-list {
+.profile-container{
+    margin-top: 1.5rem;
     position: relative;
     left: 80%;
     top: 25%;
   }
-}
+
 .profile {
   display: flex;
   flex-direction: column;
@@ -32,54 +14,97 @@ $header-bg-color: #70b77e;
   margin: 5vh 0;
   width: 50%;
 }
-.mat-form-field {
-  width: 100%;
-}
-.username-avatar-container {
-  margin-top: 10%;
-  display: flex;
-  padding-left: 4rem;
-  padding-bottom: 1rem;
-  // align-items: center;
-  justify-content: left;
-  .mat-form-field {
-    // width: 80%;
-    margin-left: 20%;
-  }
-  .avatar {
-    width: 10rem;
-    height: 10rem;
-    background-color: grey;
-    border-radius: 50%;
-  }
-}
-.form-control {
-  position: relative;
-  button {
-    position: absolute;
-    right: 0;
-    top: 10px;
-    width: 3rem;
-    height: 3rem;
-    border: none;
-  }
-}
-
-.icon-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 3rem;
-  gap: 1rem;
-
-  .post,
-  .like {
+.profile{
     display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 5vh 0;
+    width: 40%;
+    padding: 1rem;
+    background-color: #f2f2f2;
+    border-radius: 3%;
+
 }
-.icon {
-  width: 10rem;
-  height: 10rem;
-  background-color: grey;
+.mat-form-field{
+    width: 100%;
+}
+.username-avatar-container{
+    margin-top: 10%;
+    display: flex;
+    padding-left: 4rem;
+    padding-bottom: 1rem;
+    align-items: flex-end;
+    justify-content: left;
+    .mat-form-field{
+        // width: 80%;
+        margin-left: 20%;
+    }
+    .avatar{
+        width: 10rem;
+        height: 10rem;
+        background-image: url("/assets/antra.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        border-radius: 50%;
+    }
+    .mat-icon-button{
+        top:58%;
+    }
+}
+.form-control{
+    position: relative;
+    button{
+        position: absolute;
+        right:0;
+        top:10px;
+        width: 3rem;
+        height: 3rem;
+        border: none;
+    }
+}
+
+.icon-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    gap:1rem;
+    .post,.like{
+        display: flex;
+        align-items: center;
+        gap:1rem;
+
+    }
+}
+.icon{
+    width: 5rem;
+    height: 5rem;
+    background-color: grey;
+}
+
+@media only screen and (max-width: 666px){
+    .icon-container{
+        flex-direction: column;
+    }
+    .username-avatar-container{
+        width: 100%;
+        flex-direction: column;
+        padding-left: 0;
+        padding-bottom: 0;
+        align-items: center;
+        justify-content: center;
+        gap:1rem;
+        .mat-form-field{
+            flex:1;
+            margin-left: 0;
+        }
+        .avatar{
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+        }
+        .mat-icon-button{
+            top:60%;
+        }
+    }
 }
