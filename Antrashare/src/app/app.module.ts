@@ -12,6 +12,7 @@ import { AdminModule } from './features/admin/admin.module';
 import { SettingsModule } from './features/settings/settings.module';
 import { LoginModule } from './features/login/login.module';
 import { RegisterModule } from './features/register/register.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { RegisterModule } from './features/register/register.module';
     SettingsModule,
     LoginModule,
     RegisterModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

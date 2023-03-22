@@ -1,4 +1,18 @@
 <p>login works!</p>
+
+<!-- data binging
+<ol>1. one way binding</ol>
+<li>String interpolation: {{ demoString.name}}</li>
+
+<li [id]="yellow" #prop>Property Binding</li>
+<li (mouseover)="prop.innerHTML = 'clicked'">Event Binding</li>
+<ol>2 way bingings
+    <li></li>
+    <li></li>
+</ol>
+
+<input id="username" [value]> -->
+
     <div id="login_frame">
         <p id="image_logo"><img src="../../../assets/images/AntraLogo.jpg" alt="AntraLogo"></p>
 
@@ -9,14 +23,14 @@
             </span>
 
             <span class="p-float-label">
-                <input id="pwd_input" class="text_field" type="text" pInputText> 
+                <input id="pwd_input" class="text_field" type="text" [(ngModel)]="password"  (keyup)="showPassword()" pInputText> 
                 <label for="pwd-input">Password</label>
             </span>
             
             
             <div id="login_control">
                 <button id="btn_login" pButton type="button" label="Login" ></button>
-                <a id="register" href="">No accounts? Register Now!</a>
+                <a id="register" href="http://localhost:4200/register">No accounts? Register Now!</a>
 
                 <div id="check_and_help">
                     <div id="checkbox">

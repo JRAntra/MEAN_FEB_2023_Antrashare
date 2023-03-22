@@ -4,7 +4,7 @@
 
         <form action="">
             <span class="p-float-label">
-                <input id="username_input" class="text_field" type="text" pInputText> 
+                <input id="username_input" class="text_field" type="text" [formControl]="userName" pInputText> 
                 <label for="username_input">Username</label>
             </span>
 
@@ -25,8 +25,8 @@
             
             
             <div id="register_control">
-                <button id="btn_register" pButton type="button" label="register" ></button>
-                <a id="back_login" href="">Already have an account? Login</a>
+                <button id="btn_register" pButton type="button" label="register" (click)="goToLogin()" ></button>
+                <a id="back_login" href="http://localhost:4200/login">Already have an account? Login</a>
             </div>
 
             

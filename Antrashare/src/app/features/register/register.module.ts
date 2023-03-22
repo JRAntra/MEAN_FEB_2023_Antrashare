@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './register.component';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
@@ -14,6 +15,8 @@ import {InputTextModule} from 'primeng/inputtext';
     CommonModule,
     ButtonModule,
     InputTextModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     RegisterComponent
