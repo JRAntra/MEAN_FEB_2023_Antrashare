@@ -18,10 +18,10 @@ a {
   height: 35%;
   margin: 5%;
   text-align: center;
-background-image: url('/assets/antra.png');
-background-position: center;
-background-repeat: no-repeat;
-background-size: contain;
+  background-image: url("/assets/antra.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .example-button-row {
   @extend %flex-property;
@@ -59,4 +59,36 @@ background-size: contain;
   @extend %border-property;
   width: 30%;
   height: 90%;
+}
+
+.need-help {
+  @extend %border-property;
+  text-align: center;
+  position: absolute;
+  background-color: aliceblue;
+  // width: 30%;
+  // height: 80%;
+  // visibility: hidden;
+
+  .chat-box-header {
+    background-color: $theme-color;
+    color: white;
+    height: 6vh;
+  }
+  .chat-box.body {
+    @extend %flex-property;
+  }
+  span {
+    float: right;
+    margin-right: 1rem;
+    :hover {
+      background-color: darken($theme-color, 10%);
+    }
+  }
+  button {
+    width: 90%;
+    background-color: $theme-color;
+    color: white;
+    margin: 5%;
+  }
 }

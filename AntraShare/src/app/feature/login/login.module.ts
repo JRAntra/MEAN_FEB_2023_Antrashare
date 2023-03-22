@@ -3,11 +3,8 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { AngularMaterialModule } from 'src/app/share/angular-material/angular-material.module';
 import { RouterModule } from '@angular/router';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { MatInputModule } from '@angular/material/input';
-// import { MatButtonModule } from '@angular/material/button';
-// import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RegisterModule } from '../register/register.module';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [LoginComponent],
   imports: [
@@ -15,6 +12,7 @@ import { RegisterModule } from '../register/register.module';
     AngularMaterialModule,
     RegisterModule,
     RouterModule,
+    FormsModule
     // BrowserAnimationsModule,
     // MatInputModule,
     // MatButtonModule,

@@ -3,18 +3,33 @@
     <div class="antra-logo">
       <!-- <img src="./src/assets/antra.png" alt="antrashare-logo" /> -->
     </div>
+
     <form class="example-form">
       <mat-form-field class="example-full-width">
         <mat-label>User Name</mat-label>
-        <input matInput value="" />
+        <input
+          matInput
+          type="text"
+          (keyup)="OntypeUserName($event)"
+          (change)="pushToArray($event)"
+        />
       </mat-form-field>
-      <br />
+
       <mat-form-field class="example-full-width">
         <input type="password" matInput placeholder="password" />
+        <mat-icon matSuffix>visibility</mat-icon>
       </mat-form-field>
     </form>
+
     <div class="example-button-row">
-      <button mat-button class="login-btn" color="accent" (click)="loginClickHandler()">Login</button>
+      <button
+        mat-button
+        class="login-btn"
+        color="accent"
+        (click)="loginClickHandler()"
+      >
+        Login
+      </button>
     </div>
 
     <div class="register">
@@ -25,8 +40,29 @@
       <p>
         <mat-checkbox>Agreement</mat-checkbox>
       </p>
-      <a mat-button routerLink="/register">Need Help?</a>
+      <a mat-button (click)="needHelp()">Need Help?</a>
+    </div>
+  </div>
+  <div class="need-help" *ngIf="isChatBox === true">
+    <div class="chat-box-header">
+      <h3>
+        chat with us
+        <span>
+          <button mat-button (click)="onChatButtonClick()">—</button>
+        </span>
+      </h3>
+    </div>
+    <div class="chat-box-body">
+      <textarea
+        name=""
+        id=""
+        cols="53"
+        rows="33"
+        placeholder="type your message...."
+      ></textarea>
+    </div>
+    <div class="chat-box-footer">
+      <button mat-button>send message</button>
     </div>
   </div>
 </header>
-
