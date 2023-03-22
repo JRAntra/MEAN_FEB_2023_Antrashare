@@ -18,10 +18,10 @@ a {
   height: 35%;
   margin: 5%;
   text-align: center;
-background-image: url('/assets/antra.png');
-background-position: center;
-background-repeat: no-repeat;
-background-size: contain;
+  background-image: url('/assets/antra.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .example-button-row {
   @extend %flex-property;

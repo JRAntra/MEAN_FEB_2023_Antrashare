@@ -17,6 +17,6 @@ import { RegisterComponent } from './register/register.component';
     // MatButtonModule,
     // MatCheckboxModule,
   ],
-  exports: [RegisterComponent]
+  exports: [RegisterComponent],
 })
 export class RegisterModule {}

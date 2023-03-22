@@ -1,6 +1,13 @@
+@import './src/app/share/scss-variables/_config.scss';
+$bgColor: #f2f2f2;
 .content-main{
-    padding:1rem 10%;
-    background-color: rgb(179, 172, 172);
+    width: 35%;
+    margin: 1rem auto;
+    padding: 2rem;
+    border-radius: 3%;
+    border: 1px solid $theme-color;
+    // background-color: $theme-color;
+    // background-color: #c9f5c5;
 }
 .content-header{
     display: flex;
@@ -8,9 +15,10 @@
     align-items: center;
     .content-author,
     .content-published-time{
-        width: 10%;
-        padding: 2rem 1rem;
-        background-color: grey;
+        text-align: center;
+        min-width: 100px;
+        padding: 1.5rem 1rem;
+        background-color: $bgColor;
     }
     .content-author{
         margin-left: 5%;
@@ -20,26 +28,32 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background-color: grey;
+    // background-color: $bgColor;
+    background-image: url("/assets/antra.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .content-body{
     display: flex;
+    min-height: 300px;
     margin-top: 1rem;
-    background-color: grey;
+    background-color: $bgColor;
 
     .video-img{
         width: 30%;
     }
     .content{
-        font-size: 200px;
         flex:1;
+        font-size: large;
+        padding: 1rem;
     }
 }
 .content-footer{
-    background-color: grey;
-    padding: 0.5rem 1rem;
-    height: 150px;
+    background-color: $bgColor;
+    padding: 1rem;
+    height: 200px;
     display: flex;
     > *{
         flex:1;
@@ -60,4 +74,29 @@
     .divider{
         border-right: none;
     }
+}
+@media only screen and (max-width: 666px){
+    .content-footer,.content-header,.content-body{
+        flex-direction: column;
+        justify-content: center;
+        .content-author{
+            margin-left:0;
+        }
+        .comments,
+        .likes{
+            border-bottom: none;
+            border-right: 1px solid black;
+            flex-direction: column;
+        }
+        .likes{
+            border-bottom: 1px solid black;
+        }
+        .divider{display: none;}
+        .comment-icon,
+        .like-icon{
+            width: 25px;
+            height: 25px;
+        }
+    }
+
 }
