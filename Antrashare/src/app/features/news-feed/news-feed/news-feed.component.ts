@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter} from '@angular/core';
 import { TabMenuModule } from 'primeng/tabmenu';
-import {MenuItem} from 'primeng/api';
+import {MenuItem, Message} from 'primeng/api';
+import { FormControl, FormGroup } from '@angular/forms';
+import { PostboxPipe } from '../postbox.pipe';
 
 
 @Component({
@@ -9,25 +11,23 @@ import {MenuItem} from 'primeng/api';
   styleUrls: ['./news-feed.component.sass']
 })
 export class NewsFeedComponent implements OnInit {
+  constructor(private postboxpipe: PostboxPipe) { }
 
-  items: MenuItem[] = [];
-  bottoms: MenuItem[] = [];
-  constructor() { }
+  text1: string = 'Hello';
+  inputbox: FormControl = new FormControl("");
 
   ngOnInit(): void {
-    this.items = [
-      {label: 'Home', icon: 'pi pi-fw pi-home'},
-      {label: 'Calendar', icon: 'pi pi-fw pi-calendar'},
-      {label: 'Edit', icon: 'pi pi-fw pi-pencil'},
-      {label: 'Documentation', icon: 'pi pi-fw pi-file'},
-      {label: 'Settings', icon: 'pi pi-fw pi-cog'}
-    ];
+    
+  }
 
-    this.bottoms = [
-      {label: 'Profile'},
-      {label: 'News Feed'},
-      {label: 'Settings'},
-    ]
+  onChangeFormControl(){
+    this.inputbox.setValue(this.postboxpipe.transform(this.postboxpipe.transform(this.inputbox.value)))
+    // this.inputbox.setValue(document.get)
+    console.log(this.inputbox.value)
+  }
+
+  post_story(){
+    this.inputbox.setValue("");
   }
 
 }
