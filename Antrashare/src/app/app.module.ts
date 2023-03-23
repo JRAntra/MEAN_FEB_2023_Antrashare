@@ -17,6 +17,8 @@ import { NavbarComponent } from './features/navbar/navbar.component';
 import {ButtonModule} from 'primeng/button';
 import {SelectButtonModule} from 'primeng/selectbutton';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -36,7 +38,8 @@ import {SelectButtonModule} from 'primeng/selectbutton';
     LoginModule,
     RegisterModule,
     ButtonModule,
-    SelectButtonModule
+    SelectButtonModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

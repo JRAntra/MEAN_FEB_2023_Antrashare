@@ -12,50 +12,60 @@
     </div>
     <div class="user-detail">
         <h2>User Detailed Information</h2>
-        <div class="col-5 flex align-items-center justify-content-center detail">
-            <div class="text">Username :</div>
-            <input pInputText type="text">
-                test
-            <div class=" align-items-center justify-content-center gap-2 actions">
-                <button  pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
-                <button  pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"  class="p-button-rounded p-button-text p-button-success mr-2"></button>
-                <button  pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"  class="p-button-rounded p-button-text p-button-danger"></button>
+        <div class="detail">
+            <div class="user-name">
+                <div class="user-detail_label">Username :</div>
+                <span  *ngIf="!username.isEditing">{{username.value}}</span>
+                <input  *ngIf="username.isEditing" [formControl]="nameControl" placeholder="{{username.value}}" pInputText type="text" >
+                <div id="username-actions" class="actions">
+                    <button  class="edit_btn" (click)="toggleEditStatus($event)" *ngIf="!username.isEditing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
+                    <button  class="save_btn" (click)="saveData($event)" *ngIf="username.isEditing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"  class="p-button-rounded p-button-text p-button-success mr-2"></button>
+                    <button  class="cancel_btn" (click)="toggleEditStatus($event)" *ngIf="username.isEditing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"  class="p-button-rounded p-button-text p-button-danger"></button>
+                </div>
             </div>
             <p-divider></p-divider>
-            <div class="text">Password :</div>
-            <input pInputText type="text">
-            test
-            <div class=" align-items-center justify-content-center gap-2 actions">
-                <button  pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
-                <button  pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"  class="p-button-rounded p-button-text p-button-success mr-2"></button>
-                <button  pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"  class="p-button-rounded p-button-text p-button-danger"></button>
+            <div class="user-password">
+                <div class="user-detail_label">Password :</div>
+                <span  *ngIf="!password.isEditing">{{password.value}}</span>
+                <input  *ngIf="password.isEditing" [formControl]="passwordControl" placeholder="{{password.value}}" pInputText type="text">
+                <div id="password-actions" class="actions">
+                    <button  class="edit_btn" (click)="toggleEditStatus($event)" *ngIf="!password.isEditing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
+                    <button  class="save_btn" (click)="saveData($event)" *ngIf="password.isEditing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"  class="p-button-rounded p-button-text p-button-success mr-2"></button>
+                    <button  class="cancel_btn" (click)="toggleEditStatus($event)" *ngIf="password.isEditing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"  class="p-button-rounded p-button-text p-button-danger"></button>
+                </div>
             </div>
             <p-divider></p-divider>
-            <div class="text">UserEmail :</div>
-            <input pInputText type="text">
-            test
-            <div class=" align-items-center justify-content-center gap-2 actions">
-                <button  pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
-                <button  pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"  class="p-button-rounded p-button-text p-button-success mr-2"></button>
-                <button  pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"  class="p-button-rounded p-button-text p-button-danger"></button>
+            <div class="user-email">
+                <div class="user-detail_label">UserEmail :</div>
+                <span  *ngIf="!email.isEditing">{{email.value}}</span>
+                <input  *ngIf="email.isEditing" [formControl]="emailControl" placeholder="{{email.value}}" pInputText type="text">
+                <div id="email-actions" class="actions">
+                    <button  class="edit_btn" (click)="toggleEditStatus($event)" *ngIf="!email.isEditing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
+                    <button  class="save_btn" (click)="saveData($event)" *ngIf="email.isEditing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"  class="p-button-rounded p-button-text p-button-success mr-2"></button>
+                    <button  class="cancel_btn" (click)="toggleEditStatus($event)" *ngIf="email.isEditing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"  class="p-button-rounded p-button-text p-button-danger"></button>
+                </div>
             </div>
             <p-divider></p-divider>
-            <div class="text">Gender :</div>
-            <input pInputText type="text">
-            test
-            <div class=" align-items-center justify-content-center gap-2 actions">
-                <button  pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
-                <button  pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"  class="p-button-rounded p-button-text p-button-success mr-2"></button>
-                <button  pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"  class="p-button-rounded p-button-text p-button-danger"></button>
+            <div class="user-gender">
+                <div class="user-detail_label">Gender :</div>
+                <span  *ngIf="!gender.isEditing">{{gender.value}}</span>
+                <input  *ngIf="gender.isEditing" [formControl]="genderControl" placeholder="{{gender.value}}" pInputText type="text">
+                <div id="gender-actions" class="actions">
+                    <button  class="edit_btn" (click)="toggleEditStatus($event)" *ngIf="!gender.isEditing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
+                    <button  class="save_btn" (click)="saveData($event)" *ngIf="gender.isEditing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"  class="p-button-rounded p-button-text p-button-success mr-2"></button>
+                    <button  class="cancel_btn" (click)="toggleEditStatus($event)" *ngIf="gender.isEditing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"  class="p-button-rounded p-button-text p-button-danger"></button>
+                </div>
             </div>
             <p-divider></p-divider>
-            <div class="text">Age :</div>
-            <input pInputText type="text">
-            test
-            <div class=" align-items-center justify-content-center gap-2 actions">
-                <button  pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
-                <button  pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"  class="p-button-rounded p-button-text p-button-success mr-2"></button>
-                <button  pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"  class="p-button-rounded p-button-text p-button-danger"></button>
+            <div class="user-age">
+                <div class="user-detail_label">Age :</div>
+                <span  *ngIf="!age.isEditing">{{age.value}}</span>
+                <input  *ngIf="age.isEditing" [formControl]="ageControl" placeholder="{{age.value}}" pInputText type="text">
+                <div id="age-actions" class="actions">
+                    <button  class="edit_btn" (click)="toggleEditStatus($event)" *ngIf="!age.isEditing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"  class="p-button-rounded p-button-text"></button>
+                    <button  class="save_btn" (click)="saveData($event)" *ngIf="age.isEditing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"  class="p-button-rounded p-button-text p-button-success mr-2"></button>
+                    <button  class="cancel_btn" (click)="toggleEditStatus($event)" *ngIf="age.isEditing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"  class="p-button-rounded p-button-text p-button-danger"></button>
+                </div>
             </div>
             <p-divider></p-divider>
         </div>
@@ -64,4 +74,3 @@
         </div>
     </div>
 </div>
-

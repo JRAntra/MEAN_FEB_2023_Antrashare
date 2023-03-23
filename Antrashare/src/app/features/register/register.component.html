@@ -2,31 +2,31 @@
     <div id="register_frame">
         <p id="image_logo"><img src="../../../assets/images/AntraLogo.jpg" alt="AntraLogo"></p>
 
-        <form action="">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <span class="p-float-label">
-                <input id="username_input" class="text_field" type="text" pInputText> 
+                <input id="username_input" class="text_field" type="text" formControlName="username" pInputText> 
                 <label for="username_input">Username</label>
             </span>
 
             <span class="p-float-label">
-                <input id="pwd_input" class="text_field" type="text" pInputText> 
+                <input id="pwd_input" class="text_field" type="text" formControlName="password" pInputText> 
                 <label for="pwd_input">Password</label>
             </span>
 
             <span class="p-float-label">
-                <input id="pwd_confirm_input" class="text_field" type="text" pInputText> 
+                <input id="pwd_confirm_input" class="text_field" type="text" formControlName="password_confirm" pInputText> 
                 <label for="pwd_confirm_input">Comfirm Password</label>
             </span>
 
             <span class="p-float-label">
-                <input id="email_input" class="text_field" type="text" pInputText> 
+                <input id="email_input" class="text_field" type="text" formControlName="email" pInputText> 
                 <label for="email_input">Email</label>
             </span>
             
             
             <div id="register_control">
-                <button id="btn_register" pButton type="button" label="register" ></button>
-                <a id="back_login" href="">Already have an account? Login</a>
+                <button id="btn_register" pButton type="submit" label="register" ></button>
+                <a id="back_login" (click)="goToLogin()">Already have an account? Login</a>
             </div>
 
             
