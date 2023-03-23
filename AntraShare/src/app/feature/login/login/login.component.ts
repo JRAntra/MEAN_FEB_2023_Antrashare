@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
   pushToArray(event: Event) {
     this.userName = (event.target as HTMLInputElement).value;
     this.users.push(this.userName);
-    console.log(this.users);
   }
 
   ngOnInit(): void {}

@@ -4,14 +4,15 @@ import { NewsfeedComponent } from './newsfeed.component';
 import { ContentComponent } from './content/content.component';
 import { RouterModule } from '@angular/router';
 import { AngularMaterialModule } from 'src/app/share/angular-material/angular-material.module';
-import { WelcomeMessageDirective } from './welcome/welcome-message.directive';
+
+import { WelcomeDirective } from './welcome.directive';
 import { TruncatePipe } from './truncate/truncate.pipe';
 
 @NgModule({
   declarations: [
     NewsfeedComponent, 
     ContentComponent,
-    WelcomeMessageDirective,
+    WelcomeDirective,
     TruncatePipe
   ],
   imports: [
@@ -21,7 +22,7 @@ import { TruncatePipe } from './truncate/truncate.pipe';
   ],
   exports: [
     NewsfeedComponent,
-    WelcomeMessageDirective
+    WelcomeDirective
   ],
 })
 export class NewsfeedModule {}

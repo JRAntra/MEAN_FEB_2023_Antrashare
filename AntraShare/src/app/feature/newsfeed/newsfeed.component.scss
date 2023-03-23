@@ -1,111 +1,210 @@
-@import './src/app/share/scss-variables/_config.scss';
-.main{
-    // min-height: 90vh;
-    position: relative;
-    padding: 1rem 35%;
+@import "./src/app/share/scss-variables/_config.scss";
+.main {
+  // min-height: 90vh;
+  position: relative;
+  padding: 1rem 35%;
 }
-.post-newfeed-form{
-    display: flex;
-    flex-direction: column;
-    button{
-        background-color: #4CAF50;
-        color: white;
-        height: 15%;
-    }
+.post-newfeed-form {
+  display: flex;
+  flex-direction: column;
+  button {
+    background-color: $theme-color;
+    color: white;
+    height: 15%;
+  }
 }
-.mat-form-field{
-    width:100%;
+.mat-form-field {
+  width: 100%;
 }
-.newsfeed{
-    margin-top: 1rem;
+.newsfeed {
+  margin-top: 1rem;
 }
-.like-list{
+.like-list {
+  padding: 0.5rem 1rem;
+  position: sticky;
+  float: right;
+  margin-right: -90%;
+  top: 5%;
+  background-color: $theme-color;
+}
+a {
+  text-decoration: none;
+}
+.newsfeed {
+  position: relative;
+  &:hover {
+    background-color: rgb(185, 177, 177);
+  }
+  .like-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+.like-list-toggled {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: $bgColor;
+  width: 20%;
+  height: 70vh;
+  right: 1rem;
+  top: -20px;
+  border-radius: 2%;
+  > * {
     padding: 0.5rem 1rem;
-    position: sticky;
-    float: right;
-    margin-right: -90%;
-    top: 5%;
-}
-a{
-    text-decoration: none;
-}
-.newsfeed{
-    position:relative;
-    &:hover{
-        background-color: rgb(185, 177, 177);
-    }
-    .like-btn{
-        position: absolute;
-        bottom:0;
-        right:0;
-    }
-}
-.like-list-toggled{
-    position:absolute;
+  }
+  animation: fadeInOut 0.1s forwards;
+  .head {
     display: flex;
-    flex-direction: column;
-    gap:1rem;
-    background-color: $bgColor;
-    width: 20%;
-    height: 70vh;
-    right:1rem;
-    top:-20px;
-    border-radius: 2%;
-    > *{
-        padding: 0.5rem 1rem;
+    .head-content {
+      flex: 1;
     }
-    animation: fadeInOut .1s forwards;
-    .head{
-        display: flex;
-        .head-content{
-            flex:1;
-        }
-    }
-    .main{
-        height: 50%;
-        background-color: rgb(185, 177, 177);;
-    }
-    .foot{
-        text-align: center;
-    }
-    .mat-raised-button{
-        padding: 0;
-    }
+  }
+  .main {
+    height: 50%;
+    background-color: rgb(185, 177, 177);
+  }
+  .foot {
+    text-align: center;
+  }
+  .mat-raised-button {
+    padding: 0;
+  }
 }
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
 @keyframes fadeInOut {
-    0% { opacity: 0;
-        top:-20px;
-     }
-    // 50%{ 
-    //     top:-10px;
-    // }
-    100% { 
-        opacity: 1;
-        top:0;
-        display: none; 
+  0% {
+    opacity: 0;
+    top: -20px;
+  }
+  // 50%{
+  //     top:-10px;
+  // }
+  100% {
+    opacity: 1;
+    top: 0;
+    display: none;
+  }
+}
+@media only screen and (max-width: 666px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .like-list {
+      padding: 0.5rem 1rem;
+      position: sticky;
+      // float: ;
+      margin-right: 0;
+      margin-bottom: 1rem;
+      top: 0;
+    }
+    .like-list-toggled {
+      position: static;
+      width: 100vw;
+      text-overflow: ellipsis;
     }
   }
-  @media only screen and (max-width: 666px){
-    .main{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        .like-list{
-            padding: 0.5rem 1rem;
-            position: sticky;
-            // float: ;
-            margin-right: 0;
-            margin-bottom: 1rem;
-            top: 0;
-        }
-        .like-list-toggled{
-            position:static;
-            width: 100vw;
-            text-overflow: ellipsis;
-        }
+}
+
+//Bhim's scss for custom directive
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:300");
+
+.welcome-newsfeed {
+  text-align: center;
+  background: linear-gradient(to right, $theme-color, lightblue);
+  color: white;
+  font-family: "Roboto";
+  font-size: 3rem;
+  padding-top: 30vh;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 5%;
+  div {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 30%;
+    // width: 10%;
+    padding-top: 5%;
+  }
+
+  div:first-of-type {
+    animation: showup 7s infinite;
+  }
+
+  div:last-of-type {
+    width: 0px;
+    animation: reveal 7s infinite;
+  }
+
+  div:last-of-type span {
+    margin-left: -355px;
+    animation: slidein 7s infinite;
+  }
+
+  @keyframes showup {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
     }
   }
+
+  @keyframes slidein {
+    0% {
+      margin-left: -800px;
+    }
+    20% {
+      margin-left: -800px;
+    }
+    35% {
+      margin-left: 0px;
+    }
+    100% {
+      margin-left: 0px;
+    }
+  }
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+      width: 0px;
+    }
+    20% {
+      opacity: 1;
+      width: 0px;
+    }
+    30% {
+      width: 355px;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      width: 355px;
+    }
+  }
+
+  p {
+    font-size: 12px;
+    color: #999;
+    margin-top: 200px;
+  }
+}
