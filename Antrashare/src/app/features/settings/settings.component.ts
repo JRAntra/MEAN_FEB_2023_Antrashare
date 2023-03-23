@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ConfirmationService, ConfirmEventType, MessageService} from 'primeng/api';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -11,9 +12,45 @@ import { Router } from '@angular/router';
 })
 export class SettingsComponent implements OnInit {
   visibleSidebar2: any;
+  username = {
+    value : "username-test",
+    isEditing : false,
+  }
+  nameControl : FormControl;
+
+  password = {
+    value : "password-test",
+    isEditing : false,
+  }
+  passwordControl : FormControl;
+
+  email = {
+    value : "email-test",
+    isEditing : false,
+  }
+  emailControl : FormControl;
+
+  gender = {
+    value : "gender-test",
+    isEditing : false,
+  }
+  genderControl : FormControl;
+
+  age = {
+    value : "age-test",
+    isEditing : false,
+  }
+  ageControl : FormControl;
 
 
-  constructor(private confirmationService: ConfirmationService, private messageService: MessageService, private router: Router) { }
+
+  constructor(private confirmationService: ConfirmationService, private messageService: MessageService, private router: Router) { 
+    this.nameControl = new FormControl("");
+    this.passwordControl = new FormControl("");
+    this.emailControl = new FormControl("");
+    this.genderControl = new FormControl("");
+    this.ageControl = new FormControl("");
+  }
 
   ngOnInit(): void {
   }
@@ -38,6 +75,76 @@ export class SettingsComponent implements OnInit {
             }
         }
     });
-}
+    }
+
+    saveData(event :Event){
+      console.log("save data");
+      //property
+      let property;
+      let elementType = (<HTMLButtonElement>event.target).type;
+      if(elementType === "button"){
+        property = (<HTMLButtonElement>event.target).parentElement?.id;
+      }else{
+        property = (<HTMLSpanElement>event.target).parentElement?.parentElement?.id;
+      }
+      switch(property){
+        case "username-actions":
+          this.username.value = this.nameControl.value;
+          this.username.isEditing = !this.username.isEditing;
+          break;
+        case "password-actions":
+          this.password.value = this.passwordControl.value;
+          this.password.isEditing = !this.password.isEditing;
+          break;
+        case "email-actions":
+          this.email.value = this.emailControl.value;
+          this.email.isEditing = !this.email.isEditing;
+          break;
+        case "gender-actions":
+          this.gender.value = this.genderControl.value;
+          this.gender.isEditing = !this.gender.isEditing;
+          break;
+        case "age-actions":
+          this.age.value = this.ageControl.value;
+          this.age.isEditing = !this.age.isEditing;
+          break;
+        
+      }
+    }
+
+    toggleEditStatus(event :Event){
+      //check the clicked element is <span> or <button>;
+      let elementType = (<HTMLButtonElement>event.target).type;
+      //set the property to the clicked parent classname;
+      let property;
+      if(elementType === "button"){
+        property = (<HTMLButtonElement>event.target).parentElement?.id;
+      }else{
+        property = (<HTMLSpanElement>event.target).parentElement?.parentElement?.id;
+      }
+      console.log(property);
+      //Based on the id change corresponding property;
+      switch(property){
+        case "username-actions":
+          this.username.isEditing = !this.username.isEditing;
+          break;
+        case "password-actions":
+          this.password.isEditing = !this.password.isEditing;
+          break;
+        case "email-actions":
+          this.email.isEditing = !this.email.isEditing;
+          break;
+        case "gender-actions":
+          this.gender.isEditing = !this.gender.isEditing;
+          break;
+        case "age-actions":
+          this.age.isEditing = !this.age.isEditing;
+          break;
+        
+      }
+
+      
+
+    }
 
 }
