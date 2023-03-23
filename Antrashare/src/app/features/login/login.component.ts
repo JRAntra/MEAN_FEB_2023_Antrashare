@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,45 +8,26 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./login.component.sass']
 })
 export class LoginComponent implements OnInit {
-  // loginForm:FormGroup;
-  // inputname = new FormControl('');
-  password : string = '123';
 
-  constructor() { }
-  
+  loginForm!: FormGroup;
 
-  // demoString : any = {name : "This is demo"}
+  constructor(private router: Router) { }
 
-  // innerHTML: string = "<h3>Changed innerHTML </h3>"
-  
-  // yellow :string = "yellow"
-
-  // @Input() data : any = [];
-
-  // onClickEventBindid() {
-  //   window.alert("clicked");
-  // }
-  // changeUserName(event:Event) {
-  //   window.alert(event);
-  //   this.usernameInput = event.target?.value
-  //   console.log(this.usernameInput)
-  // }
-
+  goToRegister() {
+    this.router.navigate(['register']);
+  }
 
   ngOnInit(): void {
-    // this.loginForm = new FormGroup({
-    //   userName: new FormControl()
-    // })
+    this.loginForm = new FormGroup({
+      username: new FormControl(),
+      password: new FormControl(),
+
+    });
+
   }
-
-  showPassword(){
-    console.log(this.password);
+  onSubmit() {
+    console.log(this.loginForm.value);
+    this.loginForm.reset();
   }
-
-  // onSubmit():void {
-  //   console.log(this.loginForm);
-  // }
-
-
 
 }
