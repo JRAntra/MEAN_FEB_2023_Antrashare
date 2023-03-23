@@ -13,12 +13,14 @@ import {InputTextModule} from 'primeng/inputtext';
 import {MenuItem} from 'primeng/api';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ImageModule} from 'primeng/image';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {CardModule} from 'primeng/card';
 import {SidebarModule} from 'primeng/sidebar';
 import {ChipsModule} from 'primeng/chips';
+import {EditorModule} from 'primeng/editor';
+import { MessagesModule } from 'primeng/messages';
 
 
 @NgModule({
@@ -38,11 +40,14 @@ import {ChipsModule} from 'primeng/chips';
     AvatarModule,
     AvatarGroupModule,
     FormsModule,
+    ReactiveFormsModule,
     ImageModule,
     InputTextareaModule,
     CardModule,
     SidebarModule,
-    ChipsModule
+    ChipsModule,
+    EditorModule,
+    MessagesModule
   ],
   exports: [
     MenubarModule,
@@ -58,11 +63,14 @@ import {ChipsModule} from 'primeng/chips';
     AvatarModule,
     AvatarGroupModule,
     FormsModule,
+    ReactiveFormsModule,
     ImageModule,
     InputTextareaModule,
     CardModule,
     SidebarModule,
-    ChipsModule
+    ChipsModule,
+    EditorModule,
+    MessagesModule
   ]
 })
 export class PrimengModule { }
