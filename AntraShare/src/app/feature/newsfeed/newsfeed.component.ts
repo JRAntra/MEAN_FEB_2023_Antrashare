@@ -13,23 +13,23 @@ export class NewsfeedComponent implements OnInit {
   newsfeed: Newsfeed[] = [
     {
       id: 1,
-      title: 'title1',
-      content: 'title1................',
+      title: 'Day1',
+      content: "#School's out. Headed to New York.",
     },
     {
       id: 2,
-      title: 'title2',
-      content: 'title2..................',
+      title: 'Day2',
+      content: '#Playing Soccer.',
     },
     {
       id: 3,
-      title: 'title3',
-      content: 'title3...................',
+      title: 'Day3',
+      content: '#Reading Great Gatsby.',
     },
     {
       id: 4,
-      title: 'title4',
-      content: 'title4...................',
+      title: 'Day4',
+      content: '#Enjoying live music.',
     },
   ];
 

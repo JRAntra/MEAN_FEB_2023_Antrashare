@@ -46,7 +46,7 @@
     <a [routerLink]="['/newsfeed', nf.id]">
       <mat-card id="{{ i }}">
         <mat-card-title>{{ nf.title }}</mat-card-title>
-        <mat-card-content>{{ nf.content }}</mat-card-content>
+        <mat-card-content>{{ nf.content | contentLength }}</mat-card-content>
       </mat-card>
     </a>
     <button mat-icon-button color="primary" class="like-btn">
