@@ -10,10 +10,12 @@ import { SettingModule } from "../features/setting/setting.module";
 import { AdminModule } from "../features/admin/admin.module";
 import { NavBarModule } from '../features/nav-bar/nav-bar.module';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
+// import { DisplayCharPipe } from './display-char.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // DisplayCharPipe
   ],
 
   imports: [

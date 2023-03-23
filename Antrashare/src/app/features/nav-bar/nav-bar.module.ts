@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from 'src/app/shared/app-routing.module';
 import { NavBarComponent } from './nav-bar.component';
 import { MatTabsModule } from '@angular/material/tabs';
-
-
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,9 @@ import { MatTabsModule } from '@angular/material/tabs';
   imports: [
     CommonModule,
     AppRoutingModule,
-    MatTabsModule
+    MatTabsModule,
+    MatButtonModule,
+    MatIconModule
   ],
   exports: [
     NavBarComponent

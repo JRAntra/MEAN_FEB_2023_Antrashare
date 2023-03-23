@@ -6,9 +6,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { MatExpansionModule } from '@angular/material/expansion';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,6 +17,9 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { NavBarModule } from 'src/app/features/nav-bar/nav-bar.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 
 @NgModule({
@@ -26,9 +30,10 @@ import { MatToolbarModule } from '@angular/material/toolbar'
     MatButtonModule,
     MatCheckboxModule,
     MatExpansionModule,
+    BrowserModule,
     BrowserAnimationsModule,
     MatCardModule,
-    FormsModule,
+    FormsModule, ReactiveFormsModule,
     MatFormFieldModule,
     MatSelectModule,
     MatIconModule,
@@ -37,15 +42,19 @@ import { MatToolbarModule } from '@angular/material/toolbar'
     NavBarModule,
     MatTabsModule,
     MatToolbarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatProgressBarModule
   ],
   exports: [
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
     MatExpansionModule,
+    BrowserModule,
     BrowserAnimationsModule,
     MatCardModule,
-    FormsModule,
+    FormsModule, ReactiveFormsModule,
     MatFormFieldModule,
     MatSelectModule,
     MatIconModule,
@@ -53,6 +62,9 @@ import { MatToolbarModule } from '@angular/material/toolbar'
     MatButtonModule,
     NavBarModule,
     MatToolbarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatProgressBarModule
   ]
 })
 export class AngularMaterialModule { }
