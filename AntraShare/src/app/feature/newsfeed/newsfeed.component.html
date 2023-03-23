@@ -1,3 +1,4 @@
+<div appWelcomeMessage></div>
 <main class="main">
     <div class="like-list-toggled" [ngClass]="{'hidden' : hideForm}">
         <div class="head">
@@ -33,7 +34,7 @@
         <a  [routerLink]="['/newsfeed',nf.id]">
             <mat-card id={{i}}>
                 <mat-card-title>{{nf.title}}</mat-card-title>
-                <mat-card-content>{{nf.content}}</mat-card-content>
+                <mat-card-content>{{nf.content | truncate}}</mat-card-content>
 
             </mat-card>
         </a>
