@@ -1,4 +1,4 @@
-<p-header></p-header>
+<!-- <p-header></p-header>
 <p-tabMenu [model]="items"></p-tabMenu>
 
 <div class="flex_container">
@@ -13,6 +13,134 @@
 
 <div class="bottom">
     <p-tabMenu [model]="bottoms"></p-tabMenu>
-</div>
+</div> -->
 
+
+<!-- my-profile.component.html -->
+<!-- <div class="container">
+    <div class="like-list">
+      <ul>
+        <li><i class="pi pi-heart"></i> Music</li>
+        <li><i class="pi pi-heart"></i> Photography</li>
+        <li><i class="pi pi-heart"></i> Travel</li>
+        <li><i class="pi pi-heart"></i> Food</li>
+      </ul>
+    </div> -->
+    
+    <!-- <div class="avatar-wrapper">
+      <img class="avatar" src="https://i.pravatar.cc/150?img=3" alt="Avatar">
+      <div class="user-details">
+        <h2 class="username">John Doe</h2>
+        <p class="email">johndoe@example.com</p>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-lg-6">
+        <label for="password">Password</label>
+        <input id="password" type="password" class="form-control">
+      </div>
+      <div class="col-lg-6">
+        <label for="gender">Gender</label>
+        <select id="gender" class="form-control">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-lg-6">
+        <label for="age">Age</label>
+        <input id="age" type="number" class="form-control">
+      </div>
+      <div class="col-lg-6">
+        <label for="email">Email</label>
+        <input id="email" type="email" class="form-control">
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-lg-6">
+        <label for="phone">Phone</label>
+        <input id="phone" type="tel" class="form-control">
+      </div>
+      <div class="col-lg-6">
+        <div class="post-likes">
+          <i class="pi pi-comments"></i>
+          <span>20 posts</span>
+          <i class="pi pi-heart"></i>
+          <span>500 likes</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="navigation-bar">
+      <div class="nav-item">
+        <a href="#">My Profile</a>
+      </div>
+      <div class="nav-item">
+        <a href="#">News Feed</a>
+      </div>
+      <div class="nav-item">
+        <a href="#">Settings</a>
+      </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
+
+  <div class="my-profile-page">
+    <div class="likes-section">
+      <h3>Likes</h3>
+      <!-- <p-listbox [options]="likes" class="horizontal-listbox"></p-listbox> -->
+      <ul>
+        <li><i class="pi pi-heart"></i> Music</li>
+      </ul>
+      <ul>
+        <li><i class="pi pi-heart"></i> Photography</li>
+      </ul>
+      <ul>
+        <li><i class="pi pi-heart"></i> Food</li>
+      </ul>
+      <ul>
+        <li><i class="pi pi-heart"></i> Study</li>
+      </ul>
+    </div>
+  
+    <div class="user-info-section">
+      <div class="avatar-photo">
+        <img src="Antrashare\src\assets\my_profile_pic.jpg" alt="avatar">
+      </div>
+  
+       <p-card class="user-info-card">
+        <h3>username</h3>
+        <div class="user-details">
+          <div>
+            <label>Password:</label>
+            <span>{{password}}</span>
+          </div>
+          <div>
+            <label>Email:</label>
+            <span>{{email}}</span>
+          </div>
+          <div>
+            <label>Age:</label>
+            <span>{{age}}</span>
+          </div>
+          <div>
+            <label>Date of Birth:</label>
+            <span>{{dateOfBirth}}</span>
+          </div>
+          <div>
+            <label>Phone:</label>
+            <span>{{phone}}</span>
+          </div>
+        </div>
+      </p-card> 
+  
+      <div class="post-likes-section">
+      </div> 
+    </div>
+  </div>
+  
 

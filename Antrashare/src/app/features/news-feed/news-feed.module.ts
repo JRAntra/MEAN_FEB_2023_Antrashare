@@ -1,12 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
-
-import { TabMenuModule } from 'primeng/tabmenu';
-import {MenuItem} from 'primeng/api';
-import {InputTextareaModule} from 'primeng/inputtextarea';
-import {CardModule} from 'primeng/card';
-import {ButtonModule} from 'primeng/button';
+import { PrimengModule } from 'src/app/shared/primeng/primeng.module';
 
 
 
@@ -16,10 +11,7 @@ import {ButtonModule} from 'primeng/button';
   ],
   imports: [
     CommonModule,
-    TabMenuModule,
-    InputTextareaModule,
-    CardModule,
-    ButtonModule
+    PrimengModule
   ],
   exports: [
     NewsFeedComponent

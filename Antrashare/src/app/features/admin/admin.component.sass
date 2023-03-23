@@ -1,25 +1,35 @@
-.add-user_btn
-    margin-bottom: 0 
+.admin-main
+    height: 800px
+    flex-direction: row
+    display: flex
+    .user-list
+        flex: 3
+        width: 100%
+        border-right: 1px solid #E0E0E0
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        .user-item
+            width: 100%
+            display: flex
+            justify-content: space-between
+            align-items: center
+            .username
+                font-size: larger
+        .add-user_btn
+            margin-left: 20px
+            margin-right: 20px
+            margin-bottom: 70px
+    .user-detail
+        flex: 7
+        margin-left: 40px
+        margin-right: 40px
+        h2
+            text-align: center
+        div
+            display: flex
+            gap: 100px
+        .user-detail_label
+            font-weight: bold
+            width: 20%
 
-.country-item
-    // background-color: lightblue
-    width: 100%
-    vertical-align: middle
-    p-button
-        float: right
-
-div
-    .text
-        // background-color: lightgray
-        display: inline-block
-        width: 205px
-
-.grid
-    margin-bottom: 10px
-    height: 700px
-    display: grid
-    grid-template-columns: 30% 70%
-
-.detail
-    margin-left: 40px
-    margin-right: 40px

@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
-import {ButtonModule} from 'primeng/button';
-import {InputTextModule} from 'primeng/inputtext';
-import { FormsModule } from '@angular/forms';
-
+import { PrimengModule } from 'src/app/shared/primeng/primeng.module';
 
 @NgModule({
   declarations: [
@@ -14,9 +11,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
 
     CommonModule,
-    ButtonModule,
-    InputTextModule,
-    FormsModule,
+    PrimengModule
   ],
   exports: [
     LoginComponent

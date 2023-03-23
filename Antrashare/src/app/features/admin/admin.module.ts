@@ -1,19 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
-
 import { AdminComponent } from './admin.component';
-import {MenubarModule} from 'primeng/menubar';
-import {ButtonModule} from 'primeng/button';
-import {VirtualScrollerModule} from 'primeng/virtualscroller';
-import {ListboxModule} from 'primeng/listbox';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import {SplitterModule} from 'primeng/splitter';
-import {DividerModule} from 'primeng/divider';
-import {TabViewModule} from 'primeng/tabview';
-import {TabMenuModule} from 'primeng/tabmenu';
-
+import { PrimengModule } from 'src/app/shared/primeng/primeng.module';
 
 
 @NgModule({
@@ -22,16 +10,7 @@ import {TabMenuModule} from 'primeng/tabmenu';
   ],
   imports: [
     CommonModule,
-    ButtonModule,
-    MenubarModule,
-    VirtualScrollerModule,
-    ListboxModule,
-    ConfirmDialogModule,
-    BrowserAnimationsModule,
-    SplitterModule,
-    DividerModule,
-    TabViewModule,
-    TabMenuModule
+    PrimengModule
     ],
   exports: [
     AdminComponent
