@@ -28,7 +28,7 @@
 <div class="story-container">
     <div class="story">
         <div class="story-content">
-            <p>Story</p>
+            <p>{{story | displayChar}}</p>
         </div>
         <div class="like-icon">
             <button class="fa fa-thumbs-up"><i></i></button>
@@ -37,7 +37,7 @@
 
     <div class="story">
         <div class="story-content">
-            <p>Story</p>
+            <p>{{story | displayChar}}</p>
         </div>
         <div class="like-icon">
             <button class="fa fa-thumbs-up"><i></i></button>
@@ -46,7 +46,7 @@
 
     <div class="story">
         <div class="story-content">
-            <p>Story</p>
+            <p>{{story | displayChar}}</p>
         </div>
         <div class="like-icon">
             <button class="fa fa-thumbs-up"><i></i></button>
@@ -54,8 +54,8 @@
     </div>
 </div>
 <div *ngFor="let mockString of mockStrings" >
-  <p>
-    {{mockString | displayChar}}
-  </p>
+<!--  <p>-->
+<!--    {{mockString | displayChar}}-->
+<!--  </p>-->
 </div>
 <app-nav-bar></app-nav-bar>

@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DisplayCharPipe implements PipeTransform {
 
   transform(value: string): string{
-    return value.slice(0,20)
+    return value.length > 20 ? value.slice(0,20) + "..." : value
   }
 
 }

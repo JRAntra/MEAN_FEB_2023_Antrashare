@@ -24,5 +24,6 @@ export class NewsfeedComponent implements OnInit {
     " ",
   ]
   longText = `CS 2`;
+  story = 'This is a long story which should be longer than 20 characters.';
 
 }
