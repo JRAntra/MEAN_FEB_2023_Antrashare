@@ -1,3 +1,4 @@
+<p class="welcome-msg" appWelcomeMsg>Welcome</p>
 <main class="main">
     <div class="like-list-toggled" [ngClass]="{'hidden' : hideForm}">
         <div class="head">
@@ -34,7 +35,6 @@
             <mat-card id={{i}}>
                 <mat-card-title>{{nf.title}}</mat-card-title>
                 <mat-card-content>{{nf.content}}</mat-card-content>
-
             </mat-card>
         </a>
         <button mat-icon-button color="primary" class="like-btn">

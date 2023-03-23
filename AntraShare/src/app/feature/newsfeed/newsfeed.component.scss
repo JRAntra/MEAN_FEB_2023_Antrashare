@@ -1,4 +1,4 @@
-@import './src/app/share/scss-variables/_config.scss';
+@import 'src/app/share/scss-variables/_config.scss';
 .main{
     // min-height: 90vh;
     position: relative;
@@ -87,7 +87,33 @@ a{
         top:0;
         display: none; 
     }
-  }
+}
+@keyframes welcomeFadeIn {
+    0%{
+        display: none;
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes welcomeFadeOut {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        display: none;
+    }
+}
+.welcome-msg{
+    position: absolute;
+    top:3rem;
+    left:50%;
+    font-size: 7rem;
+    color:#03ac13;
+    // animation: welcomeFadeIn 0.5s;
+}
   @media only screen and (max-width: 666px){
     .main{
         display: flex;
