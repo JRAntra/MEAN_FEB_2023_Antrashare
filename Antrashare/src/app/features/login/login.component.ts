@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  loginForm!: FormGroup;
+
+  constructor(private router: Router) { }
+
+  goToRegister() {
+    this.router.navigate(['register']);
+  }
 
   ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      username: new FormControl(),
+      password: new FormControl(),
+
+    });
+
+  }
+  onSubmit() {
+    console.log(this.loginForm.value);
+    this.loginForm.reset();
   }
 
 }

@@ -1,22 +1,24 @@
 <p>login works!</p>
+
+
     <div id="login_frame">
         <p id="image_logo"><img src="../../../assets/images/AntraLogo.jpg" alt="AntraLogo"></p>
 
-        <form action="">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <span class="p-float-label">
-                <input id="username_input" class="text_field" type="text" pInputText> 
+                <input id="username_input" class="text_field" type="text" formControlName="username" pInputText> 
                 <label for="username_input">Username</label>
             </span>
 
             <span class="p-float-label">
-                <input id="pwd_input" class="text_field" type="text" pInputText> 
+                <input id="pwd_input" class="text_field" type="text" formControlName="password" pInputText> 
                 <label for="pwd-input">Password</label>
             </span>
             
             
             <div id="login_control">
-                <button id="btn_login" pButton type="button" label="Login" ></button>
-                <a id="register" href="">No accounts? Register Now!</a>
+                <button id="btn_login" pButton type="submit" label="Login" ></button>
+                <a id="register" (click)="goToRegister()">No accounts? Register Now!</a>
 
                 <div id="check_and_help">
                     <div id="checkbox">
