@@ -4,8 +4,10 @@ import { NewsFeedComponent } from './features/news-feed/newsFeed/newsFeed.compon
 import { AdminComponent } from './features/admin/admin.component';
 const routes: Routes = [
   //localhost:4200/newsfeed
+  {path:"",component:NewsFeedComponent},
   {path:"newsfeed",component:NewsFeedComponent},
-  {path:"admin", component:AdminComponent}
+  {path:"admin", component:AdminComponent},
+  {path:"**",component: NewsFeedComponent},
 
   
 ];

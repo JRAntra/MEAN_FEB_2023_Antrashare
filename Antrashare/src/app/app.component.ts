@@ -14,7 +14,7 @@ export class AppComponent {
 
 
   onClickAdmin(){
-
+   
     this.router.navigate(["admin"])
   }
 }

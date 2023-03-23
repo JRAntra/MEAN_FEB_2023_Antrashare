@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 // import { Route,RouterModule } from '@angular/router';
 import { NewsFeedModule } from './features/news-feed/news-feed.module';
 import { NewsFeedComponent } from './features/news-feed/newsFeed/newsFeed.component';
-
+// import { TestService } from './core/services/test.service';
 @NgModule({
   declarations: [
     AppComponent, 
