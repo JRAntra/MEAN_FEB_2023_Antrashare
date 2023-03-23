@@ -1,103 +1,45 @@
-<h1 appWelcomeMessage></h1>
-<p-tabMenu [model]="items"></p-tabMenu>
+<p-messages severity="info" appWelcome>
+    <ng-template pTemplate>
+        <div class="ml-2">Welcome!</div>
+    </ng-template>
+</p-messages>
 
-<div>
-    <textarea pInputTextarea></textarea>
-    <button pButton type="button" label="Post"></button>
+<p-menubar>
+    <button pButton pRipple label="liked list" icon="pi pi-heart" class="p-button-text"></button>
+</p-menubar>
+
+<div class="post-box">
+    <div class="p-fluid">
+        <div class="p-field p-col-12">
+            <textarea width="100%" rows="10" cols='30' pInputTextarea [formControl]="inputbox" (input)="onChangeFormControl()">    
+            </textarea>
+            <!-- <p-editor  [formControl]="inputbox" (input)="onChangeFormControl()" [style]="{ height: '320px' }"></p-editor> -->
+        </div>
+    </div>
+    
+    
+    <span>
+        <button pButton label="Post" icon="pi pi-send" class="p-button-outlined post-button" (click)="post_story()"></button>
+    </span>
+    
 </div>
 
-<div class="card-container">
-    <div>
-        <p-card>
+<div class="story-box">
+    <p-card>
+        <ng-template pTemplate="header">
             Story1
-        </p-card>
-    </div>
-    
-    <button pButton type="button" label="Like" class="like_button"></button>
+        </ng-template>
+        Good Story, wow!
+    </p-card>
+    <button pButton label="like" icon="pi pi-thumbs-up" class="p-button-outlined p-button-rounded story-like"></button>
 </div>
 
-<div class="card-container">
-    <div>
-        <p-card>
+<div class="story-box">
+    <p-card>
+        <ng-template pTemplate="header">
             Story2
-        </p-card>
-    </div>
-    
-    <button pButton type="button" label="Like" class="like_button"></button>
-</div>
-
-<div class="card-container">
-    <div>
-        <p-card>
-            Story3
-        </p-card>
-    </div>
-    
-    <button pButton type="button" label="Like" class="like_button"></button>
-</div>
-
-<div class="card-container">
-    <div>
-        <p-card>
-            Story4
-        </p-card>
-    </div>
-    
-    <button pButton type="button" label="Like" class="like_button"></button>
-</div>
-
-<div class="card-container">
-    <div>
-        <p-card>
-            Story5
-        </p-card>
-    </div>
-    
-    <button pButton type="button" label="Like" class="like_button"></button>
-</div>
-
-<div class="card-container">
-    <div>
-        <p-card>
-            Story6
-        </p-card>
-    </div>
-    
-    <button pButton type="button" label="Like" class="like_button"></button>
-</div>
-
-<div class="card-container">
-    <div>
-        <p-card>
-            Story7
-        </p-card>
-    </div>
-    
-    <button pButton type="button" label="Like" class="like_button"></button>
-</div>
-
-<div class="card-container">
-    <div>
-        <p-card>
-            Story8
-        </p-card>
-    </div>
-    
-    <button pButton type="button" label="Like" class="like_button"></button>
-</div>
-
-<div class="card-container">
-    <div>
-        <p-card>
-            Story9
-        </p-card>
-    </div>
-    
-    <button pButton type="button" label="Like" class="like_button"></button>
-</div>
-
-
-
-<div class="bottom">
-    <p-tabMenu [model]="bottoms"></p-tabMenu>
+        </ng-template>
+        Good Story, wow!
+    </p-card>
+    <button pButton label="like" icon="pi pi-thumbs-up" class="p-button-outlined p-button-rounded story-like"></button>
 </div>

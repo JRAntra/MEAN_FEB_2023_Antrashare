@@ -2,14 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { PrimengModule } from 'src/app/shared/primeng/primeng.module';
-import { WelcomeMessageDirective } from './welcome-message.directive';
-
+import { WelcomeDirective } from './welcome.directive';
+import { PostboxPipe } from './postbox.pipe';
 
 
 @NgModule({
   declarations: [
     NewsFeedComponent,
-    WelcomeMessageDirective
+    WelcomeDirective,
+    PostboxPipe
   ],
   imports: [
     CommonModule,
@@ -19,4 +20,5 @@ import { WelcomeMessageDirective } from './welcome-message.directive';
     NewsFeedComponent
   ]
 })
-export class NewsFeedModule { }
+export class NewsFeedModule { 
+}
