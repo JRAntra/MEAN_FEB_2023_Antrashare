@@ -1,4 +1,5 @@
 <main class="main">
+    <h1 appWelcome></h1>
     <div class="like-list-toggled" [ngClass]="{'hidden' : hideForm}">
         <div class="head">
             <div class="head-content">
@@ -29,7 +30,7 @@
           </mat-form-field>
           <button mat-button focusable="false" (click)="0">Submit</button>
     </div>
-    <div class="newsfeed" *ngFor="let nf of newsfeed; let i = index">
+    <div class="newsfeed" *ngFor="let nf of newsfeed | firstchar; let i = index">
         <a  [routerLink]="['/newsfeed',nf.id]">
             <mat-card id={{i}}>
                 <mat-card-title>{{nf.title}}</mat-card-title>
