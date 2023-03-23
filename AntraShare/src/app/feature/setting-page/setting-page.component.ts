@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class SettingPageComponent implements OnInit {
 
-  Name: string = "Alex";
+  Name: string = "";
   
   constructor(private router: Router) { }
 
