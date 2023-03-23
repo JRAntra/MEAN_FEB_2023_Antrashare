@@ -32,9 +32,10 @@
     </div>
     <div class="newsfeed" *ngFor="let nf of newsfeed; let i = index">
         <a  [routerLink]="['/newsfeed',nf.id]">
-            <mat-card id={{i}}>
+            <mat-card id={{i}} class="on-hover">
                 <mat-card-title>{{nf.title}}</mat-card-title>
-                <mat-card-content>{{nf.content}}</mat-card-content>
+                <mat-card-content>{{nf.content | shorten}}
+                </mat-card-content>
             </mat-card>
         </a>
         <button mat-icon-button color="primary" class="like-btn">

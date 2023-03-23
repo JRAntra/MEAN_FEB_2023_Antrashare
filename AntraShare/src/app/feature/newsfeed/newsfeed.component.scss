@@ -31,13 +31,16 @@ a{
 }
 .newsfeed{
     position:relative;
-    &:hover{
-        background-color: rgb(185, 177, 177);
-    }
+
     .like-btn{
         position: absolute;
         bottom:0;
         right:0;
+    }
+}
+.on-hover{
+    &:hover{
+        background-color: rgb(185, 177, 177);
     }
 }
 .like-list-toggled{
