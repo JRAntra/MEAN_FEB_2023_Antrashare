@@ -13,7 +13,7 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
 
   imports: [
