@@ -12,13 +12,22 @@
           type="text"
           (keyup)="OntypeUserName($event)"
           (change)="pushToArray($event)"
-          [(ngModel)] = "userName" name="name"
+          [(ngModel)]="userName"
+          name="name"
         />
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input type="password" matInput placeholder="password" />
-        <mat-icon matSuffix>visibility</mat-icon>
+        <input
+          type="password"
+          matInput
+          placeholder="password"
+          [type]="showPassword ? 'text' : 'password'"
+          name="password"
+        />
+        <mat-icon matSuffix (click)="togglePasswordVisibility()">
+          {{ showPassword ? "visibility_off" : "visibility" }}
+        </mat-icon>
       </mat-form-field>
     </form>
 

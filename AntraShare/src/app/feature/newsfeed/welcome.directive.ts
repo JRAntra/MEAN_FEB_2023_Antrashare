@@ -12,9 +12,9 @@ export class WelcomeDirective {
 
   @HostBinding('style.visibility') visibility: string = 'visible';
 
-  @HostListener('window:load') onPageLoad() {
-      setTimeout(() => {
-        this.visibility = 'hidden';
-      }, 5000);
+  @HostListener('window:load') onLoad() {
+    setTimeout(() => {
+      this.visibility = 'hidden';
+    }, 5000);
   }
 }

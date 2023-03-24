@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Newsfeed } from './newsfeed';
+import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-newsfeed',
   templateUrl: './newsfeed.component.html',
   styleUrls: ['./newsfeed.component.scss'],
 })
 export class NewsfeedComponent implements OnInit {
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void { }
-
+  ngOnInit(): void {}
+  isWelcomeMessage = environment.isWelcomeMessage;
   newsfeed: Newsfeed[] = [
     {
       id: 1,
@@ -32,7 +34,6 @@ export class NewsfeedComponent implements OnInit {
       content: 'sadfjshadfkjhdsajkfkasdfnkasdnlkfsdajkfh',
     },
   ];
-
   hideForm = true;
   toggleLikeList() {
     if (this.hideForm) {

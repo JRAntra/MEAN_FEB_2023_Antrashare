@@ -2,6 +2,7 @@ import { NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgModel } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,12 @@ export class LoginComponent implements OnInit {
   }
 
   userName: string = 'ngarden1969';
-  
+  //password toggle
+  showPassword: boolean = false;
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
+
   //logs the input on key up event
   OntypeUserName(event: Event) {
     this.userName = (event.target as HTMLInputElement).value;
@@ -26,7 +32,6 @@ export class LoginComponent implements OnInit {
   //on change event, pushes the input value into the array and logs it
   pushToArray(event: Event) {
     this.userName = (event.target as HTMLInputElement).value;
-    this.users.push(this.userName);
   }
 
   ngOnInit(): void {}
@@ -34,21 +39,20 @@ export class LoginComponent implements OnInit {
   user = {
     isValid: true,
   };
-
   loginClickHandler() {
     if (this.user.isValid) {
       this.router.navigate(['newsfeed']);
+      environment.isWelcomeMessage = false; //to remove welcomeMessage
     }
   }
-  isChatBox:boolean =false;
+  isChatBox: boolean = false;
 
   //need help event handler
-  needHelp(){
-    this.isChatBox= true;
+  needHelp() {
+    this.isChatBox = true;
   }
   //chat-box-button-event-handler
-  onChatButtonClick(){
+  onChatButtonClick() {
     this.isChatBox = false;
-  
   }
 }

@@ -19,7 +19,7 @@ a {
   margin: 5%;
   text-align: center;
 
-  background-image: url('/assets/antra.png');
+  background-image: url("/assets/antra.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -49,18 +49,21 @@ a {
 .main-container {
   @extend %flex-property;
   height: 90%;
+  // overflow: scroll
 }
 
 .register {
   @extend %flex-property;
   width: 100%;
+  // overflow: hidden;
+  text-overflow: clip;
 }
 
 .root-container {
   @extend %border-property;
   width: 30%;
   height: 90%;
- 
+  overflow: scroll
 }
 
 .need-help {
@@ -94,4 +97,3 @@ a {
     margin: 5%;
   }
 }
-
