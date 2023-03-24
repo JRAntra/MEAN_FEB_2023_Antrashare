@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navbar',
@@ -9,4 +10,9 @@ export class NavbarComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  //to remove welcome message when navigated to newsfeed
+  removeWelcomeMessage() {
+    environment.isWelcomeMessage = false;
+  }
 }

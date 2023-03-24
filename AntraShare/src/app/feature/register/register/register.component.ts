@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NgModel } from '@angular/forms';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,7 +8,19 @@ import { NgModel } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   constructor(private router: Router) {}
 
-  logOut() {
+  //password toggle
+
+  showPassword: boolean = false;
+  showPasswordConfirm: boolean = false;
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
+  toggleConfirmPassword(): void {
+    this.showPasswordConfirm = !this.showPasswordConfirm;
+  }
+  //takes you to login page when clicked logout in
+  onRegister() {
     this.router.navigate(['/logIn']);
   }
   ngOnInit(): void {}

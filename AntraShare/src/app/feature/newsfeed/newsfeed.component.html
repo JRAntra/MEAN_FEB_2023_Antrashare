@@ -46,7 +46,7 @@
     <a [routerLink]="['/newsfeed', nf.id]">
       <mat-card id="{{ i }}">
         <mat-card-title>{{ nf.title }}</mat-card-title>
-        <mat-card-content>{{ nf.content | truncate}}</mat-card-content>
+        <mat-card-content>{{ nf.content | truncate }}</mat-card-content>
       </mat-card>
     </a>
     <button mat-icon-button color="primary" class="like-btn">
@@ -56,9 +56,11 @@
 </main>
 
 <!-- Bhim's welcome assignment -->
-<div class="welcome-newsfeed" appWelcome>
-  <div class="welcome-text">Welcome</div>
-  <div class="welcome-text">
-    <span>To Antra Share</span>
+<div class="Welcome" *ngIf="isWelcomeMessage" >
+  <div class="welcome-newsfeed" appWelcome>
+    <div class="welcome-text">Welcome</div>
+    <div class="welcome-text">
+      <span>To Antra Share</span>
+    </div>
   </div>
 </div>
