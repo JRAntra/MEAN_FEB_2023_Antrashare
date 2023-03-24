@@ -1,7 +1,7 @@
 import {
   Directive,
   HostBinding,
-  HostListener,
+  HostListener
 } from '@angular/core';
 
 @Directive({
@@ -9,11 +9,12 @@ import {
 })
 export class WelcomeDirective {
   constructor() {}
+
   @HostBinding('style.visibility') visibility: string = 'visible';
 
   @HostListener('window:load') onPageLoad() {
-    setTimeout(() => {
-      this.visibility = 'hidden';
-    }, 5000);
+      setTimeout(() => {
+        this.visibility = 'hidden';
+      }, 5000);
   }
 }
