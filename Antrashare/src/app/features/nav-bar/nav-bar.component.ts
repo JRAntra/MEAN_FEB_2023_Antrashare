@@ -13,13 +13,13 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
   }
   NaviToSetting() {
-    this.router.navigateByUrl("/setting")
+    this.router.navigateByUrl("/setting").then()
   }
   NavitoNewsfeed() {
-    this.router.navigateByUrl("/newsfeed")
+    this.router.navigateByUrl("/newsfeed").then()
   }
   NavitoMyProfile() {
-    this.router.navigateByUrl("myprofile")
+    this.router.navigateByUrl("myprofile").then()
   }
 
 }

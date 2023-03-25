@@ -1,5 +1,12 @@
 <div class="nav">
-    <button class="tab" (click)="NavitoMyProfile()">My Profile</button>
-    <button class="tab" (click)="NavitoNewsfeed()">News Feed</button>
-    <button class="tab" (click)="NaviToSetting()">Settings</button>
+    <button class="tab" mat-stroked-button color="primary" (click)="NavitoMyProfile()">
+      My Profile
+      <mat-icon>person</mat-icon></button>
+    <button class="tab" mat-stroked-button color="primary" (click)="NavitoNewsfeed()">
+      News Feed
+      <mat-icon>public</mat-icon></button>
+    <button class="tab" mat-stroked-button color="primary" (click)="NaviToSetting()">
+      Settings
+      <mat-icon>settings</mat-icon>
+    </button>
 </div>

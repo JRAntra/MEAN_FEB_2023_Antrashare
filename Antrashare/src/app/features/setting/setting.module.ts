@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SettingComponent } from './setting.component';
 import { NavBarModule } from '../nav-bar/nav-bar.module';
 import { AngularMaterialModule } from "../../shared/angular-material/angular-material.module";
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -10,10 +11,10 @@ import { AngularMaterialModule } from "../../shared/angular-material/angular-mat
     SettingComponent
   ],
   imports: [
-
     CommonModule,
     NavBarModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    MatExpansionModule
   ],
 
   exports: [
