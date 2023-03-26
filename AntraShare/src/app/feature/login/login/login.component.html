@@ -19,8 +19,10 @@
 
       <mat-form-field class="example-full-width">
         <input
-          type="password"
           matInput
+          type="password"
+          (keyup)="OntypePassword($event)"
+          (change)="pushToPasswordArray($event)"
           placeholder="password"
           [type]="showPassword ? 'text' : 'password'"
           name="password"
