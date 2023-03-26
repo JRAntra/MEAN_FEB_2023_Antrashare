@@ -14,7 +14,6 @@ export class RegisterComponent implements OnInit {
     private registerService: RegisterService
   ) {}
 
-  //password toggle
   showPassword: boolean = false;
   showPasswordConfirm: boolean = false;
   isChatBox: boolean = false;
@@ -32,14 +31,18 @@ export class RegisterComponent implements OnInit {
       userEmail: new FormControl('', [Validators.email, Validators.required]),
       userName: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
-      // confirmPassword: new FormControl('', Validators.required),
+      age: new FormControl(''),
+      gender: new FormControl(''),
+      phone: new FormControl(''),
     });
   }
 
+  isPasswordConfirmed: boolean = true;
   //creatig new account using register service
   onRegister(reactiveRegisterForm: FormGroup) {
     this.router.navigate(['/logIn']);
     this.registerService.createNewAccount(reactiveRegisterForm);
+    console.log();
   }
   //need help event handler
   needHelp() {
