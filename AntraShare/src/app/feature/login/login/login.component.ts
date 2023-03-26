@@ -62,14 +62,26 @@ export class LoginComponent implements OnInit {
   };
 
   loginClickHandler() {
-    const isAuthenticated = this.auth.login(this.userName, this.password);
-    if (isAuthenticated) {
-      this.router.navigate(['newsfeed']);
-      environment.isWelcomeMessage = false; //to remove welcomeMessage
-    } else {
-      window.alert('wrong');
-    }
+    const isAuthenticated = this.auth.login(this.userName, this.password).subscribe(
+      (success) => {
+        console.log(success)
+        if (success) {
+          this.router.navigate(['newsfeed']);
+          environment.isWelcomeMessage = false; //to remove welcomeMessage
+        } else {
+          window.alert('wrong');
+        }
+      }
+    )
   }
+
+  //   if (isAuthenticated) {
+  //     this.router.navigate(['newsfeed']);
+  //     environment.isWelcomeMessage = false; //to remove welcomeMessage
+  //   } else {
+  //     window.alert('wrong');
+  //   }
+  // }
 
   //need help event handler
   needHelp() {
