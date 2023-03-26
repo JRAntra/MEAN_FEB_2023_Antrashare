@@ -6,13 +6,12 @@
 
     <form class="example-form" [formGroup]="reactiveLoginForm">
       <mat-form-field class="example-full-width">
-        <mat-label>User Name</mat-label>
+        <mat-label>Email</mat-label>
         <input
           matInput
           type="text"
           (keyup)="OntypeUserName($event)"
-          (change)="pushToArray($event)"
-          formControlName="userName"
+          formControlName="email"
         />
       </mat-form-field>
 
@@ -21,7 +20,6 @@
           matInput
           type="password"
           (keyup)="OntypePassword($event)"
-          (change)="pushToPasswordArray($event)"
           placeholder="password"
           [type]="showPassword ? 'text' : 'password'"
           formControlName="password"
@@ -38,6 +36,7 @@
         class="login-btn"
         color="accent"
         (click)="loginClickHandler()"
+        [disabled]="reactiveLoginForm.invalid"
       >
         Login
       </button>
