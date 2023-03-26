@@ -8,7 +8,7 @@
         <input
           matInput
           placeholder="Enter Your Email"
-          formControlName="email"
+          formControlName="userEmail"
         />
       </mat-form-field>
       <mat-form-field class="example-full-width">
@@ -38,7 +38,7 @@
           placeholder="confirm password"
           required
           [type]="showPassword ? 'text' : 'password'"
-          formControlName="confirmPassword"
+          name="confirmPassword"
         />
         <mat-icon matSuffix (click)="togglePasswordVisibility()">
           {{ showPassword ? "visibility_off" : "visibility" }}
@@ -52,19 +52,19 @@
         class="register-btn"
         color="Primary"
         type="button"
-        (click)="onRegister()"
+        (click)="onRegister(reactiveRegisterForm.value)"
       >
         Register
       </button>
     </div>
-     <div class="agreement">
+    <div class="agreement">
       <p>
         <mat-checkbox>Agreement</mat-checkbox>
       </p>
       <a mat-button (click)="needHelp()">Need Help?</a>
     </div>
   </div>
- 
+
   <div class="need-help" *ngIf="isChatBox === true">
     <div class="chat-box-header">
       <h3>
