@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
   loginClickHandler() {
     if (this.user.isValid) {
       this.router.navigate(['newsfeed']);
-      // environment.isWelcomeMessage = false; //to remove welcomeMessage
+      environment.isWelcomeMessage = false; //to remove welcomeMessage
     }
   }
   isChatBox: boolean = false;

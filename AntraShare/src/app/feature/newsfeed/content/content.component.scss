@@ -1,4 +1,4 @@
-@import 'src/app/share/scss-variables/_config.scss';
+@import './src/app/share/scss-variables/_config.scss';
 .content-main{
     width: 35%;
     margin: 1rem auto;
@@ -7,9 +7,6 @@
     border: 1px solid $theme-color;
     // background-color: $theme-color;
     // background-color: #c9f5c5;
-}
-.blur{
-    filter:blur(20px);
 }
 .content-header{
     display: flex;
@@ -41,18 +38,13 @@
     display: flex;
     min-height: 300px;
     margin-top: 1rem;
-    padding: 0.5rem;
-    border-radius: 1%;
     background-color: $bgColor;
-    .video-container{
-        img{
-            width: 100%;
-            height: 100%;
-        }
+
+    .video-img{
+        width: 30%;
     }
     .content{
         flex:1;
-        min-width: 50%;
         font-size: large;
         padding: 1rem;
     }
@@ -60,9 +52,8 @@
 .content-footer{
     background-color: $bgColor;
     padding: 1rem;
-    // height: 200px;
+    height: 200px;
     display: flex;
-    gap: 1rem;
     > *{
         flex:1;
         border: 1px solid black;
@@ -71,31 +62,16 @@
         align-items: center;
         justify-content: space-evenly;
     }
-}
-.popup-window{
-    position: absolute;
-    background-color: $theme-color;
-    width: 500px;
-    height: 500px;
-    top:50%;
-    left:50%;
-    width:25%; 
-    height:50%;   
-    margin-left:-15%;  
-    margin-top:-15%;
-    font-size: 100px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    border-radius: 2%;
-    padding: 0.5rem;
-    .close-popup-btn{
-        position: absolute;
-        right:.5rem;
+    .comment-icon,
+    .like-icon{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid black;
     }
-    .mat-card{
-        &:nth-child(2){
-            margin-top: 2.5rem;
-        }
+    .comments,
+    .divider{
+        border-right: none;
     }
 }
 @media only screen and (max-width: 666px){
@@ -104,6 +80,21 @@
         justify-content: center;
         .content-author{
             margin-left:0;
+        }
+        .comments,
+        .likes{
+            border-bottom: none;
+            border-right: 1px solid black;
+            flex-direction: column;
+        }
+        .likes{
+            border-bottom: 1px solid black;
+        }
+        .divider{display: none;}
+        .comment-icon,
+        .like-icon{
+            width: 25px;
+            height: 25px;
         }
     }
 

@@ -13,7 +13,6 @@ import { LoginModule } from './feature/login/login.module';
 import { NavbarModule } from './feature/navbar/navbar.module';
 import { AngularMaterialModule } from './share/angular-material/angular-material.module';
 import { AdminModule } from './feature/admin/admin.module';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +27,6 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarModule,
     AdminModule,
     RegisterModule,
-    HttpClientModule,
   ],
   exports: [],
   providers: [],

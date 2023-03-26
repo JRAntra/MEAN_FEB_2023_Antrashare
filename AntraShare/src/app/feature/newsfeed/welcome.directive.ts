@@ -1,6 +1,3 @@
-import { Directive, HostBinding, HostListener, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
-
 import {
   Directive,
   HostBinding,
@@ -10,19 +7,14 @@ import {
 @Directive({
   selector: '[appWelcome]',
 })
-export class WelcomeDirective implements OnInit {
+export class WelcomeDirective {
   constructor() {}
 
   @HostBinding('style.visibility') visibility: string = 'visible';
 
-  ngOnInit() {
+  @HostListener('window:load') onLoad() {
     setTimeout(() => {
       this.visibility = 'hidden';
-      environment.isWelcomeMessage = false;
-    }, 100);
+    }, 5000);
   }
-
-  // @HostListener('window:load') onLoad() {
-
-  // }
 }
