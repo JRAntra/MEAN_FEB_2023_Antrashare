@@ -5,10 +5,11 @@ a {
   font-size: small;
   text-decoration: underline;
 }
-.agreement {
+.need-help-link {
   display: flex;
+  justify-content: flex-end;
+  background-color: red;
   flex-wrap: wrap;
-  justify-content: space-between;
   padding: 5%;
   color: $theme-color;
 }

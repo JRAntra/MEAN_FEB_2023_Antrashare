@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgModel } from '@angular/forms';
+import { NgModel, FormGroup, FormControl, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -33,8 +33,13 @@ export class LoginComponent implements OnInit {
   pushToArray(event: Event) {
     this.userName = (event.target as HTMLInputElement).value;
   }
-
-  ngOnInit(): void {}
+  reactiveLoginForm: FormGroup = new FormGroup({});
+  ngOnInit(): void {
+    this.reactiveLoginForm = new FormGroup({
+      userName: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required),
+    });
+  }
 
   user = {
     isValid: true,
@@ -42,7 +47,6 @@ export class LoginComponent implements OnInit {
   loginClickHandler() {
     if (this.user.isValid) {
       this.router.navigate(['newsfeed']);
-      environment.isWelcomeMessage = false; //to remove welcomeMessage
     }
   }
   isChatBox: boolean = false;
