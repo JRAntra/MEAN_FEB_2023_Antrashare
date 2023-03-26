@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { UserDataService } from 'src/app/core/user-data.service';
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  constructor(private userService: UserDataService) {}
+  constructor() {}
 
   reactiveForm: FormGroup = new FormGroup({});
-  users: any[] = [];
+
   ngOnInit(): void {
     this.reactiveForm = new FormGroup({
       username: new FormControl(null),
@@ -21,13 +19,6 @@ export class ProfileComponent implements OnInit {
       email: new FormControl(null),
       phone: new FormControl(null),
     });
-    this.userService.getAllUsers().subscribe(
-      (data) => {
-        this.users = data;
-        console.log(this.users);
-      },
-      (err) => console.error(err)
-    );
   }
 
   fields = [
@@ -44,6 +35,6 @@ export class ProfileComponent implements OnInit {
   }
   confirmEditCreate(index: number) {
     this.fields[index].editable = false;
-    // console.log(this.reactiveForm.value);
+    console.log(this.reactiveForm.value);
   }
 }
