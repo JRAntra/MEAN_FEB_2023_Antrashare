@@ -21,10 +21,10 @@
 }
 .like-list {
   padding: 0.5rem 1rem;
-  position: sticky;
+  position: absolute;
   float: right;
-  margin-right: -90%;
-  top: 5%;
+  top:5vh;
+  right:5vw;
   background-color: $theme-color;
 }
 a {
@@ -32,13 +32,20 @@ a {
 }
 .newsfeed {
   position: relative;
-  &:hover {
-    background-color: rgb(185, 177, 177);
+  img{
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
   }
   .like-btn {
     position: absolute;
     bottom: 0;
     right: 0;
+  }
+}
+.on-hover{
+  &:hover {
+    background-color: rgb(185, 177, 177);
   }
 }
 .like-list-toggled {
