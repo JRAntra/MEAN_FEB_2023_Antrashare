@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { AngularMaterialModule } from 'src/app/share/angular-material/angular-material.module';
 import { RouterModule } from '@angular/router';
 import { RegisterModule } from '../register/register.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [LoginComponent],
   imports: [
@@ -12,7 +12,8 @@ import { FormsModule } from '@angular/forms';
     AngularMaterialModule,
     RegisterModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
     // BrowserAnimationsModule,
     // MatInputModule,
     // MatButtonModule,

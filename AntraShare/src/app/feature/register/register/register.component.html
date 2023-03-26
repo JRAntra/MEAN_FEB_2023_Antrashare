@@ -3,21 +3,29 @@
     <div class="antra-logo">
       <!-- <img src="./assets/Antra_Share.jpg" alt="antrashare-logo" /> -->
     </div>
-    <form class="example-form">
+    <form class="example-form" [formGroup]="reactiveRegisterForm">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Enter Your Email" required />
+        <input
+          matInput
+          placeholder="Enter Your Email"
+          formControlName="email"
+        />
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput value="" placeholder="user name" required />
+        <input
+          matInput
+          value=""
+          placeholder="user name"
+          formControlName="userName"
+        />
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <input
           type="password"
           matInput
           placeholder="password"
-          required
           [type]="showPasswordConfirm ? 'text' : 'password'"
-          name="password"
+          formControlName="password"
         />
         <mat-icon matSuffix (click)="toggleConfirmPassword()">
           {{ showPasswordConfirm ? "visibility_off" : "visibility" }}
@@ -30,13 +38,12 @@
           placeholder="confirm password"
           required
           [type]="showPassword ? 'text' : 'password'"
-          name="password"
+          formControlName="confirmPassword"
         />
         <mat-icon matSuffix (click)="togglePasswordVisibility()">
           {{ showPassword ? "visibility_off" : "visibility" }}
         </mat-icon>
       </mat-form-field>
-
     </form>
 
     <div class="example-button-row">
@@ -49,6 +56,35 @@
       >
         Register
       </button>
+    </div>
+     <div class="agreement">
+      <p>
+        <mat-checkbox>Agreement</mat-checkbox>
+      </p>
+      <a mat-button (click)="needHelp()">Need Help?</a>
+    </div>
+  </div>
+ 
+  <div class="need-help" *ngIf="isChatBox === true">
+    <div class="chat-box-header">
+      <h3>
+        chat with us
+        <span>
+          <button mat-button (click)="onChatButtonClick()">—</button>
+        </span>
+      </h3>
+    </div>
+    <div class="chat-box-body">
+      <textarea
+        name=""
+        id=""
+        cols="53"
+        rows="33"
+        placeholder="type your message...."
+      ></textarea>
+    </div>
+    <div class="chat-box-footer">
+      <button mat-button>send message</button>
     </div>
   </div>
 </header>
