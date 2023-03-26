@@ -42,11 +42,13 @@
     </mat-form-field>
     <button mat-button focusable="false" (click)="(0)">Submit</button>
   </div>
-  <div class="newsfeed" *ngFor="let nf of newsfeed; let i = index">
-    <a [routerLink]="['/newsfeed', nf.id]">
-      <mat-card id="{{ i }}">
-        <mat-card-title>{{ nf.title }}</mat-card-title>
-        <mat-card-content>{{ nf.content | truncate }}</mat-card-content>
+  <div class="newsfeed" *ngFor="let n of news; let i = index">
+    <a [routerLink]="['/newsfeed', n._id]">
+      <mat-card [id]="n.id" class="on-hover">
+        <mat-card-title>{{ n.content?.text | truncate}}</mat-card-title>
+        <mat-card-content>
+          <img [src]="n.content?.image" alt="" srcset="">
+        </mat-card-content>
       </mat-card>
     </a>
     <button mat-icon-button color="primary" class="like-btn">
