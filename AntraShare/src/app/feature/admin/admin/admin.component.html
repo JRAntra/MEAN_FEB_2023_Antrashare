@@ -2,10 +2,47 @@
 <div class="main-container">
     <div class="user-container">
         <mat-list *ngFor="let userTag of userTags">
-            <mat-list-item (click)="onClickUser(userTag.id)">{{userTag.userName}} <button (click)="onClickEventDelete(userTag.id)" class="delete-button" mat-raised-button color="primary">Delete</button></mat-list-item>
-            <mat-divider></mat-divider>  
+            <mat-list-item (click)="onClickUser(userTag._id)">{{userTag.userName}} <button
+                    (click)="onClickEventDelete(userTag._id)" class="delete-button" mat-raised-button
+                    color="primary">Delete</button></mat-list-item>
+            <mat-divider></mat-divider>
         </mat-list>
-        <button (click)="onClickEventAdd()" class="add-user" mat-raised-button color="primary">Add User Button</button>
+        <button class="add-user" mat-raised-button color="primary">Add User Button</button>
     </div>
-    <div class="user-detail">{{userContent}}</div>
-</div>
+    <div class="user-detail" *ngIf="userContent">
+        <div class="vertical-table">
+          <div class="row">
+            <div class="label">Name:</div>
+            <div class="value">{{userContent.name}}</div>
+          </div>
+          <div class="row">
+            <div class="label">Gender:</div>
+            <div class="value">{{userContent.gender}}</div>
+          </div>
+          <div class="row">
+            <div class="label">ID:</div>
+            <div class="value">{{userContent._id}}</div>
+          </div>
+          <div class="row">
+            <div class="label">Email:</div>
+            <div class="value">{{userContent.userEmail}}</div>
+          </div>
+          <div class="row">
+            <div class="label">Phone:</div>
+            <div class="value">{{userContent.phone}}</div>
+          </div>
+          <div class="row">
+            <div class="label">Password:</div>
+            <div class="value">{{userContent.password}}</div>
+          </div>
+          <div class="row">
+            <div class="label">Age:</div>
+            <div class="value">{{userContent.age}}</div>
+          </div>
+          <div class="row">
+            <div class="label">User Role:</div>
+            <div class="value">{{userContent.userRole}}</div>
+          </div>
+        </div>
+      </div>
+      
