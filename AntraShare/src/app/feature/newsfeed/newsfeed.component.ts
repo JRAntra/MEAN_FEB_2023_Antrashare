@@ -1,39 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Newsfeed } from './newsfeed';
 import { environment } from 'src/environments/environment';
-
+import { NewsfeedServiceService } from 'src/app/core/newsfeed_service/newsfeed-service.service';
 @Component({
   selector: 'app-newsfeed',
   templateUrl: './newsfeed.component.html',
   styleUrls: ['./newsfeed.component.scss'],
 })
 export class NewsfeedComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+  constructor(private newService: NewsfeedServiceService) {}
+  news: any[] = [];
+  ngOnInit(): void {
+    this.newService.getAllNews().subscribe((news) => {
+      this.news = news;
+      // console.log(this.news);
+    });
+  }
   isWelcomeMessage = environment.isWelcomeMessage;
-  newsfeed: Newsfeed[] = [
-    {
-      id: 1,
-      title: 'title1',
-      content: 'sadfjshadfkjhdsajkfkasdfnkasdnlkfsdajkfh',
-    },
-    {
-      id: 2,
-      title: 'title2',
-      content: 'sadfjshadfkjhdsajkfkasdfnkasdnlkfsdajkfh',
-    },
-    {
-      id: 3,
-      title: 'title3',
-      content: 'sadfjshadfkjhdsajkfkasdfnkasdnlkfsdajkfh',
-    },
-    {
-      id: 4,
-      title: 'title4',
-      content: 'sadfjshadfkjhdsajkfkasdfnkasdnlkfsdajkfh',
-    },
-  ];
+
   hideForm = true;
   toggleLikeList() {
     if (this.hideForm) {
