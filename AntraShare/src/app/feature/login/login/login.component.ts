@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgModel } from '@angular/forms';
+import { NgModel, FormGroup, FormControl, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { AuthorizationService } from 'src/app/core/authorization/authorization.service';
 
@@ -19,7 +19,13 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private auth: AuthorizationService) { }
 
-  ngOnInit(): void { }
+  reactiveLoginForm: FormGroup = new FormGroup({});
+  ngOnInit(): void {
+    this.reactiveLoginForm = new FormGroup({
+      userName: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required),
+    });
+  }
 
   signUp() {
     this.router.navigate(['/register']);
@@ -50,7 +56,6 @@ export class LoginComponent implements OnInit {
   pushToPasswordArray(event: Event) {
     this.password = (event.target as HTMLInputElement).value;
   }
-
 
   user = {
     isValid: true,

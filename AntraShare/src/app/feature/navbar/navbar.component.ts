@@ -10,9 +10,4 @@ export class NavbarComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
-  //to remove welcome message when navigated to newsfeed
-  removeWelcomeMessage() {
-    environment.isWelcomeMessage = false;
-  }
 }

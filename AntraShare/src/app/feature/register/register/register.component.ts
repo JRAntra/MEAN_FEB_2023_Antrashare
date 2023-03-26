@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -23,5 +25,25 @@ export class RegisterComponent implements OnInit {
   onRegister() {
     this.router.navigate(['/logIn']);
   }
-  ngOnInit(): void {}
+
+  reactiveRegisterForm: FormGroup = new FormGroup({});
+  ngOnInit(): void {
+    this.reactiveRegisterForm = new FormGroup({
+      email: new FormControl(null, [Validators.email, Validators.required]),
+      userName: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required),
+      confirmPassword: new FormControl(null, Validators.required),
+    });
+  }
+
+  isChatBox: boolean = false;
+
+  //need help event handler
+  needHelp() {
+    this.isChatBox = true;
+  }
+  //chat-box-button-event-handler
+  onChatButtonClick() {
+    this.isChatBox = false;
+  }
 }
