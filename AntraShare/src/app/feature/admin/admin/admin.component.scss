@@ -2,17 +2,7 @@
 
 .mat-list-item {
     font-size: 30px;
-}
-
-.user-container {
-    width: 25%;
-    background-color: beige;
     position: relative;
-}
-
-.main-container{
-    height: 100%;
-    display: flex;
 }
 
 .top-container {
@@ -26,11 +16,28 @@
     // vertical-align: middle;
 }
 
-.user-detail{
-    margin-left: 5vh;
+.main-container {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.user-container {
+    width: 25%;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: beige;
+    position: fixed;
+}
+
+.user-detail {
+    margin-left: 28%;
     margin-top: 5vh;
+    position: absolute;
+    // overflow-y: scroll;
     font-size: large;
     font-family: 'Times New Roman', Times, serif;
+    z-index: 10;
 }
 
 .add-user {
@@ -41,10 +48,30 @@
 }
 
 .delete-button {
-    margin-left: 40%;
+    margin-left: 75%;
+    position: absolute;
 }
 
 .admin-button {
     margin-top: 1vh;
     margin-right: 2vh;
+}
+
+.vertical-table {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.label {
+    font-weight: bold;
+    width: 100px;
+}
+
+.value {
+    flex: 1;
 }
