@@ -13,6 +13,8 @@ import { AdminModule } from './feature/admin/admin.module';
 import { UserService } from './core/service/user.service';
 import { HttpClientModule } from '@angular/common/http';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -27,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarModule,
     AdminModule,
     RegisterModule,
+    HttpClientModule
   ],
   exports: [],
   providers: [UserService],
