@@ -7,8 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./setting-page.component.scss']
 })
 export class SettingPageComponent implements OnInit {
-
-  Name: string = "";
   
   constructor(private router: Router) { }
 
