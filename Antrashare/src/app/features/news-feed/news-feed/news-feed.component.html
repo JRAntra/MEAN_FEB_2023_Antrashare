@@ -10,11 +10,11 @@
 
 <div class="post-box">
     <div class="p-fluid">
-        <div class="p-field p-col-12">
+        <!-- <div class="p-field p-col-12">
             <textarea width="100%" rows="10" cols='30' pInputTextarea [formControl]="inputbox" (input)="onChangeFormControl()">    
-            </textarea>
-            <!-- <p-editor  [formControl]="inputbox" (input)="onChangeFormControl()" [style]="{ height: '320px' }"></p-editor> -->
-        </div>
+            </textarea> -->
+            <p-editor  [formControl]="inputbox" [style]="{ height: '320px' }"></p-editor>
+        <!-- </div> -->
     </div>
     
     
@@ -24,7 +24,20 @@
     
 </div>
 
-<div class="story-box">
+<div *ngFor="let story of news_feed_data">
+    <app-story [publisherName]="story.publisherName"
+               [publishedTime]="story.publishedTime"
+               [content]="story.content"></app-story>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!-- <div class="story-box">
     <p-card>
         <ng-template pTemplate="header">
             Story1
@@ -42,4 +55,4 @@
         Good Story, wow!
     </p-card>
     <button pButton label="like" icon="pi pi-thumbs-up" class="p-button-outlined p-button-rounded story-like"></button>
-</div>
+</div> -->

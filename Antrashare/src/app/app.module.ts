@@ -4,8 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
-
+//Import page modules
 import { MyProfileModule } from './features/my-profile/my-profile.module';
 import { NewsFeedModule } from './features/news-feed/news-feed.module';
 import { AdminModule } from './features/admin/admin.module';
@@ -14,11 +15,12 @@ import { LoginModule } from './features/login/login.module';
 import { RegisterModule } from './features/register/register.module';
 import { NavbarComponent } from './features/navbar/navbar.component';
 
+//Import module that has to be used from library to the app main component
 import {ButtonModule} from 'primeng/button';
 import {SelectButtonModule} from 'primeng/selectbutton';
-
 import { ReactiveFormsModule } from '@angular/forms';
 
+//Import HTTP
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -43,6 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     SelectButtonModule,
     ReactiveFormsModule,
     HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

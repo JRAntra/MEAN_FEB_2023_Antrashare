@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MenubarModule} from 'primeng/menubar';
 import {ButtonModule} from 'primeng/button';
+import {SelectButtonModule} from 'primeng/selectbutton';
 import {VirtualScrollerModule} from 'primeng/virtualscroller';
 import {ListboxModule} from 'primeng/listbox';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
@@ -21,6 +22,8 @@ import {SidebarModule} from 'primeng/sidebar';
 import {ChipsModule} from 'primeng/chips';
 import {EditorModule} from 'primeng/editor';
 import { MessagesModule } from 'primeng/messages';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
+
 
 
 @NgModule({
@@ -29,6 +32,7 @@ import { MessagesModule } from 'primeng/messages';
     CommonModule,
     MenubarModule,
     ButtonModule,
+    SelectButtonModule,
     VirtualScrollerModule,
     ListboxModule,
     ConfirmDialogModule,
@@ -47,11 +51,13 @@ import { MessagesModule } from 'primeng/messages';
     SidebarModule,
     ChipsModule,
     EditorModule,
-    MessagesModule
+    MessagesModule,
+    OverlayPanelModule
   ],
   exports: [
     MenubarModule,
     ButtonModule,
+    SelectButtonModule,
     VirtualScrollerModule,
     ListboxModule,
     ConfirmDialogModule,
@@ -70,7 +76,8 @@ import { MessagesModule } from 'primeng/messages';
     SidebarModule,
     ChipsModule,
     EditorModule,
-    MessagesModule
+    MessagesModule,
+    OverlayPanelModule
   ]
 })
 export class PrimengModule { }

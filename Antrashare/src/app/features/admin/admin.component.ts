@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import {ConfirmationService, ConfirmEventType, MenuItem, MessageService} from 'primeng/api';
+import {ConfirmationService, ConfirmEventType, MessageService,Message} from 'primeng/api';
+import { TestService } from 'src/app/core/services/test.service';
 
 interface User {
-  name: string,
-  id: string
+  name: String,
+  userName: String,
+  userEmail: String,
+  password: String,
+  userRole: String,
+  age: Number,
+  gender: String,
+  phone: Number,
 } 
 
 @Component({
@@ -14,30 +21,20 @@ interface User {
 })
 
 export class AdminComponent implements OnInit {
-  items: MenuItem[];
 
-  activeItem: MenuItem;
+  msgs : Message[] =[];
 
+  passwordIsVisible : boolean = false;
 
-  users: User[];
+  users: User[] = [];
 
-  selectedUser: User;
+  selectedUser!: User;
 
-  constructor(private confirmationService: ConfirmationService, private messageService: MessageService) {
-      this.users = [
-          {name: 'username1', id: '0001'},
-          {name: 'username2', id: '0002'},
-          {name: 'username3', id: '0003'}
-      ];
-      this.selectedUser = this.users[0];
-
-      this.items = [
-        {label: 'My Profile', icon: 'pi pi-fw pi-home'},
-        {label: 'News Feed', icon: 'pi pi-fw pi-calendar'},
-        {label: 'Settings', icon: 'pi pi-fw pi-pencil'},
-    ];
-
-    this.activeItem = this.items[0];
+  constructor(private confirmationService: ConfirmationService, private messageService: MessageService, private apiService : TestService) {
+      apiService.getAllUsers().subscribe(res => {
+        this.users = res;
+        this.selectedUser = this.users[0];
+      });
   }
 
   ngOnInit(): void {
@@ -51,6 +48,8 @@ export class AdminComponent implements OnInit {
           icon: 'pi pi-info-circle',
           accept: () => {
               this.messageService.add({severity:'info', summary:'Confirmed', detail:'Record deleted'});
+              console.log(this.selectedUser.userName);
+              this.users = this.users.filter(user => user.userEmail !== this.selectedUser.userEmail);
           },
           reject: (type: any) => {
               switch(type) {
@@ -63,6 +62,12 @@ export class AdminComponent implements OnInit {
               }
           }
       });
+  }
+
+  onClick(){
+    if(this.passwordIsVisible){
+      this.passwordIsVisible = false;
+    }
   }
   
 
