@@ -3,16 +3,46 @@
     <div class="antra-logo">
       <!-- <img src="./assets/Antra_Share.jpg" alt="antrashare-logo" /> -->
     </div>
-    <form class="example-form">
+    <form class="example-form" [formGroup]="reactiveRegisterForm">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Enter Your Email" required />
+        <input
+          matInput
+          placeholder="Enter Your Email"
+          formControlName="userEmail"
+        />
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput value="" placeholder="user name" required />
+        <input
+          matInput
+          value=""
+          placeholder="user name"
+          formControlName="userName"
+        />
+      </mat-form-field>
+      <!-- <mat-form-field class="example-full-width">
+        <input matInput value="" placeholder="name" formControlName="name" />
+      </mat-form-field> -->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Age" formControlName="age" />
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input type="password" matInput placeholder="password" required />
-        <mat-icon matSuffix>visibility</mat-icon>
+        <input matInput placeholder="Gender" formControlName="gender" />
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Phone" formControlName="phone" />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input
+          type="password"
+          matInput
+          placeholder="password"
+          [type]="showPasswordConfirm ? 'text' : 'password'"
+          formControlName="password"
+        />
+        <mat-icon matSuffix (click)="toggleConfirmPassword()">
+          {{ showPasswordConfirm ? "visibility_off" : "visibility" }}
+        </mat-icon>
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <input
@@ -20,8 +50,12 @@
           matInput
           placeholder="confirm password"
           required
+          [type]="showPassword ? 'text' : 'password'"
+          name="confirmPassword"
         />
-        <mat-icon matSuffix>visibility</mat-icon>
+        <mat-icon matSuffix (click)="togglePasswordVisibility()">
+          {{ showPassword ? "visibility_off" : "visibility" }}
+        </mat-icon>
       </mat-form-field>
     </form>
 
@@ -31,10 +65,39 @@
         class="register-btn"
         color="Primary"
         type="button"
-        (click)="logOut()"
+        (click)="onRegister(reactiveRegisterForm.value)"
       >
         Register
       </button>
+    </div>
+    <div class="agreement">
+      <p>
+        <mat-checkbox>Agreement</mat-checkbox>
+      </p>
+      <a mat-button (click)="needHelp()">Need Help?</a>
+    </div>
+  </div>
+
+  <div class="need-help" *ngIf="isChatBox === true">
+    <div class="chat-box-header">
+      <h3>
+        chat with us
+        <span>
+          <button mat-button (click)="onChatButtonClick()">—</button>
+        </span>
+      </h3>
+    </div>
+    <div class="chat-box-body">
+      <textarea
+        name=""
+        id=""
+        cols="53"
+        rows="33"
+        placeholder="type your message...."
+      ></textarea>
+    </div>
+    <div class="chat-box-footer">
+      <button mat-button>send message</button>
     </div>
   </div>
 </header>

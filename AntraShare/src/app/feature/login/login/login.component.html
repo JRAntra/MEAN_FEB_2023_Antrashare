@@ -4,22 +4,31 @@
       <!-- <img src="./src/assets/antra.png" alt="antrashare-logo" /> -->
     </div>
 
-    <form class="example-form">
+    <form class="example-form" [formGroup]="reactiveLoginForm">
       <mat-form-field class="example-full-width">
-        <mat-label>User Name</mat-label>
+        <mat-label>Email</mat-label>
         <input
           matInput
           type="text"
           (keyup)="OntypeUserName($event)"
-          (change)="pushToArray($event)"
-          [(ngModel)] = "userName" name="name"
+          formControlName="email"
         />
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input type="password" matInput placeholder="password" />
-        <mat-icon matSuffix>visibility</mat-icon>
+        <input
+          matInput
+          type="password"
+          (keyup)="OntypePassword($event)"
+          placeholder="password"
+          [type]="showPassword ? 'text' : 'password'"
+          formControlName="password"
+        />
+        <mat-icon matSuffix (click)="togglePasswordVisibility()">
+          {{ showPassword ? "visibility_off" : "visibility" }}
+        </mat-icon>
       </mat-form-field>
+      <div *ngIf="error">{{error}}</div>
     </form>
 
     <div class="example-button-row">
@@ -28,6 +37,7 @@
         class="login-btn"
         color="accent"
         (click)="loginClickHandler()"
+        [disabled]="reactiveLoginForm.invalid"
       >
         Login
       </button>
@@ -37,10 +47,10 @@
       <a (click)="signUp()" mat-button>No Accounts? Register Now!</a>
     </div>
 
-    <div class="agreement">
-      <p>
+    <div class=".need-help-link">
+      <!-- <p>
         <mat-checkbox>Agreement</mat-checkbox>
-      </p>
+      </p> -->
       <a mat-button (click)="needHelp()">Need Help?</a>
     </div>
   </div>

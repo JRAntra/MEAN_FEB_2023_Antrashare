@@ -1,62 +1,36 @@
-<div class="head-bar">
-    <span></span>
-</div>
-
-
-
-<div class="settings-panel">
-    <p>Setting Panel</p>
-    <button mat-button>Click me!!</button>
-    <button mat-raised-button>try me</button>
-    <div>
-        Name : <input [(ngModel)]='Name'>
-        <br>
-        You entered : {{Name}}
-    </div>`
-    <div>
-        Explore the usage of ngStyle
-    </div>
-</div>
-
 <div class="setting">
-    <mat-card>
+    <mat-card class="setting-card">
         <mat-card-title>Setting Panel</mat-card-title>
-
-        <mat-card-actions>
-            <p>
-                <mat-form-field appearance="legacy">
-                    <mat-label>Legacy form field</mat-label>
-                    <input matInput placeholder="Placeholder">
-                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                    <mat-hint>Hint</mat-hint>
-                </mat-form-field>
-            </p>
-            <p>
-                <mat-form-field appearance="standard">
-                    <mat-label>Standard form field</mat-label>
-                    <input matInput placeholder="Placeholder">
-                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                    <mat-hint>Hint</mat-hint>
-                </mat-form-field>
-            </p>
-            <p>
-                <mat-form-field appearance="fill">
-                    <mat-label>Fill form field</mat-label>
-                    <input matInput placeholder="Placeholder">
-                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                    <mat-hint>Hint</mat-hint>
-                </mat-form-field>
-            </p>
-            <p>
-                <mat-form-field appearance="outline">
-                    <mat-label>Outline form field</mat-label>
-                    <input matInput placeholder="Placeholder">
-                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                    <mat-hint>Hint</mat-hint>
-                </mat-form-field>
-            </p>
+        <mat-card-actions class="card-content">
+            <mat-tab-group animationDuration="0ms">
+                <mat-tab label="Profile">
+                    <div>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>User Name</mat-label>
+                            <input matInput placeholder="Enter your user name">
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Password & Email">
+                    <div>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Email</mat-label>
+                            <input matInput placeholder="Enter your Email">
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Password</mat-label>
+                            <input matInput placeholder="Enter your password">
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
         </mat-card-actions>
-
+        <button mat-button color="primary" class="save-btn">Save</button>
     </mat-card>
 </div>
 <button (click)="logOut()" class="logout-button">Logout</button>
