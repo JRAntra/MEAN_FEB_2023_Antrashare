@@ -7,14 +7,16 @@ import { AppComponent } from './app.component';
 import { NewsFeedModule } from './features/news-feed/news-feed.module';
 import { NewsFeedComponent } from './features/news-feed/newsFeed/newsFeed.component';
 // import { TestService } from './core/services/test.service';
+import { HttpClientModule } from '@angular/common/http'
 @NgModule({
   declarations: [
-    AppComponent, 
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NewsFeedModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

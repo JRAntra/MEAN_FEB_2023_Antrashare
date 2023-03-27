@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -6,8 +8,8 @@ import { Injectable } from '@angular/core';
 export class TestService {
 
   dataFromServer: Promise<any> = new Promise<any>(()=>{})
-
-  constructor() { }
+  ObservableFromServer : any
+  constructor(private http: HttpClient) { }
 
   foo():number{
     return Math.floor(Math.random()*10)
@@ -17,5 +19,19 @@ export class TestService {
     return fetch('https://jsonplaceholder.typicode.com/posts')
   }
 
+  // Promise      single value        Eager- excuted once been invoked
+  // Observable   stream of data      lazy-need to subscribe
+
+  // getDateUseObservable():Observable<any>{
+    getDateUseObservable():Observable<any>{
+
+    return this.http.get<any>('https://jsonplaceholder.typicode.com/posts')
+    // .subscrie(
+    //   (data)=>{ 
+    //     this.ObservableFromServer = data
+    //   }
+    // )
+
+  }
 
 }
