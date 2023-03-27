@@ -6,19 +6,22 @@
     </button>
     <span>My App</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
+<!--    <button mat-icon-button class="setting-header-heart" aria-label="Example icon-button with heart icon">-->
+<!--      <mat-icon>favorite</mat-icon>-->
+<!--    </button>-->
+    <button *ngIf="isAdmin" mat-icon-button class="setting-header-admin" aria-label="Example icon-button with share icon" (click)="NaviToAdmin()">
+      <mat-icon>build</mat-icon>
     </button>
   </mat-toolbar>
 </p>
   <div class="container">
     <mat-card class="setting-panel">
-      <mat-card-title>Setting Panel</mat-card-title>
+      <div class="setting-logout">
+        <mat-card-title>Setting Panel</mat-card-title>
+
+      </div>
       <mat-card-content>
-    <mat-accordion class="example-headers-align">
+    <mat-accordion class="setting-panel-headersAlign">
     <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
       <mat-expansion-panel-header>
         <mat-panel-title>
