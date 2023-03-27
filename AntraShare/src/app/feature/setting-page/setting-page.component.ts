@@ -11,7 +11,7 @@ export class SettingPageComponent implements OnInit {
   constructor(private router: Router) { }
 
   logOut() {
-    this.router.navigate(['/logIn'])
+    this.router.navigate([''])
   }
   ngOnInit(): void {
   }

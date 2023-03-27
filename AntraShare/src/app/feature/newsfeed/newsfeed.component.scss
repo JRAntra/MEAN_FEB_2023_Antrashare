@@ -133,8 +133,8 @@ a {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  position: absolute;
-  top: 5%;
+  position: fixed;
+  top: 0%;
   div {
     display: inline-block;
     overflow: hidden;
