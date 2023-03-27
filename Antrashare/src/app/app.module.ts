@@ -18,6 +18,7 @@ import { NavbarComponent } from './features/navbar/navbar.component';
 //Import module that has to be used from library to the app main component
 import {ButtonModule} from 'primeng/button';
 import {SelectButtonModule} from 'primeng/selectbutton';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //Import HTTP
 import { HttpClientModule } from '@angular/common/http';
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     NavbarComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
     ButtonModule,
     SelectButtonModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
