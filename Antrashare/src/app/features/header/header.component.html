@@ -1,0 +1,8 @@
+<p-menubar>
+    <p-overlayPanel #op>
+        <ng-template pTemplate>
+            Content
+        </ng-template>
+    </p-overlayPanel>
+    <button type="text" pButton label="liked list" icon="pi pi-heart" (click)="op.toggle($event)"></button>
+</p-menubar>

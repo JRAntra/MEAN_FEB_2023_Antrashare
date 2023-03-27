@@ -16,8 +16,12 @@ import { NavbarComponent } from './features/navbar/navbar.component';
 
 import {ButtonModule} from 'primeng/button';
 import {SelectButtonModule} from 'primeng/selectbutton';
+import { PrimengModule } from './shared/primeng/primeng.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from './features/header/header.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -26,6 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     NavbarComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +45,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ButtonModule,
     SelectButtonModule,
     ReactiveFormsModule,
+    PrimengModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
