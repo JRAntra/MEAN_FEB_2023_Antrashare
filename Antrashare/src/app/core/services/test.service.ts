@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -16,7 +16,8 @@ export class TestService {
   }
 
   getData(): Promise<any>{
-    return fetch('https://jsonplaceholder.typicode.com/posts')
+  return fetch('https://jsonplaceholder.typicode.com/posts')
+
   }
 
   // Promise      single value        Eager- excuted once been invoked
@@ -26,11 +27,34 @@ export class TestService {
     getDateUseObservable():Observable<any>{
 
     return this.http.get<any>('https://jsonplaceholder.typicode.com/posts')
-    // .subscrie(
+    // .subscribe(
     //   (data)=>{ 
     //     this.ObservableFromServer = data
     //   }
     // )
+
+  }
+
+  createNewObservable(){
+
+    // const subjectA = new Subject<any>()
+
+    // subjectA.subscribe(
+    //   res=> console.log(res)
+    // )
+
+    // subjectA.next("1")
+
+    return new Observable<any>((subscriber)=>{
+      const obj = {}
+      subscriber.next(obj)
+      subscriber.complete()
+      subscriber.error("error here")
+
+    })
+
+    // set up subscription between likedlistComponent and Subject(of latest likeList)
+
 
   }
 
