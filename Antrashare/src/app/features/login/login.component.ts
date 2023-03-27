@@ -18,6 +18,10 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['register']);
   }
 
+  goToNewsfeed() {
+    this.router.navigate(['news-feed']);
+  }
+
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       email: new FormControl(),
@@ -33,6 +37,7 @@ export class LoginComponent implements OnInit {
       error => console.log(error)
     );
     this.loginForm.reset();
+    this.goToNewsfeed();
   }
 
 }

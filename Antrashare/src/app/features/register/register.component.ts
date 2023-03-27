@@ -72,6 +72,7 @@ export class RegisterComponent implements OnInit {
       result => console.log(result),
       error => console.log(error)
     );
+    
 
     // this.http.post('http://localhost:4231/api/register/createNewAccount',
     //  this.validateForm.value).subscribe(response => {
@@ -79,6 +80,7 @@ export class RegisterComponent implements OnInit {
     // });
 
     this.validateForm.reset();
+    this.goToLogin();
   }
 
 }
