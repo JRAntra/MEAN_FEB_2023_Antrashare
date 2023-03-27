@@ -11,41 +11,77 @@
     </li>
     <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
         <div class="text-500 w-6 md:w-2 font-medium">Username</div>
-        <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">Anyname</div>
+        <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
+            <p *ngIf="!username_ifedit">{{username}}<p>
+            <input *ngIf="username_ifedit" type="text" pInputText [formControl]="usernameForm">
+        </div>
         <div class="w-6 md:w-2 flex justify-content-end">
-            <button pButton pRipple label="Edit" icon="pi pi-pencil" class="p-button-text"></button>
+            <button *ngIf="!username_ifedit" pButton pRipple label="Edit" icon="pi pi-pencil" class="p-button-text" (click)="username_edit()"></button>
+            <button *ngIf="username_ifedit" pButton pRipple icon="pi pi-check" class="p-button-text" (click)="username_save()"></button>
+            <button *ngIf="username_ifedit" pButton pRipple icon="pi pi-times" class="p-button-text" (click)="username_notsave()"></button>
         </div>
     </li>
+
     <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
         <div class="text-500 w-6 md:w-2 font-medium">Password</div>
-        <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">**********</div>
+        <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
+            <p *ngIf="!password_ifedit">{{password | password}}<p>
+            <input *ngIf="password_ifedit" type="text" pInputText [formControl]="passwordForm">
+        </div>
         <div class="w-6 md:w-2 flex justify-content-end">
-            <button pButton pRipple label="Edit" icon="pi pi-pencil" class="p-button-text"></button>
+            <button *ngIf="!password_ifedit" pButton pRipple label="Edit" icon="pi pi-pencil" class="p-button-text" (click)="password_edit()"></button>
+            <button *ngIf="password_ifedit" pButton pRipple icon="pi pi-check" class="p-button-text" (click)="password_save()"></button>
+            <button *ngIf="password_ifedit" pButton pRipple icon="pi pi-times" class="p-button-text" (click)="password_notsave()"></button>
         </div>
     </li>
+
     <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
         <div class="text-500 w-6 md:w-2 font-medium">Gender</div>
-        <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">Male</div>
+        <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
+            <p *ngIf="!gender_ifedit">{{gender}}<p>
+            <input *ngIf="gender_ifedit" type="text" pInputText [formControl]="genderForm">
+        </div>
         <div class="w-6 md:w-2 flex justify-content-end">
-            <button pButton pRipple label="Edit" icon="pi pi-pencil" class="p-button-text"></button>
+            <button *ngIf="!gender_ifedit" pButton pRipple label="Edit" icon="pi pi-pencil" class="p-button-text" (click)="gender_edit()"></button>
+            <button *ngIf="gender_ifedit" pButton pRipple icon="pi pi-check" class="p-button-text" (click)="gender_save()"></button>
+            <button *ngIf="gender_ifedit" pButton pRipple icon="pi pi-times" class="p-button-text" (click)="gender_notsave()"></button>
         </div>
     </li>
+
+    <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
+        <div class="text-500 w-6 md:w-2 font-medium">Age</div>
+        <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
+            <p *ngIf="!age_ifedit">{{age}}<p>
+            <input *ngIf="age_ifedit" type="text" pInputText [formControl]="ageForm">
+        </div>
+        <div class="w-6 md:w-2 flex justify-content-end">
+            <button *ngIf="!age_ifedit" pButton pRipple label="Edit" icon="pi pi-pencil" class="p-button-text" (click)="age_edit()"></button>
+            <button *ngIf="age_ifedit" pButton pRipple icon="pi pi-check" class="p-button-text" (click)="age_save()"></button>
+            <button *ngIf="age_ifedit" pButton pRipple icon="pi pi-times" class="p-button-text" (click)="age_notsave()"></button>
+        </div>
+    </li>
+
+
     <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
         <div class="text-500 w-6 md:w-2 font-medium">Email</div>
-        <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">Bil@Antra.com</div>
-        <div class="w-6 md:w-2 flex justify-content-end">
-            <button pButton pRipple label="Edit" icon="pi pi-pencil" class="p-button-text"></button>
+        <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
+            <p>{{email}}<p>
         </div>
     </li>
-    <li class="flex align-items-center py-3 px-2 border-top-1 border-bottom-1 surface-border flex-wrap">
+
+    <li class="flex align-items-center py-3 px-2 border-top-1 surface-border flex-wrap">
         <div class="text-500 w-6 md:w-2 font-medium">Phone</div>
-        <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1 line-height-3">
-            xxx-xxxx-xxxx
+        <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">
+            <p *ngIf="!phone_ifedit">{{phone}}<p>
+            <input *ngIf="phone_ifedit" type="text" pInputText [formControl]="phoneForm">
         </div>
         <div class="w-6 md:w-2 flex justify-content-end">
-            <button pButton pRipple label="Edit" icon="pi pi-pencil" class="p-button-text"></button>
+            <button *ngIf="!phone_ifedit" pButton pRipple label="Edit" icon="pi pi-pencil" class="p-button-text" (click)="phone_edit()"></button>
+            <button *ngIf="phone_ifedit" pButton pRipple icon="pi pi-check" class="p-button-text" (click)="phone_save()"></button>
+            <button *ngIf="phone_ifedit" pButton pRipple icon="pi pi-times" class="p-button-text" (click)="phone_notsave()"></button>
         </div>
     </li>
+
     <li class="flex align-items-center py-3 px-2 border-top-1 border-bottom-1 surface-border flex-wrap">
         <div  class="text-500 w-6">
             <span>

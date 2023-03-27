@@ -4,13 +4,15 @@ import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { PrimengModule } from 'src/app/shared/primeng/primeng.module';
 import { WelcomeDirective } from './welcome.directive';
 import { PostboxPipe } from './postbox.pipe';
+import { StoryComponent } from './story/story.component';
 
 
 @NgModule({
   declarations: [
     NewsFeedComponent,
     WelcomeDirective,
-    PostboxPipe
+    PostboxPipe,
+    StoryComponent
   ],
   imports: [
     CommonModule,
