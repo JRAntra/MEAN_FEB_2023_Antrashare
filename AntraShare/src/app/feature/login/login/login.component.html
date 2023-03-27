@@ -28,6 +28,7 @@
           {{ showPassword ? "visibility_off" : "visibility" }}
         </mat-icon>
       </mat-form-field>
+      <div *ngIf="error">{{error}}</div>
     </form>
 
     <div class="example-button-row">
