@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'newsfeed/:id', component: ContentComponent },
   { path: 'newsfeed', component: NewsfeedComponent },
   { path: 'setting', component: SettingPageComponent },
-  { path: 'logIn', component: LoginComponent },
+  { path: '', component: LoginComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'register', component: RegisterComponent },
 ];
