@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   showPassword: boolean = false; //password toggle
   users: string[] = [];
   isChatBox: boolean = false;
+  error = "";
 
   constructor(private router: Router, private auth: AuthorizationService) { }
 
@@ -63,26 +64,18 @@ export class LoginComponent implements OnInit {
 
   loginClickHandler() {
     const isAuthenticated = this.auth.login(this.userName, this.password).subscribe(
-      (success) => {
-        console.log(success)
-        if (success) {
+      ref => {
+        console.log(ref)
           this.router.navigate(['newsfeed']);
           environment.isWelcomeMessage = false; //to remove welcomeMessage
-        } else {
-          window.alert('wrong');
-        }
+        },
+      err => {
+        this.error = err.error;
+        console.log(this.error);
       }
     )
   }
-
-  //   if (isAuthenticated) {
-  //     this.router.navigate(['newsfeed']);
-  //     environment.isWelcomeMessage = false; //to remove welcomeMessage
-  //   } else {
-  //     window.alert('wrong');
-  //   }
-  // }
-
+  
   //need help event handler
   needHelp() {
     this.isChatBox = true;
