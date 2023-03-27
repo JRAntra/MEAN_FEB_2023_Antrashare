@@ -18,7 +18,6 @@ import { NavbarComponent } from './features/navbar/navbar.component';
 //Import module that has to be used from library to the app main component
 import {ButtonModule} from 'primeng/button';
 import {SelectButtonModule} from 'primeng/selectbutton';
-import { ReactiveFormsModule } from '@angular/forms';
 
 //Import HTTP
 import { HttpClientModule } from '@angular/common/http';
