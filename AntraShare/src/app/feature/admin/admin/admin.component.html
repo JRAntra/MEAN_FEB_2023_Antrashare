@@ -2,10 +2,10 @@
 <div class="main-container">
     <div class="user-container">
         <mat-list *ngFor="let userTag of userTags">
-            <mat-list-item>{{userTag.userName}} <button (click)="onClickEventDelete(userTag.id)" class="delete-button" mat-raised-button color="primary">Delete</button></mat-list-item>
-            <mat-divider></mat-divider>
-            <button (click)="onClickEventAdd()" class="add-user" mat-raised-button color="primary">Add User Button</button>
+            <mat-list-item (click)="onClickUser(userTag.id)">{{userTag.userName}} <button (click)="onClickEventDelete(userTag.id)" class="delete-button" mat-raised-button color="primary">Delete</button></mat-list-item>
+            <mat-divider></mat-divider>  
         </mat-list>
+        <button (click)="onClickEventAdd()" class="add-user" mat-raised-button color="primary">Add User Button</button>
     </div>
-    <div class="user-detail">Content Over Here!!</div>
+    <div class="user-detail">{{userContent}}</div>
 </div>
