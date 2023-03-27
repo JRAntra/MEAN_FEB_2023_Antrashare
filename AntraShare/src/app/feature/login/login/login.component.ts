@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
   };
 
   loginClickHandler() {
-    const isAuthenticated = this.auth.login(this.userName, this.password).subscribe(
+    const isAuthenticated = this.auth.login(this.userEmail, this.password).subscribe(
       ref => {
         console.log(ref)
           this.router.navigate(['newsfeed']);
