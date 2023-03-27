@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MenubarModule} from 'primeng/menubar';
 import {ButtonModule} from 'primeng/button';
+import {SelectButtonModule} from 'primeng/selectbutton';
 import {VirtualScrollerModule} from 'primeng/virtualscroller';
 import {ListboxModule} from 'primeng/listbox';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
@@ -31,6 +32,7 @@ import {OverlayPanelModule} from 'primeng/overlaypanel';
     CommonModule,
     MenubarModule,
     ButtonModule,
+    SelectButtonModule,
     VirtualScrollerModule,
     ListboxModule,
     ConfirmDialogModule,
@@ -55,6 +57,7 @@ import {OverlayPanelModule} from 'primeng/overlaypanel';
   exports: [
     MenubarModule,
     ButtonModule,
+    SelectButtonModule,
     VirtualScrollerModule,
     ListboxModule,
     ConfirmDialogModule,
