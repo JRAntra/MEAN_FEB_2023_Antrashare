@@ -7,6 +7,8 @@ import { PrimengModule } from 'src/app/shared/primeng/primeng.module';
 
 
 
+
+
 @NgModule({
   declarations: [
     RegisterComponent
@@ -14,6 +16,7 @@ import { PrimengModule } from 'src/app/shared/primeng/primeng.module';
   imports: [
     CommonModule,
     PrimengModule,
+    FormsModule,
     ReactiveFormsModule,
   ],
   exports: [

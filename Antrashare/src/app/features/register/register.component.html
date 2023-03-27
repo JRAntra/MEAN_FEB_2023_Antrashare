@@ -2,30 +2,40 @@
     <div id="register_frame">
         <p id="image_logo"><img src="../../../assets/images/AntraLogo.jpg" alt="AntraLogo"></p>
 
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="validateForm " (ngSubmit)="onSubmit()">
             <span class="p-float-label">
-                <input id="username_input" class="text_field" type="text" formControlName="username" pInputText> 
+                <input  id="username_input" class="text_field"
+                 type="text" formControlName="username" [(ngModel)]="formData.userName"
+                  pInputText > 
                 <label for="username_input">Username</label>
+                
             </span>
-
+            <!-- <p>{{validateForm.get('userName')?errors?.required?'pls enter user name'}}</p> -->
             <span class="p-float-label">
-                <input id="pwd_input" class="text_field" type="text" formControlName="password" pInputText> 
+                <input id="pwd_input" class="text_field" 
+                type="text" formControlName="password"
+                 [(ngModel)]="formData.pwd" pInputText > 
                 <label for="pwd_input">Password</label>
             </span>
 
             <span class="p-float-label">
-                <input id="pwd_confirm_input" class="text_field" type="text" formControlName="password_confirm" pInputText> 
+                <input id="pwd_confirm_input" class="text_field"
+                 type="text" formControlName="password_confirm"
+                 [(ngModel)]="formData.confirm_pwd" pInputText> 
                 <label for="pwd_confirm_input">Comfirm Password</label>
             </span>
 
             <span class="p-float-label">
-                <input id="email_input" class="text_field" type="text" formControlName="email" pInputText> 
+                <input id="email_input" class="text_field"
+                 type="text" formControlName="email"
+                 [(ngModel)]="formData.email" pInputText > 
                 <label for="email_input">Email</label>
             </span>
             
             
             <div id="register_control">
-                <button id="btn_register" pButton type="submit" label="register" ></button>
+                <button id="btn_register" pButton type="submit"
+                 label="register" ></button>
                 <a id="back_login" (click)="goToLogin()">Already have an account? Login</a>
             </div>
 

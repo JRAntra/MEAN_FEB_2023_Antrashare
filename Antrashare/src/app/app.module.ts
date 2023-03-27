@@ -19,6 +19,7 @@ import {SelectButtonModule} from 'primeng/selectbutton';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -26,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     NavbarComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ButtonModule,
     SelectButtonModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
