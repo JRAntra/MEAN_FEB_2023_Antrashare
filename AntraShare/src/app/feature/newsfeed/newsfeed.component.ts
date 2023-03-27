@@ -10,13 +10,14 @@ import { NewsfeedServiceService } from 'src/app/core/newsfeed_service/newsfeed-s
 export class NewsfeedComponent implements OnInit {
   constructor(private newService: NewsfeedServiceService) {}
   news: any[] = [];
+  isWelcomeMessage = environment.isWelcomeMessage;
+
   ngOnInit(): void {
     this.newService.getAllNews().subscribe((news) => {
       this.news = news;
       // console.log(this.news);
     });
   }
-  isWelcomeMessage = environment.isWelcomeMessage;
 
   hideForm = true;
   toggleLikeList() {
