@@ -11,19 +11,19 @@ import { AuthorizationService } from 'src/app/core/authorization/authorization.s
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  userName: string = 'ngarden1969';
+  userEmail: string = '';
   password: string = '';
   showPassword: boolean = false; //password toggle
   users: string[] = [];
   isChatBox: boolean = false;
   error = "";
 
-  constructor(private router: Router, private auth: AuthorizationService) { }
+  constructor(private router: Router, private auth: AuthorizationService) {}
 
   reactiveLoginForm: FormGroup = new FormGroup({});
   ngOnInit(): void {
     this.reactiveLoginForm = new FormGroup({
-      userName: new FormControl(null, Validators.required),
+      email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, Validators.required),
     });
   }
@@ -38,25 +38,24 @@ export class LoginComponent implements OnInit {
 
   //logs the input on key up event
   OntypeUserName(event: Event) {
-    this.userName = (event.target as HTMLInputElement).value;
-    console.log(this.userName);
+    this.userEmail = (event.target as HTMLInputElement).value;
+    // console.log(this.userEmail);
   }
 
-  //on change event, pushes the input value into the array and logs it
-  pushToArray(event: Event) {
-    this.userName = (event.target as HTMLInputElement).value;
-  }
+  // //on change event, pushes the input value into the array and logs it
+  // pushToArray(event: Event) {
+  //   this.userEmail = (event.target as HTMLInputElement).value;
+  // }
 
   //logs the input on key up event
   OntypePassword(event: Event) {
     this.password = (event.target as HTMLInputElement).value;
-    console.log(this.password);
   }
 
-  //on change event, pushes the input value into the array and logs it
-  pushToPasswordArray(event: Event) {
-    this.password = (event.target as HTMLInputElement).value;
-  }
+  // //on change event, pushes the input value into the array and logs it
+  // pushToPasswordArray(event: Event) {
+  //   this.password = (event.target as HTMLInputElement).value;
+  // }
 
   user = {
     isValid: true,
