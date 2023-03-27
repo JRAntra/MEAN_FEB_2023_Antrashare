@@ -21,6 +21,8 @@ import {SidebarModule} from 'primeng/sidebar';
 import {ChipsModule} from 'primeng/chips';
 import {EditorModule} from 'primeng/editor';
 import { MessagesModule } from 'primeng/messages';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
+
 
 
 @NgModule({
@@ -47,7 +49,8 @@ import { MessagesModule } from 'primeng/messages';
     SidebarModule,
     ChipsModule,
     EditorModule,
-    MessagesModule
+    MessagesModule,
+    OverlayPanelModule
   ],
   exports: [
     MenubarModule,
@@ -70,7 +73,8 @@ import { MessagesModule } from 'primeng/messages';
     SidebarModule,
     ChipsModule,
     EditorModule,
-    MessagesModule
+    MessagesModule,
+    OverlayPanelModule
   ]
 })
 export class PrimengModule { }

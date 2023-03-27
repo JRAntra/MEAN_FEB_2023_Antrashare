@@ -1,18 +1,14 @@
 <div class="admin-page">
     <div class="admin-log">
         <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+        <!-- <p-messages [(value)]="msgs"></p-messages> -->
     </div>
-    <div class="admin-head">
-        <p-menubar>
-            <button class="admin-head_btn" pButton label="Admin"></button>
-        </p-menubar>
-    </div> 
     <div class="admin-main">
         <div class="user-list">
-            <p-listbox [options]="users" optionLabel="name" [style]="{'height': '110%','width':'100%','border-style':'none'}" >
+            <p-listbox [options]="users" [(ngModel)]="selectedUser" (onClick)="onClick()" optionLabel="name" [listStyle]="{'max-height':'700px'}" [style]="{'height': '110%','width':'100%','border-style':'none'}" >
                 <ng-template let-user pTemplate="item">
                     <div class="user-item">
-                        <div class="username">{{user.name}}</div>
+                        <div class="username">{{user.userName}}</div>
                         <p-button class="delete-user_btn" (click)="confirm()" icon="pi pi-trash"></p-button>
                     </div>
                 </ng-template>
@@ -23,27 +19,40 @@
             <h2>User Detailed Information</h2>
             <div class="user-name">
                 <div class="user-detail_label">Username :</div>
-                <span>test</span>
+                <span>{{selectedUser.userName}}</span>
             </div>
             <p-divider></p-divider>
             <div class="user-password">
                 <div class="user-detail_label">Password :</div>
-                <span>test</span>
+                <span *ngIf="!passwordIsVisible">******</span>
+                <span *ngIf="passwordIsVisible">{{selectedUser.password}}</span>
+                <p-button *ngIf="passwordIsVisible" (onClick)="passwordIsVisible = !passwordIsVisible" icon="pi pi-eye" styleClass="p-button-rounded p-button-outlined"></p-button>
+                <p-button *ngIf="!passwordIsVisible" (onClick)="passwordIsVisible = !passwordIsVisible" icon="pi pi-eye-slash" styleClass="p-button-rounded p-button-outlined"></p-button>
             </div>
             <p-divider></p-divider>
             <div class="user-email">
                 <div class="user-detail_label">UserEmail :</div>
-                <span>test</span>
+                <span>{{selectedUser.userEmail}}</span>
             </div>
             <p-divider></p-divider>
             <div class="user-gender">
                 <div class="user-detail_label">Gender :</div>
-                <span>test</span>
+                <span>{{selectedUser.gender}}</span>
             </div>
             <p-divider></p-divider>
             <div class="user-age">
                 <div class="user-detail_label">Age :</div>
-                <span>test</span>
+                <span>{{selectedUser.age}}</span>
+            </div>
+            <p-divider></p-divider>
+            <div class="user-phone">
+                <div class="user-detail_label">Phone :</div>
+                <span>{{selectedUser.phone}}</span>
+            </div>
+            <p-divider></p-divider>
+            <div class="user-role">
+                <div class="user-detail_label">Role :</div>
+                <span>{{selectedUser.userRole}}</span>
             </div>
             <p-divider></p-divider>
         </div>
