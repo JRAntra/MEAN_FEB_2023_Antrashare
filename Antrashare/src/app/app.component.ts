@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  Router} from '@angular/router';
-import { fromEvent, Subject } from 'rxjs';
+import { BehaviorSubject, fromEvent, ReplaySubject, Subject, Subscription } from 'rxjs';
 import { TestService } from './core/services/test.service';
 
 @Component({
@@ -11,6 +11,7 @@ import { TestService } from './core/services/test.service';
 export class AppComponent implements OnInit {
   title = 'Antrashare';
   data: any 
+  subscriptions : Subscription[] = []  
 
   constructor(private router : Router,
     private testService: TestService
@@ -28,25 +29,30 @@ export class AppComponent implements OnInit {
 
     // )
     const subjectA = new Subject<any>()
+    const subjectB = new BehaviorSubject<boolean>(true)
+    const subjectC = new ReplaySubject(1)
 
-    subjectA.subscribe(
+    subjectC.next("1")
+    subjectC.next("2")
+    subjectC.next("3")
+
+    this.subscriptions.push(
+      subjectC.subscribe(
       res=> console.log(res),
       err=> console.log(err),
       ()=> console.log("complete")
     )
-    
-    subjectA.next("1")
-    // subjectA.error('error message here')
-    subjectA.complete()
-    subjectA.next("2")
+    )
+  
+
 
     
 
     const btn: HTMLButtonElement | null = document.querySelector<HTMLButtonElement>("#btn_listener")
     if(btn){
-      fromEvent(btn,"click").subscribe(
+      this.subscriptions.push(fromEvent(btn,"click").subscribe(
         res=> console.log("the button has been clicked")
-      )
+      ))
 
       
     }
@@ -74,5 +80,12 @@ export class AppComponent implements OnInit {
   onClickAdmin(){
    
     this.router.navigate(["admin"])
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(
+      subscription => subscription.unsubscribe()
+    )
+    
   }
 }
