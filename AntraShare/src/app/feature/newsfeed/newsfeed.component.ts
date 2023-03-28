@@ -30,7 +30,8 @@ export class NewsfeedComponent implements OnInit, OnDestroy {
   hideListEvent(value: boolean) {
     this.hideForm = value;
   }
-  addLike(story: any) {
+  addLike(story: any, , btn: MatButton) {
+  btn._elementRef.nativeElement.disabled = true;
     this.likes.push(story);
     this.likeService.onLikeListDataChange(this.likes);
   }
