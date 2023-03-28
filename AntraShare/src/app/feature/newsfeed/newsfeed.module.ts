@@ -4,7 +4,7 @@ import { NewsfeedComponent } from './newsfeed.component';
 import { ContentComponent } from './content/content.component';
 import { RouterModule } from '@angular/router';
 import { AngularMaterialModule } from 'src/app/share/angular-material/angular-material.module';
-
+import { LikelistComponent } from '../likelist/likelist/likelist/likelist.component';
 import { WelcomeDirective } from './welcome.directive';
 import { TruncatePipe } from './truncate/truncate.pipe';
 
@@ -12,6 +12,7 @@ import { TruncatePipe } from './truncate/truncate.pipe';
   declarations: [
     NewsfeedComponent, 
     ContentComponent,
+    LikelistComponent,
     WelcomeDirective,
     TruncatePipe
   ],

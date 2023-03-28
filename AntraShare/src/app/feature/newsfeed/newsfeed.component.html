@@ -20,6 +20,7 @@
       <p>PublisherName/PublishedTime</p>
       <p>story content preview (custom pipe length limitation)</p>
     </div>
+    <app-likelist></app-likelist>
   </div>
   <button
     class="like-list"
@@ -51,7 +52,7 @@
         </mat-card-content>
       </mat-card>
     </a>
-    <button mat-icon-button color="primary" class="like-btn">
+    <button (click)="addToLikeList(n)"mat-icon-button color="primary" class="like-btn">
       <mat-icon>thumb_up_alt</mat-icon>
     </button>
   </div>

@@ -1,0 +1,11 @@
+<p>likelist works!!</p>
+<div class="newsfeed" *ngFor="let n of likedFeedList; let i = index">
+    <a [routerLink]="['/newsfeed', n._id]">
+      <mat-card [id]="n.id" class="on-hover">
+        <mat-card-title>{{ n.content?.text | truncate}}</mat-card-title>
+        <!-- <mat-card-content>
+          <img [src]="n.content?.image" alt="" srcset="">
+        </mat-card-content> -->
+      </mat-card>
+    </a>
+  </div>

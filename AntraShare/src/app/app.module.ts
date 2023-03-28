@@ -10,9 +10,11 @@ import { LoginModule } from './feature/login/login.module';
 import { NavbarModule } from './feature/navbar/navbar.module';
 import { AngularMaterialModule } from './share/angular-material/angular-material.module';
 import { AdminModule } from './feature/admin/admin.module';
+import { LikelistComponent } from './feature/likelist/likelist/likelist/likelist.component';
 
 import { UserService } from './core/service/user.service';
 import { HttpClientModule } from '@angular/common/http';
+// import { LikelistModule } from './feature/likelist/likelist.module';
 
 @NgModule({
   declarations: [AppComponent],

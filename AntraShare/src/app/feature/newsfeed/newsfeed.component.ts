@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Newsfeed } from './newsfeed';
 import { environment } from 'src/environments/environment';
 import { NewsfeedServiceService } from 'src/app/core/newsfeed_service/newsfeed-service.service';
+import { LikelistComponent } from '../likelist/likelist/likelist/likelist.component';
+
 @Component({
   selector: 'app-newsfeed',
   templateUrl: './newsfeed.component.html',
@@ -27,4 +29,6 @@ export class NewsfeedComponent implements OnInit {
       this.hideForm = true;
     }
   }
+
+  addToLikeList(news: any) {this.newService.addToLikeList(news)}
 }

@@ -8,6 +8,7 @@ import { LoginComponent } from './feature/login/login/login.component';
 import { AdminComponent } from './feature/admin/admin/admin.component';
 import { RegisterComponent } from './feature/register/register/register.component';
 import { ContentComponent } from './feature/newsfeed/content/content.component';
+import { LikelistComponent } from './feature/likelist/likelist/likelist/likelist.component';
 
 const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'likelist', component: LikelistComponent}
 ];
 
 @NgModule({
