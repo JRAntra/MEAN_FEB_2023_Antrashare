@@ -1,0 +1,33 @@
+<button
+class="like-list"
+[ngClass]="{ hidden: !hideForm }"
+(click)="toggleLikeList()"
+mat-raised-button
+color="accent"
+>
+Like List
+</button>
+<div class="like-list-toggled" [ngClass]="{ hidden: hideForm }">
+    <div class="head">
+      <div class="head-content">
+        <p class="published">PublisherName PublishedTime</p>
+        <p class="content">(custom pipe, limited length)</p>
+      </div>
+      <button
+        mat-icon-button
+        color="warn"
+        class="close-like-list"
+        (click)="toggleLikeList()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div class="main"></div>
+    <div class="foot">
+        <mat-card *ngFor="let like of likes">
+            <mat-card-title>{{like.publisherName}}</mat-card-title>
+            <mat-card-content>{{like.publishedTime | date: 'short'}}</mat-card-content>
+            <mat-card-content>{{like.content.text | truncate}}</mat-card-content>
+        </mat-card>
+    </div>
+  </div>

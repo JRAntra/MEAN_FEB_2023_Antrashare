@@ -1,5 +1,8 @@
 export interface Newsfeed {
-  id: number;
-  title: string;
-  content: string;
+  _id: number;
+  publishedTime: Date;
+  publisherName: string;
+  content: object;
+  comment: object[];
+  likedIdList: object[];
 }
