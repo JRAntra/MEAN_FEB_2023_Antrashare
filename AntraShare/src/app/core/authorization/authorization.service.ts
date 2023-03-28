@@ -2,6 +2,7 @@ import { ObserversModule } from '@angular/cdk/observers';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { UserInfo } from './userInfo';
 
 @Injectable({
   providedIn: 'root',
@@ -12,9 +13,9 @@ export class AuthorizationService {
 
   constructor(private http: HttpClient) {}
 
-  login(userEmail: string, password: string): Observable<boolean> {
+  login(user: UserInfo): Observable<boolean> {
     const url = `${this.apiUrl}/login`;
 
-    return this.http.post<boolean>(url, { userEmail, password });
+    return this.http.post<boolean>(url, user);
   }
 }
