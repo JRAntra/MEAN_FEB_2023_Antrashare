@@ -19,14 +19,14 @@ export class RegisterUserService {
     return this.http.get(`${environment.apiUrl}register/checkExistByUsername/${data}`)
   }
 
-  CreateAccount(data: any){
+  CreateAccount(data: User){
     // console.log(JSON.stringify(data))
     let data1 : RegisterAccount = {
       "userName": data.userName,
       "userEmail": data.userEmail,
       "password": data.password
     }
-    console.log(JSON.stringify(data1))
+    // console.log(JSON.stringify(data1))
     return this.http.post<any>(`${environment.apiUrl}register/createNewAccount`, data1)
   }
 

@@ -6,6 +6,7 @@ import { RegisterComponent } from './register.component';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { EmailDialogComponent } from './email-dialog/email-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { SucessDialogComponent } from './sucess-dialog/sucess-dialog.component';
 
 
 
@@ -13,7 +14,8 @@ import {MatDialogModule} from "@angular/material/dialog";
   declarations: [
     RegisterComponent,
     UserDialogComponent,
-    EmailDialogComponent
+    EmailDialogComponent,
+    SucessDialogComponent
   ],
     imports: [
         CommonModule,

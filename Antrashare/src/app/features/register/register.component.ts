@@ -7,6 +7,7 @@ import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {UserDialogComponent} from "./user-dialog/user-dialog.component";
 import {EmailDialogComponent} from "./email-dialog/email-dialog.component";
+import {SucessDialogComponent} from "./sucess-dialog/sucess-dialog.component";
 
 @Component({
   selector: 'app-register',
@@ -61,7 +62,8 @@ export class RegisterComponent implements OnInit {
       this.registerUserService.CreateAccount(this.reactiveFormsService.myForm.value)
         .subscribe({
           next: response => {
-            this.router.navigateByUrl("/newsfeed").then()
+            this.dialoguser.open(SucessDialogComponent);
+            this.router.navigateByUrl("/login").then()
           },
           error : error => {
             console.log(error)
