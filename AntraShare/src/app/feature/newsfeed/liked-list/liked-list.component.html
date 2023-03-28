@@ -1,3 +1,12 @@
+<button
+class="like-list"
+[ngClass]="{ hidden: !hideForm }"
+(click)="toggleLikeList()"
+mat-raised-button
+color="accent"
+>
+Like List
+</button>
 <div class="like-list-toggled" [ngClass]="{ hidden: hideForm }">
     <div class="head">
       <div class="head-content">

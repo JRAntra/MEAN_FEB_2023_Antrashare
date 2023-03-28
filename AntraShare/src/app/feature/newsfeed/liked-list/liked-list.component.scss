@@ -1,4 +1,4 @@
-@import "../../share/scss-variables/_config.scss";
+@import './src/app/share/scss-variables/_config.scss' ;
 .like-list-toggled {
     position: absolute;
     display: flex;
@@ -26,8 +26,21 @@
     }
     .foot {
       text-align: center;
+      overflow: scroll;
     }
     .mat-raised-button {
       padding: 0;
     }
+  }
+  .hidden {
+    display: none;
+  }
+
+  .like-list {
+    padding: 0.5rem 1rem;
+    position: absolute;
+    float: right;
+    top:5vh;
+    right:5vw;
+    background-color: $theme-color;
   }

@@ -19,14 +19,7 @@
 .newsfeed {
   margin-top: 1rem;
 }
-.like-list {
-  padding: 0.5rem 1rem;
-  position: absolute;
-  float: right;
-  top:5vh;
-  right:5vw;
-  background-color: $theme-color;
-}
+
 a {
   text-decoration: none;
 }
@@ -42,6 +35,7 @@ a {
     bottom: 0;
     right: 0;
   }
+
 }
 .on-hover{
   &:hover {
@@ -49,9 +43,7 @@ a {
   }
 }
 
-.hidden {
-  display: none;
-}
+
 @keyframes fadeInOut {
   0% {
     opacity: 0;

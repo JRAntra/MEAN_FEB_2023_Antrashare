@@ -7,17 +7,19 @@ import { LikeListService } from 'src/app/core/liked_list_service/like-list.servi
   styleUrls: ['./liked-list.component.scss'],
 })
 export class LikedListComponent implements OnInit {
-  @Input('show-list')
-  hideForm: boolean = true;
-  @Output('hide-list')
   hideListEmitter = new EventEmitter<boolean>();
   likes: any[] = [];
+  hideForm = true;
   constructor(private likeService: LikeListService) {}
 
+  toggleLikeList() {
+    if (this.hideForm) {
+      this.hideForm = false;
+    } else {
+      this.hideForm = true;
+    }
+  }
   ngOnInit(): void {
     this.likeService.likesListData.subscribe((data) => (this.likes = data));
-  }
-  toggleLikeList() {
-    this.hideListEmitter.emit(!this.hideForm);
   }
 }

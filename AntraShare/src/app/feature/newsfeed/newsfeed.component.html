@@ -1,14 +1,5 @@
 <main class="main">
-  <app-liked-list *ngIf="!hideForm" [show-list]="hideForm" (hide-list)="hideListEvent($event)"></app-liked-list>
-  <button
-    class="like-list"
-    [ngClass]="{ hidden: !hideForm }"
-    (click)="toggleLikeList()"
-    mat-raised-button
-    color="accent"
-  >
-    Like List
-  </button>
+  <app-liked-list></app-liked-list>
   <div class="post-newfeed-form">
     <h1>Post Your Newsfeed Below</h1>
     <mat-form-field appearance="fill">
@@ -30,7 +21,7 @@
         </mat-card-content>
       </mat-card>
     </a>
-    <button mat-icon-button color="primary" class="like-btn" (click)="addLike(n)">
+    <button #likeBtn mat-icon-button color="primary" class="like-btn" (click)="addLike(n,likeBtn)">
       <mat-icon>thumb_up_alt</mat-icon>
     </button>
   </div>
