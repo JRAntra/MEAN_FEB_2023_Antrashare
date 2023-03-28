@@ -1,19 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import {GetUsersService} from "../../core/get-users.service";
 import { Router } from "@angular/router";
+import {logMessages} from "@angular-devkit/build-angular/src/builders/browser-esbuild/esbuild";
+import {User} from "../../shared/user-pattern/user-pattern.module";
 
-export interface User {
-  "_id": string,
-  "name": string,
-  "userName": string,
-  "userEmail": string,
-  "password": string,
-  "userRole": string,
-  "age": number,
-  "gender": string,
-  "phone": number,
-  "__v": number
-}
+// export interface User {
+//   "_id": string,
+//   "name": string,
+//   "userName": string,
+//   "userEmail": string,
+//   "password": string,
+//   "userRole": string,
+//   "age": number,
+//   "gender": string,
+//   "phone": number,
+//   "__v": number
+// }
 
 @Component({
   selector: 'app-admin',
@@ -21,48 +23,32 @@ export interface User {
   styleUrls: ['./admin.component.sass']
 })
 export class AdminComponent implements OnInit {
-  users: any;
-
+  users: User[] = [];
+  // userArray = new Array<string>(10).fill("JR")
   constructor(private getUsers: GetUsersService, private router: Router) {
   }
   selectedUser: User | undefined;
-  // users: any = [
-  //   {
-  //     name: "1",
-  //     email: "11",
-  //     phone: "111",
-  //     address: "1111",
-  //   },
-  //   {
-  //     name: "2",
-  //     email: "22",
-  //     phone: "222",
-  //     address: "2222",
-  //   },
-  //   {
-  //     name: "3",
-  //     email: "33",
-  //     phone: "333",
-  //     address: "3333",
-  //   }
-  // ]
 
   selectUser(user: User) {
-    // @ts-ignore
     this.selectedUser = user
     // console.log(user)
     // console.log(this.selectedUser)
   }
 
   ngOnInit(): void {
-    this.getUsers.getAllUsers().subscribe(
-      (response) => {
-        this.users = response
-        // console.log(this.users)
-      },
-      error => console.log(error)
-    )
+    this.getUsers.getAllUsers().subscribe({
+    next: response => this.users = response,
+    error: error => console.log(error)
+    })
+
   }
+    // (response) => {
+    //   this.users = response
+    //   // console.log(this.users)
+    // },
+    //   error => console.log(error)
+
+
   NaviToSetting(){
     this.router.navigateByUrl("/setting").then()
   }
