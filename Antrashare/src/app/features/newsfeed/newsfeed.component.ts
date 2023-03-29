@@ -22,18 +22,6 @@ export class NewsfeedComponent implements OnInit {
       error: err => console.log(err)
     })
   }
-  mockStrings = [
-    "fgnaergarg aer",
-    "fhajkfhaaewrohforaegfurheg",
-    "faehoifhoraengurbguitheg",
-    "fhaewuirghaeruhgoierahgrehaogihaerghaeroigheroiatgnioreag",
-    "fjalkdehfoeraungforjeioawrnweoaingforueahgoiratoinawmeoirgfjreipjuie5rjtoi",
-    "213432y47345743895yhge5898u5367uh2j3485y3498",
-    "faewr",
-    "fajeio",
-    "1",
-    " ",
-  ]
   @ViewChild(MatMenuTrigger) trigger?: MatMenuTrigger;
   longText = `CS 2`;
   storys = [
