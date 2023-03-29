@@ -1,14 +1,4 @@
-<mat-accordion>
-    <mat-expansion-panel class="like-list" hideToggle>
-        <mat-expansion-panel-header>
-            <mat-panel-title class="like-list">
-                Like List
-            </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p *ngFor="let like of likes">{{ like }}</p>
-    </mat-expansion-panel>
-</mat-accordion>
-
+<app-likelist></app-likelist>
 <div class="profile">
     <form>
         <mat-card class="infoContainer">

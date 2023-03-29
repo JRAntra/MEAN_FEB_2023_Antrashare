@@ -1,0 +1,10 @@
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Like List
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p *ngFor="let like of likes">{{ like | displayChar}}</p>
+    </mat-expansion-panel>
+</mat-accordion>
