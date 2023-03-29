@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/core/service/user.service';
+import { AdminServiceService } from 'src/app/core/adminService/admin-service.service';
+import { User } from './admin';
 
 @Component({
   selector: 'app-admin',
@@ -7,13 +8,11 @@ import { UserService } from 'src/app/core/service/user.service';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  userTags: any[] = [];
+  userTags: User[] = [];
 
   userContent: any;
 
-  // count: number = 4;
-
-  constructor(private userService: UserService) { }
+  constructor(private userService: AdminServiceService) { }
 
   onClickEventDelete(idDelete: any){
     this.userTags = this.userTags.filter(userTag => (userTag._id != idDelete))
@@ -24,7 +23,7 @@ export class AdminComponent implements OnInit {
   //   this.count ++;
   // }
 
-  onClickUser(id: number){
+  onClickUser(id: string){
     this.userContent = this.userTags.find(user => user._id === id)
   }
 
@@ -33,3 +32,4 @@ export class AdminComponent implements OnInit {
   }
 
 }
+ 
