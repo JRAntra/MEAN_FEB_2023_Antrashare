@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,6 +30,7 @@ import { MatProgressBarModule } from "@angular/material/progress-bar";
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatSnackBarModule,
     MatExpansionModule,
     BrowserModule,
     BrowserAnimationsModule,

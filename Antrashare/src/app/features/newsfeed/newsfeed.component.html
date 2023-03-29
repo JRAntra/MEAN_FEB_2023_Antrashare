@@ -1,13 +1,4 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link
-    href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&family=Raleway:wght@100;400;700&family=Roboto:wght@100;400;700&family=Source+Sans+Pro:wght@400;600&display=swap"
-    rel="stylesheet">
-<nav>
-    <ul>
-        <li><a href="#">Liked List</a></li>
-    </ul>
-</nav>
-
+<app-likelist></app-likelist>
 <mat-card class="welcome-massage" appWelcome>
     <!-- [ngStyle]="{'text-align': 'center'}" -->
     <mat-card-header>
@@ -30,34 +21,35 @@
 <div class="story-container">
     <div class="story">
         <div class="story-content">
-            <p>{{story | displayChar}}</p>
+            <p>{{story1 | displayChar}}</p>
         </div>
         <div class="like-icon">
-            <button class="fa fa-thumbs-up"><i></i></button>
+            <button mat-icon-button (click)="likeStory(story1)">
+                <mat-icon>favorite</mat-icon>
+            </button>
         </div>
     </div>
 
     <div class="story">
         <div class="story-content">
-            <p>{{story | displayChar}}</p>
+            <p>{{story2 | displayChar}}</p>
         </div>
         <div class="like-icon">
-            <button class="fa fa-thumbs-up"><i></i></button>
+            <button mat-icon-button (click)="likeStory(story2)">
+                <mat-icon>favorite</mat-icon>
+            </button>
         </div>
     </div>
 
     <div class="story">
         <div class="story-content">
-            <p>{{story | displayChar}}</p>
+            <p>{{story3 | displayChar}}</p>
         </div>
         <div class="like-icon">
-            <button class="fa fa-thumbs-up"><i></i></button>
+            <button mat-icon-button (click)="likeStory(story3)">
+                <mat-icon>favorite</mat-icon>
+            </button>
         </div>
     </div>
-</div>
-<div *ngFor="let mockString of mockStrings">
-    <!--  <p>-->
-    <!--    {{mockString | displayChar}}-->
-    <!--  </p>-->
 </div>
 <app-nav-bar></app-nav-bar>

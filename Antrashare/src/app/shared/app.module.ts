@@ -10,7 +10,8 @@ import { SettingModule } from "../features/setting/setting.module";
 import { AdminModule } from "../features/admin/admin.module";
 import { NavBarModule } from '../features/nav-bar/nav-bar.module';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
-// import { DisplayCharPipe } from './display-char.pipe';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from '../core/services/login/login.service';
 
 @NgModule({
   declarations: [
@@ -27,10 +28,11 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
     SettingModule,
     AdminModule,
     NavBarModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    HttpClientModule
   ],
 
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

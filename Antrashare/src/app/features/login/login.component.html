@@ -15,17 +15,17 @@
             <input matInput type="password" [formControl]="pswdControl" (keyup)="onChangePswdFormControl()">
         </mat-form-field>
 
-        <button mat-flat-button color="primary" id="login-btn" routerLink="/newsfeed">Login</button>
+        <button mat-flat-button color="primary" id="login-btn" (click)="onLogin()">Login</button>
     </div>
 
-    <div class="new-user">
+    <div class=" new-user">
         <button mat-button color="primary" class="profile" routerLink="/register">
             No Accounts? Register Now!
         </button>
     </div>
 
     <div class="agreement-help">
-        <mat-checkbox color="primary" id="agreement" class="checkbox">
+        <mat-checkbox color="primary" id="agreement" class="checkbox" (change)="onAgreementChecked($event)">
             Agreement
         </mat-checkbox>
 

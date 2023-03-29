@@ -5,10 +5,10 @@
   flex-direction: row;
   width: 100%;
 }
-
 .nav button {
   font-size: medium;
   padding: 1rem;
   white-space: nowrap;
   flex: 1;
+  background-color: white;
 }/*# sourceMappingURL=nav-bar.component.css.map */

@@ -1,15 +1,4 @@
-<mat-accordion>
-    <mat-expansion-panel class="like-list" hideToggle>
-        <mat-expansion-panel-header>
-            <mat-panel-title class="like-list">
-                Like List
-            </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p>First Like</p>
-        <p>Second Like</p>
-    </mat-expansion-panel>
-</mat-accordion>
-
+<app-likelist></app-likelist>
 <div class="profile">
     <form>
         <mat-card class="infoContainer">
@@ -24,15 +13,15 @@
 
             <mat-form-field>
                 <mat-label>Email</mat-label>
-                <input matInput class="short-box" [readonly]="true">
+                <input matInput class="short-box" [formControl]="emailControl" [readonly]="true">
             </mat-form-field>
         </mat-card>
 
         <mat-form-field class="long-box">
-            <mat-select placeholder="Gender" name="gender">
-                <mat-option value="male">Male</mat-option>
-                <mat-option value="female">Female</mat-option>
-                <mat-option value="other">Other</mat-option>
+            <mat-select [formControl]="genderControl" (keyup)="onChangeGenderFormControl()">
+                <mat-option value="Male">Male</mat-option>
+                <mat-option value="Female">Female</mat-option>
+                <mat-option value="Other">Other</mat-option>
             </mat-select>
         </mat-form-field>
 
@@ -43,7 +32,7 @@
 
         <mat-form-field class="long-box">
             <mat-label>Email</mat-label>
-            <input matInput [readonly]="true">
+            <input matInput [formControl]="emailControl" [readonly]="true">
         </mat-form-field>
 
         <mat-form-field class="long-box">
@@ -54,11 +43,11 @@
 
     <div class="postAmount">
         <div class="post">
-            <mat-icon [matBadge]="amountValue" matBadgeColor="primary">post_add</mat-icon>
+            <mat-icon [matBadge]="amountValue">post_add</mat-icon>
         </div>
 
         <div class="like">
-            <mat-icon [matBadge]="likeValue" matBadgeColor="primary">favorite</mat-icon>
+            <mat-icon [matBadge]="likeValue">favorite</mat-icon>
         </div>
     </div>
 
