@@ -1,15 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LikeListService {
 
-  likeListContent = new Subject<any[]>();
+  likeListContent = new BehaviorSubject<any[]>([]);
+  likes: any[] = []
   constructor() { }
 
   updateLikeList(a: any[]) {
     this.likeListContent.next(a);
+  }
+
+  addLikeStory(story: any[]) {
+    this.likes.push(story)
+    //this.updateLikeList(this.likes)
+    this.likeListContent.next(this.likes);
+    console.log(this.likes);
   }
 }

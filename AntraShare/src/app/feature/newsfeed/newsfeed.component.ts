@@ -25,16 +25,17 @@ export class NewsfeedComponent implements OnInit {
       console.log(this.news);
     });
 
-    this.likeList.likeListContent.subscribe((observer) => {
-      this.likes = observer;
-      console.log(this.likes);
-    }
-    )
+    // this.likeList.likeListContent.subscribe((observer) => {
+    //   this.likes = observer;
+    //   console.log(this.likes);
+    // }
+    // )
   }
 
   onThumbUpBtn(story: any) {
-    this.likes.push(story);
-    this.likeList.updateLikeList(this.likes);
+    // this.likes.push(story);
+    // this.likeList.updateLikeList(this.likes);
+    this.likeList.addLikeStory(story);
   }
 
 }

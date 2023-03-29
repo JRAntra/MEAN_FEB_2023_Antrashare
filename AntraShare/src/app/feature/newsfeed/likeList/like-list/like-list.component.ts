@@ -12,13 +12,14 @@ export class LikeListComponent implements OnInit {
   constructor(private likeList: LikeListService) { }
 
   ngOnInit(): void {
-    this.likeList.likeListContent.subscribe((observer) => {
-      this.likeListArray = observer;
+    this.likeList.likeListContent.subscribe((res) => {
+      this.likeListArray = res;
     }
     )
   }
 
   toggleLikeList() {
+    console.log("check")
     if (this.hideForm) {
       this.hideForm = false;
     } else {

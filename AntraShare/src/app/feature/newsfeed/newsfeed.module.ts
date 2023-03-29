@@ -24,7 +24,8 @@ import { LikeListComponent } from './likeList/like-list/like-list.component';
   ],
   exports: [
     NewsfeedComponent,
-    WelcomeDirective
+    WelcomeDirective,
+    LikeListComponent
   ],
 })
 export class NewsfeedModule {}
