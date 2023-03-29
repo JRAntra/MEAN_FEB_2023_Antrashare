@@ -4,9 +4,16 @@
     rel="stylesheet">
 <nav>
     <ul>
-        <li><a href="#">Liked List</a></li>
+      <button mat-icon-button [matMenuTriggerFor]="menu" (click)="openMenu()">
+        <mat-icon>favorite</mat-icon>
+      </button>
     </ul>
 </nav>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+  <button mat-menu-item>Item 3</button>
+</mat-menu>
 
 <mat-card class="welcome-massage" appWelcome [ngStyle]="{'text-align': 'center'}" >
   <mat-card-header>
@@ -15,7 +22,8 @@
   </mat-card-header>
   <mat-card-content>
     <h1 [ngStyle]="{'font-size': '30px'}">Welcome</h1>
-    <p>Welcome to the news feed page, where you can find what you like most, and psot whatever you like</p>
+    <p>Welcome to the news feed page,
+      <br>where you can find what you like most, and psot whatever you like</p>
     <p>{{longText}}</p>
   </mat-card-content>
   <mat-card-actions>

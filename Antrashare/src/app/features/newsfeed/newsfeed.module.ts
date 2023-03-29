@@ -6,6 +6,7 @@ import { NewsfeedComponent } from './newsfeed.component';
 import {WelcomeDirective} from "../../shared/welcome.directive";
 // import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {DisplayCharPipe} from "../../shared/display-char.pipe";
+import {MatMenuModule, MatMenuTrigger} from "@angular/material/menu";
 
 
 @NgModule({
@@ -17,10 +18,15 @@ import {DisplayCharPipe} from "../../shared/display-char.pipe";
   imports: [
     CommonModule,
     AppRoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    MatMenuModule,
+
   ],
   exports: [
     NewsfeedComponent
+  ],
+  providers: [
+    MatMenuTrigger
   ]
 })
 export class NewsfeedModule { }

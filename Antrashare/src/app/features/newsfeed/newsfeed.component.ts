@@ -1,9 +1,11 @@
-import { Component, OnInit,  ElementRef } from '@angular/core';
+import {Component, OnInit, ElementRef, ViewChild} from '@angular/core';
+import {MatMenuTrigger} from "@angular/material/menu";
 
 @Component({
   selector: 'app-newsfeed',
   templateUrl: './newsfeed.component.html',
-  styleUrls: ['./newsfeed.component.sass']
+  styleUrls: ['./newsfeed.component.sass'],
+  providers: [MatMenuTrigger]
 })
 export class NewsfeedComponent implements OnInit {
 
@@ -23,7 +25,15 @@ export class NewsfeedComponent implements OnInit {
     "1",
     " ",
   ]
+  @ViewChild(MatMenuTrigger) trigger?: MatMenuTrigger;
   longText = `CS 2`;
   story = 'This is a long story which should be longer than 20 characters.';
-
+  openMenu() {
+    // @ts-ignore
+    this.trigger.openMenu();
+  }
+  // closeMenu() {
+  //   // @ts-ignore
+  //   this.trigger.closeMenu();
+  // }
 }
