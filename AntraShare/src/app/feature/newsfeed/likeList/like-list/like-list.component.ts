@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LikeListService } from 'src/app/core/likeList_service/like-list.service';
+import { LikeListService } from 'src/app/feature/newsfeed/likeList_service/like-list.service';
 
 @Component({
   selector: 'app-like-list',

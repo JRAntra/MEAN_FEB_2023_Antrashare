@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Newsfeed } from './newsfeed';
 import { environment } from 'src/environments/environment';
-import { NewsfeedServiceService } from 'src/app/core/newsfeed_service/newsfeed-service.service';
-import { LikeListService } from 'src/app/core/likeList_service/like-list.service';
+import { NewsfeedServiceService } from 'src/app/feature/newsfeed/newsfeed_service/newsfeed-service.service';
+import { LikeListService } from 'src/app/feature/newsfeed/likeList_service/like-list.service';
+import { Story } from './interface/story';
 
 @Component({
   selector: 'app-newsfeed',
@@ -10,7 +10,7 @@ import { LikeListService } from 'src/app/core/likeList_service/like-list.service
   styleUrls: ['./newsfeed.component.scss'],
 })
 export class NewsfeedComponent implements OnInit {
-  news: any[] = [];
+  news: Story[] = [];
   likes: any[] = []
   isWelcomeMessage = environment.isWelcomeMessage;
 
@@ -32,7 +32,7 @@ export class NewsfeedComponent implements OnInit {
     // )
   }
 
-  onThumbUpBtn(story: any) {
+  onThumbUpBtn(story: Story) {
     // this.likes.push(story);
     // this.likeList.updateLikeList(this.likes);
     this.likeList.addLikeStory(story);
