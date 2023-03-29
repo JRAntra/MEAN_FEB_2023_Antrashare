@@ -12,11 +12,8 @@ import { UserInfo } from 'src/app/core/authorization/userInfo';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  // userEmail: User = '';
-  // password: string = '';
-  user: UserInfo = {};
+  user: UserInfo = {userEmail : '', password : ''};
   showPassword: boolean = false; //password toggle
-  users: string[] = [];
   isChatBox: boolean = false;
   error = "";
 
@@ -44,36 +41,21 @@ export class LoginComponent implements OnInit {
     // console.log(this.userEmail);
   }
 
-  // //on change event, pushes the input value into the array and logs it
-  // pushToArray(event: Event) {
-  //   this.userEmail = (event.target as HTMLInputElement).value;
-  // }
-
   //logs the input on key up event
   OntypePassword(event: Event) {
     this.user.password = (event.target as HTMLInputElement).value;
   }
 
-  // //on change event, pushes the input value into the array and logs it
-  // pushToPasswordArray(event: Event) {
-  //   this.password = (event.target as HTMLInputElement).value;
-  // }
-
-  // user = {
-  //   isValid: true,
-  // };
-
   loginClickHandler() {
     const isAuthenticated = this.auth.login(this.user).subscribe({
       next: (ref) => {
-        console.log(ref);
+        this.user = ref;
         console.log(this.user);
         this.router.navigate(['newsfeed']);
         environment.isWelcomeMessage = false; //to remove welcomeMessage
       },
       error: (err) => {
         this.error = err.error;
-        console.log(this.error);
       }
     })
   }

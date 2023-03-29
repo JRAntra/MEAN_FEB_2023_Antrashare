@@ -12,7 +12,7 @@ export class WelcomeDirective implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.visibility = 'hidden';
-      environment.isWelcomeMessage = false;
-    }, 50);
+     environment.isWelcomeMessage = false;
+    }, 500);
   }
 }

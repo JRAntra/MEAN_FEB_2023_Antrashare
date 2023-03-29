@@ -7,7 +7,7 @@ import { AngularMaterialModule } from 'src/app/share/angular-material/angular-ma
 
 import { WelcomeDirective } from './welcome.directive';
 import { TruncatePipe } from './truncate/truncate.pipe';
-import { LikedListComponent } from './liked-list/liked-list.component';
+import { LikeListComponent } from './likeList/like-list/like-list.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { LikedListComponent } from './liked-list/liked-list.component';
     ContentComponent,
     WelcomeDirective,
     TruncatePipe,
-    LikedListComponent
+    LikeListComponent
   ],
   imports: [
     CommonModule, 
@@ -24,7 +24,8 @@ import { LikedListComponent } from './liked-list/liked-list.component';
   ],
   exports: [
     NewsfeedComponent,
-    WelcomeDirective
+    WelcomeDirective,
+    LikeListComponent
   ],
 })
 export class NewsfeedModule {}

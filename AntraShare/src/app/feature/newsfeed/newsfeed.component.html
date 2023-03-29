@@ -1,5 +1,5 @@
 <main class="main">
-  <app-liked-list></app-liked-list>
+  <app-like-list></app-like-list>
   <div class="post-newfeed-form">
     <h1>Post Your Newsfeed Below</h1>
     <mat-form-field appearance="fill">
@@ -14,14 +14,15 @@
   </div>
   <div class="newsfeed" *ngFor="let n of news; let i = index">
     <a [routerLink]="['/newsfeed', n._id]">
-      <mat-card [id]="n.id" class="on-hover">
-        <mat-card-title>{{ n.content?.text | truncate}}</mat-card-title>
+      <mat-card [id]="n._id" class="on-hover">
+        <mat-card-title>{{ n.content?.text || "" | truncate}}</mat-card-title>
+        
         <mat-card-content>
           <img [src]="n.content?.image" alt="" srcset="">
         </mat-card-content>
       </mat-card>
     </a>
-    <button #likeBtn mat-icon-button color="primary" class="like-btn" (click)="addLike(n,likeBtn)">
+    <button mat-icon-button color="primary" class="like-btn" (click)="onThumbUpBtn(n,likeBtn)" #likeBtn>
       <mat-icon>thumb_up_alt</mat-icon>
     </button>
   </div>

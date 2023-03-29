@@ -13,9 +13,9 @@ export class AuthorizationService {
 
   constructor(private http: HttpClient) {}
 
-  login(user: UserInfo): Observable<boolean> {
+  login(user: UserInfo): Observable<UserInfo> {
     const url = `${this.apiUrl}/login`;
 
-    return this.http.post<boolean>(url, user);
+    return this.http.post<UserInfo>(url, user);
   }
 }
