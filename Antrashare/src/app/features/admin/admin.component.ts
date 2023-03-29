@@ -3,6 +3,7 @@ import {GetUsersService} from "../../core/get-users.service";
 import { Router } from "@angular/router";
 import {logMessages} from "@angular-devkit/build-angular/src/builders/browser-esbuild/esbuild";
 import {User} from "../../shared/user-pattern/user-pattern.module";
+import {Subscription} from "rxjs";
 
 // export interface User {
 //   "_id": string,
@@ -24,6 +25,7 @@ import {User} from "../../shared/user-pattern/user-pattern.module";
 })
 export class AdminComponent implements OnInit {
   users: User[] = [];
+  subscriptions: Subscription[] = [];
   // userArray = new Array<string>(10).fill("JR")
   constructor(private getUsers: GetUsersService, private router: Router) {
   }
@@ -36,10 +38,10 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUsers.getAllUsers().subscribe({
+    this.subscriptions.push(this.getUsers.getAllUsers().subscribe({
     next: response => this.users = response,
     error: error => console.log(error)
-    })
+    }))
 
   }
     // (response) => {
@@ -51,6 +53,12 @@ export class AdminComponent implements OnInit {
 
   NaviToSetting(){
     this.router.navigateByUrl("/setting").then()
+  }
+  ngOnDestroy():void{
+    for (let subscrption of this.subscriptions){
+      subscrption.unsubscribe()
+      console.log("Successfully unsubscribe")
+    }
   }
 
 }

@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link
-    href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&family=Raleway:wght@100;400;700&family=Roboto:wght@100;400;700&family=Source+Sans+Pro:wght@400;600&display=swap"
-    rel="stylesheet">
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<!--<link-->
+<!--    href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&family=Raleway:wght@100;400;700&family=Roboto:wght@100;400;700&family=Source+Sans+Pro:wght@400;600&display=swap"-->
+<!--    rel="stylesheet">-->
 <nav>
     <ul>
       <button mat-icon-button [matMenuTriggerFor]="menu" (click)="openMenu()">
@@ -10,9 +10,10 @@
     </ul>
 </nav>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button>
-  <button mat-menu-item>Item 3</button>
+  <div *ngFor="let like of likeList.reverse()">
+    <button mat-menu-item>{{like | displayChar}}</button>
+  </div>
+
 </mat-menu>
 
 <mat-card class="welcome-massage" appWelcome [ngStyle]="{'text-align': 'center'}" >
@@ -34,36 +35,20 @@
 </mat-card>
 
 <div class="story-container">
-    <div class="story">
-        <div class="story-content">
-            <p>{{story | displayChar}}</p>
-        </div>
-        <div class="like-icon">
-            <button class="fa fa-thumbs-up"><i></i></button>
-        </div>
-    </div>
 
-    <div class="story">
-        <div class="story-content">
-            <p>{{story | displayChar}}</p>
-        </div>
-        <div class="like-icon">
-            <button class="fa fa-thumbs-up"><i></i></button>
-        </div>
-    </div>
+      <div class="story" *ngFor="let story of storys">
+          <div class="story-content">
+              <p >{{story}}</p>
+          </div>
+          <div class="like-icon">
+              <button mat-raised-button color="accent" (click)="AddToLikeList($event, story)"><mat-icon>thumb_up</mat-icon>Like</button>
+          </div>
+      </div>
 
-    <div class="story">
-        <div class="story-content">
-            <p>{{story | displayChar}}</p>
-        </div>
-        <div class="like-icon">
-            <button class="fa fa-thumbs-up"><i></i></button>
-        </div>
-    </div>
 </div>
-<div *ngFor="let mockString of mockStrings" >
-<!--  <p>-->
-<!--    {{mockString | displayChar}}-->
-<!--  </p>-->
-</div>
+<!--<div *ngFor="let mockString of mockStrings" >-->
+<!--&lt;!&ndash;  <p>&ndash;&gt;-->
+<!--&lt;!&ndash;    {{mockString | displayChar}}&ndash;&gt;-->
+<!--&lt;!&ndash;  </p>&ndash;&gt;-->
+<!--</div>-->
 <app-nav-bar></app-nav-bar>
