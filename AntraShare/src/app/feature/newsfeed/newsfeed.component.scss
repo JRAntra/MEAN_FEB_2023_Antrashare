@@ -19,14 +19,7 @@
 .newsfeed {
   margin-top: 1rem;
 }
-.like-list {
-  padding: 0.5rem 1rem;
-  position: absolute;
-  float: right;
-  top:5vh;
-  right:5vw;
-  background-color: $theme-color;
-}
+
 a {
   text-decoration: none;
 }
@@ -48,41 +41,8 @@ a {
     background-color: rgb(185, 177, 177);
   }
 }
-.like-list-toggled {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: $bgColor;
-  width: 20%;
-  height: 70vh;
-  right: 1rem;
-  top: -20px;
-  border-radius: 2%;
-  > * {
-    padding: 0.5rem 1rem;
-  }
-  animation: fadeInOut 0.1s forwards;
-  .head {
-    display: flex;
-    .head-content {
-      flex: 1;
-    }
-  }
-  .main {
-    height: 50%;
-    background-color: rgb(185, 177, 177);
-  }
-  .foot {
-    text-align: center;
-  }
-  .mat-raised-button {
-    padding: 0;
-  }
-}
-.hidden {
-  display: none;
-}
+
+
 @keyframes fadeInOut {
   0% {
     opacity: 0;

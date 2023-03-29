@@ -1,35 +1,5 @@
 <main class="main">
-  <div class="like-list-toggled" [ngClass]="{ hidden: hideForm }">
-    <div class="head">
-      <div class="head-content">
-        <p class="published">PublisherName PublishedTime</p>
-        <p class="content">(custom pipe, limited length)</p>
-      </div>
-      <button
-        mat-icon-button
-        color="warn"
-        class="close-like-list"
-        (click)="toggleLikeList()"
-      >
-        <mat-icon>close</mat-icon>
-      </button>
-    </div>
-    <div class="main"></div>
-    <div class="foot">
-      <h1>Liked Story List</h1>
-      <p>PublisherName/PublishedTime</p>
-      <p>story content preview (custom pipe length limitation)</p>
-    </div>
-  </div>
-  <button
-    class="like-list"
-    [ngClass]="{ hidden: !hideForm }"
-    (click)="toggleLikeList()"
-    mat-raised-button
-    color="accent"
-  >
-    Like List
-  </button>
+  <app-like-list></app-like-list>
   <div class="post-newfeed-form">
     <h1>Post Your Newsfeed Below</h1>
     <mat-form-field appearance="fill">
@@ -51,7 +21,7 @@
         </mat-card-content>
       </mat-card>
     </a>
-    <button mat-icon-button color="primary" class="like-btn">
+    <button mat-icon-button color="primary" class="like-btn" (click)="onThumbUpBtn(n)">
       <mat-icon>thumb_up_alt</mat-icon>
     </button>
   </div>

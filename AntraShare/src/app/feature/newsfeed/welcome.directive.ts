@@ -13,6 +13,6 @@ export class WelcomeDirective implements OnInit {
     setTimeout(() => {
       this.visibility = 'hidden';
      environment.isWelcomeMessage = false;
-    }, 5000);
+    }, 500);
   }
 }
