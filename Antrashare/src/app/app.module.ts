@@ -8,6 +8,7 @@ import { NewsFeedModule } from './features/news-feed/news-feed.module';
 import { NewsFeedComponent } from './features/news-feed/newsFeed/newsFeed.component';
 // import { TestService } from './core/services/test.service';
 import { HttpClientModule } from '@angular/common/http'
+import { LoginModule } from './features/login/login.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http'
     BrowserModule,
     AppRoutingModule,
     NewsFeedModule,
-    HttpClientModule
+    HttpClientModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,25 @@
+<div [formGroup]="userInfo">
+    <label for="name">Username</label>
+    <input formControlName="username" id="name" #nameInput>
+    <!-- <p *ngIf="usernameControl.errors?.['userNotExist']">The username is not exist</p> -->
+    <p *ngIf="usernameControl.errors?.['minlength']">The username should have at least 5 chars</p>
+    <p *ngIf="usernameControl.errors?.['email']">The username should be email</p>
+    <p *ngIf="usernameControl.errors?.['maxlength']">The username should have at most 3 chars</p>
+    <!-- <p *ngIf="usernameControl.errors?.['required']">The username is required</p> -->
+
+
+
+    <br>
+    <br>
+    <label for="password">Password</label>
+    <input formControlName="password" id="password">
+
+    <!-- <div formArrayName = "students">
+        <div *ngFor="let item of studentsArray.value; let i = index">
+            <input [formControlName] = "i">
+        </div>
+    </div> -->
+
+    <br>
+    <button (click)="updatePWD()"></button>
+</div>

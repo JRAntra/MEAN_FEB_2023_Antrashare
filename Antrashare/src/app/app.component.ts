@@ -12,6 +12,9 @@ export class AppComponent implements OnInit {
   title = 'Antrashare';
   data: any
   subscriptions: Subscription[] = []
+  numArr: number[] = [1,2,3]
+
+  
 
   constructor(private router: Router,
     private testService: TestService
@@ -72,19 +75,19 @@ export class AppComponent implements OnInit {
 
     //forkJoin([hr1,hr2,hr3,hr4])  
 
-    of(1, 2, 3, 4, 5,6 ,7 ,8).pipe(
-      // tap(res=> console.log(res)),
-      // filter(value => { return (value%2 === 0)}),
-      // map(res => Math.pow(res,2))
-      // take(5)
-      // takeUntil()
-      // switchMap
-      // concatMap
-      // mergeMap
+    // of(1, 2, 3, 4, 5,6 ,7 ,8).pipe(
+    //   // tap(res=> console.log(res)),
+    //   // filter(value => { return (value%2 === 0)}),
+    //   // map(res => Math.pow(res,2))
+    //   // take(5)
+    //   // takeUntil()
+    //   // switchMap
+    //   // concatMap
+    //   // mergeMap
 
-    ).subscribe(
-      res => console.log(res)
-    )
+    // ).subscribe(
+    //   // res => console.log(res)
+    // )
 
 
     // const btn: HTMLButtonElement | null = document.querySelector<HTMLButtonElement>("#btn_listener")
@@ -139,10 +142,13 @@ export class AppComponent implements OnInit {
     this.router.navigate(["admin"])
   }
 
+  addNumber(){
+    this.numArr.push(1)
+  }
+
   ngOnDestroy(): void {
     this.subscriptions.forEach(
       subscription => subscription.unsubscribe()
     )
-
   }
 }

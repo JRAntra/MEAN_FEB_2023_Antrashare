@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, of, ReplaySubject, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -54,6 +54,7 @@ export class TestService {
     })
 
     // set up subscription between likedlistComponent and Subject(of latest likeList)
+
 
 
   }
