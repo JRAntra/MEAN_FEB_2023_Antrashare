@@ -4,9 +4,10 @@
     </ng-template>
 </p-messages>
 
-<p-menubar>
+
+<!-- <p-menubar>
     <button pButton pRipple label="liked list" icon="pi pi-heart" class="p-button-text"></button>
-</p-menubar>
+</p-menubar> -->
 
 <div class="post-box">
     <div class="p-fluid">
@@ -25,9 +26,7 @@
 </div>
 
 <div *ngFor="let story of news_feed_data">
-    <app-story [publisherName]="story.publisherName"
-               [publishedTime]="story.publishedTime"
-               [content]="story.content"></app-story>
+    <app-story [story]="story"></app-story>
 </div>
 
 <br>

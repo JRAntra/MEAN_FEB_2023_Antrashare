@@ -1,0 +1,11 @@
+<p-listbox [options]="likedList" [(ngModel)]="selectedStory" (onClick)="onClick()" [style]="{'border-style':'none'}" >
+    <ng-template let-liked pTemplate="item">
+        <div class="liked-item">
+            <strong class="publisher-name">{{liked.publisherName}}</strong>
+            <p class="published-time">{{liked.publishedTime}}</p>
+            <p class="content">{{liked.content.text | limitedTwentyCharacter}}</p>
+            <!-- <img src="{{liked.content.image}}" alt="{{liked.content.image}}"> -->
+        </div>
+        <p-button class="delete-liked_btn" (click)="removeStory()" icon="pi pi-trash"></p-button>
+    </ng-template>
+</p-listbox>

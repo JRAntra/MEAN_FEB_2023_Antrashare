@@ -11,7 +11,6 @@ import {DividerModule} from 'primeng/divider';
 import {TabViewModule} from 'primeng/tabview';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {InputTextModule} from 'primeng/inputtext';
-import {MenuItem} from 'primeng/api';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -52,7 +51,7 @@ import {OverlayPanelModule} from 'primeng/overlaypanel';
     ChipsModule,
     EditorModule,
     MessagesModule,
-    OverlayPanelModule
+    OverlayPanelModule,
   ],
   exports: [
     MenubarModule,
@@ -77,7 +76,7 @@ import {OverlayPanelModule} from 'primeng/overlaypanel';
     ChipsModule,
     EditorModule,
     MessagesModule,
-    OverlayPanelModule
+    OverlayPanelModule,
   ]
 })
 export class PrimengModule { }

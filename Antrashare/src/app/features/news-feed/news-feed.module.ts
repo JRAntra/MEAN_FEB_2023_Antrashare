@@ -5,6 +5,8 @@ import { PrimengModule } from 'src/app/shared/primeng/primeng.module';
 import { WelcomeDirective } from './welcome.directive';
 import { PostboxPipe } from './postbox.pipe';
 import { StoryComponent } from './story/story.component';
+import { HeaderComponent } from '../header/header.component';
+import { LikedListComponent } from '../liked-list/liked-list.component';
 
 
 @NgModule({
@@ -13,7 +15,7 @@ import { StoryComponent } from './story/story.component';
     WelcomeDirective,
     PostboxPipe,
     StoryComponent
-  ],
+    ],
   imports: [
     CommonModule,
     PrimengModule
