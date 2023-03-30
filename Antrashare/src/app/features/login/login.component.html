@@ -15,13 +15,15 @@
                 <label for="pwd-input">Password</label>
             </span>
             
-            
+            <p-toast></p-toast>
             <div id="login_control">
+                
                 <button id="btn_login" pButton type="submit" label="Login" ></button>
                 <a id="register" (click)="goToRegister()">No accounts? Register Now!</a>
 
                 <div id="check_and_help">
                     <div id="checkbox">
+                        <!-- <p-checkbox [(ngModel)]="checked"  inputId="binary"></p-checkbox> -->
                         <input type="checkbox" id="agreement" >
                         <label for="agreement">Agreement</label>
                     </div>
