@@ -5,7 +5,7 @@ import { MyProfileComponent } from '../features/my-profile/my-profile.component'
 import { NewsfeedComponent } from '../features/newsfeed/newsfeed.component';
 import { SettingComponent } from '../features/setting/setting.component';
 import { RegisterComponent } from '../features/register/register.component';
-import {AdminComponent} from "../features/admin/admin.component";
+import { AdminComponent } from "../features/admin/admin.component";
 const routes: Routes = [
   // http://localhost:4200/
   { path: 'login', component: LoginComponent },
