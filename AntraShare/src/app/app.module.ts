@@ -11,7 +11,6 @@ import { NavbarModule } from './feature/navbar/navbar.module';
 import { AngularMaterialModule } from './share/angular-material/angular-material.module';
 import { AdminModule } from './feature/admin/admin.module';
 
-import { UserService } from './core/service/user.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -31,7 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   exports: [],
-  providers: [UserService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NewsfeedServiceService } from 'src/app/feature/newsfeed/newsfeed_service/newsfeed-service.service';
-import { UserService } from 'src/app/core/service/user.service';
+import { AdminServiceService } from 'src/app/core/adminService/admin-service.service';
 import { AngularMaterialModule } from 'src/app/share/angular-material/angular-material.module';
 @Component({
   selector: 'app-content',
@@ -12,7 +12,7 @@ export class ContentComponent implements OnInit {
   constructor(
     private newService: NewsfeedServiceService,
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: AdminServiceService
   ) {}
 
   story: any;
