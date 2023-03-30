@@ -26,7 +26,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 
   ],
   exports: [
-    NewsfeedComponent
+    NewsfeedComponent,
+    DisplayCharPipe
   ],
   providers: [
     MatMenuTrigger

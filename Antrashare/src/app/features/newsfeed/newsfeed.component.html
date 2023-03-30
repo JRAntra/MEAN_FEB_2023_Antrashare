@@ -2,13 +2,13 @@
 <!--<link-->
 <!--    href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&family=Raleway:wght@100;400;700&family=Roboto:wght@100;400;700&family=Source+Sans+Pro:wght@400;600&display=swap"-->
 <!--    rel="stylesheet">-->
-<nav>
-    <ul>
-      <button mat-icon-button [matMenuTriggerFor]="menu" (click)="openMenu()">
-        <mat-icon>favorite</mat-icon>
-      </button>
-    </ul>
-</nav>
+<!--<nav>-->
+<!--    <ul>-->
+<!--      <button mat-icon-button [matMenuTriggerFor]="menu" (click)="openMenu()">-->
+<!--        <mat-icon>favorite</mat-icon>-->
+<!--      </button>-->
+<!--    </ul>-->
+<!--</nav>-->
 <!--<mat-accordion>-->
 <!--  <mat-expansion-panel [ngStyle]="{-->
 <!--  'width': '100%',-->
@@ -29,12 +29,11 @@
 <!--  </mat-expansion-panel>-->
 <!--</mat-accordion>-->
 
-<mat-menu #menu="matMenu">
-  <div *ngFor="let like of likeList.reverse()">
-    <button mat-menu-item>{{like | displayChar}}</button>
-  </div>
-
-</mat-menu>
+<!--<mat-menu #menu="matMenu">-->
+<!--  <div *ngFor="let like of likeList.reverse()">-->
+<!--    <button mat-menu-item>{{like | displayChar}}</button>-->
+<!--  </div>-->
+<!--</mat-menu>-->
 
 <mat-card class="welcome-massage" appWelcome [ngStyle]="{'text-align': 'center'}">
   <mat-card-header>

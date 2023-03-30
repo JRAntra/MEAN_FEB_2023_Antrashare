@@ -13,6 +13,7 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import {GetUsersService} from "../core/get-users.service";
 // import { DisplayCharPipe } from './display-char.pipe';
 import{HttpClientModule} from "@angular/common/http";
+import {LikeHeadersModule} from "../features/like-headers/like-headers.module";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import{HttpClientModule} from "@angular/common/http";
     AdminModule,
     NavBarModule,
     AngularMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    LikeHeadersModule
   ],
 
   providers: [GetUsersService],

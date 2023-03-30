@@ -13,14 +13,14 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class NewsfeedComponent implements OnInit {
 
   constructor(private likeListService:LikeListService, private _snackBar: MatSnackBar) { }
-  likeList :string[] = []
+  // likeList :string[] = []
   ngOnInit(): void {
-    this.likeListService.getStorySubject().subscribe({
-      next: value => {
-        this.likeList = value
-      },
-      error: err => console.log(err)
-    })
+    // this.likeListService.getStorySubject().subscribe({
+    //   next: value => {
+    //     this.likeList = value
+    //   },
+    //   error: err => console.log(err)
+    // })
   }
   @ViewChild(MatMenuTrigger) trigger?: MatMenuTrigger;
   longText = `CS 2`;
@@ -37,24 +37,24 @@ export class NewsfeedComponent implements OnInit {
     '10.This is a long story which should be longer than 20 characters.',
 
   ];
-  openMenu() {
-    // @ts-ignore
-    this.trigger.openMenu();
-  }
+  // openMenu() {
+  //   // @ts-ignore
+  //   this.trigger.openMenu();
+  // }
   // @ViewChild('myStory', { static: false }) storyElement?: ElementRef;
 
 
   AddToLikeList(event:Event, story:string): void{
     // @ts-ignore
-    for (let like of this.likeList){
-      if (like === story){
-        this._snackBar.open("Already has the element in like list", "Done",{duration:3000});
-        return
-      }
-    }
+    // for (let like of this.likeList){
+    //   if (like === story){
+    //     this._snackBar.open("Already has the element in like list", "Done",{duration:3000});
+    //     return
+    //   }
+    // }
     this.likeListService.addNewStory(story);
 
-    this._snackBar.open("Add to like list successfully", "Done",{duration:3000});
+    // this._snackBar.open("Add to like list successfully", "Done",{duration:3000});
 
 
   }
