@@ -18,9 +18,14 @@ import { NavbarComponent } from './features/navbar/navbar.component';
 //Import module that has to be used from library to the app main component
 import {ButtonModule} from 'primeng/button';
 import {SelectButtonModule} from 'primeng/selectbutton';
+import { PrimengModule } from './shared/primeng/primeng.module';
 
-//Import HTTP
+import { HeaderComponent } from './features/header/header.component';
+
 import { HttpClientModule } from '@angular/common/http';
+import { LikedListModule } from './features/liked-list/liked-list/liked-list.module';
+import { StoryDetailComponent } from './features/story-detail/story-detail.component';
+
 
 
 
@@ -28,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     NavbarComponent,
-
+    HeaderComponent,
+    StoryDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -40,10 +46,12 @@ import { HttpClientModule } from '@angular/common/http';
     SettingsModule,
     LoginModule,
     RegisterModule,
+    LikedListModule,
     ButtonModule,
     SelectButtonModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    PrimengModule,
+    HttpClientModule
 
   ],
   providers: [],
