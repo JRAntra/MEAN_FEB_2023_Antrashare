@@ -4,15 +4,15 @@
         <h3>AntraShare</h3>
     </div>
 
-    <div class="login-credential">
+    <div class="login-credential" [formGroup]="userLoginFB">
         <mat-form-field>
             <mat-label>User email</mat-label>
-            <input matInput [formControl]="emailControl" (keyup)="onChangeEmailFormControl()">
+            <input matInput formControlName="emailControl" (keyup)="onChangeEmailFormControl()">
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Password</mat-label>
-            <input matInput type="password" [formControl]="pswdControl" (keyup)="onChangePswdFormControl()">
+            <input matInput type="password" formControlName="pswdControl" (keyup)="onChangePswdFormControl()">
         </mat-form-field>
 
         <button mat-flat-button color="primary" id="login-btn" (click)="onLogin()">Login</button>

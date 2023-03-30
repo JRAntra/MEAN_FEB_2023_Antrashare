@@ -5,6 +5,8 @@
                 Like List
             </mat-panel-title>
         </mat-expansion-panel-header>
-        <p *ngFor="let like of likes">{{ like | displayChar}}</p>
+        <ul>
+            <li *ngFor="let like of likes">{{ like }}</li>
+        </ul>
     </mat-expansion-panel>
 </mat-accordion>

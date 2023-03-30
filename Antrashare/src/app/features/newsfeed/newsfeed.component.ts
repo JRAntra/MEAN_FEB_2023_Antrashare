@@ -12,25 +12,16 @@ export class NewsfeedComponent implements OnInit {
 
   constructor(private likelistService: LikelistService, private newsfeedService: NewsfeedService) { }
 
-  story1 = 'This is 1st long story which should be longer than 20 characters.';
-  story2 = 'This is 2nd long story which should be longer than 20 characters.';
-  story3 = 'This is 3rd long story which should be longer than 20 characters.';
-
-
-  likeStory(story: string) {
-    // const transformedChar = this.displayChar.transform(story);
-    // this.likelistService.addToLikelist(transformedChar);
-    this.likelistService.addToLikelist(story);
-  }
-
   newsfeedData: any[] = [];
 
   ngOnInit() {
     this.newsfeedService.getNewsfeed().subscribe((data: any) => {
       this.newsfeedData = data;
     });
-
   }
 
-
+  likeStory(item: any) {
+    const story = item.content.text;
+    this.likelistService.addToLikelist(story);
+  }
 }

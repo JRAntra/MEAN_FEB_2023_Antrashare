@@ -17,45 +17,8 @@
     </mat-card-footer>
 </mat-card>
 
-
-<div class="story-container">
-    <div class="story">
-        <div class="story-content">
-            <p>{{story1 | displayChar}}</p>
-        </div>
-        <div class="like-icon">
-            <button mat-icon-button (click)="likeStory(story1)">
-                <mat-icon>favorite</mat-icon>
-            </button>
-        </div>
-    </div>
-
-    <div class="story">
-        <div class="story-content">
-            <p>{{story2 | displayChar}}</p>
-        </div>
-        <div class="like-icon">
-            <button mat-icon-button (click)="likeStory(story2)">
-                <mat-icon>favorite</mat-icon>
-            </button>
-        </div>
-    </div>
-
-    <div class="story">
-        <div class="story-content">
-            <p>{{story3 | displayChar}}</p>
-        </div>
-        <div class="like-icon">
-            <button mat-icon-button (click)="likeStory(story3)">
-                <mat-icon>favorite</mat-icon>
-            </button>
-        </div>
-    </div>
-
-</div>
 <div>
     <ul>
-
         <li *ngFor="let item of newsfeedData" class="story-entry">
             <h1>{{ item.publisherName }}</h1>
 
@@ -65,11 +28,11 @@
             </div>
             <p>{{ item.publishedTime }}</p>
 
-            <mat-icon>favorite</mat-icon>
-
-
-
-
+            <div class="like-icon">
+                <button mat-icon-button (click)="likeStory(item)">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+            </div>
         </li>
     </ul>
 </div>

@@ -1,6 +1,6 @@
 <app-likelist></app-likelist>
 <div class="profile">
-    <form>
+    <form [formGroup]="profileFB">
         <mat-card class="infoContainer">
             <mat-card-header>
                 <img mat-card-avatar class="avatar" src="" alt="Avatar">
@@ -8,17 +8,17 @@
 
             <mat-form-field>
                 <mat-label>Name</mat-label>
-                <input matInput class="short-box" [formControl]="nameControl" (keyup)="onChangeNameFormControl()">
+                <input matInput class="short-box" formControlName="nameControl" (keyup)="onChangeNameFormControl()">
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Email</mat-label>
-                <input matInput class="short-box" [formControl]="emailControl" [readonly]="true">
+                <input matInput class="short-box" formControlName="emailControl" [readonly]="true">
             </mat-form-field>
         </mat-card>
 
         <mat-form-field class="long-box">
-            <mat-select [formControl]="genderControl" (keyup)="onChangeGenderFormControl()">
+            <mat-select formControlName="genderControl" (keyup)="onChangeGenderFormControl()">
                 <mat-option value="Male">Male</mat-option>
                 <mat-option value="Female">Female</mat-option>
                 <mat-option value="Other">Other</mat-option>
@@ -27,17 +27,17 @@
 
         <mat-form-field class="long-box">
             <mat-label>Age</mat-label>
-            <input matInput [formControl]="ageControl" (keyup)="onChangeAgeFormControl()">
+            <input matInput formControlName="ageControl" (keyup)="onChangeAgeFormControl()">
         </mat-form-field>
 
         <mat-form-field class="long-box">
             <mat-label>Email</mat-label>
-            <input matInput [formControl]="emailControl" [readonly]="true">
+            <input matInput formControlName="emailControl" [readonly]="true">
         </mat-form-field>
 
         <mat-form-field class="long-box">
             <mat-label>Phone</mat-label>
-            <input matInput [formControl]="phoneControl" (keyup)="onChangePhoneFormControl()">
+            <input matInput formControlName="phoneControl" (keyup)="onChangePhoneFormControl()">
         </mat-form-field>
     </form>
 
