@@ -1,0 +1,14 @@
+<p-menubar>
+    <p-button (click)="op.toggle($event)" icon="pi pi-heart" label="Likelist" style="float:right"></p-button>
+</p-menubar>
+
+<p-overlayPanel #op [style]="{'width':'50%'}" [showCloseIcon]="true">
+    <ng-template pTemplate="content">
+        <div *ngFor="let story of likelist">
+            <app-story [if_likelist_story]="if_likelist_story"
+                       [story]="story"
+                       ></app-story>
+        </div>
+    </ng-template>
+    
+</p-overlayPanel>

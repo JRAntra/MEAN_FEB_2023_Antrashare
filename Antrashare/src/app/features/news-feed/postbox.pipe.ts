@@ -10,14 +10,11 @@ import { Injectable, Pipe, PipeTransform } from '@angular/core';
 export class PostboxPipe implements PipeTransform {
 
   transform(value: string): string {
-    if(value.length <= 20){
-      
+    if(value.length <= 2){
       return value;
-    }else if(value.length == 23){
-      return value.substring(0,20);
     }
     else{
-      return value.substring(0,21) + '...';
+      return value.substring(0,2) + "..."
     };
   }
 

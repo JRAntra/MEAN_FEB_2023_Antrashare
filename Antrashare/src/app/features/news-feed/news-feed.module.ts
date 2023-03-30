@@ -5,6 +5,7 @@ import { PrimengModule } from 'src/app/shared/primeng/primeng.module';
 import { WelcomeDirective } from './welcome.directive';
 import { PostboxPipe } from './postbox.pipe';
 import { StoryComponent } from './story/story.component';
+// import { LikelistComponent } from './likelist/likelist.component';
 
 
 @NgModule({
@@ -12,14 +13,17 @@ import { StoryComponent } from './story/story.component';
     NewsFeedComponent,
     WelcomeDirective,
     PostboxPipe,
-    StoryComponent
+    StoryComponent,
+    // LikelistComponent
   ],
   imports: [
     CommonModule,
     PrimengModule
   ],
   exports: [
-    NewsFeedComponent
+    NewsFeedComponent,
+    StoryComponent,
+    PostboxPipe
   ]
 })
 export class NewsFeedModule { 

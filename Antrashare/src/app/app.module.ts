@@ -21,6 +21,8 @@ import {SelectButtonModule} from 'primeng/selectbutton';
 
 //Import HTTP
 import { HttpClientModule } from '@angular/common/http';
+import { PrimengModule } from './shared/primeng/primeng.module';
+import { LikelistComponent } from './features/likelist/likelist.component';
 
 
 
@@ -28,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     NavbarComponent,
+    LikelistComponent,
 
   ],
   imports: [
@@ -44,7 +47,7 @@ import { HttpClientModule } from '@angular/common/http';
     SelectButtonModule,
     ReactiveFormsModule,
     HttpClientModule,
-
+    PrimengModule
   ],
   providers: [],
   bootstrap: [AppComponent]

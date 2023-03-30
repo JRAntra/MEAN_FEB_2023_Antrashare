@@ -4,17 +4,12 @@
     </ng-template>
 </p-messages>
 
-<p-menubar>
-    <button pButton pRipple label="liked list" icon="pi pi-heart" class="p-button-text"></button>
-</p-menubar>
+
+<!-- <app-likelist></app-likelist> -->
 
 <div class="post-box">
     <div class="p-fluid">
-        <!-- <div class="p-field p-col-12">
-            <textarea width="100%" rows="10" cols='30' pInputTextarea [formControl]="inputbox" (input)="onChangeFormControl()">    
-            </textarea> -->
             <p-editor  [formControl]="inputbox" [style]="{ height: '320px' }"></p-editor>
-        <!-- </div> -->
     </div>
     
     
@@ -25,9 +20,10 @@
 </div>
 
 <div *ngFor="let story of news_feed_data">
-    <app-story [publisherName]="story.publisherName"
-               [publishedTime]="story.publishedTime"
-               [content]="story.content"></app-story>
+    <app-story 
+               [if_likelist_story]="if_likelist_story"
+               [story]="story"
+               (likeButtonClick)="onlikeButtonClick($event)"></app-story>
 </div>
 
 <br>

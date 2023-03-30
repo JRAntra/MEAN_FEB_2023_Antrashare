@@ -32,10 +32,10 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     console.log(this.loginForm.value);
-    this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(
-      result =>{console.log(result);this.goToNewsfeed();} ,
-      error => {console.log(error);window.alert("Email and password is UNMATCH!");} 
-    );
+    this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
+      next: (result) =>{console.log(result);this.goToNewsfeed()},
+      error:(error) => {console.log(error);window.alert("Email and password is UNMATCH!")} 
+    });
     this.loginForm.reset();
     // this.goToNewsfeed();
   }
