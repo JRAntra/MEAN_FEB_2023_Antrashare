@@ -23,6 +23,9 @@ import {ChipsModule} from 'primeng/chips';
 import {EditorModule} from 'primeng/editor';
 import { MessagesModule } from 'primeng/messages';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
+import { ToastModule } from 'primeng/toast';
+import { DataViewModule } from 'primeng/dataview';
+// import {DataViewLayoutOptions} from 'primeng/dataview';
 
 
 
@@ -52,7 +55,10 @@ import {OverlayPanelModule} from 'primeng/overlaypanel';
     ChipsModule,
     EditorModule,
     MessagesModule,
-    OverlayPanelModule
+    OverlayPanelModule,
+    ToastModule,
+    DataViewModule, 
+    // DataViewLayoutOptions
   ],
   exports: [
     MenubarModule,
@@ -77,7 +83,10 @@ import {OverlayPanelModule} from 'primeng/overlaypanel';
     ChipsModule,
     EditorModule,
     MessagesModule,
-    OverlayPanelModule
+    OverlayPanelModule,
+    ToastModule,
+    DataViewModule, 
+    // DataViewLayoutOptions
   ]
 })
 export class PrimengModule { }
