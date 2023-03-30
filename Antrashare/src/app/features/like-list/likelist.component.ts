@@ -25,5 +25,9 @@ export class LikeListComponent implements OnInit {
   ngOnDestroy(): void {
     this.likelistSubscription.unsubscribe();
   }
+  openMenu() {
+    // @ts-ignore
+    this.trigger.openMenu();
+  }
 
 }

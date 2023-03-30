@@ -1,12 +1,25 @@
-<mat-accordion>
-    <mat-expansion-panel hideToggle>
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                Like List
-            </mat-panel-title>
-        </mat-expansion-panel-header>
-        <ul>
-            <li *ngFor="let like of likes">{{ like }}</li>
-        </ul>
-    </mat-expansion-panel>
-</mat-accordion>
+<!--<mat-accordion>-->
+<!--    <mat-expansion-panel hideToggle>-->
+<!--        <mat-expansion-panel-header>-->
+<!--            <mat-panel-title>-->
+<!--                Like List-->
+<!--            </mat-panel-title>-->
+<!--        </mat-expansion-panel-header>-->
+<!--        <ul>-->
+<!--            <li *ngFor="let like of likes">{{ like }}</li>-->
+<!--        </ul>-->
+<!--    </mat-expansion-panel>-->
+<!--</mat-accordion>-->
+<nav>
+  <ul>
+    <button mat-icon-button [matMenuTriggerFor]="menu" (click)="openMenu()">
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </ul>
+</nav>
+
+<mat-menu #menu="matMenu">
+  <div *ngFor="let like of likes.reverse()">
+    <button mat-menu-item>{{like | displayChar}}</button>
+  </div>
+</mat-menu>
