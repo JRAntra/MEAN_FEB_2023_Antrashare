@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -13,11 +13,18 @@ import { LikelistService } from 'src/app/core/services/likelist/likelist.service
 })
 export class MyProfileComponent implements OnInit {
 
-  constructor(private loginInfoService: LoginInfoService, private http: HttpClient, private likeListService: LikelistService) { }
+  constructor(private loginInfoService: LoginInfoService,
+    private http: HttpClient,
+    private likeListService: LikelistService,
+    private fb: FormBuilder
+  ) { }
 
   apiUrl = environment.apiUrl;
 
   user: any;
+
+  profileFB: FormGroup = new FormGroup({
+  })
   likes: any[] = [];
 
   ngOnInit(): void {
@@ -26,8 +33,30 @@ export class MyProfileComponent implements OnInit {
       this.likes = likes;
     });
 
+    // info 
+    this.profileFB = this.fb.group({
+      nameControl: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.pattern(/^[a-z0-9]/)
+      ]),
+      emailControl: new FormControl('', []),
+      genderControl: new FormControl('', []),
+      ageControl: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.pattern(/^[0-9]/)
+      ]),
+      phoneControl: new FormControl('', [
+        Validators.required,
+        Validators.minLength(10),
+        Validators.maxLength(10),
+        Validators.pattern(/^[0-9]/)
+      ])
+    });
+
     const userEmail = this.loginInfoService.getEmailValue();
-    this.emailControl.setValue(userEmail);
+    this.profileFB.controls['emailControl'].setValue(userEmail);
 
     const infoApi = "users/getAllUsers";
     const finalUrl = this.apiUrl + infoApi;
@@ -36,11 +65,11 @@ export class MyProfileComponent implements OnInit {
       const currentUser = users.find((user: any) => user.userEmail === userEmail);
       if (currentUser) {
         this.user = currentUser;
-        this.nameControl.setValue(this.user.name);
-        this.emailControl.setValue(this.user.userEmail);
-        this.ageControl.setValue(this.user.age);
-        this.genderControl.setValue(this.user.gender);
-        this.phoneControl.setValue(this.user.phone);
+        this.profileFB.controls['nameControl'].setValue(this.user.name);
+        this.profileFB.controls['emailControl'].setValue(this.user.userEmail);
+        this.profileFB.controls['ageControl'].setValue(this.user.age);
+        this.profileFB.controls['genderControl'].setValue(this.user.gender);
+        this.profileFB.controls['phoneControl'].setValue(this.user.phone);
       }
     });
   }
@@ -51,44 +80,22 @@ export class MyProfileComponent implements OnInit {
   likeValue = 10
 
   emailControl = new FormControl('', [])
-  nameControl = new FormControl('', [
-    Validators.required,
-    Validators.minLength(3),
-    Validators.pattern(/^[a-z0-9]/)
-  ])
+
   onChangeNameFormControl() {
-    console.log(this.nameControl.value)
   }
-
-  genderControl = new FormControl('', [])
   onChangeGenderFormControl() {
-    console.log(this.nameControl.value)
   }
-
-  ageControl = new FormControl('', [
-    Validators.required,
-    Validators.minLength(3),
-    Validators.pattern(/^[0-9]/)
-  ])
   onChangeAgeFormControl() {
-    console.log(this.ageControl.value)
   }
-  phoneControl = new FormControl('', [
-    Validators.required,
-    Validators.minLength(10),
-    Validators.maxLength(10),
-    Validators.pattern(/^[0-9]/)
-  ])
   onChangePhoneFormControl() {
-    console.log(this.phoneControl.value)
   }
 
   onSaveClick() {
-    if (this.emailControl.valid && this.nameControl.valid && this.ageControl.valid && this.phoneControl.valid) {
-      const name = this.nameControl.value;
-      const age = this.ageControl.value;
-      const gender = this.genderControl.value;
-      const phone = this.phoneControl.value;
+    if (this.profileFB.valid) {
+      const name = this.profileFB.controls['nameControl'].value;
+      const age = this.profileFB.controls['ageControl'].value;
+      const gender = this.profileFB.controls['genderControl'].value;
+      const phone = this.profileFB.controls['phoneControl'].value;
       console.log(name, age, gender, phone);
     } else {
       alert('Please fill in all required fields.')

@@ -6,12 +6,12 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LikelistService {
 
-  likelistSubject = new BehaviorSubject<string[]>([]);
-  likes: string[] = [];
+  likelistSubject = new BehaviorSubject<any[]>([]);
+  likes: any[] = [];
 
   constructor() { }
 
-  addToLikelist(story: string) {
+  addToLikelist(story: any) {
     if (!this.likes.includes(story)) {
       this.likes.push(story);
       this.likelistSubject.next([...this.likes]);
