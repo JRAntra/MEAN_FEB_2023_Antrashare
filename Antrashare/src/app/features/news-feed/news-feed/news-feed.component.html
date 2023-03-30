@@ -4,9 +4,6 @@
     </ng-template>
 </p-messages>
 
-
-<!-- <app-likelist></app-likelist> -->
-
 <div class="post-box">
     <div class="p-fluid">
             <p-editor  [formControl]="inputbox" [style]="{ height: '320px' }"></p-editor>
@@ -20,10 +17,7 @@
 </div>
 
 <div *ngFor="let story of news_feed_data">
-    <app-story 
-               [if_likelist_story]="if_likelist_story"
-               [story]="story"
-               (likeButtonClick)="onlikeButtonClick($event)"></app-story>
+    <app-story [story]="story"></app-story>
 </div>
 
 <br>

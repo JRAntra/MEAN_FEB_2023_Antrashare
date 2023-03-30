@@ -1,14 +1,10 @@
-import { Component, OnInit, EventEmitter} from '@angular/core';
-import { TabMenuModule } from 'primeng/tabmenu';
-import {MenuItem, Message} from 'primeng/api';
+import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { PostboxPipe } from '../postbox.pipe';
-import { Observable } from 'rxjs';
-import { LikelistComponent } from '../../likelist/likelist.component';
+
 //Import service
-import { NewsfeedGetdataService } from 'src/app/core/newsfeed-getdata.service';
-import { LikeService } from 'src/app/core/like.service';
-import { StoryComponent } from '../story/story.component';
+import { NewsfeedGetdataService } from 'src/app/features/news-feed/newsfeed-getdata.service';
+
 
 
 
@@ -18,7 +14,7 @@ import { StoryComponent } from '../story/story.component';
   styleUrls: ['./news-feed.component.sass']
 })
 export class NewsFeedComponent implements OnInit {
-  constructor(private postboxpipe: PostboxPipe, private newsfeedService: NewsfeedGetdataService, private likeservice: LikeService) { }
+  constructor(private postboxpipe: PostboxPipe, private newsfeedService: NewsfeedGetdataService) { }
 
   // news_feed_data:
   // This is an array of stories
@@ -31,7 +27,6 @@ export class NewsFeedComponent implements OnInit {
   ngOnInit(): void {
     this.newsfeedService.getData().subscribe(data =>{
       this.news_feed_data = data
-
     })
   }
 
@@ -44,10 +39,4 @@ export class NewsFeedComponent implements OnInit {
   post_story(){
     this.inputbox.setValue("");
   }
-
-  onlikeButtonClick(story: any){
-    this.likeservice.emitLike(story)
-    // console.log(story)
-  }
-
 }

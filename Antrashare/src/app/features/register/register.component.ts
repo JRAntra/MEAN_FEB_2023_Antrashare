@@ -1,54 +1,76 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { RegisterService } from 'src/app/core/Service/register.service';
+import { MessageService } from 'primeng/api';
+
 
 
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.sass']
+  styleUrls: ['./register.component.sass'],
+  providers: [MessageService]
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm!: FormGroup;
+  constructor(private router: Router,
+              private fb: FormBuilder,
+              private registerService: RegisterService,
+              private messageService: MessageService) { }
 
-  formData = {
-    userName:'',
-    pwd:'',
-    confirm_pwd:'',
-    email:''
+
+  showSuccess() {
+    // console.log("调用showSuccess！！！！！");
+    this.messageService.add({ severity: 'success', summary: 'Congretulations', detail: 'You have successfully registered an new account' });
   }
 
-  constructor(private router: Router, private fb:FormBuilder, private registerService:RegisterService) { }
+  showError(error:string) {
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: error});
+  }
 
   goToLogin() {
     this.router.navigate(['login']);
   }
 
-  validateForm:FormGroup = this.fb.group({
-    username:['',[Validators.required,
-                  Validators.minLength(5),
-                  Validators.maxLength(20)]],
-    password:['',[Validators.minLength(8),
-                  Validators.maxLength(20)]],
-    password_confirm:['',[Validators.minLength(8),
-                          Validators.maxLength(20),
-                          this.pwdValue]],
-    email:['',[Validators.required,
-                Validators.email]]
+  successRegister(){
+    setTimeout(() => {
+      this.validateForm.reset();
+      this.goToLogin();
+    }, 2000);
+  }
+  
+
+  validateForm: FormGroup = this.fb.group({
+    username: ['', [Validators.required,
+                    Validators.minLength(5),
+                    Validators.maxLength(20)]],
+    password: ['', [Validators.minLength(8),
+                    Validators.maxLength(20)]],
+    password_confirm: ['', [Validators.minLength(8),
+                            Validators.maxLength(20),                           
+                            this.pwdValue]],
+    email: ['',   [Validators.required,
+                  Validators.email]],
+    age: ['',],
+    gender: ['',],
+    phone: ['',]
   });
 
-  pwdValue(password: FormControl, password_confirm: FormControl):object{
-    if(password==null||password_confirm==null){
+  pwdValue(password: FormControl, password_confirm: FormControl): object {
+    
+    console.log("密码检查中...")
+    if (password== null || password_confirm == null) {
+      // console.log(this.validateForm.controls['password'].value)
+      // console.log("密码是空的")
       return {}
-    }else{
-      if(password.value!=password_confirm.value){
-        return {msg:'the password is not same, pls enter the same password.'}
+    } else {
+      if (password != password_confirm) {
+        console.log("密码不一样")
+        return { msg: 'the password is not same, pls enter the same password.' }
 
-      }else{
+      } else {
         console.log(password.value);
         return {}
       }
@@ -56,31 +78,16 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-    this.registerForm = new FormGroup({
-      username: new FormControl(),
-      password: new FormControl(),
-      password_confirm: new FormControl(),
-      email: new FormControl()
-    });
+  ngOnInit(): void {}
 
-  }
   onSubmit() {
     console.log(this.validateForm.value);
 
-    this.registerService.register(this.validateForm.value.username, this.validateForm.value.password, this.validateForm.value.email).subscribe(
-      result => console.log(result),
-      error => console.log(error)
-    );
-    
+    this.registerService.register(this.validateForm.value.username, this.validateForm.value.password, this.validateForm.value.email).subscribe({
+      next: (result) => {console.log(result),this.showSuccess(),this.successRegister()},
+      error: (error) => {console.log(error.error), this.showError(error.error)}
+    });
 
-    // this.http.post('http://localhost:4231/api/register/createNewAccount',
-    //  this.validateForm.value).subscribe(response => {
-    //   console.log(response);
-    // });
-
-    this.validateForm.reset();
-    this.goToLogin();
   }
 
 }
