@@ -20,16 +20,12 @@ import {ButtonModule} from 'primeng/button';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import { PrimengModule } from './shared/primeng/primeng.module';
 
-<<<<<<< HEAD
-import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './features/header/header.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { LikedListModule } from './features/liked-list/liked-list/liked-list.module';
+import { StoryDetailComponent } from './features/story-detail/story-detail.component';
 
-=======
-//Import HTTP
-import { HttpClientModule } from '@angular/common/http';
->>>>>>> 55e197e57ed2ad05adebefa67f2a70006a1f6707
 
 
 
@@ -37,11 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     NavbarComponent,
-<<<<<<< HEAD
     HeaderComponent,
-=======
-
->>>>>>> 55e197e57ed2ad05adebefa67f2a70006a1f6707
+    StoryDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -53,16 +46,13 @@ import { HttpClientModule } from '@angular/common/http';
     SettingsModule,
     LoginModule,
     RegisterModule,
+    LikedListModule,
     ButtonModule,
     SelectButtonModule,
     ReactiveFormsModule,
-<<<<<<< HEAD
     PrimengModule,
     HttpClientModule
-=======
-    HttpClientModule,
 
->>>>>>> 55e197e57ed2ad05adebefa67f2a70006a1f6707
   ],
   providers: [],
   bootstrap: [AppComponent]

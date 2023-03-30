@@ -1,12 +1,10 @@
-import { Component, OnInit, EventEmitter} from '@angular/core';
-import { TabMenuModule } from 'primeng/tabmenu';
-import {MenuItem, Message} from 'primeng/api';
+import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { PostboxPipe } from '../postbox.pipe';
-import { Observable } from 'rxjs';
 
 //Import service
-import { NewsfeedGetdataService } from 'src/app/core/newsfeed-getdata.service';
+import { NewsfeedGetdataService } from 'src/app/features/news-feed/newsfeed-getdata.service';
+
 
 
 
@@ -28,7 +26,6 @@ export class NewsFeedComponent implements OnInit {
     // console.log(this.news_feed_data.subscribe);
     this.newsfeedService.getData().subscribe(data =>{
       this.news_feed_data = data
-      console.log(this.news_feed_data.map)
     })
   }
 
@@ -41,5 +38,7 @@ export class NewsFeedComponent implements OnInit {
   post_story(){
     this.inputbox.setValue("");
   }
+
+ 
 
 }

@@ -1,25 +1,23 @@
 <div class="story-box">
-    <p-card>
+    <p-card (click)="goToStoryDetail()">
         <ng-template pTemplate="header">
             <!-- <p>Story</p> -->
-            <h2 *ngIf="publisherName">{{publisherName}}</h2>
-            <h3 *ngIf="publishedTime">{{publishedTime}}</h3>
+            <h2 *ngIf="story.publisherName">{{story.publisherName}}</h2>
+            <h3 *ngIf="story.publishedTime">{{story.publishedTime}}</h3>
         </ng-template>
         <!-- <p>Good Story, wow! haha</p> -->
-        <div *ngIf="content">
+        <div *ngIf="story.content">
             <article>
-                {{content.text}}
+                {{story.content.text}}
             </article>
             <div class="img-video-box">
-                <img *ngIf="content.hasOwnProperty('image')" class="story-img" [src]="content.image" [alt]="content.image">
-                <video *ngIf="content" [src]="content.video" loop>
+                <img *ngIf="story.content.hasOwnProperty('image')" class="story-img" [src]="story.content.image" [alt]="story.content.image">
+                <video *ngIf="story.content" [src]="story.content.video" loop>
                     Your browser does not support the video tag.
                 </video> 
             </div>
         </div>
-        
-        
-
     </p-card>
-    <button pButton icon="pi pi-thumbs-up" class="p-button-outlined p-button-rounded story-like"></button>
+    <button *ngIf="!isLiked" pButton (click)="thumbsUp()" icon="pi pi-thumbs-up" class="p-button-outlined p-button-rounded story-like"></button>
+    <button *ngIf="isLiked" pButton (click)="thumbsDown()" icon="pi pi-thumbs-up-fill" class="p-button-outlined p-button-rounded story-like"></button>
 </div>

@@ -1,8 +1,9 @@
-<p-menubar>
+<p-menubar [style]="{'width':'100%','height':'55px'}">
     <p-overlayPanel #op>
         <ng-template pTemplate>
-            Content
+            <app-liked-list></app-liked-list>
         </ng-template>
     </p-overlayPanel>
-    <button type="text" pButton label="liked list" icon="pi pi-heart" (click)="op.toggle($event)"></button>
+    <button type="text" *ngIf="userRole == 'user'" pButton label="liked list" icon="pi pi-heart" (click)="op.toggle($event)"></button>
+    <button type="text" *ngIf="userRole == 'admin'"pButton label="admin"></button>
 </p-menubar>
