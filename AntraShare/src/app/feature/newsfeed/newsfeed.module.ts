@@ -8,24 +8,22 @@ import { AngularMaterialModule } from 'src/app/share/angular-material/angular-ma
 import { WelcomeDirective } from './welcome.directive';
 import { TruncatePipe } from './truncate/truncate.pipe';
 import { LikeListComponent } from './likeList/like-list/like-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    NewsfeedComponent, 
+    NewsfeedComponent,
     ContentComponent,
     WelcomeDirective,
     TruncatePipe,
-    LikeListComponent
+    LikeListComponent,
   ],
   imports: [
-    CommonModule, 
-    AngularMaterialModule, 
-    RouterModule
+    CommonModule,
+    AngularMaterialModule,
+    RouterModule,
+    ReactiveFormsModule,
   ],
-  exports: [
-    NewsfeedComponent,
-    WelcomeDirective,
-    LikeListComponent
-  ],
+  exports: [NewsfeedComponent, WelcomeDirective, LikeListComponent],
 })
 export class NewsfeedModule {}
