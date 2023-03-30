@@ -20,7 +20,13 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatProgressBarModule } from "@angular/material/progress-bar";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListModule} from "@angular/material/list";
+import {MatMenuModule} from "@angular/material/menu";
+
+
 
 @NgModule({
   declarations: [
@@ -46,7 +52,11 @@ import { MatProgressBarModule } from "@angular/material/progress-bar";
     MatToolbarModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatGridListModule,
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule
   ],
   exports: [
     MatInputModule,
@@ -66,7 +76,11 @@ import { MatProgressBarModule } from "@angular/material/progress-bar";
     MatToolbarModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatGridListModule,
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule
   ]
 })
 export class AngularMaterialModule { }

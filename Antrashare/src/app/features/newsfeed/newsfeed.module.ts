@@ -7,6 +7,10 @@ import { WelcomeDirective } from "../../shared/welcome.directive";
 // import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { DisplayCharPipe } from "../../shared/display-char.pipe";
 import { LikeListComponent } from '../like-list/likelist.component';
+// import {DisplayCharPipe} from "../../shared/display-char.pipe";
+import {MatMenuModule, MatMenuTrigger} from "@angular/material/menu";
+// import { LikeSnackBarComponent } from './like-snack-bar/like-snack-bar.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -18,14 +22,20 @@ import { LikeListComponent } from '../like-list/likelist.component';
   imports: [
     CommonModule,
     AppRoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    MatMenuModule,
+    MatSnackBarModule
+
+
   ],
   exports: [
     NewsfeedComponent,
     LikeListComponent
   ],
   providers: [
-    DisplayCharPipe
-  ]
+    DisplayCharPipe,
+    MatMenuTrigger
+  ],
+
 })
 export class NewsfeedModule { }

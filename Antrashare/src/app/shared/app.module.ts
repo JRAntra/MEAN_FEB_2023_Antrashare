@@ -10,8 +10,15 @@ import { SettingModule } from "../features/setting/setting.module";
 import { AdminModule } from "../features/admin/admin.module";
 import { NavBarModule } from '../features/nav-bar/nav-bar.module';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
+
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from '../core/services/login/login.service';
+
+import {GetUsersService} from "../core/get-users.service";
+// import { DisplayCharPipe } from './display-char.pipe';
+// import{HttpClientModule} from "@angular/common/http";
+import {LikeHeadersModule} from "../features/like-headers/like-headers.module";
+
 
 @NgModule({
   declarations: [
@@ -29,10 +36,12 @@ import { LoginService } from '../core/services/login/login.service';
     AdminModule,
     NavBarModule,
     AngularMaterialModule,
+  LikeHeadersModule,
     HttpClientModule
   ],
 
-  providers: [LoginService],
+  providers: [LoginService,GetUsersService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

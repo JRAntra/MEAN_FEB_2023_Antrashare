@@ -1,43 +1,100 @@
-<div class="like-list">
-  <p><button mat-raised-button>Admin</button> </p>
-</div>
-<div class="container">
-  <div class="userList">
-    <div class="user">
-      <div class="deleteButton">
-        <button mat-raised-button class="delete">Delete</button>
-      </div>
-      <div class="user-usertag">
-        User Tag 1
-      </div>
-    </div>
-    <div class="user">
-      <div class="deleteButton">
-        <button mat-raised-button class="delete">Delete</button>
-      </div>
-      <div class="user-usertag">
-        User Tag 2
-      </div>
-    </div>
-    <div class="user">
-      <div class="deleteButton">
-        <button mat-raised-button class="delete">Delete</button>
-      </div>
-      <div class="user-usertag">
-        User Tag 3
-      </div>
-    </div>
+<!--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
+<p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="setting-header-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Admin Page</span>
+    <span class="setting-header-barspacer"></span>
+    <button mat-icon-button class="setting-header-admin" aria-label="Example icon-button with share icon" (click)="NaviToSetting()">
+      <mat-icon>settings</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+<!--<div class="container">-->
+<!--  <div class="userList">-->
+<!--    <div class="user">-->
+<!--      <div class="deleteButton">-->
+<!--        <button mat-raised-button class="delete">Delete</button>-->
+<!--      </div>-->
+<!--      <div class="user-usertag">-->
+<!--        User Tag 1-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="user">-->
+<!--      <div class="deleteButton">-->
+<!--        <button mat-raised-button class="delete">Delete</button>-->
+<!--      </div>-->
+<!--      <div class="user-usertag">-->
+<!--        User Tag 2-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="user">-->
+<!--      <div class="deleteButton">-->
+<!--        <button mat-raised-button class="delete">Delete</button>-->
+<!--      </div>-->
+<!--      <div class="user-usertag">-->
+<!--        User Tag 3-->
+<!--      </div>-->
+<!--    </div>-->
 
-    <div class="user-addUser">
-    <button mat-raised-button class="user-addUserBtn">Add User Button</button>
-    </div>
-  </div>
-  <div class="userDetail">
-  </div>
+<!--    <div class="user-addUser">-->
+<!--    <button mat-raised-button class="user-addUserBtn">Add User Button</button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="userDetail">-->
+<!--  </div>-->
+<!--  <div>-->
+
+<!--  </div>-->
+<!--</div>-->
+
+
+
+<!--<mat-grid-list cols="4" >-->
+<!--  <mat-grid-tile-->
+<!--    *ngFor="let tile of tiles"-->
+<!--    [colspan]="tile.cols"-->
+<!--    [rowspan]="tile.rows"-->
+<!--    [style.background]="tile.color">-->
+<!--    {{tile.text}}-->
+<!--  </mat-grid-tile>-->
+<!--</mat-grid-list>-->
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened="true" class="sidenav">
+    <mat-nav-list>
+      <mat-list-item *ngFor="let user of users" (click)="selectUser(user)">
+        <div class="userList">
+          <span>Username: {{user.userName}}</span>
+          <button mat-raised-button color="warn">
+            Delete
+            <mat-icon>delete</mat-icon>
+          </button>
+<!--          <button mat-icon-button color="warn">-->
+<!--            <mat-icon>delete</mat-icon>-->
+<!--          </button>-->
+        </div>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
   <div>
-
+    <mat-card class="userDetail">
+      <mat-card-title>User Detail</mat-card-title>
+      <mat-card *ngIf="selectedUser">
+        <mat-card-header>
+          <mat-card-title>{{selectedUser.userName}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Name: {{selectedUser.name ? selectedUser.name : "Not Specified"}}</p>
+          <p>Email: {{selectedUser.userEmail}}</p>
+          <p>Age: {{selectedUser.age ? selectedUser.age: "Not Specified"}} </p>
+          <p>Gender: {{selectedUser.gender ? selectedUser.gender : "Not Specified"}}</p>
+          <p>Phone: {{selectedUser.phone ? selectedUser.phone : "Not Specified"}}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-card>
   </div>
-</div>
+</mat-sidenav-container>
 
-<app-nav-bar></app-nav-bar>
+    <app-nav-bar></app-nav-bar>
 

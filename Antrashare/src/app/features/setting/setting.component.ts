@@ -12,6 +12,12 @@ export class SettingComponent{
   constructor(private router: Router) { }
   // panelOpenState = false;
   // a:boolean=true
+
+  isAdmin:boolean = true
+
+  NaviToAdmin(){
+    this.router.navigateByUrl("/admin").then()
+  }
   step = 0;
 
   setStep(index: number) {
