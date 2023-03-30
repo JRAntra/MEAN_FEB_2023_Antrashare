@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 // import {BehaviorSubject} from "rxjs";
 
@@ -19,11 +19,18 @@ export class ReactiveFormsService {
 
   constructor(private fb: FormBuilder) {
     this.myForm = this.fb.group({
-      userName:['', [Validators.required, Validators.minLength(3)]],
-      userEmail: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', [Validators.required]]
-    }, { validator: this.passwordMatchValidator })
+      controls: {
+        userName: ['', [Validators.required, Validators.minLength(3)]],
+        userEmail: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        confirmPassword: ['', [Validators.required]]
+      },
+      options: {validator: this.passwordMatchValidator}
+      // userName:['', [Validators.required, Validators.minLength(3)]],
+      // userEmail: ['', [Validators.required, Validators.email]],
+      // password: ['', [Validators.required, Validators.minLength(6)]],
+      // confirmPassword: ['', [Validators.required]]
+    })
     // this.myForm = new FormGroup({
     //   userName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     //   email: new FormControl('', [Validators.required, Validators.email]),
@@ -32,9 +39,10 @@ export class ReactiveFormsService {
     // })
 
   }
+
   passwordMatchValidator(g: FormGroup) {
 
-    return g.get('password')?.value === g.get('confirmPassword')?.value ? null : { passwordMismatch: true };
+    return g.get('password')?.value === g.get('confirmPassword')?.value ? null : {passwordMismatch: true};
   }
 
   // getFormGroup(){
