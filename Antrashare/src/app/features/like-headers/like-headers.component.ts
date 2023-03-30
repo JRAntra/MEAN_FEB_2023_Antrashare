@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LikeListService} from "../../core/like-list.service";
+import {LikeListService} from "../../core/services/like-list/like-list.service";
+import {DisplayCharPipe} from "../../shared/display-char.pipe";
 
 @Component({
   selector: 'app-like-headers',

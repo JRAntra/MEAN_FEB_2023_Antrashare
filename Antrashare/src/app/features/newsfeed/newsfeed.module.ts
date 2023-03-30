@@ -25,8 +25,6 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     AngularMaterialModule,
     MatMenuModule,
     MatSnackBarModule
-
-
   ],
   exports: [
     NewsfeedComponent,

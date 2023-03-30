@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {GetUsersService} from "../../core/get-users.service";
+import {GetUsersService} from "../../core/services/getUsers/get-users.service";
 import { Router } from "@angular/router";
 import {logMessages} from "@angular-devkit/build-angular/src/builders/browser-esbuild/esbuild";
 import {User} from "../../shared/user-pattern/user-pattern.module";

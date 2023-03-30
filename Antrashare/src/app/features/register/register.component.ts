@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ReactiveFormsService} from "../../core/reactive-forms.service";
+import {ReactiveFormsService} from "../../core/services/reactiveform/reactive-forms.service";
 import {FormGroup} from "@angular/forms";
-import {RegisterUserService} from "../../core/register-user.service";
+import {RegisterUserService} from "../../core/services/registeruser/register-user.service";
 import {map} from "rxjs";
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";

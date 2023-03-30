@@ -9,11 +9,12 @@ import {MatMenuModule} from "@angular/material/menu";
   declarations: [
     MyProfileComponent
   ],
-    imports: [
-        CommonModule,
-        AngularMaterialModule,
-        MatMenuModule
-    ],
+  imports: [
+    CommonModule,
+    AngularMaterialModule,
+    MatMenuModule,
+    NewsfeedModule
+  ],
   exports: [
     MyProfileComponent
   ]

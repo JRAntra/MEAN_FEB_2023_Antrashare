@@ -1,7 +1,7 @@
 
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatMenuTrigger} from "@angular/material/menu";
-import {LikeListService} from "../../core/like-list.service";
+import {LikeListService} from "../../core/services/like-list/like-list.service";
 import { LikelistService } from 'src/app/core/services/likelist/likelist.service';
 import { NewsfeedService } from '../../core/services/newsfeed/newsfeed.service';
 import {MatSnackBar} from "@angular/material/snack-bar";
