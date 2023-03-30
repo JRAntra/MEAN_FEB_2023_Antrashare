@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
 
 
   showSuccess() {
-    // console.log("调用showSuccess！！！！！");
     this.messageService.add({ severity: 'success', summary: 'Congretulations', detail: 'You have successfully registered an new account' });
   }
 
@@ -56,18 +55,10 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     console.log(this.loginForm.value);
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
-<<<<<<< HEAD
-      next: (result) =>{console.log(result);this.goToNewsfeed()},
-      error:(error) => {console.log(error);window.alert("Email and password is UNMATCH!")} 
-    });
-    this.loginForm.reset();
-=======
+
       next: (result) => { console.log(result); this.showSuccess(),this.successLogin() },
       error: (error) => { console.log(error); this.showError(error.error) }
     });
-    // this.loginForm.reset();
->>>>>>> ccb6c5a412ab60742c2c1950d798e22ead921555
-    // this.goToNewsfeed();
   }
 
 }

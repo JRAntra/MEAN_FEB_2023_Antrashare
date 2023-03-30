@@ -23,7 +23,7 @@ import { PrimengModule } from './shared/primeng/primeng.module';
 import { HeaderComponent } from './features/header/header.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { LikedListModule } from './features/liked-list/liked-list/liked-list.module';
+import { LikedListModule } from './features/liked-list/liked-list.module';
 
 
 

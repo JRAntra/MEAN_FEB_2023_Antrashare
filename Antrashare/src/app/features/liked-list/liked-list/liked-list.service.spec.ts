@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LikedListService } from './liked-list.service';
+import { LikedListService } from 'src/app/core/Service/liked-list.service';
 
 describe('LikedListService', () => {
   let service: LikedListService;

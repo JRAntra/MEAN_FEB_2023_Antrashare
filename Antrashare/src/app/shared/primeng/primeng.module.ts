@@ -84,6 +84,6 @@ import { DataViewModule } from 'primeng/dataview';
     OverlayPanelModule,
     ToastModule,
     DataViewModule, 
-
+  ]
 })
 export class PrimengModule { }

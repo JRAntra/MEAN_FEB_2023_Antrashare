@@ -11,7 +11,6 @@ import { FormControl } from '@angular/forms';
   providers: [ConfirmationService,MessageService]
 })
 export class SettingsComponent implements OnInit {
-  visibleSidebar2: any;
   username = {
     value : "username-test",
     isEditing : false,

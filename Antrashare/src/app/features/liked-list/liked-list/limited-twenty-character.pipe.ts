@@ -1,22 +1,19 @@
 import { Injectable, Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'postbox',
-  pure: false
+  name: 'limitedTwentyCharacter'
 })
 @Injectable({
   providedIn: 'root'
 })
-export class PostboxPipe implements PipeTransform {
+export class LimitedTwentyCharacterPipe implements PipeTransform {
 
   transform(value: string): string {
-    if(value.length <= 2){
+    if(value.length <= 20){
       return value;
+    }else{
+      return value.substring(0,20) + "...";
     }
-    else{
-      return value.substring(0,2) + "..."
-    };
   }
-
 
 }

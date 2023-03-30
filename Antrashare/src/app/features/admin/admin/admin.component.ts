@@ -1,17 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ConfirmationService, ConfirmEventType, MessageService,Message} from 'primeng/api';
-import { TestService } from 'src/app/core/services/test.service';
-
-interface User {
-  name: String,
-  userName: String,
-  userEmail: String,
-  password: String,
-  userRole: String,
-  age: Number,
-  gender: String,
-  phone: Number,
-} 
+import { User } from 'src/app/shared/model/user';
 
 @Component({
   selector: 'app-admin',
@@ -30,11 +19,7 @@ export class AdminComponent implements OnInit {
 
   selectedUser!: User;
 
-  constructor(private confirmationService: ConfirmationService, private messageService: MessageService, private apiService : TestService) {
-      apiService.getAllUsers().subscribe(res => {
-        this.users = res;
-        this.selectedUser = this.users[0];
-      });
+  constructor(private confirmationService: ConfirmationService, private messageService: MessageService) {
   }
 
   ngOnInit(): void {

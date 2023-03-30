@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
-import { AdminComponent } from './admin.component';
+import { AdminComponent } from './admin/admin.component';
 import { PrimengModule } from 'src/app/shared/primeng/primeng.module';
 
 

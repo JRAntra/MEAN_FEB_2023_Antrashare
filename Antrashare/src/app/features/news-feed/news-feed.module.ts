@@ -3,17 +3,13 @@ import { CommonModule } from '@angular/common';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { PrimengModule } from 'src/app/shared/primeng/primeng.module';
 import { WelcomeDirective } from './welcome.directive';
-import { PostboxPipe } from './postbox.pipe';
 import { StoryComponent } from './story/story.component';
-import { HeaderComponent } from '../header/header.component';
-import { LikedListComponent } from '../liked-list/liked-list.component';
 
 
 @NgModule({
   declarations: [
     NewsFeedComponent,
     WelcomeDirective,
-    PostboxPipe,
     StoryComponent
     ],
   imports: [
@@ -22,8 +18,7 @@ import { LikedListComponent } from '../liked-list/liked-list.component';
   ],
   exports: [
     NewsFeedComponent,
-    StoryComponent,
-    PostboxPipe
+    StoryComponent
   ]
 })
 export class NewsFeedModule { 
