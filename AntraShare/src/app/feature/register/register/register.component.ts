@@ -11,7 +11,7 @@ import {
   ValidatorFn,
 } from '@angular/forms';
 import { RegisterService } from 'src/app/core/registerService/register.service';
-import { map, Observable } from 'rxjs';
+import { debounce, debounceTime, delay, map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -20,16 +20,16 @@ import { map, Observable } from 'rxjs';
 })
 export class RegisterComponent implements OnInit {
   reactiveRegisterForm = new FormGroup({
-    userEmail: new FormControl(
-      '',
-      [Validators.email, Validators.required],
-      [this.checkEmailExist()]
-    ),
-    userName: new FormControl(
-      '',
-      [Validators.required],
-      [this.checkUsernameExist()]
-    ),
+    userEmail: new FormControl('', {
+      validators: [Validators.email, Validators.required],
+      asyncValidators: [this.checkEmailExist()],
+      updateOn: 'blur',
+    }),
+    userName: new FormControl('', {
+      validators: [Validators.required],
+      asyncValidators: [this.checkUsernameExist()],
+      updateOn: 'blur',
+    }),
     password: new FormControl('', [
       Validators.required,
       this.checkPwCriteria(),
@@ -109,6 +109,7 @@ export class RegisterComponent implements OnInit {
   checkUsernameExist(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       return this.registerService.checkUsernameExist(control.value).pipe(
+        debounceTime(3000),
         map((res) => {
           if (res) {
             return { userNameExisted: 'this username is already been taken!' };
