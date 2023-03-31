@@ -16,7 +16,7 @@ import { LoginModule } from './features/login/login.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NewsFeedModule,
+    // NewsFeedModule,
     HttpClientModule,
     LoginModule
   ],

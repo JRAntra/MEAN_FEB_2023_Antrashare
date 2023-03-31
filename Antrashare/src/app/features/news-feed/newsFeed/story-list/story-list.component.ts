@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-story-list',
@@ -11,14 +12,41 @@ export class StoryListComponent implements OnInit {
   @Output() customEvent :EventEmitter<string> = new EventEmitter<string>()
 
 
-  constructor() { }
+  preference: "dark" | "light" = "light"
+
+  constructor(private ar : ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
-  }
 
+    // this.ar.paramMap.subscribe(
+    //   res=>console.log(res)
+    // )
+    // let snapshotId = this.ar.snapshot.paramMap
+    this.ar.queryParamMap.subscribe(
+      res=> {
+        this.preference = res.get('preference') as "dark"|"light"
+      }
+    )
+
+    
+
+  }
+  goToNextStory(){
+    let newStoryId = +(this.ar.snapshot.paramMap.get('storyId')!) + 1
+    
+
+    // if(this.ar.snapshot.paramMap.get('storyId')){
+    //   let newStoryId = +this.ar.snapshot.paramMap.get('storyId')
+    // }
+    this.router.navigate(['newsfeed/'+ newStoryId], { queryParams:{ name:'JR',age:30, preference:"dark" } })            
+  }
+ 
   emitValue(str: string){
     this.customEvent.emit(str)
   }
-  
+  goToAdmin(){
+    this.router.navigate(['admin'])
+  }
 
 }

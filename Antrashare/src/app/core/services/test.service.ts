@@ -9,6 +9,9 @@ export class TestService {
 
   dataFromServer: Promise<any> = new Promise<any>(()=>{})
   ObservableFromServer : any
+
+  userRole: Observable<string> = new Observable(observer => observer.next("admin"))
+
   constructor(private http: HttpClient) { }
 
   foo():number{
