@@ -15,21 +15,19 @@ export class ReactiveFormsService {
   //     password: ['', Validators.required]
   //   });
   // }
-  myForm: FormGroup;
+  passwordMatchValidator(g: FormGroup) {
 
+    return g.controls["password"].value === g.controls["confirmPassword"].value ? null : {passwordMismatch: true};
+  }
+  // myForm: FormGroup;
+  myForm = this.fb.group({
+    userName: ['', [Validators.required, Validators.minLength(3)]],
+    userEmail: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    confirmPassword: ['', [Validators.required]]
+  }, {validators: this.passwordMatchValidator})
   constructor(private fb: FormBuilder) {
-    this.myForm = this.fb.group({
-      // controls: {
-      userName: ['', [Validators.required, Validators.minLength(3)]],
-      userEmail: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', [Validators.required]]
-      // }
-      // userName:['', [Validators.required, Validators.minLength(3)]],
-      // userEmail: ['', [Validators.required, Validators.email]],
-      // password: ['', [Validators.required, Validators.minLength(6)]],
-      // confirmPassword: ['', [Validators.required]]
-    }, {validator: this.passwordMatchValidator})
+
     // this.myForm = new FormGroup({
     //   userName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     //   email: new FormControl('', [Validators.required, Validators.email]),
@@ -39,10 +37,7 @@ export class ReactiveFormsService {
 
   }
 
-  passwordMatchValidator(g: FormGroup) {
 
-    return g.get('password')?.value === g.get('confirmPassword')?.value ? null : {passwordMismatch: true};
-  }
 
   // getFormGroup(){
   //   return new FormGroup({

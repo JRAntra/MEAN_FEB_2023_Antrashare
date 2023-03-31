@@ -22,7 +22,7 @@ export class NewsfeedComponent implements OnInit {
               private likelistService: LikelistService,
               private _snackBar: MatSnackBar,
               private newsfeedService: NewsfeedService) { }
-  @ViewChild(MatMenuTrigger) trigger?: MatMenuTrigger;
+  // @ViewChild(MatMenuTrigger) trigger?: MatMenuTrigger;
   longText = `CS 2`;
   storys = [
     '1.This is a long story which should be longer than 20 characters.',
@@ -51,15 +51,15 @@ export class NewsfeedComponent implements OnInit {
     this.likelistService.addToLikelist(story);
   }
 
-  AddToLikeList(event: Event, story: string): void {
-    // @ts-ignore
-    // for (let like of this.likeList){
-    //   if (like === story){
-    //     this._snackBar.open("Already has the element in like list", "Done",{duration:3000});
-    //     return
-    //   }
-    // }
-    this.likeListService.addNewStory(story);
-  }
+  // AddToLikeList(event: Event, story: string): void {
+  //   // @ts-ignore
+  //   // for (let like of this.likeList){
+  //   //   if (like === story){
+  //   //     this._snackBar.open("Already has the element in like list", "Done",{duration:3000});
+  //   //     return
+  //   //   }
+  //   // }
+  //   this.likeListService.addNewStory(story);
+  // }
 
 }
