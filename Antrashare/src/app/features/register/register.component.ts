@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
     this.registerUserService.CheckAccountUsername(this.reactiveFormsService.myForm.value.userName).subscribe({
       next: response => {
         this.usernameExist = response
-        // console.log(this.usernameExist)
+        console.log(this.usernameExist)
       },
       error: error => console.log(error)
     })
@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
     this.registerUserService.CheckAccountEmail(this.reactiveFormsService.myForm.value.userEmail).subscribe({
       next: response => {
         this.emailExist = response
-        // console.log(this.emailExist)
+        console.log(this.emailExist)
       },
       error: error => console.log(error)
     })
