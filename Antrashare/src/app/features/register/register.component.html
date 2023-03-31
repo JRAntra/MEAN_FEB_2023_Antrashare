@@ -8,15 +8,28 @@
     <h1>Register</h1>
     <label for="username">Username</label>
     <mat-form-field><input matInput type="text" id="username" name="username" placeholder="Enter your username"
-        formControlName="userName" (keyup)="CheckUsername()"></mat-form-field>
+        formControlName="userName" (keyup)="CheckUsername()">
+      <mat-error *ngIf="reactiveFormsService.myForm.get('userName')?.invalid">
+        <p>Your username doesn't look right</p>
+      </mat-error>
+    </mat-form-field>
 
     <label for="email">Email</label>
     <mat-form-field><input matInput type="email" id="email" name="email" placeholder="Enter your email"
-        formControlName="userEmail" (keyup)="CheckEmail()"></mat-form-field>
+        formControlName="userEmail" (keyup)="CheckEmail()">
+      <mat-error *ngIf="reactiveFormsService.myForm.get('userEmail')?.invalid">
+        <p>Your email address doesn't look right</p>
+      </mat-error>
+    </mat-form-field>
 
     <label for="password">Password</label>
     <mat-form-field><input matInput type="password" id="password" name="password" placeholder="Enter your password"
-        formControlName="password"></mat-form-field>
+        formControlName="password">
+      <mat-error *ngIf="reactiveFormsService.myForm.get('password')?.invalid">
+        <p>Your password doesn't look right, make sure it has 1 letter and 1 number
+          case</p>
+      </mat-error>
+    </mat-form-field>
 
     <label for="confirm-password">Confirm Password</label>
     <mat-form-field><input matInput type="password" id="confirm-password" name="confirm-password"

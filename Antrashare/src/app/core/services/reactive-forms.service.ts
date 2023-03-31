@@ -21,7 +21,7 @@ export class ReactiveFormsService {
     this.myForm = this.fb.group({
       userName: ['', [Validators.required, Validators.minLength(3)]],
       userEmail: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{3,}')]],
+      password: ['', [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-z])([a-zA-Z0-9]+)$')]],
       confirmPassword: ['', [Validators.required]]
     }, { validator: this.passwordMatchValidator })
     // this.myForm = new FormGroup({
@@ -36,6 +36,17 @@ export class ReactiveFormsService {
 
     return g.get('password')?.value === g.get('confirmPassword')?.value ? null : { passwordMismatch: true };
   }
+
+  get userName() {
+    return this.myForm.get('userName')
+  }
+  get userEmail() {
+    return this.myForm.get('userEmail')
+  }
+  get password() {
+    return this.myForm.get('password')
+  }
+
 
   // getFormGroup(){
   //   return new FormGroup({
