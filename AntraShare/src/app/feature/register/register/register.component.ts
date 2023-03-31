@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AsyncValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { RegisterService } from 'src/app/core/registerService/register.service';
+import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -9,14 +11,18 @@ import { RegisterService } from 'src/app/core/registerService/register.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  constructor(
-    private router: Router,
-    private registerService: RegisterService
-  ) {}
 
   showPassword: boolean = false;
   showPasswordConfirm: boolean = false;
   isChatBox: boolean = false;
+  reactiveRegisterForm: FormGroup = new FormGroup({});
+  isPasswordConfirmed: boolean = true;
+
+  constructor(
+    private router: Router,
+    private registerService: RegisterService,
+    private http: HttpClient
+  ) {}
 
   togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
@@ -24,12 +30,11 @@ export class RegisterComponent implements OnInit {
   toggleConfirmPassword(): void {
     this.showPasswordConfirm = !this.showPasswordConfirm;
   }
-
-  reactiveRegisterForm: FormGroup = new FormGroup({});
+ 
   ngOnInit(): void {
     this.reactiveRegisterForm = new FormGroup({
       userEmail: new FormControl('', [Validators.email, Validators.required]),
-      userName: new FormControl('', Validators.required),
+      userName: new FormControl('alex', Validators.required,this.vaildUsername()),
       password: new FormControl('', Validators.required),
       age: new FormControl(''),
       gender: new FormControl(''),
@@ -37,7 +42,6 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  isPasswordConfirmed: boolean = true;
   //creatig new account using register service
   onRegister(reactiveRegisterForm: FormGroup) {
     this.router.navigate(['/logIn']);
@@ -51,5 +55,14 @@ export class RegisterComponent implements OnInit {
   //chat-box-button-event-handler
   onChatButtonClick() {
     this.isChatBox = false;
+  }
+
+  //Custom Async Validator for Username field
+  vaildUsername(): AsyncValidatorFn{
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      return of({userNotExist: "user already exist"});
+      // const url = `localhost:4231/api/register/checkExistByUsername/${control.value}`;
+      // return this.http.get<boolean>(url)
+    }
   }
 }
