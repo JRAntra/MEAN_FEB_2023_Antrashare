@@ -18,4 +18,14 @@ export class RegisterService {
         console.log(res);
       });
   }
+  checkUsernameExist(username: string): Observable<any> {
+    return this.http.get(
+      `http://localhost:4231/api/register/checkExistByUsername/${username}`
+    );
+  }
+  checkEmailExist(email: string): Observable<any> {
+    return this.http.get(
+      `http://localhost:4231/api/register/checkExistByEmail/${email}`
+    );
+  }
 }
