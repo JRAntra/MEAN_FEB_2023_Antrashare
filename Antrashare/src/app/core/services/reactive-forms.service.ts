@@ -21,7 +21,7 @@ export class ReactiveFormsService {
     this.myForm = this.fb.group({
       userName: ['', [Validators.required, Validators.minLength(3)]],
       userEmail: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{3,}')]],
       confirmPassword: ['', [Validators.required]]
     }, { validator: this.passwordMatchValidator })
     // this.myForm = new FormGroup({

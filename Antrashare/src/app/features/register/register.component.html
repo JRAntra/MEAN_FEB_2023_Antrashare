@@ -1,33 +1,33 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
-    href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;700&family=Raleway:wght@100;400;700&family=Roboto:wght@100;400;700&family=Source+Sans+Pro:wght@400;600&display=swap"
-    rel="stylesheet">
+  href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;700&family=Raleway:wght@100;400;700&family=Roboto:wght@100;400;700&family=Source+Sans+Pro:wght@400;600&display=swap"
+  rel="stylesheet">
 <div class="container">
-    <form [formGroup]="reactiveFormsService.myForm">
-        <h1>Register</h1>
-        <label for="username">Username</label>
-        <mat-form-field><input matInput type="text" id="username" name="username" placeholder="Enter your username"
-                formControlName="userName" (keyup)="CheckUsername()"></mat-form-field>
+  <form [formGroup]="reactiveFormsService.myForm">
+    <h1>Register</h1>
+    <label for="username">Username</label>
+    <mat-form-field><input matInput type="text" id="username" name="username" placeholder="Enter your username"
+        formControlName="userName" (keyup)="CheckUsername()"></mat-form-field>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" formControlName="userEmail"
-            (keyup)="CheckEmail()">
+    <label for="email">Email</label>
+    <mat-form-field><input matInput type="email" id="email" name="email" placeholder="Enter your email"
+        formControlName="userEmail" (keyup)="CheckEmail()"></mat-form-field>
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password"
-            formControlName="password">
+    <label for="password">Password</label>
+    <mat-form-field><input matInput type="password" id="password" name="password" placeholder="Enter your password"
+        formControlName="password"></mat-form-field>
 
-        <label for="confirm-password">Confirm Password</label>
-        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password"
-            formControlName="confirmPassword">
-        <div *ngIf="reactiveFormsService.myForm.hasError('passwordMismatch')">
-            <p [ngStyle]="{'color': 'red', 'text-align': 'center'}">Passwords do not match</p>
-        </div>
+    <label for="confirm-password">Confirm Password</label>
+    <mat-form-field><input matInput type="password" id="confirm-password" name="confirm-password"
+        placeholder="Confirm your password" formControlName="confirmPassword"></mat-form-field>
+    <div *ngIf="reactiveFormsService.myForm.hasError('passwordMismatch')">
+      <p [ngStyle]="{'color': 'red', 'text-align': 'center'}">Passwords do not match</p>
+    </div>
 
-        <!--        <button type="submit" (click)="submitRegisterInfo()">Register</button>-->
-        <button type="submit" mat-raised-button color="primary" [disabled]="reactiveFormsService.myForm.invalid"
-            (click)="submitRegisterInfo()">Register
-        </button>
-    </form>
+    <!--        <button type="submit" (click)="submitRegisterInfo()">Register</button>-->
+    <button type="submit" mat-raised-button color="primary" [disabled]="reactiveFormsService.myForm.invalid"
+      (click)="submitRegisterInfo()">Register
+    </button>
+  </form>
 </div>
