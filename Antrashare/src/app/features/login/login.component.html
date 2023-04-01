@@ -4,15 +4,16 @@
         <h3>AntraShare</h3>
     </div>
 
-    <div class="login-credential" [formGroup]="userLoginFB">
+    <div class="login-credential" [formGroup]="userLogin">
         <mat-form-field>
             <mat-label>User email</mat-label>
-            <input matInput formControlName="emailControl" (keyup)="onChangeEmailFormControl()">
+            <input matInput formControlName="email" (keyup)="onChangeEmailFormControl()">
+            <mat-error *ngIf="useremailControl.errors?.['notRegistered']">Email is not registered.</mat-error>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Password</mat-label>
-            <input matInput type="password" formControlName="pswdControl" (keyup)="onChangePswdFormControl()">
+            <input matInput type="password" formControlName="password" (keyup)="onChangePswdFormControl()">
         </mat-form-field>
 
         <button mat-flat-button color="primary" id="login-btn" (click)="onLogin()">Login</button>

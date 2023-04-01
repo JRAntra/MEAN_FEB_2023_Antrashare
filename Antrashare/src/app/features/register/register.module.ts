@@ -2,29 +2,24 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from 'src/app/shared/app-routing.module';
 import { AngularMaterialModule } from 'src/app/shared/angular-material/angular-material.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { RegisterComponent } from './register.component';
-import { UserDialogComponent } from './user-dialog/user-dialog.component';
-import { EmailDialogComponent } from './email-dialog/email-dialog.component';
-import {MatDialogModule} from "@angular/material/dialog";
-import { SucessDialogComponent } from './sucess-dialog/sucess-dialog.component';
+import { MatDialogModule } from "@angular/material/dialog";
 
 
 
 @NgModule({
   declarations: [
     RegisterComponent,
-    UserDialogComponent,
-    EmailDialogComponent,
-    SucessDialogComponent
   ],
-    imports: [
-        CommonModule,
-        AngularMaterialModule,
-        AppRoutingModule,
-        MatDialogModule
-    ],
+  imports: [
+    CommonModule,
+    AngularMaterialModule,
+    AppRoutingModule,
+    MatDialogModule,
+    MatFormFieldModule
+  ],
   exports: [
-    RegisterComponent
   ]
 })
 export class RegisterModule { }
