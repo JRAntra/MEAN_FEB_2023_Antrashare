@@ -37,47 +37,23 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.reactiveRegisterForm = new FormGroup({
-      userEmail: new FormControl('', [Validators.email, Validators.required]),
-      userName: new FormControl('', [], this.vaildUsername()),
-      password: new FormControl('', Validators.required),
-      confirmPwd: new FormControl('', [Validators.required]),
+      userEmail: new FormControl('', Validators.required, this.checkUserEmailExist()),
+      userName: new FormControl('', Validators.required, this.checkUsernameExist()),
+      password: new FormControl('', [Validators.required, this.checkPassword()]),
+      confirmPwd: new FormControl('', [Validators.required, this.checkConfirmPasswordMatch()]),
       age: new FormControl(''),
       gender: new FormControl(''),
       phone: new FormControl(''),
-    },this.haveUsernameAndPwd());
-  }
-
-  MyRequiredalidator():ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null=> {
-      if(!control.value){
-          return {"required": "This is the custom required validator"}
-          } else {
-            return null;
-          }
-    }
-  }
-
-  MyMinlength(num: number): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      if(control.value.length < num) {
-        return {minLength: "You violate the custom minLength validator"};
-      } else return null;
-    }
+    }, this.haveUsernameAndPwd());
   }
 
   haveUsernameAndPwd(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      if((<FormGroup>control).controls["userName"].value && (<FormGroup>control).controls["password"].value){
+      if ((<FormGroup>control).controls["userName"].value && (<FormGroup>control).controls["password"].value) {
         return null;
       } else {
-        return {sometingIsRequired: "either password or username is empty"}
+        return { sometingIsRequired: "either password or username is empty" }
       }
-    }
-  }
-
-  isUserExitst():AsyncValidatorFn {
-    return (control: AbstractControl): Observable<ValidationErrors | null> => {
-      return of({userNotExist: "username is not exist"})
     }
   }
 
@@ -85,43 +61,28 @@ export class RegisterComponent implements OnInit {
     console.log(this.reactiveRegisterForm)
   }
 
-
-
-
-
-
-
-
-
-
-
-
   //Custom Async Validator for Username field
-  vaildUsername(): AsyncValidatorFn {
+  checkUsernameExist(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
-      const url = `localhost:4231/api/register/checkExistByUsername/${control.value}`;
-      return this.http.get(url).pipe(
+      return this.registerService.checkUsernameExist(control.value).pipe(
         map((res) => {
           if (res) {
-            console.log("success");
-            return { userExist: "Username is already been used" }
-          } else {
-            console.log("fail");
-            return null;
+            return { userNameExisted: 'This username is already been taken!' };
           }
+          return null;
         })
-      )
-    }
+      );
+    };
   }
 
   //Custom Async Validator for Username field
-  // vaildEmail(): AsyncValidatorFn {
+  // vaildUsername(): AsyncValidatorFn {
   //   return (control: AbstractControl): Observable<ValidationErrors | null> => {
-  //     const url = `localhost:4231/api/register/checkExistByEmail/${control.value}`;
-  //     return this.http.get<usernameData>(url).pipe(
+  //     const url = `localhost:4231/api/register/checkExistByUsername/${control.value}`;
+  //     return this.http.get(url).pipe(
   //       map((res) => {
-  //         if (res.userName.includes(control.value)) {
-  //           return { emailExist: "Email is already been used" }
+  //         if (res) {
+  //           return { userExist: "Username is already been used" }
   //         } else {
   //           return null;
   //         }
@@ -130,14 +91,41 @@ export class RegisterComponent implements OnInit {
   //   }
   // }
 
-  //Custom Async Validator for special char, upper case and lower case
-  // vaildPassword(): AsyncValidatorFn {
-  //   return (control: AbstractControl): Observable<ValidationErrors | null> => {
-  //     const regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[^\w\s]).{8,}$/; // Password regex pattern
-  //     const valid = regex.test(control.value); // Test the password against the pattern
-  //     return valid ? null : { passwordRequirements: true };
-  //   }
-  // }
+  //Custom Async Validator for Email field
+  checkUserEmailExist(): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      return this.registerService.checkEmailExist(control.value).pipe(
+        map((res) => {
+          if (res) {
+            return { emailExist: "This Email is already been used" }
+          } else {
+            return null;
+          }
+        })
+      )
+    }
+  }
+
+  //Custom Validator for special char, upper case and lower case
+  checkPassword(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const regEx = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{0,}$');
+      if (!regEx.test(control.value)) {
+        return { passwordFailed:'Password must have at least 1 uppercase, 1 lowercase, 1 special character' }
+      }
+      return null;
+    };
+  }
+
+  //Custom Validator for checking the confirmed password is matched with the password 
+  checkConfirmPasswordMatch(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if (control.value != this.reactiveRegisterForm?.controls?.['password']?.value) {
+        return { confirmPasswordNotMatch: 'confirm password must match password!' };
+      }
+      return null;
+    };
+  }
 
   //creatig new account using register service
   onRegister(reactiveRegisterForm: FormGroup) {
