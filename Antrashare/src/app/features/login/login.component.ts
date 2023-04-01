@@ -1,9 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, Validators, AbstractControl, ValidationErrors, AsyncValidatorFn } from '@angular/forms';
 import { LoginService } from 'src/app/core/services/login/login.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginInfoService } from 'src/app/core/services/login/login-info.service';
+import { map, Observable } from "rxjs";
+import { HttpClient } from '@angular/common/http';
+
+interface userLogin {
+  email: string,
+  password: string
+}
+
+interface useremailData {
+  username: string[]
+}
 
 @Component({
   selector: 'app-login',
@@ -16,17 +27,42 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService,
     private router: Router,
     private snackBar: MatSnackBar,
-    private loginInfoService: LoginInfoService,
-    private fb: FormBuilder) { }
+    private http: HttpClient,
+    private loginInfoService: LoginInfoService) { }
 
-  userLoginFB: FormGroup = new FormGroup({
+  userLogin: FormGroup = new FormGroup({
+    email: new FormControl('',
+      [Validators.required,
+      Validators.email,
+      Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i)],
+      [this.isEmailExist()]),
+    password: new FormControl('', Validators.required),
   })
 
+  get useremailControl(): FormControl {
+    return this.userLogin.get('email') as FormControl
+  }
+
+  get userpawdControl(): FormControl {
+    return this.userLogin.get('password') as FormControl
+  }
+
+  isEmailExist(): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      return this.http.get<useremailData>(`http://localhost:4231/api/register/checkExistByEmail/${control.value}`)
+        .pipe(
+          map((res) => {
+            if (!res) {
+              return { notRegistered: "Email is not registered." }
+            } else {
+              return null
+            }
+          })
+        )
+    }
+  }
+
   ngOnInit() {
-    this.userLoginFB = this.fb.group({
-      emailControl: ['', [Validators.required, Validators.email, Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i)]],
-      pswdControl: ['', Validators.required],
-    });
   }
 
   onChangeEmailFormControl() {
@@ -44,9 +80,9 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    if (this.userLoginFB.valid && this.agreementChecked) {
-      const email = this.userLoginFB.get('emailControl')?.value;
-      const password = this.userLoginFB.get('pswdControl')?.value;
+    if (this.userLogin.valid && this.agreementChecked) {
+      const email = this.userLogin.controls['email'].value;
+      const password = this.userLogin.controls['password'].value;
       if (email && password) {
         this.loginService.login(email, password).subscribe(
           (data) => {

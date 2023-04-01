@@ -1,33 +1,45 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-  href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&family=Raleway:wght@100;400;700&family=Roboto:wght@100;400;700&family=Source+Sans+Pro:wght@400;600&display=swap"
-  rel="stylesheet">
 <div class="container">
-  <form [formGroup]="reactiveFormsService.myForm">
-    <h2>Register</h2>
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username" placeholder="Enter your username" formControlName="userName" (keyup)="CheckUsername()">
-
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" placeholder="Enter your email" formControlName="userEmail" (keyup)="CheckEmail()">
-
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" placeholder="Enter your password" formControlName="password">
-
-    <label for="confirm-password">Confirm Password</label>
-    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password"
-           formControlName="confirmPassword">
-    <div *ngIf="reactiveFormsService.myForm.hasError('passwordMismatch')">
-      <p [ngStyle]="{'color': 'red', 'text-align': 'center'}">Passwords do not match</p>
+  <form [formGroup]="userRegister" class="userinfo">
+    <div class="antrashare-logo">
+      <img src="../../../assets/antra_logo.png" id="antrashare-logo" alt="login-image">
+      <h3>AntraShare</h3>
     </div>
 
-    <!--        <button type="submit" (click)="submitRegisterInfo()">Register</button>-->
-    <button type="submit"
-            mat-raised-button
-            color="primary"
-            [disabled]="reactiveFormsService.myForm.invalid"
-            (click)="submitRegisterInfo()">Register
+    <h4>Register</h4>
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput id="userName" name="userName" placeholder="Enter your username" formControlName="userName">
+      <mat-error *ngIf="usernameControl.errors?.['registered']">Username already been used</mat-error>
+    </mat-form-field>
+    <!-- (keyup)="CheckUsername()" -->
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput id="userEmail" name="userEmail" placeholder="Enter your email" formControlName="userEmail">
+      <mat-error *ngIf="useremailControl.errors?.['registered']">Email already been registered</mat-error>
+    </mat-form-field>
+    <!-- (keyup)="CheckEmail()" -->
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput type="password" id="password" name="password" #pswd placeholder="Enter your password"
+        formControlName="password">
+      <mat-error *ngIf="passwordControl.errors?.['pattern']">Password does not meet requirements.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Confirm Password</mat-label>
+      <input matInput type="password" id="confirm-password" name="confirm-password" #pswd_confirm
+        placeholder="Confirm your password" formControlName="confirmPassword">
+      <mat-error *ngIf="userRegister.errors?.['notMatched']">Password confirm should be the same as password</mat-error>
+    </mat-form-field>
+
+    <mat-checkbox color="primary" id="agreement" class="checkbox" (change)="onAgreementChecked($event)">
+      Agreement
+    </mat-checkbox>
+
+    <button type="submit" mat-flat-button color="primary" id="register-btn" [disabled]="userRegister.invalid"
+      (click)="submitRegisterInfo()">Register
     </button>
   </form>
 </div>

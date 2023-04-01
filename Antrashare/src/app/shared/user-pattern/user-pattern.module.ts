@@ -12,7 +12,7 @@ export interface User {
   "phone": number,
   "__v": number
 }
-export interface RegisterAccount {
+export interface userRegister {
   "userName": string,
   "userEmail": string,
   "password": string,

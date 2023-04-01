@@ -65,7 +65,7 @@ export class MyProfileComponent implements OnInit {
       const currentUser = users.find((user: any) => user.userEmail === userEmail);
       if (currentUser) {
         this.user = currentUser;
-        this.profileFB.controls['nameControl'].setValue(this.user.name);
+        this.profileFB.controls['nameControl'].setValue(this.user.userName);
         this.profileFB.controls['emailControl'].setValue(this.user.userEmail);
         this.profileFB.controls['ageControl'].setValue(this.user.age);
         this.profileFB.controls['genderControl'].setValue(this.user.gender);
