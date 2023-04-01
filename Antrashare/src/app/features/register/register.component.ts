@@ -31,10 +31,10 @@ export class RegisterComponent implements OnInit {
 
   isPasswordMatched: ValidatorFn =
     (control: AbstractControl): ValidationErrors | null => {
-      const password = control.get('password');
-      const confirmPassword = control.get('confirmPassword');
-      if (password!.value !== confirmPassword?.value) {
-        return { notMatched: 'Password confirm should be the same as password' }
+      const password = control.parent?.get('password');
+      const confirmPassword = control.parent?.get('confirmPassword');
+      if (password?.value !== confirmPassword?.value) {
+        return { notMatched: true }
       } else {
         return null;
       }
@@ -43,22 +43,24 @@ export class RegisterComponent implements OnInit {
   userRegister: FormGroup = new FormGroup({
     userName: new FormControl('',
       [Validators.required,
-      Validators.minLength(3)], [this.isUserExist()]
+      Validators.minLength(3)],
+      [this.isUserExist()]
     ),
     userEmail: new FormControl('',
       [Validators.required,
       Validators.email,
-      Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{8,}$/i)],
+      Validators.pattern(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i)],
       [this.isEmailExist()]
     ),
     password: new FormControl('',
       [Validators.required,
-      Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z]).{8,}$/)]
+      Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9 ]).{8,}$/)]
     ),
     confirmPassword: new FormControl('',
-      [Validators.required],
+      [Validators.required,
+      this.isPasswordMatched],
     )
-  }, this.isPasswordMatched)
+  })
 
   get usernameControl(): FormControl {
     return this.userRegister.get('userName') as FormControl

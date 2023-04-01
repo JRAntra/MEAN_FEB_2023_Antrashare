@@ -8,6 +8,7 @@
         <mat-form-field>
             <mat-label>User email</mat-label>
             <input matInput formControlName="email" (keyup)="onChangeEmailFormControl()">
+            <mat-error *ngIf="useremailControl.errors?.['pattern']">Email is invalid.</mat-error>
             <mat-error *ngIf="useremailControl.errors?.['notRegistered']">Email is not registered.</mat-error>
         </mat-form-field>
 

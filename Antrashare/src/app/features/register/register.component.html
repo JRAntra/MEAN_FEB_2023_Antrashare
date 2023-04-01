@@ -22,16 +22,19 @@
 
     <mat-form-field>
       <mat-label>Password</mat-label>
-      <input matInput type="password" id="password" name="password" #pswd placeholder="Enter your password"
+      <input matInput type="password" id="password" name="password" placeholder="Enter your password"
         formControlName="password">
-      <mat-error *ngIf="passwordControl.errors?.['pattern']">Password does not meet requirements.</mat-error>
+      <mat-error *ngIf="passwordControl.errors?.['pattern']">Password must have at least 1 uppercase, 1 lowercase, 1
+        special character</mat-error>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Confirm Password</mat-label>
-      <input matInput type="password" id="confirm-password" name="confirm-password" #pswd_confirm
-        placeholder="Confirm your password" formControlName="confirmPassword">
-      <mat-error *ngIf="userRegister.errors?.['notMatched']">Password confirm should be the same as password</mat-error>
+      <input matInput type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password"
+        formControlName="confirmPassword">
+      <mat-error *ngIf="confirmPasswordControl.errors?.['notMatched']">Password confirm should be the same
+        as
+        password</mat-error>
     </mat-form-field>
 
     <mat-checkbox color="primary" id="agreement" class="checkbox" (change)="onAgreementChecked($event)">
