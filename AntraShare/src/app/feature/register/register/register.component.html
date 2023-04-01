@@ -51,14 +51,14 @@
           placeholder="confirm password"
           required
           [type]="showPassword ? 'text' : 'password'"
-          name="confirmPassword"
+          formControlName="confirmPwd"
         />
         <mat-icon matSuffix (click)="togglePasswordVisibility()">
           {{ showPassword ? "visibility_off" : "visibility" }}
         </mat-icon>
       </mat-form-field>
     </form>
-
+    <button (click)="updatePWD()">check validator</button>
     <div class="example-button-row">
       <button
         mat-button
