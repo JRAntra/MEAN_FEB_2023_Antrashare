@@ -11,6 +11,9 @@
           formControlName="userEmail"
         />
       </mat-form-field>
+      <span *ngIf="reactiveRegisterForm.controls['userEmail'].errors?.['emailExist']">
+        {{reactiveRegisterForm.controls['userEmail'].errors?.['emailExist']}}
+      </span>
       <mat-form-field class="example-full-width">
         <input
           matInput
@@ -19,6 +22,9 @@
           formControlName="userName"
         />
       </mat-form-field>
+      <span *ngIf="reactiveRegisterForm.controls['userName'].errors?.['userNameExisted']">
+        {{reactiveRegisterForm.controls['userName'].errors?.['userNameExisted']}}
+      </span>
       <!-- <mat-form-field class="example-full-width">
         <input matInput value="" placeholder="name" formControlName="name" />
       </mat-form-field> -->
@@ -44,6 +50,9 @@
           {{ showPasswordConfirm ? "visibility_off" : "visibility" }}
         </mat-icon>
       </mat-form-field>
+      <span *ngIf="reactiveRegisterForm.controls['password'].errors?.['passwordFailed']">
+        {{reactiveRegisterForm.controls['password'].errors?.['passwordFailed']}}
+      </span>
       <mat-form-field class="example-full-width">
         <input
           type="password"
@@ -57,8 +66,10 @@
           {{ showPassword ? "visibility_off" : "visibility" }}
         </mat-icon>
       </mat-form-field>
+      <span *ngIf="reactiveRegisterForm.controls['confirmPwd'].errors?.['confirmPasswordNotMatch']">
+        {{reactiveRegisterForm.controls['confirmPwd'].errors?.['confirmPasswordNotMatch']}}
+      </span>
     </form>
-    <button (click)="updatePWD()">check validator</button>
     <div class="example-button-row">
       <button
         mat-button
