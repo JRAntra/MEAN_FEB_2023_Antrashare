@@ -4,6 +4,7 @@ import { SettingComponent } from './setting.component';
 import { NavBarModule } from '../nav-bar/nav-bar.module';
 import { AngularMaterialModule } from "../../shared/angular-material/angular-material.module";
 import {MatExpansionModule} from '@angular/material/expansion';
+import {NewsfeedModule} from "../newsfeed/newsfeed.module";
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     CommonModule,
     NavBarModule,
     AngularMaterialModule,
-    MatExpansionModule
+    MatExpansionModule,
+    NewsfeedModule
   ],
 
   exports: [

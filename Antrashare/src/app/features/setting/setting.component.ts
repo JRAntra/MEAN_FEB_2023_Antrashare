@@ -32,6 +32,7 @@ export class SettingComponent{
     this.step--;
   }
   Logout() {
+    localStorage.removeItem("user")
     this.router.navigateByUrl("/login").then(r => {
     });
   }

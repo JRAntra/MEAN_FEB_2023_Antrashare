@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {GetUsersService} from "../../core/services/getUsers/get-users.service";
 import { Router } from "@angular/router";
 import {logMessages} from "@angular-devkit/build-angular/src/builders/browser-esbuild/esbuild";
-import {User} from "../../shared/user-pattern/user-pattern.module";
+import {loginUser, User} from "../../shared/user-pattern/user-pattern.module";
 import {Subscription} from "rxjs";
 
 // export interface User {
@@ -24,6 +24,7 @@ import {Subscription} from "rxjs";
   styleUrls: ['./admin.component.sass']
 })
 export class AdminComponent implements OnInit {
+  adminUser: loginUser | undefined;
   users: User[] = [];
   subscriptions: Subscription[] = [];
   // userArray = new Array<string>(10).fill("JR")
@@ -42,6 +43,8 @@ export class AdminComponent implements OnInit {
     next: response => this.users = response,
     error: error => console.log(error)
     }))
+    this.adminUser = JSON.parse(localStorage.getItem("user")!)
+    console.log(this.adminUser)
 
   }
     // (response) => {
@@ -59,6 +62,9 @@ export class AdminComponent implements OnInit {
       subscrption.unsubscribe()
       console.log("Successfully unsubscribe")
     }
+    // localStorage.removeItem("user")
+
+
   }
 
 }
