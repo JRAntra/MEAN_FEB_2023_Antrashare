@@ -70,7 +70,7 @@ export class RegisterComponent implements OnInit {
     delete reactiveRegisterForm.value.confirmPassword;
     this.registerService.createNewAccount(reactiveRegisterForm.value);
 
-    // this.router.navigate(['/logIn']);
+    this.router.navigate(['/logIn']);
     // this.registerService.createNewAccount(reactiveRegisterForm);
   }
   //need help event handler
