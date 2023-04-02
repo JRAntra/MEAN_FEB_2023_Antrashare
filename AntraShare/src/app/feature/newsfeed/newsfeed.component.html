@@ -2,15 +2,24 @@
   <app-like-list></app-like-list>
   <div class="post-newfeed-form">
     <h1>Post Your Newsfeed Below</h1>
-    <mat-form-field appearance="fill">
-      <mat-label>Title</mat-label>
-      <input matInput placeholder="title" />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Content</mat-label>
-      <textarea matInput placeholder="content..."></textarea>
-    </mat-form-field>
-    <button mat-button focusable="false" (click)="(0)">Submit</button>
+    <form class="form" [formGroup] = "newsfeedForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Image Url</mat-label>
+        <input matInput placeholder="url" type="url" formControlName="imgUrl"
+        [class.invalid]="onError('imgUrl')"/>
+      </mat-form-field>
+      <span *ngIf="onError('imgUrl')" class="error">
+        Must provide an image Url!
+      </span>
+      <mat-form-field appearance="fill">
+        <mat-label>Content</mat-label>
+        <textarea matInput placeholder="content..." formControlName="content" [class.invalid]="onError('content')"></textarea>
+      </mat-form-field>
+      <span *ngIf="onError('content')" class="error">
+        Must provide content!
+      </span>
+      <button mat-button type="submit">Submit</button>
+    </form>
   </div>
   <div class="newsfeed" *ngFor="let n of news; let i = index">
     <a [routerLink]="['/newsfeed', n._id]">

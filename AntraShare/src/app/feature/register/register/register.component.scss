@@ -1,6 +1,8 @@
 @import "../../../share/scss-variables/_config.scss";
 
-
+.error{
+  color:red;
+}
 .agreement {
   display: flex;
   flex-wrap: wrap;
