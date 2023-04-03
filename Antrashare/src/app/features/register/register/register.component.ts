@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterService } from 'src/app/core/Service/register.service';
 import { MessageService } from 'primeng/api';
 
-
+//import validators and related service
+import { UsernameService } from 'src/app/core/Service/username.service';
+import { usernameValidator } from '../../validators/usernameValidator';
+import { EmailService } from 'src/app/core/Service/email.service';
+import { emailValidator } from '../../validators/emailValidator';
+import { passwordValidator } from '../../validators/passwordValidator';
 
 
 @Component({
@@ -13,16 +18,17 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./register.component.sass'],
   providers: [MessageService]
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit{
 
   constructor(private router: Router,
               private fb: FormBuilder,
               private registerService: RegisterService,
-              private messageService: MessageService) { }
+              private messageService: MessageService,
+              private usernameService: UsernameService,
+              private emailService: EmailService) { }
 
 
   showSuccess() {
-    // console.log("调用showSuccess！！！！！");
     this.messageService.add({ severity: 'success', summary: 'Congretulations', detail: 'You have successfully registered an new account' });
   }
 
@@ -45,14 +51,17 @@ export class RegisterComponent implements OnInit {
   validateForm: FormGroup = this.fb.group({
     username: ['', [Validators.required,
                     Validators.minLength(5),
-                    Validators.maxLength(20)]],
+                    Validators.maxLength(20)],
+                  [usernameValidator.usedUsername(this.usernameService)]],
     password: ['', [Validators.minLength(8),
-                    Validators.maxLength(20)]],
+                    Validators.maxLength(20),
+                  passwordValidator.passwordformat()]],
     password_confirm: ['', [Validators.minLength(8),
                             Validators.maxLength(20),                           
-                            this.pwdValue]],
+                            passwordValidator.comfirmPassword()]],
     email: ['',   [Validators.required,
-                  Validators.email]],
+                  Validators.email],
+                  [emailValidator.usedEmail(this.emailService)]],
     age: ['',],
     gender: ['',],
     phone: ['',]
@@ -78,7 +87,9 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.validateForm.get('username'))
+  }
 
   onSubmit() {
     console.log(this.validateForm.value);

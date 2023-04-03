@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import { FormControl } from '@angular/forms';
 import { PasswordPipe } from '../password.pipe';
+import { UserinfoService } from 'src/app/core/Service/userinfo.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -19,26 +20,31 @@ export class MyProfileComponent implements OnInit {
     password_ifedit: boolean = false
 
     genderForm: FormControl = new FormControl("")
-    gender: string = "placeholder"
+    gender?: string
     gender_ifedit: boolean = false
 
     ageForm: FormControl = new FormControl("")
-    age: string = "placeholder"
+    age?: number
     age_ifedit: boolean = false
 
     email: string = "placeholder"
 
     phoneForm: FormControl = new FormControl("")
-    phone: string = "placeholder"
+    phone?: number
     phone_ifedit: boolean = false
 
 
 
-    constructor() {
+    constructor(private userinfoService: UserinfoService) {
     }
 
 
   ngOnInit(): void {   
+    this.username = this.userinfoService.userinfo.userName;
+    this.email = this.userinfoService.userinfo.userEmail;
+    this.phone = this.userinfoService.userinfo.phone;
+    this.age = this.userinfoService.userinfo.age;
+    this.gender = this.userinfoService.userinfo.gender;
   }
 
   username_edit(): void{

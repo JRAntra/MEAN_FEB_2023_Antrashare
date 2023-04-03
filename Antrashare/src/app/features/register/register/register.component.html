@@ -8,25 +8,36 @@
                  type="text" formControlName="username" 
                   pInputText > 
                 <label for="username_input">Username</label>
-                
+                <p *ngIf="(validateForm.get('username'))?.errors?.['usedUsername']" [ngClass]="'input_reminder'">
+                    Username is already used. 
+                </p>
             </span>
             <!-- <p>{{validateForm.get('userName')?errors?.required?'pls enter user name'}}</p> -->
             <span class="p-float-label">
                 <input id="pwd_input" class="text_field" 
                 type="text" formControlName="password" pInputText > 
                 <label for="pwd_input">Password</label>
+                <p *ngIf="(validateForm.get('password'))?.errors?.['formatError']" [ngClass]="'input_reminder'">
+                    Password must contain 1 uppercase letter, 1 lowercase letter and 1 special character.
+                </p>
             </span>
 
             <span class="p-float-label">
                 <input id="pwd_confirm_input" class="text_field"
                  type="text" formControlName="password_confirm" pInputText> 
                 <label for="pwd_confirm_input">Comfirm Password</label>
+                <p *ngIf="(validateForm.get('password_confirm'))?.errors?.['confirmPasswordError']" [ngClass]="'input_reminder'">
+                    Password confirm should be the same as password.
+                </p>
             </span>
 
             <span class="p-float-label">
                 <input id="email_input" class="text_field"
                  type="text" formControlName="email" pInputText > 
                 <label for="email_input">Email</label>
+                <p *ngIf="(validateForm.get('email'))?.errors?.['usedEmail']" class="input_reminder">
+                    Email is already used. 
+                </p>
             </span>
 
             <span class="p-float-label">
