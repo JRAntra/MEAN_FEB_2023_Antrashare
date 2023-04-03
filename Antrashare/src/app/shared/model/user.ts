@@ -1,10 +1,10 @@
 export interface User {
-    userName: String,
-    userEmail: String,
-    password: String,
-    userRole: String,
-    name?: String | undefined,
-    age?: Number | undefined,
-    gender?: String | undefined,
-    phone?: Number | undefined,
+    userName: string,
+    userEmail: string,
+    password: string,
+    userRole: string,
+    name?: string | undefined,
+    age?: number | undefined,
+    gender?: string | undefined,
+    phone?: number | undefined,
 }

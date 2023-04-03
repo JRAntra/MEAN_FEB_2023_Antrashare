@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ConfirmationService, ConfirmEventType, MessageService,Message} from 'primeng/api';
 import { User } from 'src/app/shared/model/user';
+import { UserService } from 'src/app/core/service/user.service';
 
 @Component({
   selector: 'app-admin',
@@ -19,11 +20,17 @@ export class AdminComponent implements OnInit {
 
   selectedUser!: User;
 
-  constructor(private confirmationService: ConfirmationService, private messageService: MessageService) {
+  constructor(private confirmationService: ConfirmationService, private messageService: MessageService, private _userService: UserService) {
   }
 
   ngOnInit(): void {
-    // throw new Error('Method not implemented.');
+    this._userService.getAllUsers().subscribe(
+      (res) => {
+        this.users = res;
+        this.selectedUser = this.users[0];
+
+      }
+    )
   }
 
   confirm() {

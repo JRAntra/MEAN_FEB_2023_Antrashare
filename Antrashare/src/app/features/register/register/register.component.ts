@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, ValidationErrors, AsyncValidatorFn } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegisterService } from 'src/app/core/Service/register.service';
+import { RegisterService } from 'src/app/core/service/register.service';
 import { MessageService } from 'primeng/api';
+import { map, Observable } from 'rxjs';
 
 
 
@@ -15,14 +16,91 @@ import { MessageService } from 'primeng/api';
 })
 export class RegisterComponent implements OnInit {
 
+  validateForm: FormGroup = this.fb.group({
+    username: ['', [Validators.required,
+                    Validators.minLength(5),
+                    Validators.maxLength(20)]],
+    password: ['', [Validators.minLength(8),
+                    Validators.maxLength(20),
+                    this.pwdFormatCheck(),
+                  ]],
+    password_confirm: ['', [Validators.minLength(8),
+                            Validators.maxLength(20),  
+                            this.pwdFormatCheck()
+                            ]],
+    email: ['',   [Validators.required,
+                  Validators.email,
+                  this.emailExistsCheck()]],
+    age: ['',],
+    gender: ['',],
+    phone: ['',]
+  });
+
+
   constructor(private router: Router,
               private fb: FormBuilder,
               private registerService: RegisterService,
               private messageService: MessageService) { }
 
 
+
+  ngOnInit(): void {
+    this.validateForm.addValidators(this.pwdMatchCheck());
+    console.log("onInit");
+    console.log(this.validateForm.controls);
+  }
+
+
+
+  pwdFormatCheck(): ValidatorFn{
+    return function(control : AbstractControl) : ValidationErrors | null {
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])/;
+      if(passwordRegex.test(control.value)){
+        return null;
+      }else{
+        return {passwordFormat : "Password must contain at least one uppercase letter, one lowercase letter, and one number."}
+      }
+   
+    }
+  }
+
+  pwdMatchCheck(): ValidatorFn{
+    return function(control : AbstractControl) : ValidationErrors | null {
+      if((<FormGroup>control).controls['password'].value === (<FormGroup>control).controls["password_confirm"]){
+        return null;
+      }else{
+        return {passwordsMatch : "Your passwords do not match. Please try again."}
+      }
+    }
+  }
+
+
+  //????
+  emailExistsCheck() : AsyncValidatorFn{
+    return (control : AbstractControl) : Observable<ValidationErrors | null> =>{
+       return this.registerService
+       .checkEmailExisted(control.value)
+       .pipe(
+         map((result) =>{
+            if(result){
+              console.log('exit');
+              return { usernameAlreadyExists: true };
+             }else{
+              console.log("null");
+              return null;
+             }
+          }
+         )
+       );
+    }
+  }
+
+
+
+
+
+
   showSuccess() {
-    // console.log("调用showSuccess！！！！！");
     this.messageService.add({ severity: 'success', summary: 'Congretulations', detail: 'You have successfully registered an new account' });
   }
 
@@ -40,45 +118,6 @@ export class RegisterComponent implements OnInit {
       this.goToLogin();
     }, 2000);
   }
-  
-
-  validateForm: FormGroup = this.fb.group({
-    username: ['', [Validators.required,
-                    Validators.minLength(5),
-                    Validators.maxLength(20)]],
-    password: ['', [Validators.minLength(8),
-                    Validators.maxLength(20)]],
-    password_confirm: ['', [Validators.minLength(8),
-                            Validators.maxLength(20),                           
-                            this.pwdValue]],
-    email: ['',   [Validators.required,
-                  Validators.email]],
-    age: ['',],
-    gender: ['',],
-    phone: ['',]
-  });
-
-  pwdValue(password: FormControl, password_confirm: FormControl): object {
-    
-    console.log("密码检查中...")
-    if (password== null || password_confirm == null) {
-      // console.log(this.validateForm.controls['password'].value)
-      // console.log("密码是空的")
-      return {}
-    } else {
-      if (password != password_confirm) {
-        console.log("密码不一样")
-        return { msg: 'the password is not same, pls enter the same password.' }
-
-      } else {
-        console.log(password.value);
-        return {}
-      }
-    }
-
-  }
-
-  ngOnInit(): void {}
 
   onSubmit() {
     console.log(this.validateForm.value);
