@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { UserinfoService } from 'src/app/core/Service/userinfo.service';
 
 //Import service
 import { NewsfeedGetdataService } from 'src/app/features/news-feed/newsfeed-getdata.service';
@@ -13,7 +14,9 @@ import { NewsfeedGetdataService } from 'src/app/features/news-feed/newsfeed-getd
   styleUrls: ['./news-feed.component.sass']
 })
 export class NewsFeedComponent implements OnInit {
-  constructor(private newsfeedService: NewsfeedGetdataService) { }
+  constructor(private newsfeedService: NewsfeedGetdataService,
+              private userinfoService: UserinfoService) {
+              }
 
   // news_feed_data:
   // This is an array of stories
@@ -24,6 +27,7 @@ export class NewsFeedComponent implements OnInit {
   inputbox: FormControl = new FormControl("");
 
   ngOnInit(): void {
+    console.log(this.userinfoService.userinfo)
     this.newsfeedService.getData().subscribe(data =>{
       this.news_feed_data = data
     })

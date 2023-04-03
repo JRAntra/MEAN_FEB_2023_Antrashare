@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ConfirmationService, ConfirmEventType, MessageService,Message} from 'primeng/api';
+import { UserinfoService } from 'src/app/core/Service/userinfo.service';
 import { User } from 'src/app/shared/model/user';
 
 @Component({
@@ -19,11 +20,11 @@ export class AdminComponent implements OnInit {
 
   selectedUser!: User;
 
-  constructor(private confirmationService: ConfirmationService, private messageService: MessageService) {
+  constructor(private confirmationService: ConfirmationService, private messageService: MessageService, private userinfoService: UserinfoService) {
   }
 
   ngOnInit(): void {
-    // throw new Error('Method not implemented.');
+    this.selectedUser = this.userinfoService.userinfo
   }
 
   confirm() {

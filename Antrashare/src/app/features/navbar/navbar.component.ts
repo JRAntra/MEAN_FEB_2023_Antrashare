@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit {
     {name: 'My Profile', path: 'my-profile'},
     {name: 'News Feed', path: 'news-feed'},
     {name: 'Settings', path: 'settings'},
-  
+    {name: 'Administrator', path: 'admin'},
 ];
 
   selectedPage: any;

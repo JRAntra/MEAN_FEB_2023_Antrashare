@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ConfirmationService, ConfirmEventType, MessageService} from 'primeng/api';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
+import { UserinfoService } from 'src/app/core/Service/userinfo.service';
+import { User } from 'src/app/shared/model/user';
 
 
 @Component({
@@ -36,14 +38,14 @@ export class SettingsComponent implements OnInit {
   genderControl : FormControl;
 
   age = {
-    value : "age-test",
+    value : 0,
     isEditing : false,
   }
   ageControl : FormControl;
 
 
 
-  constructor(private confirmationService: ConfirmationService, private messageService: MessageService, private router: Router) { 
+  constructor(private confirmationService: ConfirmationService, private messageService: MessageService, private router: Router, private userinfoService: UserinfoService) { 
     this.nameControl = new FormControl("");
     this.passwordControl = new FormControl("");
     this.emailControl = new FormControl("");
@@ -52,6 +54,11 @@ export class SettingsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.username.value = this.userinfoService.userinfo.userName;
+    this.email.value = this.userinfoService.userinfo.userEmail;
+    this.gender.value = (this.userinfoService.userinfo.gender) as string;
+    this.age.value = (this.userinfoService.userinfo.age) as number;
+
   }
 
   confirm(){
