@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  constructor() {}
+  constructor(private route: Router) {}
 
   reactiveForm: FormGroup = new FormGroup({});
 
@@ -36,5 +38,9 @@ export class ProfileComponent implements OnInit {
   confirmEditCreate(index: number) {
     this.fields[index].editable = false;
     console.log(this.reactiveForm.value);
+  }
+
+  goToAdmin() {
+    this.route.navigate(['admin']);
   }
 }
