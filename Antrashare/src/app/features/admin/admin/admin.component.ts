@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ConfirmationService, ConfirmEventType, MessageService,Message} from 'primeng/api';
 import { User } from 'src/app/shared/model/user';
-import { UserService } from 'src/app/core/service/user.service';
+import { UserService } from 'src/app/core/service/userinfo.service';
 
 @Component({
   selector: 'app-admin',

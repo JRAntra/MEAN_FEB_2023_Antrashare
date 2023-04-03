@@ -10,14 +10,12 @@ export class UserService {
   currentUser: User | null = null;
   // UserSubject: BehaviorSubject<User> = new BehaviorSubject<User>(any[]);??
   UserSubject: BehaviorSubject<any> = new BehaviorSubject<any>([]);
-  userRole : Observable<string>; 
+  userRole : Observable<string> = new Observable((observe) => { observe.next(this.currentUser?.userRole);});
 
   private apiUrl = 'http://localhost:4231/api/users';
 
   constructor(private http: HttpClient) {
-    this.userRole = new Observable((observe) => {
-      observe.next(this.currentUser?.userRole);
-    });
+    this.userRole 
   }
 
   getAllUsers(): Observable<any>{

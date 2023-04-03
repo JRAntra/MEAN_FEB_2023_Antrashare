@@ -4,6 +4,6 @@
             <app-liked-list></app-liked-list>
         </ng-template>
     </p-overlayPanel>
-    <button type="text" *ngIf="userRole === 'user'"  (click)="op.toggle($event)" pButton label="liked list" icon="pi pi-heart" ></button>
+    <button type="text"   (click)="op.toggle($event)" pButton label="liked list" icon="pi pi-heart" ></button>
     <button type="text" *ngIf="userRole === 'admin'" (click)="goToAdmin()" pButton label="admin"></button>
 </p-menubar>

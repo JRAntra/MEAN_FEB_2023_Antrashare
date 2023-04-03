@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/core/service/login.service';
 import { MessageService } from 'primeng/api';
-import { UserService } from 'src/app/core/service/user.service';
+import { UserService } from 'src/app/core/service/userinfo.service';
 import { User } from 'src/app/shared/model/user';
 
 @Component({
@@ -55,6 +55,7 @@ export class LoginComponent implements OnInit {
     });
 
   }
+
   onSubmit() {
     console.log(this.loginForm.value);
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
