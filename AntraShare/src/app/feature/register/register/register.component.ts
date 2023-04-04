@@ -19,6 +19,7 @@ import { debounce, debounceTime, delay, map, Observable } from 'rxjs';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
+  isSubmitted = false;
   reactiveRegisterForm = new FormGroup({
     userEmail: new FormControl('', {
       validators: [Validators.email, Validators.required],
@@ -63,6 +64,7 @@ export class RegisterComponent implements OnInit {
   isPasswordConfirmed: boolean = true;
   //creatig new account using register service
   onRegister(reactiveRegisterForm: FormGroup): void {
+    this.isSubmitted = true;
     if (reactiveRegisterForm.invalid) {
       console.log(reactiveRegisterForm.value);
       return;
@@ -70,7 +72,7 @@ export class RegisterComponent implements OnInit {
     delete reactiveRegisterForm.value.confirmPassword;
     this.registerService.createNewAccount(reactiveRegisterForm.value);
 
-    this.router.navigate(['/logIn']);
+    this.router.navigate(['/']);
     // this.registerService.createNewAccount(reactiveRegisterForm);
   }
   //need help event handler
@@ -109,7 +111,6 @@ export class RegisterComponent implements OnInit {
   checkUsernameExist(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       return this.registerService.checkUsernameExist(control.value).pipe(
-        debounceTime(3000),
         map((res) => {
           if (res) {
             return { userNameExisted: 'this username is already been taken!' };

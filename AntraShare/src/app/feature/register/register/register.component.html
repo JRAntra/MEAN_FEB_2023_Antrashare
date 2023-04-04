@@ -14,6 +14,9 @@
       <span class="error" *ngIf="reactiveRegisterForm.controls.userEmail.errors?.['userEmailExisted']">
         {{reactiveRegisterForm.controls.userEmail.errors?.['userEmailExisted']}}
       </span>
+      <span class="error" *ngIf="reactiveRegisterForm.controls.userEmail.value == '' && isSubmitted">
+        Email is required!
+      </span>
       <mat-form-field class="example-full-width">
         <input
           matInput
@@ -25,6 +28,9 @@
       <span class="error" *ngIf="reactiveRegisterForm.controls.userName.errors?.['userNameExisted']">
         {{reactiveRegisterForm.controls.userName.errors?.['userNameExisted']}}
       </span>
+      <span class="error" *ngIf="reactiveRegisterForm.controls.userName.value == '' && isSubmitted">
+        Username is required!
+      </span>
       <!-- <mat-form-field class="example-full-width">
         <input matInput value="" placeholder="name" formControlName="name" />
       </mat-form-field> -->
@@ -34,6 +40,9 @@
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Gender" formControlName="gender" />
       </mat-form-field>
+      <span class="error" *ngIf="reactiveRegisterForm.controls.gender.value == '' && isSubmitted">
+        Gender is required!
+      </span>
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Phone" formControlName="phone" />
       </mat-form-field>
@@ -54,6 +63,9 @@
       reactiveRegisterForm.controls.password.touched">
         {{reactiveRegisterForm.controls.password.errors?.['passwordCriteriaFailed']}}
       </span>
+      <span class="error" *ngIf="reactiveRegisterForm.controls.password.value == '' && isSubmitted">
+        Password is required!
+      </span>
       <mat-form-field class="example-full-width">
         <input
           type="password"
@@ -70,6 +82,9 @@
       <span class="error" *ngIf="reactiveRegisterForm.controls.confirmPassword.errors?.['confirmPwNotMatch'] &&
       reactiveRegisterForm.controls.confirmPassword.touched">
         {{reactiveRegisterForm.controls.confirmPassword.errors?.['confirmPwNotMatch']}}
+      </span>
+      <span class="error" *ngIf="reactiveRegisterForm.controls.confirmPassword.value == '' && isSubmitted">
+        Confirm Password is required!
       </span>
     </form>
 
