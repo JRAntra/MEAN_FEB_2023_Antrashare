@@ -46,8 +46,6 @@ export class NewsfeedComponent implements OnInit {
     this.isSubmitted = true;
   }
   onThumbUpBtn(story: Story, btn: MatButton) {
-    // this.likes.push(story);
-    // this.likeList.updateLikeList(this.likes);
     btn._elementRef.nativeElement.disabled = true;
     this.likeList.addLikeStory(story);
   }
