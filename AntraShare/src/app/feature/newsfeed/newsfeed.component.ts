@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { NewsfeedServiceService } from 'src/app/feature/newsfeed/newsfeed_service/newsfeed-service.service';
-import { LikeListService } from 'src/app/feature/newsfeed/likeList_service/like-list.service';
 import { Story } from './interface/story';
 import { MatButton } from '@angular/material/button';
 import { FormBuilder, Validators } from '@angular/forms';
+import { LikeListService } from './likeList_service/like-list.service';
 
 @Component({
   selector: 'app-newsfeed',

@@ -12,12 +12,12 @@ import { UserInfo } from 'src/app/core/authorization/userInfo';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  user: UserInfo = {userEmail : '', password : ''};
+  user: UserInfo = { userEmail: '', password: '' };
   showPassword: boolean = false; //password toggle
   isChatBox: boolean = false;
-  error = "";
+  error = '';
 
-  constructor(private router: Router, private auth: AuthorizationService) { }
+  constructor(private router: Router, private auth: AuthorizationService) {}
 
   reactiveLoginForm: FormGroup = new FormGroup({});
   ngOnInit(): void {
@@ -51,13 +51,14 @@ export class LoginComponent implements OnInit {
       next: (ref) => {
         this.user = ref;
         console.log(this.user);
+        localStorage.setItem('userInfo', JSON.stringify(this.user));
         this.router.navigate(['newsfeed']);
         environment.isWelcomeMessage = false; //to remove welcomeMessage
       },
       error: (err) => {
         this.error = err.error;
-      }
-    })
+      },
+    });
   }
 
   //need help event handler

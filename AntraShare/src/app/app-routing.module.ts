@@ -8,6 +8,7 @@ import { LoginComponent } from './feature/login/login/login.component';
 import { AdminComponent } from './feature/admin/admin/admin.component';
 import { RegisterComponent } from './feature/register/register/register.component';
 import { ContentComponent } from './feature/newsfeed/content/content.component';
+import { AdminGuard } from './share/guards/admin.guard';
 
 const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
@@ -15,7 +16,7 @@ const routes: Routes = [
   { path: 'newsfeed', component: NewsfeedComponent },
   { path: 'setting', component: SettingPageComponent },
   { path: '', component: LoginComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },
   { path: 'register', component: RegisterComponent },
 ];
 

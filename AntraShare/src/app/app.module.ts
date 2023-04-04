@@ -27,7 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarModule,
     AdminModule,
     RegisterModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [],
   providers: [],
