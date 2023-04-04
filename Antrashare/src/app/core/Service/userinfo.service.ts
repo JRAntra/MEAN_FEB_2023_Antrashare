@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/shared/model/user';
 import { Observable, of} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 //UserInfoService:
 //Is used to store the user information in the local storage.
@@ -20,14 +21,14 @@ export class UserinfoService {
     userRole: ""
   };
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
-  set_userinfo_login(userName: string, userEmail: string, userRole: string, age?: number, phone?: number): void{
-    this.user.userName = userName
-    this.user.userEmail = userEmail
-    this.user.userRole = userRole
-    this.user.age = age
-    this.user.phone = phone
+  set_userinfo_login(user: User): void{
+    this.user.userName = user.userName
+    this.user.userEmail = user.userEmail
+    this.user.userRole = user.userRole
+    this.user.age = user.age
+    this.user.phone = user.phone
     this.if_login = true
   }
 
@@ -35,4 +36,7 @@ export class UserinfoService {
     return this.user
   }
 
+  get_allusers(){
+    return this.http.get('http://localhost:4231/api/users/getAllUsers')
+  }
 }

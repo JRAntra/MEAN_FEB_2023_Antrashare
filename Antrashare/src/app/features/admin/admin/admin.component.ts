@@ -16,7 +16,8 @@ export class AdminComponent implements OnInit {
 
   passwordIsVisible : boolean = false;
 
-  users: User[] = [];
+  // users: User[] = [];
+  users: any
 
   selectedUser!: User;
 
@@ -25,6 +26,11 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectedUser = this.userinfoService.userinfo
+    this.userinfoService.get_allusers().subscribe(
+      (res) => {
+        this.users = res
+      }
+    )
   }
 
   confirm() {
@@ -34,8 +40,9 @@ export class AdminComponent implements OnInit {
           icon: 'pi pi-info-circle',
           accept: () => {
               this.messageService.add({severity:'info', summary:'Confirmed', detail:'Record deleted'});
-              console.log(this.selectedUser.userName);
-              this.users = this.users.filter(user => user.userEmail !== this.selectedUser.userEmail);
+              // console.log(this.selectedUser.userName);
+              // this.users = this.users.filter(user => user.userEmail !== this.selectedUser.userEmail);
+              
           },
           reject: (type: any) => {
               switch(type) {
