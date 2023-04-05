@@ -7,8 +7,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { MatExpansionModule } from '@angular/material/expansion';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,11 +20,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatProgressBarModule} from "@angular/material/progress-bar";
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatListModule} from "@angular/material/list";
-import {MatMenuModule} from "@angular/material/menu";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatListModule } from "@angular/material/list";
+import { MatMenuModule } from "@angular/material/menu";
 
 
 
@@ -38,8 +38,8 @@ import {MatMenuModule} from "@angular/material/menu";
     MatCheckboxModule,
     MatSnackBarModule,
     MatExpansionModule,
-    BrowserModule,
-    BrowserAnimationsModule,
+    // BrowserModule,
+    // BrowserAnimationsModule,
     MatCardModule,
     FormsModule, ReactiveFormsModule,
     MatFormFieldModule,
@@ -63,8 +63,8 @@ import {MatMenuModule} from "@angular/material/menu";
     MatButtonModule,
     MatCheckboxModule,
     MatExpansionModule,
-    BrowserModule,
-    BrowserAnimationsModule,
+    // BrowserModule,
+    // BrowserAnimationsModule,
     MatCardModule,
     FormsModule, ReactiveFormsModule,
     MatFormFieldModule,
