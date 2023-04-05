@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from '../features/login/login.module';
@@ -14,7 +15,7 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from '../core/services/login/login.service';
 
-import {GetUsersService} from "../core/services/getUsers/get-users.service";
+import { GetUsersService } from "../core/services/getUsers/get-users.service";
 // import { DisplayCharPipe } from './display-char.pipe';
 // import{HttpClientModule} from "@angular/common/http";
 // import {LikeHeadersModule} from "../features/like-headers/like-headers.module";
@@ -24,9 +25,13 @@ import {GetUsersService} from "../core/services/getUsers/get-users.service";
   declarations: [
     AppComponent,
   ],
+  entryComponents: [
+
+  ],
 
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     LoginModule,
     MyProfileModule,
@@ -36,11 +41,11 @@ import {GetUsersService} from "../core/services/getUsers/get-users.service";
     AdminModule,
     NavBarModule,
     AngularMaterialModule,
-  // LikeHeadersModule,
+    // LikeHeadersModule,
     HttpClientModule
   ],
 
-  providers: [LoginService,GetUsersService],
+  providers: [LoginService, GetUsersService],
 
   bootstrap: [AppComponent]
 })

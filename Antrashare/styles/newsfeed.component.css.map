@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../src/app/features/newsfeed/newsfeed.component.sass"],"names":[],"mappings":"AACA;EACC;EACA;EACA;;;AAED;EACC;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAED;EACC;EACA;;;AAED;EACC;EACA;EACA;;;AAED;EACC;EACA","file":"newsfeed.component.css"}
+{"version":3,"sourceRoot":"","sources":["../src/app/features/newsfeed/newsfeed.component.sass"],"names":[],"mappings":"AACA;EACC;EACA;EACA;;;AAED;EACC;EACA;;;AAED;EACC;EACA;EACA;;;AAED;EACC;EACA","file":"newsfeed.component.css"}

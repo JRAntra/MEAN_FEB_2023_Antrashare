@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators, AbstractControl, ValidationErrors, 
 import { LoginService } from 'src/app/core/services/login/login.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { LoginInfoService } from 'src/app/core/services/login/login-info.service';
+// import { LoginInfoService } from 'src/app/core/services/login/login-info.service';
 import { map, Observable } from "rxjs";
 import { HttpClient } from '@angular/common/http';
 
@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar,
     private http: HttpClient,
-    private loginInfoService: LoginInfoService) { }
+    // private loginInfoService: LoginInfoService
+  ) { }
 
   userLogin: FormGroup = new FormGroup({
     email: new FormControl('',
@@ -87,7 +88,11 @@ export class LoginComponent implements OnInit {
         this.loginService.login(email, password).subscribe(
           (data) => {
             console.log(data);
-            this.loginInfoService.setEmailValue(email);
+            // this.loginInfoService.setEmailValue(email);
+            localStorage.setItem('userEmail', data.userEmail);
+            localStorage.setItem('userRole', data.userRole);
+            localStorage.setItem('isLoggedIn', 'true');
+            console.log(localStorage);
             this.router.navigate(['/newsfeed']);
           },
           (error) => {

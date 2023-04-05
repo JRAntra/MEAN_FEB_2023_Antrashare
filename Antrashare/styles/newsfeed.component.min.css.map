@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../src/app/features/newsfeed/newsfeed.component.sass"],"names":[],"mappings":"AACA,EACC,SACA,UACA,sBAED,aACC,aACA,sBACA,mBACA,mBACA,yBACA,aACA,sBACA,kBACA,oCACA,WAED,iBACC,kBACA,gBAED,eACC,kBACA,eACA,mBAED,IACC,YACA","file":"newsfeed.component.min.css"}
+{"version":3,"sourceRoot":"","sources":["../src/app/features/newsfeed/newsfeed.component.sass"],"names":[],"mappings":"AACA,EACC,SACA,UACA,sBAED,iBACC,kBACA,gBAED,eACC,kBACA,eACA,mBAED,IACC,YACA","file":"newsfeed.component.min.css"}

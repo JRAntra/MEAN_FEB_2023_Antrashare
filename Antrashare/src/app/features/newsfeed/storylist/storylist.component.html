@@ -1,0 +1,21 @@
+<!-- <button (click)="goToNextStory()">Next Story</button> -->
+<button (click)="goToAdmin()">Go to Admin Page</button>
+<div>
+    <ul>
+        <li *ngFor="let item of newsfeedData" class="story-entry">
+            <h1>{{ item.publisherName }}</h1>
+
+            <div *ngIf="item.content">
+                <img src="{{ item.content.image }}" alt="{{ item.content.text }}">
+                <p>{{ item.content.text }}</p>
+            </div>
+            <p>{{ item.publishedTime }}</p>
+
+            <div class="like-icon">
+                <button mat-icon-button (click)="likeStory(item)">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+            </div>
+        </li>
+    </ul>
+</div>
