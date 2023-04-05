@@ -10,17 +10,17 @@ export class CanVisitAdminGuard implements CanActivate {
   // constructor(private canvisitAdminService: CanvisitAdminService) { }
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> {
+    state: RouterStateSnapshot): boolean {
     const userRole = localStorage.getItem('userRole');
 
     if (userRole === 'admin') {
       console.log(userRole);
       console.log('You are admin.');
-      return of(true);
+      return true;
     } else {
       console.log('You are not admin.');
       console.log(userRole);
-      return of(false);
+      return false;
     }
   }
   // )
