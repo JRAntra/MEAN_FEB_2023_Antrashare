@@ -87,6 +87,7 @@ export class LoginComponent implements OnInit {
         this.loginService.login(email, password).subscribe(
           (data) => {
             console.log(data);
+            localStorage.setItem("user", JSON.stringify(data))
             this.loginInfoService.setEmailValue(email);
             this.router.navigate(['/newsfeed']);
           },

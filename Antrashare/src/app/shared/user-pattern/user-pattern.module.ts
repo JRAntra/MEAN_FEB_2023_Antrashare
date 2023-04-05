@@ -12,6 +12,18 @@ export interface User {
   "phone": number,
   "__v": number
 }
+
+export interface loginUser {
+  name: string,
+  userName: string,
+  userEmail: string,
+  userRole: string,
+  age: number,
+  gender: string,
+  phone: string,
+  bearerToken: string
+}
+
 export interface userRegister {
   "userName": string,
   "userEmail": string,
@@ -32,3 +44,5 @@ export interface userRegister {
 export class UserPatternModule {
 
 }
+
+

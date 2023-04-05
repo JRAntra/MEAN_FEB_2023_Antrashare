@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {GetUsersService} from "../../core/services/getUsers/get-users.service";
+import { Component, OnInit } from '@angular/core';
+import { GetUsersService } from "../../core/services/getUsers/get-users.service";
 import { Router } from "@angular/router";
-import {logMessages} from "@angular-devkit/build-angular/src/builders/browser-esbuild/esbuild";
-import {User} from "../../shared/user-pattern/user-pattern.module";
-import {Subscription} from "rxjs";
+import { logMessages } from "@angular-devkit/build-angular/src/builders/browser-esbuild/esbuild";
+import { loginUser, User } from "../../shared/user-pattern/user-pattern.module";
+import { Subscription } from "rxjs";
 
 // export interface User {
 //   "_id": string,
@@ -26,6 +26,7 @@ import {Subscription} from "rxjs";
 export class AdminComponent implements OnInit {
   users: User[] = [];
   subscriptions: Subscription[] = [];
+  adminUser: loginUser | undefined;
   // userArray = new Array<string>(10).fill("JR")
   constructor(private getUsers: GetUsersService, private router: Router) {
   }
@@ -39,23 +40,25 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscriptions.push(this.getUsers.getAllUsers().subscribe({
-    next: response => this.users = response,
-    error: error => console.log(error)
+      next: response => this.users = response,
+      error: error => console.log(error)
     }))
+    this.adminUser = JSON.parse(localStorage.getItem("user")!)
+    console.log(this.adminUser)
 
   }
-    // (response) => {
-    //   this.users = response
-    //   // console.log(this.users)
-    // },
-    //   error => console.log(error)
+  // (response) => {
+  //   this.users = response
+  //   // console.log(this.users)
+  // },
+  //   error => console.log(error)
 
 
-  NaviToSetting(){
+  NaviToSetting() {
     this.router.navigateByUrl("/setting").then()
   }
-  ngOnDestroy():void{
-    for (let subscrption of this.subscriptions){
+  ngOnDestroy(): void {
+    for (let subscrption of this.subscriptions) {
       subscrption.unsubscribe()
       console.log("Successfully unsubscribe")
     }

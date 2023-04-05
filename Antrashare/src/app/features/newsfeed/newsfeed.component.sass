@@ -5,9 +5,10 @@
 	box-sizing: border-box
 
 .story-entry
+	font-family: Nunito
 	display: flex
 	flex-direction: column
-	align-items: center
+	// align-items: center
 	margin-bottom: 20px /* add some spacing between each story */
 	background-color: #f2f2f2
 	padding: 10px
@@ -15,6 +16,13 @@
 	border-radius: 5px
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
 	width: 100%
+	position: relative
+
+.publisherTitle
+
+	font: 700
+	font-size: xx-large
+	text-align: left
 
 mat-card-content
 	text-align: center
@@ -28,3 +36,19 @@ mat-card-title
 img
 	height: 5rem
 	width: 5rem
+
+.like-icon
+	position: absolute
+	bottom: 0
+	right: 0
+
+.content
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+
+.miscinfo
+	text-align: right
+	margin-right: 30px
+	position: relative
