@@ -1,11 +1,5 @@
 @import "../../../../share/scss-variables/_config.scss";
 
-.main {
-    // min-height: 90vh;
-    position: relative;
-    padding: 1rem 35%;
-}
-
 .like-list {
     padding: 0.5rem 1rem;
     position: absolute;
@@ -60,25 +54,24 @@
 }
 
 @media only screen and (max-width: 666px) {
-    .main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+
 
         .like-list {
             padding: 0.5rem 1rem;
-            position: sticky;
+            position: static;
+            // position: sticky;
             // float: ;
-            margin-right: 0;
-            margin-bottom: 1rem;
-            top: 0;
+            // margin-right: 0;
+            // margin-bottom: 1rem;
+            // top: 0;
+            margin: auto;
         }
 
         .like-list-toggled {
+            margin: auto;
             position: static;
-            width: 100vw;
+            width: 90vw;
             text-overflow: ellipsis;
         }
-    }
+    
 }

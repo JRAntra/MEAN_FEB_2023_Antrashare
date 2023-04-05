@@ -9,6 +9,7 @@ import { WelcomeDirective } from './welcome.directive';
 import { TruncatePipe } from './truncate/truncate.pipe';
 import { LikeListComponent } from './likeList/like-list/like-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NewsfeedServiceService } from './newsfeed_service/newsfeed-service.service';
 
 @NgModule({
   declarations: [
@@ -25,5 +26,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
   ],
   exports: [NewsfeedComponent, WelcomeDirective, LikeListComponent],
+  providers: [NewsfeedServiceService],
 })
 export class NewsfeedModule {}

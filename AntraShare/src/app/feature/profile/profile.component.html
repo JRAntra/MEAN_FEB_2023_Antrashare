@@ -1,45 +1,47 @@
-<app-like-list></app-like-list>
-<div class="profile-container">
-  <!-- <div class="header">
-        <button mat-button color="accent" class="like-list">Like List</button>
-    </div> -->
-  <form class="profile" [formGroup]="reactiveForm">
-    <div class="username-avatar-container form-control">
-      <div src="" class="avatar"></div>
-      <mat-form-field appearance="fill">
-        <mat-label>Username</mat-label>
-        <input matInput placeholder="Username" [readonly]="!fields[0].editable" type="text" formControlName="username">
-      </mat-form-field>
-      <button *ngIf="!fields[0].editable" mat-icon-button color="primary" focusable="false" (click)="startEdit(0)">
-        <mat-icon>edit</mat-icon>
-      </button>
-      <button *ngIf="fields[0].editable" mat-icon-button color="primary" focusable="false"
-        (click)="confirmEditCreate(0)">
-        <mat-icon>check</mat-icon>
-      </button>
-    </div>
-    <div class="form-control" *ngFor="let data of fields |  slice:1 ;let i = index">
-      <mat-form-field appearance="fill">
-        <mat-label>{{data.name}}</mat-label>
-        <input matInput placeholder={{data.name}} [readonly]="!data.editable" [type]="data.type"
-          [formControlName]="data.name.toLowerCase()">
-      </mat-form-field>
-      <button *ngIf="!data.editable" mat-icon-button color="primary" focusable="false" (click)="startEdit(i+1)">
-        <mat-icon>edit</mat-icon>
-      </button>
-      <button *ngIf="data.editable" mat-icon-button color="primary" focusable="false" (click)="confirmEditCreate(i+1)">
-        <mat-icon>check</mat-icon>
-      </button>
-    </div>
-    <div class="icon-container">
-      <div class="post">
-        <div class="icon"></div>
-        <p class="amount-of-posts">Amount of Posts</p>
+<div class="profile-wrapper">
+  <app-like-list></app-like-list>
+  <div class="profile-container">
+    <!-- <div class="header">
+          <button mat-button color="accent" class="like-list">Like List</button>
+      </div> -->
+    <form class="profile" [formGroup]="reactiveForm">
+      <div class="username-avatar-container form-control">
+        <div src="" class="avatar"></div>
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Username" [readonly]="!fields[0].editable" type="text" formControlName="username">
+        </mat-form-field>
+        <button *ngIf="!fields[0].editable" mat-icon-button color="primary" focusable="false" (click)="startEdit(0)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button *ngIf="fields[0].editable" mat-icon-button color="primary" focusable="false"
+          (click)="confirmEditCreate(0)">
+          <mat-icon>check</mat-icon>
+        </button>
       </div>
-      <div class="like">
-        <div class="icon"></div>
-        <p class="amount-of-like">Amount of Likes</p>
+      <div class="form-control" *ngFor="let data of fields |  slice:1 ;let i = index">
+        <mat-form-field appearance="fill">
+          <mat-label>{{data.name}}</mat-label>
+          <input matInput placeholder={{data.name}} [readonly]="!data.editable" [type]="data.type"
+            [formControlName]="data.name.toLowerCase()">
+        </mat-form-field>
+        <button *ngIf="!data.editable" mat-icon-button color="primary" focusable="false" (click)="startEdit(i+1)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button *ngIf="data.editable" mat-icon-button color="primary" focusable="false" (click)="confirmEditCreate(i+1)">
+          <mat-icon>check</mat-icon>
+        </button>
       </div>
-    </div>
-  </form>
+      <div class="icon-container">
+        <div class="post">
+          <div class="icon"></div>
+          <p class="amount-of-posts">Amount of Posts</p>
+        </div>
+        <div class="like">
+          <div class="icon"></div>
+          <p class="amount-of-like">Amount of Likes</p>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

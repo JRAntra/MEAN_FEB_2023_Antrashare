@@ -5,6 +5,7 @@ import { Story } from './interface/story';
 import { MatButton } from '@angular/material/button';
 import { FormBuilder, Validators } from '@angular/forms';
 import { LikeListService } from './likeList_service/like-list.service';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-newsfeed',
@@ -12,7 +13,8 @@ import { LikeListService } from './likeList_service/like-list.service';
   styleUrls: ['./newsfeed.component.scss'],
 })
 export class NewsfeedComponent implements OnInit {
-  news: Story[] = [];
+  id: number[] = [];
+  news$: Observable<Story[]> = new Observable();
   isWelcomeMessage = environment.isWelcomeMessage;
   isSubmitted = false;
   newsfeedForm = this.fb.group({
@@ -23,13 +25,16 @@ export class NewsfeedComponent implements OnInit {
     private newService: NewsfeedServiceService,
     private likeList: LikeListService,
     private fb: FormBuilder
-  ) {}
+  ) {
+    this.id = likeList.id;
+  }
 
   ngOnInit(): void {
-    this.newService.getAllNews().subscribe((news) => {
-      this.news = news;
-      // console.log(this.news);
-    });
+    // this.newService.getAllNews().subscribe((news) => {
+    //   this.news = news;
+    //   // console.log(this.news);
+    // });
+    this.news$ = this.newService.getAllNews().pipe(map((res) => res.reverse()));
   }
 
   onError(name: string): boolean | undefined {
@@ -45,10 +50,13 @@ export class NewsfeedComponent implements OnInit {
     console.log(this.newsfeedForm);
     this.isSubmitted = true;
   }
-  onThumbUpBtn(story: Story, btn: MatButton) {
-    // this.likes.push(story);
-    // this.likeList.updateLikeList(this.likes);
-    btn._elementRef.nativeElement.disabled = true;
-    this.likeList.addLikeStory(story);
+  onThumbUpBtn(story: Story, btnId: number) {
+    if (this.id[btnId] === btnId) {
+      this.id[btnId] = -1;
+      this.likeList.removeLikeStory(story);
+    } else {
+      this.id[btnId] = btnId;
+      this.likeList.addLikeStory(story);
+    }
   }
 }

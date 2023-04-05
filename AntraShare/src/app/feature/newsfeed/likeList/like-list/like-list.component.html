@@ -11,7 +11,7 @@
   <div class="foot">
     <mat-card *ngFor="let item of likeListArray">
       <mat-card-title>{{ item.publisherName }}</mat-card-title>
-      <mat-card-content>{{ item.content.text | truncate}}</mat-card-content>
+      <mat-card-content>{{ item.content?.text | truncate}}</mat-card-content>
     </mat-card>
   </div>
 </div>
