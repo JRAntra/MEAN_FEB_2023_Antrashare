@@ -6,7 +6,7 @@ import { NewsfeedComponent } from '../features/newsfeed/newsfeed.component';
 import { SettingComponent } from '../features/setting/setting.component';
 import { RegisterComponent } from '../features/register/register.component';
 import {AdminComponent} from "../features/admin/admin.component";
-import {AdmincheckGuard} from "./admin-check/admincheck.guard";
+import {AdmincheckGuard} from "../core/admin-check/admincheck.guard";
 const routes: Routes = [
   // http://localhost:4200/
   { path: 'login', component: LoginComponent },

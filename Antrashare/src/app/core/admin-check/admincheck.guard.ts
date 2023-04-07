@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {loginUser} from "../user-pattern/user-pattern.module";
+import {loginUser} from "../../shared/user-pattern/user-pattern.module";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class AdmincheckGuard implements CanActivate {
     if(this.curUser?.userRole === "admin"){
       return true;
     }
-    this.snackBar.open("Not a authorized admin","Done")
+    this.snackBar.open("Not an authorized admin","Done")
     return false;
   }
 
