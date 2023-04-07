@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
       next: (ref) => {
         this.user = ref;
         console.log(this.user);
+        localStorage.setItem("userData",JSON.stringify(ref));
         this.router.navigate(['newsfeed']);
         environment.isWelcomeMessage = false; //to remove welcomeMessage
       },

@@ -70,17 +70,19 @@ export class RegisterComponent implements OnInit {
     delete reactiveRegisterForm.value.confirmPassword;
     this.registerService.createNewAccount(reactiveRegisterForm.value);
 
-    this.router.navigate(['/logIn']);
+    this.router.navigate(['']);
     // this.registerService.createNewAccount(reactiveRegisterForm);
   }
   //need help event handler
   needHelp() {
     this.isChatBox = true;
   }
+
   //chat-box-button-event-handler
   onChatButtonClick() {
     this.isChatBox = false;
   }
+
   checkPwCriteria(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const regEx = new RegExp(
@@ -96,6 +98,7 @@ export class RegisterComponent implements OnInit {
       return null;
     };
   }
+
   checkConfirmPwMatch(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       if (
@@ -106,6 +109,7 @@ export class RegisterComponent implements OnInit {
       return null;
     };
   }
+
   checkUsernameExist(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       return this.registerService.checkUsernameExist(control.value).pipe(
@@ -119,6 +123,7 @@ export class RegisterComponent implements OnInit {
       );
     };
   }
+  
   checkEmailExist(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       return this.registerService.checkEmailExist(control.value).pipe(
