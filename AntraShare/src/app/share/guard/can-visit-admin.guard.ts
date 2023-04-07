@@ -7,11 +7,11 @@ import { AdminServiceService } from 'src/app/core/adminService/admin-service.ser
   providedIn: 'root'
 })
 export class CanVisitAdminGuard implements CanActivate {
-  constructor(private admin: AdminServiceService){}
+  constructor(private adminService: AdminServiceService){}
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(this.admin.userInfo.userRole === "admin"){
+    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean | UrlTree> | boolean | UrlTree {
+      if(this.adminService.userInfo.userRole === "admin"){ //crate a "constant.ts" file store the constant variable"admin"
         console.log("admin checked");
         return true;
       } else {

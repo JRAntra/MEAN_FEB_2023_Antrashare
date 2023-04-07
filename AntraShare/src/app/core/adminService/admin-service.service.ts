@@ -9,7 +9,8 @@ import { LoginComponent } from 'src/app/feature/login/login/login.component';
 })
 export class AdminServiceService {
   private userData = "http://localhost:4231/api/users/getAllUsers";
-  userInfo = JSON.parse(localStorage.getItem("userData")!);
+  userInfo = JSON.parse(localStorage.getItem("userData")!);//create a type of userinfo
+
 
   constructor(private http: HttpClient) { }
 
