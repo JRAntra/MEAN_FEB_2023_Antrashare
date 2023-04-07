@@ -13,6 +13,7 @@ export class SettingPageComponent implements OnInit {
   logOut() {
     this.router.navigate([''])
   }
+  
   ngOnInit(): void {
   }
 

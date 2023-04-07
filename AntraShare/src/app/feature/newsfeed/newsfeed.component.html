@@ -2,18 +2,18 @@
   <app-like-list></app-like-list>
   <div class="post-newfeed-form">
     <h1>Post Your Newsfeed Below</h1>
-    <form class="form" [formGroup] = "newsfeedForm" (ngSubmit)="onSubmit()">
+    <form class="form" [formGroup]="newsfeedForm" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="fill">
         <mat-label>Image Url</mat-label>
-        <input matInput placeholder="url" type="url" formControlName="imgUrl"
-        [class.invalid]="onError('imgUrl')"/>
+        <input matInput placeholder="url" type="url" formControlName="imgUrl" [class.invalid]="onError('imgUrl')" />
       </mat-form-field>
       <span *ngIf="onError('imgUrl')" class="error">
         Must provide an image Url!
       </span>
       <mat-form-field appearance="fill">
         <mat-label>Content</mat-label>
-        <textarea matInput placeholder="content..." formControlName="content" [class.invalid]="onError('content')"></textarea>
+        <textarea matInput placeholder="content..." formControlName="content"
+          [class.invalid]="onError('content')"></textarea>
       </mat-form-field>
       <span *ngIf="onError('content')" class="error">
         Must provide content!
@@ -25,7 +25,7 @@
     <a [routerLink]="['/newsfeed', n._id]">
       <mat-card [id]="n._id" class="on-hover">
         <mat-card-title>{{ n.content?.text || "" | truncate}}</mat-card-title>
-        
+
         <mat-card-content>
           <img [src]="n.content?.image" alt="" srcset="">
         </mat-card-content>
@@ -38,11 +38,23 @@
 </main>
 
 <!-- Bhim's welcome assignment -->
-<div class="Welcome" *ngIf="isWelcomeMessage" >
+<div class="Welcome" *ngIf="isWelcomeMessage">
   <div class="welcome-newsfeed" appWelcome>
     <div class="welcome-text">Welcome</div>
     <div class="welcome-text">
       <span>To Antra Share</span>
     </div>
+  </div>
+</div>
+
+<!-- Alex's idle dialog -->
+<div class="idleDialog" *ngIf="isIdling">
+  <h1 mat-dialog-title>Are you still here</h1>
+  <div mat-dialog-content>
+    Would you like stay in log in?
+  </div>
+  <div mat-dialog-actions>
+    <button (click)="onDialogCancelBtn()" mat-button mat-dialog-close>Cancel</button>
+    <button (click)="onDialogConfirmBtn()" mat-button mat-dialog-close cdkFocusInitial>Confirm</button>
   </div>
 </div>
