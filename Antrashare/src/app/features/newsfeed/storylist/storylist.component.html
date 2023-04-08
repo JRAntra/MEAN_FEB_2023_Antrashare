@@ -2,14 +2,14 @@
 <button (click)="goToAdmin()">Go to Admin Page</button>
 <div>
     <ul>
-        <li *ngFor="let item of newsfeedData" class="story-entry">
-            <h1>{{ item.publisherName }}</h1>
+        <li *ngFor="let item of newsfeedData.reverse()" class="story-entry">
+            <h1 class="publisherTitle">{{ item.publisherName }}</h1>
 
-            <div *ngIf="item.content">
+            <div *ngIf="item.content" class="content">
                 <img src="{{ item.content.image }}" alt="{{ item.content.text }}">
                 <p>{{ item.content.text }}</p>
             </div>
-            <p>{{ item.publishedTime }}</p>
+            <p class="miscinfo">{{ item.publishedTime }}</p>
 
             <div class="like-icon">
                 <button mat-icon-button (click)="likeStory(item)">
