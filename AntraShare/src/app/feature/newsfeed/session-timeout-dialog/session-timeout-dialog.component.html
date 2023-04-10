@@ -1,0 +1,9 @@
+<h1 mat-dialog-title align="center">Session Timeout</h1>
+<mat-dialog-content align="center">
+    Your session has timed out!
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+    <button mat-raised-button [mat-dialog-close]="false" color="warn">Cancel</button>
+    <button mat-raised-button [mat-dialog-close]="true" (click)="onConfirmHandler()" color="primary">Confirm</button>
+</mat-dialog-actions>
