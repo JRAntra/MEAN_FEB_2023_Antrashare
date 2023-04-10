@@ -10,9 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
-import {MatCardModule} from '@angular/material/card';
-import {MatTabsModule} from '@angular/material/tabs';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [],
   imports: [
@@ -27,7 +27,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatDividerModule,
     MatListModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule,
   ],
   exports: [
     CommonModule,
@@ -41,7 +42,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatDividerModule,
     MatListModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule,
   ],
 })
 export class AngularMaterialModule {}

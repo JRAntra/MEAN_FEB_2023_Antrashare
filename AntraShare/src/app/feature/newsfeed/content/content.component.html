@@ -1,3 +1,4 @@
+<ng-container *ngIf="story$ | async as story">
 <main class="content-main" [ngClass]="blur">
     <div class="content-header">
         <div class="logo"></div>
@@ -6,18 +7,18 @@
     </div>
     <div class="content-body">
         <div class="video-container">
-            <iframe *ngIf="false; else image" [src]="story.content.video" frameborder="0" allowfullscreen></iframe>
+            <iframe *ngIf="false; else image" [src]="story.content?.video" frameborder="0" allowfullscreen></iframe>
             <ng-template #image>
-                <img [src]="story.content.image" alt="image">
+                <img [src]="story.content?.image" alt="image">
             </ng-template>
         </div>
         <div class="content">
-            <p>{{story.content.text}}</p>
+            <p>{{story.content?.text}}</p>
         </div>
     </div>
     <div class="content-footer">
-        <button mat-raised-button color="primary" (click)="toggleCommentWindow()">All Comments({{story.comment.length}})</button>
-        <button mat-raised-button color="primary" (click)="toggleLikeWindow()">All Likes({{story.likedIdList.length}})</button>
+        <button mat-raised-button color="primary" (click)="toggleCommentWindow()">All Comments({{story.comment?.length}})</button>
+        <!-- <button mat-raised-button color="primary" (click)="toggleLikeWindow()">All Likes({{story.likedIdList?.length}})</button> -->
     </div>
 </main>
 <div class="popup-window" *ngIf="showComment">
@@ -27,7 +28,7 @@
     <mat-card *ngFor="let comment of story.comment">
         <mat-card-title>{{comment.publisherName}}</mat-card-title>
         <mat-card-content>{{comment.publishedTime | date: 'short'}}</mat-card-content>
-        <mat-card-content>{{comment.content.text}}</mat-card-content>
+        <mat-card-content>{{comment.content?.text}}</mat-card-content>
     </mat-card>
 </div>
 <div class="popup-window" *ngIf="showLike">
@@ -40,3 +41,4 @@
         <!-- <mat-card-content>{{like.content.text}}</mat-card-content> -->
     </mat-card>
 </div>
+</ng-container>

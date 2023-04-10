@@ -9,10 +9,17 @@ import { AdminComponent } from './feature/admin/admin/admin.component';
 import { RegisterComponent } from './feature/register/register/register.component';
 import { ContentComponent } from './feature/newsfeed/content/content.component';
 import { CanVisitAdminGuard } from './share/guard/can-visit-admin.guard';
+import { ContentResolver } from './feature/newsfeed/content/content.resolver';
 
 const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
-  { path: 'newsfeed/:id', component: ContentComponent },
+  {
+    path: 'newsfeed/:id',
+    component: ContentComponent,
+    resolve: {
+      content: ContentResolver,
+    },
+  },
   { path: 'newsfeed', component: NewsfeedComponent },
   { path: 'setting', component: SettingPageComponent },
   { path: '', component: LoginComponent },

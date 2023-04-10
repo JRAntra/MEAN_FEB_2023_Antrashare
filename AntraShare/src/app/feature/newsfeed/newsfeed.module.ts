@@ -10,6 +10,8 @@ import { TruncatePipe } from './truncate/truncate.pipe';
 import { LikeListComponent } from './likeList/like-list/like-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NewsfeedServiceService } from './newsfeed_service/newsfeed-service.service';
+import { SessionTimeoutDialogComponent } from './session-timeout-dialog/session-timeout-dialog.component';
+import { DialogTimerService } from './dialog-service/dialog-timer.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { NewsfeedServiceService } from './newsfeed_service/newsfeed-service.serv
     WelcomeDirective,
     TruncatePipe,
     LikeListComponent,
+    SessionTimeoutDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +29,6 @@ import { NewsfeedServiceService } from './newsfeed_service/newsfeed-service.serv
     ReactiveFormsModule,
   ],
   exports: [NewsfeedComponent, WelcomeDirective, LikeListComponent],
-  providers: [NewsfeedServiceService],
+  providers: [NewsfeedServiceService, DialogTimerService],
 })
 export class NewsfeedModule {}
