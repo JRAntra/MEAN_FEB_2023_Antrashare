@@ -1,11 +1,21 @@
+
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, AsyncValidatorFn, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {LoginService} from 'src/app/core/services/login/login.service';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {LoginInfoService} from 'src/app/core/services/login/login-info.service';
 import {map, Observable} from "rxjs";
 import {HttpClient} from '@angular/common/http';
+
+// import { Component, OnInit } from '@angular/core';
+// import { FormControl, FormGroup, Validators, AbstractControl, ValidationErrors, AsyncValidatorFn } from '@angular/forms';
+// import { LoginService } from 'src/app/core/services/login/login.service';
+// import { Router } from '@angular/router';
+// import { MatSnackBar } from '@angular/material/snack-bar';
+// // import { LoginInfoService } from 'src/app/core/services/login/login-info.service';
+// import { map, Observable } from "rxjs";
+// import { HttpClient } from '@angular/common/http';
+// >>>>>>> Release_Branch/Pixel_Go
 
 interface userLogin {
   email: string,
@@ -28,7 +38,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar,
     private http: HttpClient,
-    private loginInfoService: LoginInfoService) { }
+    // private loginInfoService: LoginInfoService
+  ) { }
 
   userLogin: FormGroup = new FormGroup({
     email: new FormControl('',
@@ -86,9 +97,16 @@ export class LoginComponent implements OnInit {
       if (email && password) {
         this.loginService.login(email, password).subscribe(
           (data) => {
-            localStorage.setItem("user",JSON.stringify(data))
+            // localStorage.setItem("user",JSON.stringify(data))
             // console.log(data);
-            this.loginInfoService.setEmailValue(email);
+            // this.loginInfoService.setEmailValue(email);
+
+            // console.log(data);
+            // this.loginInfoService.setEmailValue(email);
+            localStorage.setItem('userEmail', data.userEmail);
+            localStorage.setItem('userRole', data.userRole);
+            localStorage.setItem('isLoggedIn', 'true');
+            console.log(localStorage);
             this.router.navigate(['/newsfeed']);
           },
           (error) => {

@@ -3,7 +3,6 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { LoginInfoService } from 'src/app/core/services/login/login-info.service';
 import { LikelistService } from 'src/app/core/services/likelist/likelist.service';
 
 @Component({
@@ -13,7 +12,7 @@ import { LikelistService } from 'src/app/core/services/likelist/likelist.service
 })
 export class MyProfileComponent implements OnInit {
 
-  constructor(private loginInfoService: LoginInfoService,
+  constructor(
     private http: HttpClient,
     private likeListService: LikelistService,
     private fb: FormBuilder
@@ -55,11 +54,12 @@ export class MyProfileComponent implements OnInit {
       ])
     });
 
-    const userEmail = this.loginInfoService.getEmailValue();
-    this.profileFB.controls['emailControl'].setValue(userEmail);
+    // const userEmail = this.loginInfoService.getEmailValue();
+    // this.profileFB.controls['emailControl'].setValue(userEmail);
 
     const infoApi = "users/getAllUsers";
     const finalUrl = this.apiUrl + infoApi;
+    const userEmail = localStorage.getItem('userEmail');
 
     this.http.get(finalUrl).subscribe((users: any) => {
       const currentUser = users.find((user: any) => user.userEmail === userEmail);

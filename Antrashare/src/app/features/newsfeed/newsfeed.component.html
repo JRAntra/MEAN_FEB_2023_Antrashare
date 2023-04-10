@@ -1,4 +1,9 @@
 <app-likelist></app-likelist>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&family=Raleway:ital,wght@0,100;0,200;0,400;0,500;0,700;1,300;1,400&display=swap"
+    rel="stylesheet">
 <mat-card class="welcome-massage" appWelcome>
     <!-- [ngStyle]="{'text-align': 'center'}" -->
     <mat-card-header>
@@ -16,8 +21,8 @@
         <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </mat-card-footer>
 </mat-card>
-
-<div>
+<app-storylist></app-storylist>
+<!-- <div>
     <ul>
         <li *ngFor="let item of newsfeedData" class="story-entry">
             <h1>{{ item.publisherName }}</h1>
@@ -35,5 +40,5 @@
             </div>
         </li>
     </ul>
-</div>
+</div> -->
 <app-nav-bar></app-nav-bar>
