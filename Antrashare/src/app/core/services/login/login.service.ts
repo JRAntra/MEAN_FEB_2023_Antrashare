@@ -12,8 +12,7 @@ export class LoginService {
   // apiUrl = 'http://localhost:4231/api/login';
   apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient,
-    // private loginInfoService: LoginInfoService
+  constructor(private http: HttpClient
   ) { }
   login(email: string, password: string): Observable<any> {
     // const url = `${this.apiUrl}`;

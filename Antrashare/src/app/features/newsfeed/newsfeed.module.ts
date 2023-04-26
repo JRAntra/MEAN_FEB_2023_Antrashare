@@ -11,6 +11,7 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { RouterModule, Routes } from '@angular/router';
 import { PostformComponent } from './postform/postform.component';
 import { StorylistComponent } from './storylist/storylist.component';
+import { LogoutConfirmComponent } from './logout-confirm/logout-confirm.component';
 
 const routes: Routes = [
   { path: "", component: NewsfeedComponent },
@@ -36,7 +37,8 @@ const routes: Routes = [
     DisplayCharPipe,
     LikeListComponent,
     PostformComponent,
-    StorylistComponent
+    StorylistComponent,
+    LogoutConfirmComponent
   ],
   imports: [
     CommonModule,

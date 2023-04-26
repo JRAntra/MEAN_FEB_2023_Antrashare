@@ -1,31 +1,43 @@
 
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from "@angular/material/menu";
 import { MatSnackBar } from "@angular/material/snack-bar";
-// import {LikeSnackBarComponent} from "./like-snack-bar/like-snack-bar.component";
+import { TimerService } from 'src/app/core/services/timer/timer.service';
 
 
 @Component({
   selector: 'app-newsfeed',
   templateUrl: './newsfeed.component.html',
   styleUrls: ['./newsfeed.component.sass'],
-  providers: [MatMenuTrigger]
-
+  providers: [
+    MatMenuTrigger,
+    TimerService
+  ]
 })
 
 export class NewsfeedComponent implements OnInit {
 
   constructor(
-    private _snackBar: MatSnackBar) { }
+    private _snackBar: MatSnackBar,
+    private timerService: TimerService
+  ) { }
 
   // newsfeedData: any[] = [];
 
   ngOnInit() {
-    // this.newsfeedService.getNewsfeed().subscribe((data: any) => {
-    //   this.newsfeedData = data;
-    // });
+    this.timerService.startTimer();
+  }
+  // reset timer on mousemove or on click
+  @HostListener('window:mousemove')
+  @HostListener('window:click')
+  @HostListener('window:keydown')
+  resetTimer() {
+    this.timerService.resetTimer();
   }
 
+  logout() {
+    this.timerService.logoutConfirm();
+  }
   // AddToLikeList(event: Event, story: string): void {
   //   // @ts-ignore
   //   // for (let like of this.likeList){
