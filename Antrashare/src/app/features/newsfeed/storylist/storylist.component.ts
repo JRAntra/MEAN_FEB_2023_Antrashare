@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LikelistService } from 'src/app/core/services/likelist/likelist.service';
-import { LikeListService } from 'src/app/core/services/like-list/like-list.service';
 import { NewsfeedService } from 'src/app/core/services/newsfeed/newsfeed.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -11,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class StorylistComponent implements OnInit {
 
-  constructor(private likeListService: LikeListService,
+  constructor(
     private likelistService: LikelistService,
     private newsfeedService: NewsfeedService,
     private ar: ActivatedRoute,
@@ -21,13 +20,18 @@ export class StorylistComponent implements OnInit {
 
   ngOnInit(): void {
     this.newsfeedService.getNewsfeed().subscribe((data: any) => {
-      this.newsfeedData = data;
+      this.newsfeedData = data.map((item: any) => {
+        return {
+          ...item,
+          isLiked: false
+        };
+      });
     });
 
-    this.ar.params.subscribe(
-      res => console.log(res)
-    )
-    console.log(this.ar.snapshot.params)
+    // this.ar.params.subscribe(
+    //   res => console.log(res)
+    // )
+    // console.log(this.ar.snapshot.params)
   }
 
   // goToNextStory() {
@@ -37,8 +41,8 @@ export class StorylistComponent implements OnInit {
   // }
 
   likeStory(item: any) {
-    const story = item.content.text;
-    this.likelistService.addToLikelist(story);
+    // const story = item.content.text;
+    this.likelistService.addToLikelist(item);
   }
 
   goToAdmin() {

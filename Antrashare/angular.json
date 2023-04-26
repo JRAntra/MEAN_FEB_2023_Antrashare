@@ -29,10 +29,9 @@
             ],
             "styles": [
               "src/styles.sass",
-              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
             ],
             "scripts": []
-
           },
           "configurations": {
             "production": {

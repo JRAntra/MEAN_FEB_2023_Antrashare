@@ -13,7 +13,8 @@
 
             <div class="like-icon">
                 <button mat-icon-button (click)="likeStory(item)">
-                    <mat-icon>favorite</mat-icon>
+                    <mat-icon [ngClass]="{'like': item.isLiked}">{{ item.isLiked ? 'favorite' : 'favorite_outline'
+                        }}</mat-icon>
                 </button>
             </div>
         </li>
